@@ -19,17 +19,15 @@
 
     1、android客户端应用开发技术（应用客户端app + 遥控器客户端app）
     
-    2、Webservice + JAVA框架
+    2、MVC框架（抽象工厂 + 观察者模式) + SSH / Django
     
-    3、网络通信Socket技术
+    3、网络通信(WebSocket + WebRTC + Webservice)
     
-    4、设计模式（抽象工厂 + 观察者模式）
+    4、服务器推送技术（JPUSH）
     
-    5、服务器推送技术
+    5、ARM涉及模块：WIFI模块、网络通信模块、（传感器模块）
     
-    6、ARM涉及模块：WIFI模块、网络通信模块、（传感器模块）
-    
-    7、代码控制管理：git + jenkins (+ maven + ant)
+    6、代码控制管理：git + jenkins ( maven / Gradle)
 
 ###扩展技术：
     
