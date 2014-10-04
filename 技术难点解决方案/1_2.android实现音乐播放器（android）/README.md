@@ -23,8 +23,26 @@ Android实现音乐播放器（android）
 
 >*  [androidSDK-Wiki](http://wikidroid.sinaapp.com/首页)
 
+>*  [android基础教程](http://blog.csdn.net/flowingflying/article/category/790538/10)
+
+>*  [android基础教程2](http://www.apkbus.com/android-830-1-1.html)
+
+>*  [android基础教程3](http://blog.csdn.net/Android_Tutor/article/category/605365/3)
+
+>*  [android基础教程](http://blog.csdn.net/flowingflying/article/category/790538/10)
 
 >##2、android资源收集：
 
 >* [android大牛博客导航](http://yeungeek.com/android%E5%BC%80%E5%8F%91%E5%A4%A7%E7%89%9B%E5%8D%9A%E5%AE%A2/)
 
+>* [android书籍推荐](http://blog.csdn.net/aaa2832/article/details/7719554)
+
+>* [android关键问题与设计](http://blog.chengyunfeng.com/?cat=46&paged=3)
+
+>* [android关键问题与设计2](http://www.cnblogs.com/qianxudetianxia/category/293007.html)
+
+>* [android项目源码教程](http://www.apkbus.com/android-17627-1-1.html)
+
+>* [android项目源码教程2](http://www.apkbus.com/android-19645-1-1.html)
+
+>* [android内核讲解](http://blog.csdn.net/innost/article/details/7648869)
