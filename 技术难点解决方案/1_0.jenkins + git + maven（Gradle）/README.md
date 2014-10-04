@@ -1,45 +1,61 @@
-毕业设计项目——智能家居原型开发
+1_0.Jenkins + Git + Maven（Gradle）
 ==================
 
-##目标：
 
-    1、实现基于ARM与Android的互联网智能家居系统.
-    
-    2、将大学学到的技术串连起来.
-    
-    3、完成毕业设计，积累项目经验,为找工作打基础。
-    
-###应用场合：
+>###1、 gihub for window简单使用教程：
 
-    1、夏日炎炎，在外工作一天，准备回家时，通过手机，提前将家里的空调启动，一回到家就能享受惬意的清凉。
-    
-    2、在公司上班，亲友想用自己车库里的车，去某某地方，且钥匙还在我这，肿么办？
-    
-###涉及技术与平台：
+>>* http://www.cnblogs.com/wojilu/archive/2012/05/22/2512838.html
 
-    1、android客户端应用开发技术（应用客户端app + 遥控器客户端app）
-    
-    2、MVC框架（抽象工厂 + 观察者模式) + SSH / Django
-    
-    3、网络通信(WebSocket + WebRTC + Webservice)
-    
-    4、服务器推送技术（JPUSH）
-    
-    5、ARM涉及模块：WIFI模块、网络通信模块、（传感器模块）
-    
-    6、代码控制管理：git + jenkins ( maven / Gradle)
+>>* http://wenku.baidu.com/view/99d27c29453610661ed9f4fd.html
 
-###扩展技术：
-    
-    1、语音技术
-    
-    2、高并发
-    
-    3、联网安全
-    
-    4、实时数据传输
-    
-    （5、数据挖掘）
+>>* http://blog.sina.com.cn/s/blog_67a3453d0101j8qr.html
+
+>###2、 git / github教程：
+
+>>* 《git权威指南》：                   http://book.douban.com/subject/6526452/
+
+>>* 《git权威指南》作者写的github：     http://www.worldhello.net/gotgithub/index.html
+
+>>*  廖雪峰git blog教程：       http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+>>*  git简易指南：              http://www.bootcss.com/p/git-guide/
+
+>>*  ubuntu下git的使用：        http://www.cnblogs.com/cocowool/archive/2010/10/19/1855616.html
+http://www.linuxidc.com/Linux/2012-06/62168p2.htm
+http://blog.csdn.net/keyboardota/article/details/7603630
+
+>>*  git开博客：              http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html   
+
+
+>###3、 Jenkins教程：
+
+>>*  官方教程:  https://wiki.jenkins-ci.org/display/JENKINS/Home
+
+>>*  http://blog.csdn.net/john_cdy/article/details/7738393
+
+>>*  http://files.cnblogs.com/itech/Jenkins入门.pdf
+
+>>*  http://www.ibm.com/developerworks/cn/java/j-lo-jenkins/
+
+>>*  http://passover.blog.51cto.com/2431658/1548232
+
+
+>###4、 Maven教程：
+>>*  《Maven实战》：    http://wenku.baidu.com/link?url=jw4Jmxawy_d17h-MlCAHgOlw4H7AxwCnqSdaNhUPA1ptJEwy5GjNB20KNY3Vw4BGu1Kss8zaxneoPR-iF6HmlFfzi2jeHb6BjN4FKarqlEO
+
+>>*  http://bbs.csdn.net/topics/80014314
+
+
+>###5、 ubuntu下配置jenkins + git + maven 教程：
+>>*  http://blog.csdn.net/wirelessqa/article/category/1579577
+
+>>*  http://blog.csdn.net/wirelessqa/article/details/10164107
+
+>>*  http://blog.csdn.net/wirelessqa/article/details/10943403
+
+>>*  http://blog.csdn.net/wirelessqa/article/category/1579577
+
+>>*  http://blog.csdn.net/wirelessqa/article/category/1522507
     
 ###原型结构图：
 ![image](https://raw.githubusercontent.com/JamesonHuang/Graduation-Project/master/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E5%8E%9F%E5%9E%8B%E5%9B%BE.jpg)
