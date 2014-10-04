@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> ViewAnimator</title>
+</head>
+<body>     
+<div class=WordSection139 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=ViewAnimator><b><span
+lang=EN-US style='font-size:22.0pt'>ViewAnimator</span></b></a><b><span
+lang=EN-US style='font-size:22.0pt'> </span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://madgoat.cn">http://madgoat.cn</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+class <span style='color:#C00000'>ViewAnimator</span> extends <span
+style='color:#C00000'>FrameLayout</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/11/1823806.html">android.view.View</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.FrameLayout</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.ViewAnimator</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>已知直接子类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ViewFlipper,
+ViewSwitcher</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>已知间接子类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImageSwitcher,
+TextSwitcher</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u><span
+style='color:blue'>FrameLayout</span></u></span><span >容器的基类，当进行视图切换时显示动画效果。</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（译者注：此类不常用，常用其直接子类</span><span>ViewFlipper,
+ViewSwitcher</span><span >或间接子类</span><span>ImageSwitcher,
+TextSwitcher</span><span >）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>XML</span></b><b><span
+>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=180 valign=top style='width:134.65pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=340 valign=top style='width:9.0cm;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.65pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:inAnimation</span></b></p>
+  </td>
+  <td width=340 style='width:9.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >（译者注：设置</span><span>View</span><b><span
+  >进入</span></b><span >屏幕时候使用的动画）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.65pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:outAnimation</span></b></p>
+  </td>
+  <td width=340 style='width:9.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >（译者注：设置</span><span>View</span><b><span
+  >离开</span></b><span >屏幕时候使用的动画）</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>addView</b> (View child, int index,
+ViewGroup.LayoutParams params)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=shorttext><span >添加一个具有指定布局参数子视图</span></span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; child
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>添加的子视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >添加的子视图所在的位置</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; params
+&nbsp; </span><span >设置子视图的布局参数</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public int <b>getBaseline</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回</span><span>widget</span><span
+>的文本基线到</span><span>widget</span><span
+>上边界的偏移量，如果当前</span><span>widget</span><span
+>不支持基线对齐，此方法返回</span><span>-1</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span> </p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在</span><span>widget</span><span
+>界限内基线的偏移量，如果不支持基线对齐，返回</span><span>-1</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public View <b>getCurrentView</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回与当前显示的子元素相应的视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当前显示的视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#getDisplayedChild%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getDisplayedChild()</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public int <b>getDisplayedChild</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回当前显示的子视图的索引</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public Animation <b>getInAnimation</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回被用来显示视图进入屏幕的动画</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个动画对象</span><span>animation</span><span
+>，如果没有设置的话，返回一个</span><span>null</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setInAnimation%28android.view.animation.Animation%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setInAnimation(android.view.animation.Animation)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setInAnimation%28android.content.Context,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setInAnimation(android.content.Context,
+int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public Animation <b>getOutAnimation</b> ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回被用来显示视图离开屏幕的动画</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个动画对象</span><span>animation</span><span
+>，如果没有设置的话，返回一个</span><span>null</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setOutAnimation%28android.view.animation.Animation%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setOutAnimation(android.view.animation.Animation)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setOutAnimation%28android.content.Context,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setOutAnimation(android.content.Context,
+int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>removeAllViews</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>调用此方法从</span><span>ViewGroup</span><span
+>中移除所有的子视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>removeViewAt</b> (int index)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>移除组</span><span>(group)</span><span
+>中指定位置上的视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >需要移除的视图在组中的位置</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>removeViewInLayout</b> (View view)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在布局时移除一个视图。当你需要在</span><span>onLayout()</span><span
+>中移除一个视图时，此方法很有用。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; view
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>要从组中移除的视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>removeViews</b> (int start, int count)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>从组中移除指定范围的视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >要移除的多个视图在组中的开始位置</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >移除视图的数量</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>removeViewsInLayout</b> (int start,
+int count)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在布局时移除一组视图。当你需要在</span><span>onLayout()</span><span
+>中移除很多视图时，此方法很有用。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >移除的多个视图在组中第一个视图的索引</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >移除视图的数量</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setAnimateFirstView</b> (boolean
+animate)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置当前视图在首次加载时是否动画显示。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; animate
+ </span><span >在第一次显示当前视图时，是否动画显示</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setDisplayedChild</b> (int whichChild)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置哪个子视图将被显示出来</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; whichChild
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span >将要显示的子视图的索引</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setInAnimation</b> (Animation
+inAnimation)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置视图进入屏幕时使用的动画。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inAnimation
+&nbsp;&nbsp; </span><span >视图进入屏幕时使用的动画</span><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#getInAnimation%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getInAnimation()</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setInAnimation%28android.content.Context,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setInAnimation(android.content.Context,
+int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setInAnimation</b> (Context context,
+int resourceID)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置视图进入屏幕时使用的动画。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context
+&nbsp; </span><span >上下文</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resourceID
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span >动画的资源</span><span
+lang=EN-US>id</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#getInAnimation%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getInAnimation()</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setInAnimation%28android.view.animation.Animation%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setInAnimation(android.view.animation.Animation)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setOutAnimation</b> (Animation
+outAnimation)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置视图退出屏幕时使用的动画</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outAnimation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>当视图退出屏幕时开始的动画</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#getOutAnimation%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getOutAnimation()</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setOutAnimation%28android.content.Context,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setOutAnimation(android.content.Context,
+int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>setOutAnimation</b> (Context context,
+int resourceID)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置视图退出屏幕时使用的动画</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context
+&nbsp; </span><span >上下文</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resourceID
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span >动画的资源</span><span
+lang=EN-US>id</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#getOutAnimation%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getOutAnimation()</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ViewAnimator.html#setOutAnimation%28android.view.animation.Animation%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setOutAnimation(android.view.animation.Animation)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>showNext</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>手动显示下一个子视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void <b>showPrevious</b> ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>手动显示上一个子视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >补充</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://disanji.net/2010/12/14/android-custom-change-view/">Android-<span
+lang=EN-US ><span>自定义切换视图一</span></span></a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.ophonesdn.com/article/show/186">Ophone 2D UI <span
+><span>动画教程之二——屏幕切换效果实现</span></span></a></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

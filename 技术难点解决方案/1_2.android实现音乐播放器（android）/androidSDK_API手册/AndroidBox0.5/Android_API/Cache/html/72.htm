@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> Checkable</title>
+</head>
+<body>     
+<div class=WordSection72 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=Checkable><b><span
+lang=EN-US style='font-size:22.0pt'>Checkable</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>CN七号</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+style='>版本：<span>Android 2.2 r1</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+interface <span style='color:#C00000'>Checkable</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:9.0pt;font-family:"Arial","sans-serif";color:#333333'>android.widget.Checkable</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>间接子类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-size:9.0pt;font-family:"Arial","sans-serif";color:#333333'><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/10/05/1844464.html">CheckBox</a>,
+<a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/11/04/1869316.html">CheckedTextView</a>,
+CompoundButton, <a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/10/06/1844527.html">RadioButton</a>,
+<a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/10/11/1847597.html">ToggleButton</a></span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>类概述</span></b> </p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=329 height=412
+src="image/image062.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>此接口定义了一个扩展，使得继承它的视图控件具有可选状态属性。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：凡是继承了此接口的类，便有了</span><span>android:checked
+</span><span >属性</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=333 height=107
+src="image/image063.png"></span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public abstract boolean isChecked ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>查询当前视图控件的选中状态。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回：</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>返回一个</span><span>boolean</span><span
+>的值来表示当前视图控件的选中状态，如果当前控件被选中，返回</span><span>true</span><span
+>值，否则返回</span><span>false</span><span
+>值。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（译者注：并不一定是控件上显示了对号或者点就是被选中，很可能某个思维不同于常人的程序员会把有对号的定义为未选中而返回一个</span><span
+lang=EN-US>false</span><span >。当然这只是可能，按照常理来说还是有对号和点的表示选中</span><span
+lang=EN-US>true</span><span >，反之亦然。）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public abstract void setChecked (boolean checked)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置当前视图控件的选中状态。（译者注：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:55.05pt;border-collapse:collapse;border:none'>
+ <tr style='height:13.6pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行前</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border:solid black 1.0pt;
+  border-left:none;background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border:solid black 1.0pt;
+  border-left:none;background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行后</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.25pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >任何状态</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>setChecked(true)</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >选中</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.25pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >任何状态</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>setChecked(false)</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >未选中</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数：</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checked
+</span><span >指定控件的选中状态</span><span>true</span><span
+>表示设置为选中，</span><span>false</span><span
+>为未选中。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public abstract void toggle ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此方法用来切换当前视图控件的选中状态。（译者注：即将视图控件的当前状态变为其相反状态</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:55.05pt;border-collapse:collapse;border:none'>
+ <tr style='height:13.6pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行前</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border:solid black 1.0pt;
+  border-left:none;background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border:solid black 1.0pt;
+  border-left:none;background:#DAEEF3;padding:0cm 5.4pt 0cm 5.4pt;height:13.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >执行后</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.25pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >选中</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>toggle()</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >未选中</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.25pt'>
+  <td width=142 valign=top style='width:106.45pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >未选中</span></p>
+  </td>
+  <td width=173 valign=top style='width:130.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>toggle()</span></p>
+  </td>
+  <td width=138 valign=top style='width:103.65pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >选中</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

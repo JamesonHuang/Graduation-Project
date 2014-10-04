@@ -1,0 +1,886 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+</head>
+
+<body lang=ZH-CN link="#006699" vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt;font-family:"Calibri","sans-serif"'>Resources Types -
+Layout</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span style='font-family:"Calibri","sans-serif"'>
+</span><span >呆呆大虾</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者微博：</span><span class=apple-style-span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+color:#4B4B4B;background:white'><a target="_blank" href="http://weibo.com/popapa">http://weibo.com/popapa</a>
+</span></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span style='font-family:"Calibri","sans-serif"'>Android
+3.2 r1</span></p>
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/layout-resource.html">http://developer.android.com/guide/topics/resources/layout-resource.html</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-family:"Calibri","sans-serif";color:#7BB026'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style=';color:#7BB026'>参见</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-family:"Calibri","sans-serif";color:#7BB026'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/ui/declaring-layout.html"><span
+lang=EN-US style=';color:#CC6600'><span>声明</span></span><span
+style='color:#CC6600'> Layout</span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-family:"Calibri","sans-serif";color:#7BB026'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><b><span
+style='font-size:12.0pt;'>布局资源</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>布局（</span><span style='font-family:"Calibri","sans-serif"'>layout</span><span
+>）资源用于定义</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>内用户界面（</span><span style='font-family:"Calibri","sans-serif"'>UI</span><span
+>）或者用户界面控件的布局结构。</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>文件位置：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>res/layout/<i>filename</i>.xml</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文件名</span><span style='font-family:"Calibri","sans-serif"'>filename</span><span
+>将作为资源</span><span style='font-family:"Calibri","sans-serif"'>ID</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>编译后资源的数据类型：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+layout-grid-mode:char'><span style=';color:#333333'>指向</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif";
+color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html"><span
+style='font-size:10.5pt'>View</span></a></span><span >或其子类的资源指针。</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>资源引用：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>Java</span><span
+style=';color:#333333'>代码：</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>R.layout.<i>filename</i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>XML</span><span
+style=';color:#333333'>代码：</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>@[<i>package</i>:]layout/<i>filename</i></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;font-weight:normal'>语法：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:26.6pt;border-collapse:collapse'>
+ <tr>
+  <td width=650 valign=top style='width:487.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&lt;?xml
+  version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; </span></p>
+  <pre style='layout-grid-mode:char'><span style='font-size:10.5pt;
+  font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<span
+  style='color:#006699'>ViewGroup</span> <span style='color:#882288'>xmlns:android</span><span
+  style='color:#007000'>=&quot;http://schemas.android.com/apk/res/android&quot; </span></span></pre>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>android:id</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=&quot;@[+][package:]id/resource_name&quot;
+  </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_height</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=[&quot;dimension&quot;
+  | &quot;fill_parent&quot; | &quot;wrap_content&quot;] </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_width</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=[&quot;dimension&quot;
+  | &quot;fill_parent&quot; | &quot;wrap_content&quot;] </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  [</span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>ViewGroup-specific attributes</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>] &gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  &lt;</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>View</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>android:id</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=&quot;@[+][package:]id/resource_name&quot;
+  </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>&nbsp;android:layout_height</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=[&quot;dimension&quot;
+  | &quot;fill_parent&quot; | &quot;wrap_content&quot;]</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_width</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>=[&quot;dimension&quot;
+  | &quot;fill_parent&quot; | &quot;wrap_content&quot;]</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [</span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>View-specific attributes</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>] &gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>requestFocus<u>/</u></span><span style='font-family:
+  "Calibri","sans-serif";color:#007000'>&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  &lt;/</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>View</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'>&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  &lt;</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>ViewGroup</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'>&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &lt;</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>View</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'>/&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  &lt;/</span><span style='font-family:"Calibri","sans-serif";
+  color:#006699'>ViewGroup</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'>&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;&nbsp;&nbsp;
+  &lt;include </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>layout</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'>=&quot;@layout/layout_resource&quot;/&gt; </span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&lt;/</span><span
+  style='font-family:"Calibri","sans-serif";color:#006699'>ViewGroup</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:31.5pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='margin-left:0cm;text-align:left;
+border:none;padding:0cm'><span >注意：根元素可以是</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a
+href="1.htm#ViewGroup">ViewGroup</a></span></span><span style='font-family:
+宋体;color:#333333'>、</span><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a href="1.htm#View">View</a></span></span><span
+style=';color:#007000'>或</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'><a href="1.htm#merge">&lt;merge&gt;</a></span><span
+style=';color:#333333'>，</span><span >但只能有一个根元素且必须包含带</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>android </span><span
+style=';color:#333333'>命名空间的</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>xmlns:android</span><span
+>属性，如上例所示。</span></p>
+
+</div>
+
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;font-weight:normal'>元素：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;<a
+name=ViewGroup>ViewGroup</a>&gt;</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'> </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span >作为</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></span><span
+>元素的容器，</span><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+>对象分很多种类，每一类都能用不同的方式指定其子元素的布局。</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+>对象的种类包括：</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.html">LinearLayout</a></span></span><span
+style=';color:#333333'>、</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/RelativeLayout.html">RelativeLayout</a></span></span><span
+style=';color:#333333'>和</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> </span><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/FrameLayout.html">FrameLayout</a></span></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span >并不是所有的</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+>派生类都能容纳嵌套的</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></span><span
+style=';color:#000088'>。</span><span style='font-family:"Calibri","sans-serif";
+color:#000088'> </span><span style=';color:#333333'>有些</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+style=';color:#333333'>是</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/AdapterView.html">AdapterView</a></span></span><span
+style=';color:#333333'>类的实现，因此就只能容纳</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/Adapter.html">Adapter</a></span></span><span
+style=';color:#333333'>类型的子元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';font-variant:small-caps;color:#333333'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:id</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>资源</span></i><i><span
+style='font-family:"Calibri","sans-serif";color:#333333'> ID</span></i><span
+style=';color:#333333'>。为元素指定一个唯一的资源名称，用于应用程序能实现对</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+style=';color:#000088'>的</span><span style=';
+color:#333333'>引用。详见下文</span><span style='font-family:"Calibri","sans-serif";
+color:#006699'><a href="1.htm#android_id的值">android:id<span
+><span>的值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_height</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>度量或关键字。</span></i><b><span
+style=';color:#333333'>必填项</span></b><span style='font-family:
+宋体;color:#333333'>。高度，用度量值、度量资源</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> ( </span><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">dimension
+resource</a></span></span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>) </span><span style=';color:#333333'>或关键字</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&quot;fill_parent&quot;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+style=';color:#333333'>、</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&quot;wrap_content&quot;</span><span
+style=';color:#333333'>指定。参阅下文</span><span
+style='font-family:"Calibri","sans-serif";color:#006699'><a href="1.htm#合法的值"><span
+lang=EN-US ><span>合法值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_width</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left;
+layout-grid-mode:char'><i><span style=';color:#333333'>度量或关键字。</span></i><b><span
+style=';color:#333333'>必填项</span></b><span style='font-family:
+宋体;color:#333333'>。宽度，用度量值、度量资源</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> (</span><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">dimension
+resource</a></span></span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>) </span><span style=';color:#333333'>或关键字</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&quot;fill_parent&quot;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+style=';color:#333333'>、</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&quot;wrap_content&quot;</span><span
+style=';color:#333333'>指定。参阅下文</span><span
+style='font-family:"Calibri","sans-serif";color:#006699'><a href="1.htm#合法的值"><span
+lang=EN-US ><span>合法值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span class=MsoHyperlink><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+style=';color:#333333'>基类支持更多的属性，每种子类的实现也支持很多其他属性。完整的可用属性请参阅各个类相关的参考文档，例如</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.html#lattrs">LinearLayout
+XML attributes</a></span><span style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;<a
+name=View>View</a>&gt;</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:44.95pt;text-align:left'><span
+style=';color:#333333'>一个独立的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>UI</span><span
+style=';color:#333333'>控件，通常是指一个部件（</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>widget</span><span
+style=';color:#333333'>）。</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></span><span
+style=';color:#333333'>对象的种类包括：</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a></span></span><span
+style=';color:#333333'>、</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/Button.html">Button</a></span></span><span
+style=';color:#333333'>和</span><span class=MsoHyperlink><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/CheckBox.html">CheckBox</a></span></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:44.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';font-variant:small-caps;color:#333333'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:id</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>资源</span></i><i><span
+style='font-family:"Calibri","sans-serif";color:#333333'> ID</span></i><span
+style=';color:#333333'>。为元素指定一个唯一的资源名称，用于应用程序能实现对</span><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span><span
+style=';color:#000088'>的</span><span style=';
+color:#333333'>引用。详见下文</span><span style='font-family:"Calibri","sans-serif";
+color:#006699'><a href="1.htm#android_id的值">android:id<span
+><span>的值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_height
+</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>度量或关键字。</span></i><b><span
+style=';color:#333333'>必填项</span></b><span style='font-family:
+宋体;color:#333333'>。高度，用度量值、度量资源</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> ( <a target="_blank" href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">dimension
+resource</a>) </span><span style=';color:#333333'>或关键字</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&quot;fill_parent&quot;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+style=';color:#333333'>、</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&quot;wrap_content&quot;</span><span
+style=';color:#333333'>指定。参阅下文</span><span
+style='font-family:"Calibri","sans-serif";color:#006699'><a href="1.htm#合法的值"><span
+lang=EN-US ><span>合法值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_width
+</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>度量或关键字。</span></i><b><span
+style=';color:#333333'>必填项</span></b><span style='font-family:
+宋体;color:#333333'>。宽度，用度量值、度量资源</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> ( <a target="_blank" href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">dimension
+resource</a>) </span><span style=';color:#333333'>或关键字</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&quot;fill_parent&quot;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+style=';color:#333333'>、</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&quot;wrap_content&quot;</span><span
+style=';color:#333333'>指定。参阅下文</span><span
+style='font-family:"Calibri","sans-serif";color:#006699'><a href="1.htm#合法的值"><span
+lang=EN-US ><span>合法值</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+class=MsoHyperlink><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></span><span
+style=';color:#333333'>基类支持更多的属性，每种子类的实现也支持很多其他属性。更多信息请参阅</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/ui/declaring-layout.html"><span
+lang=EN-US ><span>声明</span></span>Layout</a></span><span
+style=';color:#333333'>。完整的可用属性请参阅各个类相关的参考文档，例如</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/reference/android/widget/TextView.html#lattrs">TextView
+XML <span ><span>属性</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;<a
+name=requestFocus>requestFocus</a>&gt; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';color:#333333'>将屏幕的初始焦点设成其父元素，任何表示</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span><span
+style=';color:#333333'>类对象的元素都能包含这个内容为空的元素。但每个文件内只能出现一次本元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;<a
+name=include>include</a>&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';color:#333333'>将另一个布局（</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>）文件包含进来。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';font-variant:small-caps;color:#333333'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>layout </span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>Layout</span></i><i><span
+style=';color:#333333'>资源</span></i><span style='font-family:
+宋体;color:#333333'>。<b>必填项</b>。引用布局资源。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:id </span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>资源</span></i><i><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span></i><span
+style=';color:#333333'>。覆盖包含进来的</span><span
+style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源中的根</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>view ID</span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_height
+</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>度量或关键字。</span></i><span style='font-family:
+宋体;color:#333333'>覆盖</span><span style=';color:#333333'>包含进来的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源中根</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>view</span><span
+style=';color:#333333'>给出的高度。仅在同时给出</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:layout_width</span><span
+style=';color:#333333'>时才生效。</span></p>
+<p class=MsoNormal align=left style='margin-left:65.95pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>android:layout_width
+</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left'><i><span
+style=';color:#333333'>度量或关键字。</span></i><span style='font-family:
+宋体;color:#333333'>覆盖</span><span style=';color:#333333'>包含进来的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源中根</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>view</span><span
+style=';color:#333333'>给出的高度。仅在同时给出</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:layout_height</span><span
+style=';color:#333333'>时才生效。</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left'><span
+style=';color:#333333'>只要是被包含的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源根元素支持的属性，都能在</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>&lt;include&gt;</span><span
+style=';color:#333333'>元素中包含进来，并且会覆盖本资源内根元素已定义的属性。</span></p>
+
+<div style='border:none;border-left:solid #FFCF00 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:64.45pt;margin-right:11.95pt'>
+
+<p class=MsoNormal align=left style='margin:0cm;margin-bottom:.0001pt;
+text-align:left;border:none;padding:0cm'><b><span style=';
+color:#333333'>注意</span></b><b><span style='font-family:"Calibri","sans-serif";
+color:#333333'>:</span></b><span style='font-family:"Calibri","sans-serif";
+color:#333333'> </span><span style=';color:#333333'>如果要覆盖</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>的度量（长度和宽度），必须同时覆盖</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:layout_height</span><span
+style=';color:#333333'>和</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'> </span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>android:layout_width</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'>——</span><span style=';
+color:#333333'>不能只覆盖长度或只覆盖宽度。如果只覆盖其中一个，则不会生效。（其他布局属性，比如</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>weight</span><span
+style=';color:#333333'>，仍然继承自原有的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>。）</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left'><span
+style=';color:#333333'>包含</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源的另一种方式是使用</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewStub.html">ViewStub</a></span><span
+style=';color:#333333'>。这是个轻量级的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>View</span><span
+style=';color:#333333'>，它在实际被填充之前不占用</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>空间。在实际被填充时，它再把</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:layout</span><span
+style=';color:#333333'>属性指定的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>资源文件动态包含进来。使用</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewStub.html">ViewStub</a></span><span
+style=';color:#333333'>的更多信息请参阅</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/resources/articles/layout-tricks-stubs.html">Layout<span
+lang=EN-US ><span>特技</span></span>: ViewStubs</a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;<a
+name=merge>merge</a>&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style=';color:#333333'>在</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'>layout </span><span style='font-family:
+宋体;color:#333333'>的层次结构图里并没画出这个可充当根的元素。当明确知道本</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>会被放入某个父</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>View</span><span
+style=';color:#333333'>中去时，可以用</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>&lt;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>merge</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&gt;</span><span
+style=';color:#333333'>作为根元素来包裹其下的子元素。如果希望本</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>能被其他</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>用</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'><a href="1.htm#include">&lt;include&gt;</a></span><span
+style=';color:#333333'>包含进去，并不再另外生成</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span><span
+style=';color:#333333'>容器，本元素也特别有用。合并</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>的更多信息请参阅</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/resources/articles/layout-tricks-merge.html">Layout<span
+lang=EN-US ><span>特技</span></span><span
+lang=EN-US ><span>：</span></span><span
+lang=EN-US ><span>合并</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><a
+name="android_id的值"><b><span style='font-family:"Calibri","sans-serif";
+color:#007000'>android:id</span></b></a><span style=';color:#3A3A3A'>的值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>对于</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>的值，通常应该用</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>&quot;@+id/<i>name</i>&quot;</span><span
+style=';color:#333333'>的语法格式。加号</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>+</span><span
+style=';color:#333333'>表示这是个新的资源</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>。如果</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>R.java</span><span
+style=';color:#333333'>类中不存在此资源的话，</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>aapt</span><span
+style=';color:#333333'>工具将在</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>R.java</span><span
+style=';color:#333333'>类中生成一个新的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>resource</span><span
+style=';color:#333333'>整数标识。例如：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:47.6pt;border-collapse:collapse'>
+ <tr>
+  <td width=562 valign=top style='width:421.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;TextView</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>android:id</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;@+id/nameTextbox&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+layout-grid-mode:char'><span style=';color:#333333'>名称</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>nameTextbox</span><span
+style=';color:#333333'>现在作为资源</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>和本元素关联。然后在</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>Java</span><span
+style=';color:#333333'>代码里可以用此</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>名称来引用这个</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a></span><span
+style=';color:#007000'>：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:47.6pt;border-collapse:collapse'>
+ <tr>
+  <td width=574 valign=top style='width:430.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:black'>findViewById</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>id</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>nameTextbox</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>) ;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+layout-grid-mode:char'><span >本行代码返回</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a></span><span
+>对象。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>然而，如果已经定义了一个</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/resources/drawable-resource.html#Id">ID<span
+lang=EN-US ><span>资源</span></span></a></span><span
+style=';color:#333333'>（并且没被使用过），就可以去掉</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:id</span><span
+style=';color:#333333'>里的加号并将此</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>赋予</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span><span
+style=';color:#333333'>元素</span><span style=';
+color:#007000'>。</span><a name=合法的值></a></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>android:layout_height</span></b><b><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#3A3A3A'> </span></b><b><span
+style=';color:#3A3A3A'>和</span></b><b><span style='font-family:
+"Calibri","sans-serif";color:#3A3A3A'> </span></b><b><span
+style='font-family:"Calibri","sans-serif";color:#007000'>android:layout_width</span></b><b><span
+style=';color:#3A3A3A'>的值</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>高度和宽度值能用</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>Android</span><span
+style=';color:#333333'>支持的</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension"><span
+lang=EN-US ><span>度量单位</span></span></a></span><span
+style=';color:#333333'>（</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'>px, dp, sp, pt, in, mm</span><span
+style=';color:#333333'>）或者以下关键字来表示：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:47.6pt;border-collapse:collapse'>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;background:#DEE8F1;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><b><span
+  style=';color:#333333'>值</span></b></p>
+  </td>
+  <td width=468 valign=top style='width:350.9pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;background:#DEE8F1;padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><b><span
+  style=';color:#333333'>描述</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>match_parent</span></p>
+  </td>
+  <td width=468 valign=top style='width:350.9pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体;color:#333333'>和父元素匹配（充满）。自</span><span style='font-family:
+  "Calibri","sans-serif";color:#333333'>API Level 8</span><span
+  style=';color:#333333'>开始加入，以淘汰</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>fill_parent</span><span
+  style=';color:#333333'>。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>fill_parent</span></p>
+  </td>
+  <td width=468 valign=top style='width:350.9pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体;color:#333333'>和父元素匹配（充满）。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>wrap_content</span></p>
+  </td>
+  <td width=468 valign=top style='width:350.9pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体;color:#333333'>仅本元素内容需要的大小。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif";color:#3A3A3A'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><b><span
+style=';color:#3A3A3A'>自定义</span></b><b><span
+style='font-family:"Calibri","sans-serif";color:#3A3A3A'>View</span></b><b><span
+style=';color:#3A3A3A'>元素</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>可以生成自定义的</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span><span
+style=';color:#007000'>和</span><u><span
+style='font-family:"Calibri","sans-serif";color:#006699'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></u><span
+style=';color:#333333'>元素并且和标准布局元素一样放入</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>。还可以在</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>XML</span><span
+style=';color:#333333'>元素内定义其所支持的属性。更多内容请参阅</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/ui/custom-components.html"><span
+lang=EN-US ><span>创建自定义控件</span></span></a></span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;font-weight:normal'>示例：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+layout-grid-mode:char'><span style=';color:#333333'>存放在</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>res/layout/main_activity.xml</span><span
+style=';color:#333333'>的</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'>XML</span><span style=';
+color:#333333'>文件：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=636 valign=top style='width:477.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>&lt;?</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>xml version</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;1.0&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> encoding</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;utf-8&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>?&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;LinearLayout
+  </span><span style='font-family:"Calibri","sans-serif";color:#882288'>xmlns:android</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=”</span><span
+  class=atv1><span style='font-family:"Calibri","sans-serif"'>http://schemas.android.com/apk/res/android”</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_width</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;fill_parent&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_height</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;fill_parent&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:orientation</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;vertical&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;TextView</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:id</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;@+id/text&quot;</span><span style='font-family:
+  "Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_width</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;wrap_content&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_height</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;wrap_content&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:text</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;Hello, I am a TextView&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;Button</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:id</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;@+id/button&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_width</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;wrap_content&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_height</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;wrap_content&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:text</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;Hello, I am a Button&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/LinearLayout&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>以下代码在</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></span><span
+style=';color:#333333'>的</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></span><span
+style=';color:#333333'>方法中装入</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>layout</span><span
+style=';color:#333333'>。</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=636 valign=top style='width:477.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>public</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>void</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> onCreate</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Bundle</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>
+  savedInstanceState</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>)</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>{</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>super</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>.</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>onCreate</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>(</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>savedInstanceState</span><span style='font-family:
+  "Calibri","sans-serif";color:#666600'>);</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:black'>setContentView</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>.(</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>R</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>.</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>layout</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>.</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>main_activity</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style='font-size:11.0pt;;color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span class=apple-style-span><span
+style='font-size:7.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span></span><span class=apple-style-span><span
+style='font-family:"Calibri","sans-serif";color:#333333;background:white'><a target="_blank" href="http://developer.android.com/guide/topics/ui/declaring-layout.html">Declaring
+Layout</a></span></span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span class=apple-style-span><span
+style='font-size:7.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span></span><span class=apple-style-span><span
+style='font-family:"Calibri","sans-serif";color:#007000;background:white'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:7.5pt;font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+class=apple-style-span><span style='font-family:"Calibri","sans-serif";
+color:#007000;background:white'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">ViewGroup</a></span></span></p>
+
+</div>
+
+
+</body>
+
+</html>

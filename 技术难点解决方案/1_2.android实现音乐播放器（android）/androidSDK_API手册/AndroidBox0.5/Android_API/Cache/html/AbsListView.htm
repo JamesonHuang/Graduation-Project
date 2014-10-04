@@ -1,0 +1,1187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> AbsListView</title>
+</head>
+<body link=blue vlink=purple style='text-justify-trim:punctuation'>      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>AbsListView</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>cnmahj</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span> <u><span style='color:blue'>http://android.toolib.net/blog/</span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public abstract class <span
+style='color:#C00000'>AbsListView</span> extends <span style='color:#C00000'>AdapterView</span>
+&lt;T extends <span style='color:#C00000'>Adapter</span>&gt;</span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:168.0pt;text-align:left'><b><i><span>implements <span style='color:#C00000'>TextWatcher</span> <span
+style='color:#C00000'>ViewTreeObserver.OnGlobalLayoutListener</span> <span
+style='color:#C00000'>ViewTreeObserver.OnTouchModeChangeListener
+Filter.FilterListener</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.AdapterView&lt;T
+extends android.widget.Adapter&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.AbsListView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>用于实现条目的虚拟列表的基类</span><span>. </span><span style='font-family:
+宋体'>这里的列表没有空间的定义。</span> <span >例如，该类的子类可以以网格的形式、走马灯的形式显示，或者作为堆栈等等。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>嵌套类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AbsListView.LayoutParams</span>
+&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>AbsListView </span><span >扩展了</span><span> LayoutParams </span><span >以提供空间来保存试图类型。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>interface &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AbsListView.OnScrollListener</span><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>为了在列表或网格滚动时执行回调函数而定义的接口。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>interface &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AbsListView.RecyclerListener</span><span> </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>RecyclerListener </span><span >是用于接收视图被移动到待回收堆中时的消息的监听器</span><span>.</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>XML</span></b><b><span style='font-size:12.0pt;
+'>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=198 valign=top style='width:148.8pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=321 valign=top style='width:241.0pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:cacheColorHint</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-indent:21.0pt'><span >指示该列表总是在固定的单色、不透明的背景下绘制。这允许列表优化其绘制过程</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawSelectorOnTop</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >如果设为真，选择器将绘制在选中条目的上层。否则绘制在下层。默认为假</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:fastScrollEnabled</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >允许使用快速滚动滑块，可以通过拖动该滑块在列表中快速滚动</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:listSelector</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >用于在列表中指示当前选中条目的可绘制对象</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollingCache</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >当为真时，列表滚动使用绘图缓存。该选项使渲染更快，但占用更多的内存。</span>
+  <span >默认值为真</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:smoothScrollbar</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >为真时，列表会使用更精确的基于条目在屏幕上的可见像素高度的计算方法。</span>
+  <span >默认该属性为真，如果你的适配器需要绘制可变高的条目，他应该设为假。</span> <span
+  >当该属性为真时，你在适配器在显示变高条目时，滚动条的把手会在滚动的</span> <span
+  >过程中改变大小。当设为假时，列表只使用适配器中的条目数和屏幕上的</span> <span
+  >可见条目来决定滚动条的属性</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:stackFromBottom</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >用于</span><span>
+  ListView </span><span >和</span><span>
+  GridView</span><span >，指示他们的内容栈从底部开始</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textFilterEnabled</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设为真时，列表会过滤根据用户的要求，过滤结果集。列表的适配器必须实现了</span><span
+ > Filterable </span><span >接口，才能使其可用</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:transcriptMode</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设置列表的跳转模式。在跳转模式下，当加入新条目时，列表会滚动到底部，</span>
+  <span >使新条目可见</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>常量</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>int &nbsp; TRANSCRIPT_MODE_ALWAYS_SCROLL</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>无视当前可见条目，总是自动滚动到列表的底部。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>int &nbsp; TRANSCRIPT_MODE_DISABLED</span> &nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>禁用跳转模式。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>int &nbsp; TRANSCRIPT_MODE_NORMAL</span> &nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>仅当最后的条目在屏幕上可见，并且收到数据集变更消息时列表将自动滚动到底部。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>addTouchables</b>
+(ArrayList&lt;View&gt; views)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >想</span><span>views</span><span >添加可触控视图，该可触控视图是该视图的后代（如果该视图可触控，</span>
+<span >也可以添加该视图）。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>views &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>现在为止的可触控视图。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>afterTextChanged</b> (Editable s)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为关联到文本过滤器的文本监视器准备的。什么也不做。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>beforeTextChanged</b> (CharSequence
+s, int start, int count, int after)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为关联到文本过滤器的文本监视器准备的。什么也不做。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>checkInputConnectionProxy</b>
+(View view)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >测试是否为了过滤信息，为文本编辑器使用了输入连接代理，该操作允许使用代理。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>view &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>生成</span><span>InputMethodManager</span><span
+>调用的视图。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>允许调用返回</span><span>true</span><span
+>，拒绝返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>clearTextFilter</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >清楚文本过滤器。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>draw</b> (Canvas canvas)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在指定的画布上手动绘制视图（及其子视图）</span><span>. </span><span >调用该函数之前，视图必须已经完成整个布局过程。</span>
+<span >当实现一个视图时，不需要继承这个方法；而是实现</span><span>onDraw(Canvas)</span><span
+>方法。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>canvas &nbsp;&nbsp; </span><span >要绘制视图的画布</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public AbsListView.LayoutParams <b>generateLayoutParams</b>
+(AttributeSet attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回一组基于提供的属性集合的布局参数集合</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于生成布局参数的属性集</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; ViewGroup.LayoutParams </span><span
+>或其子类的实例</span><span>. </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getCacheColorHint</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果该值为非零，表示该视图总是在固定的、单色、不透明的背景上绘制。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >缓存颜色。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>getFocusedRect</b> (Rect r)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在视图拥有焦点时，用户将焦点移向其他视图，可以使用该方法取得下一个视图的</span>
+<span >矩形填充区域。</span> <span >默认情况，该矩形为视图的</span><span> getDrawingRect(Rect)</span><span >。当然，如果你的视图维护着</span>
+<span >内部选中状态，比如游标、选中的行或列，你应该重写该方法，并返回特定的矩形。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>r &nbsp;&nbsp;&nbsp;&nbsp; </span><span >要填充的矩形，使用视图的坐标系。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getListPaddingBottom</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >列表内边距是普通视图内边距和选择器内边距的最大值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >列表底部的内边距。</span>
+</p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getPaddingBottom%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getPaddingBottom()</span></a></span></code></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#getSelector%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getSelector()</span></a></span></code></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getListPaddingLeft</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >列表内边距是普通视图内边距和选择器内边距的最大值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >列表左侧的内边距。</span>
+</p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getPaddingLeft%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getPaddingLeft()</span></a></span></code></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#getSelector%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getSelector()</span></a></span></code></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int getListPaddingRight ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >列表内边距是普通视图内边距和选择器内边距的最大值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >列表右侧的内边距。</span>
+</p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getPaddingRight%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getPaddingRight()</span></a></span></code></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#getSelector%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getSelector()</span></a></span></code></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getListPaddingTop</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >列表内边距是普通视图内边距和选择器内边距的最大值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >列表顶部的内边距。</span>
+</p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getPaddingTop%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getPaddingTop()</span></a></span></code></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#getSelector%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getSelector()</span></a></span></code></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public View <b>getSelectedView</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;
+</span><span >当前选中条目对应的视图；无选中条目时返回空。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public Drawable <b>getSelector</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回用于在列表中绘制选择器的</span>
+<span >可绘制对象。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >用于显示选择器的可绘制对象。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getSolidColor</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果你的视图总是在单色背景上绘制，并且需要渐变的边时，重载该函数。</span>
+<span >返回非零的颜色值，使视图系统可以优化渐进边的绘制。返回非零颜色值时，</span> <span
+>阿尔法通道应设为</span><span> 0xFF</span><span
+>。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>该视图的单色背景色；为零表示不是单色。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public CharSequence <b>getTextFilter</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果存在，则返回列表的文本过滤器。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >文本的列表过滤器；如果过滤器未启用返回空。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getTranscriptMode</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回当前跳转模式。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#TRANSCRIPT_MODE_DISABLED"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>TRANSCRIPT_MODE_DISABLED</span></a></span></code><span
+>、</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#TRANSCRIPT_MODE_NORMAL"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>TRANSCRIPT_MODE_NORMAL</span></a></span></code><span
+>或者</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AbsListView.html#TRANSCRIPT_MODE_ALWAYS_SCROLL"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>TRANSCRIPT_MODE_ALWAYS_SCROLL</span></a></span></code></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>hasTextFilter</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回列表视图是否具有文本过滤器。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>invalidateViews</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使所有的视图重新构建并重绘。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isFastScrollEnabled</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回当前快速滚动特性的状态。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果快速滚动已启用返回真，否则返回假。</span>
+</p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setFastScrollEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isScrollingCacheEnabled</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示滚动时是否使用子视图的绘图缓存。默认为使用绘图缓存，这会占用更多的内存。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果启用了滚动缓存返回真，否则返回假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setScrollingCacheEnabled(boolean)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setDrawingCacheEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isSmoothScrollbarEnabled</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回平滑滚动特性的当前状态。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果平滑滚动启用返回真，否则返回假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setSmoothScrollbarEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isStackFromBottom</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示该视图的内容是否为向上插入，或者说栈底在底边。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果该视图内容以底边为栈底返回真，否则返回假。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isTextFilterEnabled</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示该视图是否启用了输入过滤。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如启用了输入过滤则为真，否则为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setTextFilterEnabled(boolean)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; Filterable</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public InputConnection <b>onCreateInputConnection</b>
+(EditorInfo outAttrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回用于编辑过滤文本的</span><span> InputConnection </span><span >对象。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>outAttrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>链接使用的属性信息。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onFilterComplete</b> (int count)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >过滤操作结束的通知。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>count &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>过滤结果的数量</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onGlobalLayout</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >视图树的可视性或全局布局状态发生变化时执行的回调函数。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onInterceptTouchEvent</b>
+(MotionEvent ev)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使用此方法可以拦截所有触摸屏动作引发的事件</span><span>.</span><span >这意味着你可以监视分派给子项的事件，</span> <span
+>并且可以在当前手势的任何一点获得其控制权。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使用此方法需谨慎</span><span>.</span><span >因为它与</span><span>
+View.onTouchEvent(MotionEvent) </span><span >有相当复杂的交互。使用它需要像该方法实现一样正确的实现该方法</span><span>.</span><span >触控事件是按如下顺序接收的：</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >首先该函数收到按下事件</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >按下事件会在视图组的子视图以及本视图的</span><span> onTouchEvent()</span><span >方法中处理</span><span>. </span><span >这意味着若要处理之后的手势（代替父视图来处理该事件），你应该实现</span><span> onTouchEvent() </span><span >方法并返回真</span><span>.</span><span >另外，如果你的</span><span>onTouchEvent()
+</span><span >方法返回真，</span><span>
+onInterceptTouchEvent() </span><span >方法将不会收到接下来发生的事件，</span>
+<span >整个触控处理必须在</span><span> onTouchEvent() </span><span
+>方法中进行</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >如果该方法返回假，接下来的每个事件（直到最后的抬起事件）</span> <span
+>都会首先由该函数来处理，之后传给目标对象的</span><span>
+onTouchEvent() </span><span >方法</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >如果该函数返回真，你不会收到接下来的任何事件：</span> <span
+>目标视图会接收到该事件，但其动作被标记为</span><span>
+ACTION_CANCEL</span><span >，之后的事件都会交由你的</span><span> onTouchEvent() </span><span >方法来处理，不再出现在该方法中。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>ev &nbsp;&nbsp; </span><span >沿着层次结构向下分派的动作事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >若将动作事件从子视图中截获并通过</span><span> onTouchEvent() </span><span >将他们分派给当前视图组，则返回真。当前目标将收到</span><span> ACTION_CANCEL </span><span >事件，并且不再会有其他消息传入该函数。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onKeyDown</b> (int keyCode,
+KeyEvent event)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>KeyEvent.Callback.onKeyMultiple()
+</span><span >的默认实现</span><span>. </span><span
+>如果视图可用并可按，</span> <span >当按下</span><span> KEYCODE_DPAD_CENTER </span><span >或</span><span> KEYCODE_ENTER </span><span >时执行视图的按下事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>keyCode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>表示按下的键的、在</span><span> KEYCODE_ENTER </span><span
+>中定义的键盘代码。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KeyEvent </span><span
+>对象，定义了按钮动作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果处理了事件，返回真。如果允许下一个事件接受器处理该事件，可以返回假。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onKeyUp</b> (int keyCode, KeyEvent
+event)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>KeyEvent.Callback.onKeyMultiple()
+</span><span >的默认实现</span><span>. </span><span
+>当释放</span><span> KEYCODE_DPAD_CENTER </span><span
+>或</span><span> KEYCODE_ENTER </span><span
+>时执行视图的单击事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>keyCode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>表示按下的键的、在</span><span> KEYCODE_ENTER </span><span
+>中定义的键盘代码。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KeyEvent </span><span
+>对象，定义了按钮动作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果处理了事件，返回真</span><span>.</span><span >如果允许下一个事件接受器处理该事件，可以返回假。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onRestoreInstanceState</b>
+(Parcelable state)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >允许视图重新应用之前由</span><span> onSaveInstanceState() </span><span >保存的内部状态的回调函数。该方法得</span><span> state </span><span >参数不可能为空。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>state &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>之前由</span><span> onSaveInstanceState() </span><span
+>返回的状态信息。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public Parcelable <b>onSaveInstanceState</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >允许视图保存其内部状态的回调函数，以便于之后使用相同状态创建新实例</span><span>. </span><span >该状态应该只包含非持久的或者之后不可重现的信息</span><span>.</span><span >例如，你不能保存视图在屏幕上的位置，</span> <span
+>因为在创建新视图时，会在视图得层次结构中重新计算它的位置。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >这里是一些可以保存的信息的例子：文本框中当前光标的位置（通常不是文字内容本身，</span>
+<span >因为文字内容一般保存在内容提供者或其他持久的储存器中），列表视图中的当前选中条目等等。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >返回包含视图当前状态的</span><span> Parcelable </span><span >对象，当不想保存状态时返回空。默认实现返回空。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onTextChanged</b> (CharSequence s,
+int start, int before, int count)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为关联到文本过滤器的文本监视器准备的。当文本变更时，执行实际的过滤操作，</span>
+<span >并维护弹出显示中的当前输入的过滤文本隐藏和显示。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onTouchEvent</b> (MotionEvent ev)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >实现该方法来处理触屏事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>ev &nbsp;&nbsp; </span><span >触屏事件</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果事件已经处理返回真；否则返回假。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onTouchModeChanged</b> (boolean
+isInTouchMode)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >触摸模式发生改变时调用的回调函数。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>isInTouchMode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果视图结构当前处于触摸模式，参数为真；否则为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onWindowFocusChanged</b> (boolean
+hasWindowFocus)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >包含该视图的窗体获得或失去焦点时调用该函数。注意，该动作是与视图的焦点</span>
+<span >分开的：为了受到键盘事件，你的视图及其窗口都必须拥有焦点。如果有窗口</span> <span
+>覆盖在你的窗口上方并得到输入焦点，你的窗口会失去焦点，但是视图的焦点</span> <span
+>保持不变。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>hasWindowFocus &nbsp; </span><span >如果包含该视图的窗口拥有焦点，值为真；否则为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>pointToPosition</b> (int x, int y)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将坐标点转换为列表中的位置。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span >本地坐标系的</span><span> X</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span >本地坐标系的</span><span> Y</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >包含指定点的条目的位置，如果点不再任何条目上返回</span><span> INVALID_POSITION</span><span >。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public long <b>pointToRowId</b> (int x, int y)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将坐标点转换为列表条目的行</span><span>ID</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span >本地坐标系的</span><span> X</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span >本地坐标系的</span><span> Y</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >包含指定点的条目的条目的行</span><span>ID</span><span >；如果点不再任何条目上返回</span><span> INVALID_ROW_ID</span><span >。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>reclaimViews</b> (List&lt;View&gt;
+views)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将该</span><span> AbsListView </span><span >中的所有视图（不包含头尾视图）移到提供的列表中。</span>
+<span >这些视图包括显示在屏幕上的以及放入</span><span>
+AbsListView </span><span >内部视图回收器的视图。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>views &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>用于填充视图的列表。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>requestLayout</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当某些变更导致视图的布局失效时调用该方法</span><span>.</span><span >该方法按照视图树的顺序调用。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setCacheColorHint</b> (int color)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当</span><span>color</span><span >的值不为</span><span>0</span><span >时，此值表示的颜色将提示使用者，列表正在一片单色不透明的背景上被画出。</span>
+<span >当</span><span> color </span><span
+>的值非零时，示意该列表使用实心、单色不透明的背景，可以缓存背景色。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>背景色。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setDrawSelectorOnTop</b> (boolean
+onTop)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >控制选择高亮可绘制对象应该在条目的前面绘制还是在后面绘制。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>onTop &nbsp;&nbsp;&nbsp;&nbsp; </span><span >如果为真，选择器的高亮在条目上面显示。默认值为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>相关</span><span> XML </span><span
+>属性</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; android:drawSelectorOnTop</span></p>
+<p class=MsoNormal><span style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setFastScrollEnabled</b> (boolean
+enabled)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >允许使用快速滚动手柄，可以通过拖动该手柄在列表中快速滚动。</span>
+<span >若要显示字母预览并在其间跳转，与列表关联的适配器应该实现</span><span> SectionIndexer </span><span >接口。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>enabled  </span><span >是否允许快速滚动。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; SectionIndexer</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; isFastScrollEnabled()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setFilterText</b> (String filterText)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为文本过滤器设置初始值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>filterText &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>过滤器使用的文本。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setTextFilterEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOnScrollListener</b>
+(AbsListView.OnScrollListener l)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置每次列表滚动时收到消息的监听器。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>l &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>滚动监听器。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOverScrollMode</b> (int mode)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为视图设置过滚动模式。有效的过滚动模式有</span><span> OVER_SCROLL_ALWAYS</span><span >（默认值）、</span><span> OVER_SCROLL_IF_CONTENT_SCROLLS</span><span >（视图内容大于容器时允许过滚动）、</span>
+<span >和</span><span> OVER_SCROLL_NEVER. </span><span
+>只有当视图可以滚动时，才可以设置视图的过滚动模式</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>mode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>视图的新的过滚动模式</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setRecyclerListener</b>
+(AbsListView.RecyclerListener listener)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置当视图被放入回收器等待被重用时得到通知的回收监听器。</span>
+<span >该监听器用于释放关联到视图的资源。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>listener &nbsp; </span><span >视图被放入回收器时收到通知的回收监听器。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; AbsListView.RecycleBin</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; AbsListView.RecyclerListener</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setScrollIndicators</b> (View up,
+View down)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>(</span><span
+>译者注：用途参见这里：</span><span><a target="_blank" href="http://comments.gmane.org/gmane.comp.handhelds.android.devel/90102">how
+to define scrollbar's thumb Drawables from java code?</a>)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setScrollingCacheEnabled</b> (boolean
+enabled)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >启用或停止在滚动时使用子视图的绘图缓存。默认为使用绘图缓存，这会占用更多的内存。</span>
+<span >当启用滚动缓存时，首次滚动后会保留缓存。你可以通过调用</span><span> setChildrenDrawingCacheEnabled(boolean) </span><span
+>手动清除缓存。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>enabled  </span><span >启用滚动缓存时为真，否则为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; isScrollingCacheEnabled()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setDrawingCacheEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setSelector</b> (Drawable sel)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置用于将当前选择条目设置为高亮的可绘制对象。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setSelector</b> (int resID)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置用于将当前选择条目设置为高亮的可绘制对象。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>resID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>作为选择高亮的可绘制对象资源。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>相关</span><span> XML </span><span
+>属性</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; android:listSelector</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setSmoothScrollbarEnabled</b>
+(boolean enabled)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当平滑滚动启用时，滚动条把手的位置和大小基于可见条目的可见像素数来计算。</span>
+<span >该处里假定所有列表条目具有相同的高度。如果你使用条目高度不同的类表，</span> <span
+>滚动条会在用户滚动过程中改变大小。为了避免这种情况，应该禁用该特性。</span> <span
+>当平滑滚动被禁用后，滚动条把手的大小和位置只是基于适配器中的条目数，</span> <span
+>以及适配器中的可见条目来确定。这样可以为使用可变高条目列表的用户，</span> <span
+>提供稳定的滚动条。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>enabled  </span><span >是否启用平滑滚动。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>相关</span><span> XML </span><span
+>属性</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; android:smoothScrollbar</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; setSmoothScrollbarEnabled(boolean)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setStackFromBottom</b> (boolean
+stackFromBottom)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当栈从底部开始设置为真时，列表从底部开始向上填充视图。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>stackFromBottom  </span><span >为真时，视图内容固定于底部；为假时，固定在顶部。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setTextFilterEnabled</b> (boolean
+textFilterEnabled)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >启用或禁用输入过滤窗口。如启用，在视图具有焦点时，将会过滤子对象，以匹配用户输入。</span>
+<span >注意，视图使用的适配器必须实现了</span><span>Filterable</span><span
+>接口。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>textFilterEnabled &nbsp; </span><span >为真表示启用输入过滤，反之则为假。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; Filterable</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setTranscriptMode</b> (int mode)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将列表或网格设置为跳转模式。该模式下，列表或网格总是滚动到底部，以显示新条目。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>mode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>设置的跳转模式。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; TRANSCRIPT_MODE_DISABLED</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; TRANSCRIPT_MODE_NORMAL</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; TRANSCRIPT_MODE_ALWAYS_SCROLL</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>showContextMenuForChild</b> (View
+originalView)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为指定的视图或者其父类显示上下文菜单。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >大部分情况下，子类不需要重写该方法。但是，如果直接将子类添加到窗口管理器（例如：使用</span><span> addView(View, android.view.ViewGroup.LayoutParams) </span><span
+>函数），此时就需要重写来显示上下文菜单。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>originalView &nbsp; </span><span >首先显示的上下文菜单的原始视图</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果显示了上下文菜单返回真。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>smoothScrollBy</b> (int distance, int
+duration)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >平滑滚动</span><span> distance </span><span >个像素，持续</span><span> duration </span><span >毫秒。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>distance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动的距离，像素数。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>duration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动动画持续的时间，毫秒。</span></p>
+<p class=MsoNormal style='margin-left:10.5pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>smoothScrollToPosition</b> (int
+position, int boundPosition)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >平滑滚动到指定的适配器位置。视图会滚动到指定位置显示出来，如果滚动会使</span><span> boundPosition </span><span >滚动到视图外，滚动会先被停止。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>position  </span><span >要滚动到的适配器位置。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>boundPosition &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果要将这个适配器位置移出视图，滚动会停止。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>smoothScrollToPosition</b> (int
+position)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >平滑滚动到指定的适配器位置。视图会滚动到指定位置显示出来。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>position  </span><span >要滚动到的适配器位置。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>verifyDrawable</b> (Drawable dr)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果你的视图子类显示自己的可绘制对象，他应该重写此方法并为自己的每个可绘制对象返回真。该函数允许为这些可绘制对象准备动画效果。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >重写此方法时，要保证调用其父类的该方法。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>dr &nbsp;&nbsp; </span><span >待校验的可绘制对象。如果是你显示的对象之一，返回真；否则返回调用父类的返回值。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; boolean </span><span >如果可绘制对象已经显示在视图上了，返回真；否则返回假，不允许动画效果。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected boolean <b>checkLayoutParams</b>
+(ViewGroup.LayoutParams p)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（译者注：检测是不是</span><span>AbsoluteLayout.LayoutParams</span><span
+>的实例）</span></p>
+<p class=MsoNormal><span style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected int <b>computeVerticalScrollExtent</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >计算滚动条把手在纵向滚动范围内占用的幅度。该值用于计算滚动条把手在滚动条滑道中的长度。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >范围使用与</span><span> computeVerticalScrollRange() </span><span >和</span><span> computeVerticalScrollOffset() </span><span >相同的任意单位。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >默认的长度是视图的可绘制高度。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >滚动条把手在纵向滚动范围内占用的幅度。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected int <b>computeVerticalScrollOffset</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >计算滚动条把手在纵向滚动范围内的位置。该值用于计算滚动条把手在滚动条滑道中的位置。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >范围使用与</span><span> computeVerticalScrollRange() </span><span >和</span><span> computeVerticalScrollExtent() </span><span >相同的任意单位。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >默认位置是视图的滚动条位置。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >滚动条把手的纵向位置</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected int <b>computeVerticalScrollRange</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >计算滚动条代表的纵向范围。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >范围使用与</span><span> computeVerticalScrollExtent() </span><span >和</span><span> computeVerticalScrollOffset() </span><span >相同的任意单位。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >纵向滚动条代表的整个纵向范围。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >默认纵向范围时视图的绘制高度。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>dispatchDraw</b> (Canvas canvas)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >调用此方法来绘出子视图。可被衍生类重写，以便在其子项被画出之前取得控制权。此方法由</span><span> draw </span><span >方法在绘制子视图时调用。子类可以重写该方法，在绘制其子视图之前获得控制权。（但是在绘制其自身的视图之后。）</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>canvas &nbsp;&nbsp; </span><span >绘制视图的画布。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>dispatchSetPressed</b> (boolean
+pressed)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为视图的所有子视图调用</span><span> setPressed </span><span >方法。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>pressed  </span><span >新的按下状态。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>drawableStateChanged</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在视图状态的变化影响到所显示可绘制对象的状态时调用该方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >覆盖该方法时，要确保调用了父类的该方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected ViewGroup.LayoutParams <b>generateLayoutParams</b>
+(ViewGroup.LayoutParams p)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >基于提供的布局参数返回一组安全的布局参数集合。当传入</span><span> ViewGroup </span><span >的视图的参数没有通过</span><span> checkLayoutParams(android.view.ViewGroup.LayoutParams) </span><span
+>的检测时，调用该方法。该方法会返回适合</span><span> ViewGroup </span><span
+>的新的布局参数，可能从指定的布局参数中复制适当的属性。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>p &nbsp;&nbsp;&nbsp;&nbsp; </span><span >要转换为适合于</span><span> ViewGroup </span><span >的布局参数的集合</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; ViewGroup.LayoutParams </span><span
+>或其子类的实例。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected float <b>getBottomFadingEdgeStrength</b>
+()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回底部渐变边缘的强度或密集度。强度的值介于</span><span>0.0</span><span >（无渐变）到</span><span>1.0</span><span >（全渐变）之间。缺省实现只返回</span><span>0.0</span><span >或</span><span>1.0</span><span
+>，而不返回中间值。子类应该重载此方法来给滚动时提供更平滑的渐变过程。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp; &nbsp;</span><span >底部渐变的强度，即介于</span><span>0.0f</span><span >和</span><span>1.0f</span><span
+>之间的浮点值。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected ContextMenu.ContextMenuInfo <b>getContextMenuInfo</b>
+()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果视图要向上下文菜单加入额外信息，就应该实现该方法。返回的结果作为</span><span> onCreateContextMenu(ContextMenu, View, ContextMenuInfo) </span><span
+>回调函数的参数。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >上下文菜单要显示的条目的额外信息</span><span>.</span><span >该信息会根据视图子类的不同而变化。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected float <b>getTopFadingEdgeStrength</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回顶部渐变边缘的强度或密集度。强度的值介于</span><span>0.0</span><span >（无渐变）到</span><span>1.0</span><span >（全渐变）之间</span><span>. </span><span >缺省实现只返回</span><span>0.0</span><span >或</span><span>1.0</span><span
+>，而不返回中间值。子类应该重载此方法来给滚动时提供更平滑的渐变过程。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >顶部渐变的强度，即介于</span><span>0.0f</span><span >和</span><span>1.0f</span><span
+>之间的浮点值。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>handleDataChanged</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected boolean <b>isInFilterMode</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示视图是否处于过滤状态。过滤状态在用户在键盘上输入信息时启动。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >如果视图处于过滤状态，返回真；否则返回假。</span><span> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>layoutChildren</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >子类必须重写此方法，以为其子视图布局。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onAttachedToWindow</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当视图附加到窗体上时调用该方法。在这个时点，视图拥有了用于显示的表面，将开始绘制。注意，系统保证在调用</span><span>onDraw(Canvas) </span><span >之前调用该方法，但可能在调用</span><span> onDraw(Canvas) </span><span >之前的任何时刻，包括调用</span><span> onMeasure(int, int) </span><span >之前或之后。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected int[] <b>onCreateDrawableState</b> (int
+extraSpace)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为当前视图生成新的</span><span> Drawable </span><span >状态时发生。当视图系统检测到缓存的可绘制对象失效时，调用该方法。你可以使用</span><span> getDrawableState() </span><span >方法重新取得当前的状态。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>extraSpace &nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>如果为非零，该值为你要在返回值的数组中存放的你自己的状态信息的数量。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span >返回保存了视图的当前</span><span> Drawable </span><span >状态的数组。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onDetachedFromWindow</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将视图从屏幕上分离的时候调用该方法。这个时点视图已经不具有可绘制部分。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onDisplayHint</b> (int hint)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >得到视图是否处于显示状态的提示信息。例如，当视图移出屏幕时，他收到视图没有显示的提示</span>
+<span >信息。应用程序不应该依靠该回调函数，不保证一定会收到该提示。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>hint &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>关于视图是否处于显示状态：</span><span>VISIBLE </span><span
+>或</span><span> INVISIBLE</span><span
+>。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onFocusChanged</b> (boolean gainFocus,
+int direction, Rect previouslyFocusedRect)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当视图的焦点改变时调用。由定向导航导致的焦点变更时，</span><span> direction </span><span >和</span><span> previouslyFocusedRect </span><span >提供了焦点是从那里来的进一步信息。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>gainFocus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果视图具有焦点，值为真；否则为假。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>direction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当调用</span><span> requestFocus() </span><span
+>为该视图设置焦点时，该值为焦点移动的方向。其值为</span><span>
+FOCUS_UP</span><span >、</span><span>FOCUS_DOWN</span><span
+>、</span><span> FOCUS_LEFT </span><span
+>或者</span><span> FOCUS_RIGHT</span><span
+>。当使用无参数的</span><span> requestFocus() </span><span
+>时，可能无值。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>previouslyFocusedRect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>失去焦点的视图的矩形坐标，使用该视图的坐标系统</span><span>.</span><span
+>如果指定了，</span> <span >它将传入可以知道焦点来自哪里的详细信息（作为对</span><span> direction </span><span >的补充）。否则，其值为</span><span> null</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onLayout</b> (boolean changed, int
+l, int t, int r, int b)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >子类不要重载此方法，如需要请重载</span><span> layoutChildren() </span><span >来代替。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>changed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>是否为视图设置了新的大小和位置。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>l &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>相对于父视图的左侧的位置。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>t &nbsp;&nbsp;&nbsp;&nbsp; </span><span >相对于父视图的顶部的位置。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>r &nbsp;&nbsp;&nbsp;&nbsp; </span><span >相对于父视图的右侧的位置。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>b &nbsp;&nbsp;&nbsp;&nbsp; </span><span >相对于父视图的底部的位置。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onMeasure</b> (int
+widthMeasureSpec, int heightMeasureSpec)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >评估视图及其内容，以决定其宽度和高度</span><span>.</span><span >此方法由</span><span>
+measure(int, int) </span><span >调用，子类可以重载以提供更精确、更有效率的衡量其内容尺寸的方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >约定：</span>
+<span >覆盖该方法时，必须调用</span><span>
+setMeasuredDimension(int, int) </span><span >方法来保存评估结果的视图的宽度和高度</span><span>.</span><span >如果忘记将导致</span><span>
+measure(int, int) </span><span >方法抛出</span><span>IllegalStateException</span><span >异常</span><span>.</span><span >要有效的利用父类的</span><span> onMeasure(int, int)</span><span >方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >基类测量的是背景的大小，除非</span><span> MeasureSpec </span><span >允许超过背景</span><span>.</span><span >子类应该重写</span><span>
+onMeasure(int, int) </span><span >方法，以为其内容提供更适合的大小。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果重写了该方法，子类要确保其高度和宽度大于等于视图的最小高度和宽度</span><span>. </span><span >（</span><span>getSuggestedMinimumHeight()
+</span><span >和</span><span>
+getSuggestedMinimumWidth()</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>widthMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>父视图要求的横向空间大小</span><span>.</span><span
+>该要求由</span><span> View.MeasureSpec </span><span
+>进行了编码处理。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>heightMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>父视图要求的纵向空间大小</span><span>.</span><span
+>该要求由</span><span> View.MeasureSpec </span><span
+>进行了编码处理。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onOverScrolled</b> (int scrollX,
+int scrollY, boolean clampedX, boolean clampedY)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >由</span><span> overScrollBy(int, int, int, int, int, int, int, int, boolean) </span><span
+>调用，用于响应过滚动操作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>scrollX &nbsp;&nbsp;&nbsp; </span><span >新的</span><span> X </span><span >轴滚动位置，以像素为单位。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>scrollY &nbsp;&nbsp;&nbsp; </span><span >新的</span><span> Y </span><span >轴滚动位置，以像素为单位。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>clampedX &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当</span><span> scrollX </span><span
+>被限制在过滚动边界时，为真。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>clampedY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当</span><span> scrollY </span><span
+>被限制在过滚动边界时，为真。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onSizeChanged</b> (int w, int h,
+int oldw, int oldh)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >布局时该视图的大小发生改变时调用该方法</span><span>.</span><span >如果是刚加入的视图，变更前的值为</span><span> 0</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>w &nbsp;&nbsp;&nbsp; </span><span >视图的当前宽度。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>h &nbsp;&nbsp;&nbsp;&nbsp; </span><span >视图的当前高度。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>oldw &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>视图变更前的宽度。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>oldh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>视图变更前的高度。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://blog.sina.com.cn/s/blog_4a6c59d60100pjqc.html">android UI <span
+lang=EN-US ><span>优化之</span></span>
+AbsListView<span ><span>之深度优化</span></span></a></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

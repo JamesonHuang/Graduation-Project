@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> RatingBar.OnRatingBarChangeListener</title>
+</head>
+<body>     
+<div class=WordSection109 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name="RatingBar_OnRatingBarChangeListener"><b><span
+style='font-size:22.0pt'>RatingBar.OnRatingBarChangeListener</span></b></a><b><span
+lang=EN-US style='font-size:22.0pt'> </span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者：</span><span>madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>博客：<span><a target="_blank" href="http://madgoat.cn/">http://madgoat.cn/</a>
+</span></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：<span>Android 2.2 r1</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+static interface <span style='color:#C00000'>RatingBar.OnRatingBarChangeListener</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>android.widget.
+RatingBar.OnRatingBarChangeListener</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当评分等级改变时通知客户端的回调函数</span><span style='font-family:"MS Mincho"'>。</span><span
+>这包括用户通过手势、方向键或轨迹球触发的改变，</span> <span style='font-family:
+宋体'>以及编程触发的改变。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public abstract void onRatingChanged (RatingBar
+ratingBar, float rating, boolean fromUser)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >通知评分等级已经被修改。客户端可以使用</span><span
+lang=EN-US>fromUser</span><span >参数区分用户触发的改变还是编程触发的改变。当用户拖拽时，将不会连续不断的被调用，仅仅当用户最终离开触摸结束评分时调用。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>ratingBar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>评分修改的</span><span>RatingBar</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>rating &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当前评分分数。取值范围为</span><span>0</span><span
+>到星型的数量。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>fromUser &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果评分改变是由用户触摸手势或方向键轨迹球移动触发的，则返回</span><span>true</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=right style='text-align:right'><span style='font-family:
+宋体'>整理人：农民伯伯</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

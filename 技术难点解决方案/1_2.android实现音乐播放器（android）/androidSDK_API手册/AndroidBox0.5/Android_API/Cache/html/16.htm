@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> AccessibilityService</title>
+</head>
+<body>     
+<div class=WordSection16 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=AccessibilityService><b><span style='font-size:24.0pt;
+'>AccessibilityService</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>cofice</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://java-cofi.javaeye.com">http://java-cofi.javaeye.com</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoListParagraph align=center style='margin-left:21.0pt;text-align:
+center;text-indent:0cm'><span>&nbsp;</span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span style='font-family:
+宋体'>结构</span></b></p>
+<p class=MsoListParagraph style='text-indent:21.1pt'><b><i><span>public
+abstract class <span style='color:#C00000'>AccessibilityService</span> extends <span
+style='color:#C00000'>Service</span></span></i></b></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span>&nbsp;</span></b></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>java.lang.Object</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt'><span>android.content.Context</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.content.ContextWrapper</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span>android.app.Service</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.accessibilityservice.AccessibilityService</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span style='font-family:
+宋体'>类概述</span></b></p>
+<p class=MsoListParagraph><span >当</span><span
+lang=EN-US>AccessibilityEvent</span><span >事件被启动后</span><span
+lang=EN-US>AccessibilityService&nbsp;</span><span >会接收回调函数运行于后台，这些事件指的是在用户接口间的状态转换，比如</span><span
+lang=EN-US>,</span><span >焦点变化，按钮被点击等。</span></p>
+<p class=MsoListParagraph><span >一些辅助服务继承于此类并且实现它的抽象方法，像这样的一个服务和其他服务一样在</span><span
+lang=EN-US>AndroidManifest.xml</span><span >中被声明但它必须被指定操纵“</span><span
+lang=EN-US>android.accessibilityservice.</span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><span>AccessibilityService</span><span
+>”的意图，下面的是一段例子：</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=553 height=87 src="image/image019.png"></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >辅助服务的声明周期只能被系统管理，启动或者停止这个服务必须由明确的用户通过启用或停用设备的设定，在系统通过呼叫</span><span
+lang=EN-US>onServiceConnected()</span><span >方法与服务绑定后，这个方法才能被想要执行装载的客户端所重载使用，一个辅助服务通过呼叫</span><span
+lang=EN-US>setServiceInfo(AccessibilityServiceInfo)</span><span
+>方法来设定</span><span>AccessibilityServiceInfo</span><span
+>而配置。你可以在任何时候改变这个服务的配置但最好是在重载方法</span><span>onServiceConnected().</span><span
+>中来使用。</span><span><br>
+</span><span >一个辅助服务可以在特定的包中注册事件以提供特殊的反馈类型并且当最后一个关联的事件被解除的时候发出明确的超时提醒。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoListParagraph><b><span >通告策略</span></b></p>
+<p class=MsoListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>对于每个回馈类型只有一个辅助服务被通知，服务登记处按顺序被通知，因此，如果有两个服务为同一个包中的同一回馈类型注册那么第一个会被通知，然而有可能的是，可以为一个给定的回馈类型去把一个服务注册为默认的，这样的话如果没有其他的服务来取代这个事件这个服务就会被呼出使用，换句话说，默认的服务不会与其他的服务竞争并且不管注册的顺序而被通知。</span></p>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>常量</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>String &nbsp;&nbsp;&nbsp;&nbsp; SERVICE_INTERFACE</span>
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>声明</span><span>Intent</span><span
+>必须由这个服务来处理</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span style='font-family:
+宋体'>公共方法</span></b></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US style='background:#D9D9D9'>abstract void
+onAccessibilityEvent(AccessibilityEvent event)</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span><span>&nbsp;&nbsp; </span></p>
+<p class=MsoListParagraph style='margin-left:42.0pt'><span>event&nbsp;
+</span><span >一个事件</span></p>
+<p class=MsoListParagraph style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US style='background:#D9D9D9'>public final IBinder onBind (Intent intent)</span></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>实现返回一个内部的辅助接口的实现，子类不能被重写。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span><span>&nbsp; </span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>intent&nbsp; </span><span >与服务相绑定的意图，注意其他任何包含在</span><span
+lang=EN-US>Intent</span><span >的外部意图将不能在此使用。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp; </span><span >返回一个客户端可以在服务上访问的</span><span
+lang=EN-US>IBinder</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public abstract void onInterrupt ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>打断辅助回馈内容时呼叫。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span style='font-family:
+宋体'>受保护方法</span></b></p>
+<p class=MsoListParagraph style='margin-left:21.0pt;text-indent:0cm'><span
+lang=EN-US style='background:#D9D9D9'>protected void onServiceConnected ()</span></p>
+<p class=MsoListParagraph><span >这个方法是</span><span
+lang=EN-US>AccessibilityService</span><span >声明周期的一部分，在系统成功与服务绑定后才被呼叫，如果用来设定</span><span
+lang=EN-US>AccessibilityServiceInfo.</span><span >这个方法更为方便。</span></p>
+
+</div>
+
+<b><span style='font-size:16.0pt;font-family:"Cambria","serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

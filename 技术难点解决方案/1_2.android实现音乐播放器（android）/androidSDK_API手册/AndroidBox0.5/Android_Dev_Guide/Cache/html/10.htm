@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> App Install Location</title>
+</head>
+<body>   
+<div class=WordSection10 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=AppInstallLocation><b><span style='font-size:18.0pt'>App
+Install Location</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://madgoat.cn">http://madgoat.cn</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-family:"Arial","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/appendix/install-location.html">http://developer.android.com/guide/appendix/install-location.html</a>&nbsp;
+</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+>自</span><span>API Level 8</span><span
+>开始，你可以允许你的应用安装至扩展存储（例如，</span><span>SD</span><span
+>卡）。这是一个可选功能，你可以在你应用的</span><span>manifest</span><span
+>属性</span><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/manifest-element.html#install"><code><span
+style='font-size:12.0pt;text-decoration:none'>android:installLocation</span></code></a></span><span
+>里设定。如果你没设定这个属性，那么你的应用将被安装到内置存储，而且将不允许移动到扩展存储上。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为了允许系统可以在扩展存储上安装你的应用，修改你的</span><span>manifest</span><span
+>文件，在</span><span> &lt;manifest&gt; </span><span
+>元素中包含</span><span>android:installLocation </span><span
+>属性，设置其值为</span><span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>preferExternal</span></span><span
+lang=EN-US>&quot;</span><span >或</span><span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>auto</span></span><span
+lang=EN-US>&quot;</span><span >。例如：</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:5.0pt 5.0pt 5.0pt 0cm;
+background:#FAFAFA;margin-left:11.9pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='text-align:left;background:#FAFAFA;
+border:none;padding:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='color:#000088'>&lt;manifest</span><span
+style='color:black'> </span><span style='color:#882288'>xmlns:android</span><span
+lang=EN-US style='color:#666600'>=</span><span style='color:#008800'><a target="_blank" href="http://schemas.android.com/apk/res/android">http://schemas.android.com/apk/res/android</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:14.25pt;
+background:#FAFAFA;border:none;padding:0cm'><span style='color:#882288'>android:installLocation</span><span
+lang=EN-US style='color:#666600'>=</span><span style='color:#008800'>&quot;preferExternal&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:14.25pt;
+background:#FAFAFA;border:none;padding:0cm'><span style='color:black'>&nbsp;
+&nbsp; ... </span><span style='color:#000088'>&gt;</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你定义了</span> <span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>preferExternal</span></span><span
+lang=EN-US>&quot;</span><span >，意味着你要求你的应用安装至扩展存储，但是系统不能保证应用肯定会安装至扩展存储。如果扩展存储没有空间了，系统将把应用安装到内置存储。用户可以在两个位置之间移动你的应用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你定义了</span> <span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>auto</span></span><span
+lang=EN-US>&quot;</span><span >，表示你的应用可能会安装在扩展存储，但是对安装位置没有特别的偏好。系统将基于很多因素决定你的应用安装到哪里。用户同样可以将应用在两个位置之间移动。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当你的应用安装在扩展存储上：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>只要扩展存储已经挂载在设备上，对应用的性能都没有影响。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><code><span
+lang=EN-US style='font-size:12.0pt'>.</span></code><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>apk</span></span><span
+lang=EN-US> </span><span >文件保存在扩展存储上，但是所有的用户私有数据，数据库，优化过的</span><span
+lang=EN-US> .dex </span><span >文件和释放的原生代码都保存在内置存储空间上。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>存储你应用的唯一容器是被一个随机生成的</span><span>KEY</span><span
+>加密存放的，仅仅能被最初安装的设备进行解密操作。因此，安装在</span><span>SD</span><span
+>卡上的应用仅仅针对一个设备可以工作。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>用户可以通过系统设置移动你的应用到内置存储。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+style='font-family:宋体;color:#C00000'>警告：</span></b><span style='font-family:
+宋体'>当用户启用</span><span>USB</span><span >大容量存储以共享文件给计算机或者通过系统设置卸载</span><span
+lang=EN-US>SD</span><span >卡，外置存储从设备卸载并且所有运行在外置存储的应用立刻都被结束。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;font-family:宋体'>向后兼容</span></b><b><span
+style='font-size:14.0pt'>Backward Compatibility</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>将你的应用安装至扩展存储的功能是运行</span><span>API Level 8</span><span
+>（</span><span>Android 2.2</span><span
+>）及以上版本的设备才有效的。使用</span><span>API Level 8 </span><span
+>之前的版本编译的已存在的应用，将一直安装在内置存储，并且无法移动至扩展存储（即使设备上运行的是</span><span
+lang=EN-US>API Level 8</span><span >版本的系统）。然而，如果你的应用计划支持低于</span><span
+lang=EN-US>8</span><span >的</span><span>API
+Level</span><span >，你可以选择针对</span><span>API Level
+8</span><span >及更高版本支持此特性，并且继续保持与低于</span><span
+lang=EN-US>API level 8</span><span >的设备兼容。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为了允许安装在扩展存储并且保持与</span><span>API Level 8</span><span
+>或更低版本兼容：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>在</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;manifest&gt;</span></a></span></code><span
+>元素中，包含值为</span><span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>auto</span></span><span
+lang=EN-US>&quot;</span><span >或</span> <span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>preferExternal</span></span><span
+lang=EN-US>&quot; </span><span >的</span> <span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>android:installLocation</span></span><span
+lang=EN-US> </span><span >属性。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>继续保持你的</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>android:minSdkVersion</span></span><span
+lang=EN-US> </span><span >属性不变（小于</span><span>8</span><span
+>的值）并且确定你的应用代码只使用与此</span><span>level</span><span
+>保持兼容的</span><span>API</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>为了编译你的应用，更改你的</span><span>build target</span><span
+>为</span><span>API Level 8</span><span
+>。这步操作是必须的，因为旧的</span><span>Android</span><span
+>库无法理解</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>android:installLocation</span></span><span
+lang=EN-US> </span><span >属性，并且当该属性存在时，也不会编译你的应用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当你的应用安装到</span><span>API Level </span><span
+>低于</span><span>8</span><span
+>的设备上时，</span><span> android:installLocation </span><span
+>属性被忽略，并且应用会被安装至内置存储上。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style='font-family:宋体;color:#FFC000'>注意</span><span
+style='color:#FFC000'>:</span></b><span >尽管</span><span
+lang=EN-US>XML</span><span >标记</span><span>,</span><span
+>例如这个将被之前的平台忽略，但你还是要小心不要使用</span><span>API
+Level 8</span><span >中的编程</span><span>API</span><span
+>，除非你在你的代码中提供向后兼容。关于在应用代码中创建向后兼容的信息，请参考</span> <span
+lang=EN-US><a target="_blank" href="http://developer.android.com/resources/articles/backward-compatibility.html">Backward
+Compatibility</a> </span><span >这篇文章。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;font-family:宋体'>不应当安装在扩展存储的应用</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt'>Applications That Should NOT Install on External
+Storage</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当用户启用</span><span>USB</span><span
+>大容量存储来给他们的计算机共享文件时</span><span>(</span><span
+>卸载或移除扩展存储</span><span>)</span><span
+>，任何安装在扩展存储上并正在运行的应用都会被结束。实际上此时系统并不知道应用程序的存在，直到大容量存储关闭，或者扩展存储重新挂载到设备上。除了杀死该应用程序使它对用户不可用，它还会使用更严重地方式中断某些类型的应用程序。为了使你的应用始终如你所期望的那样运行，当你使用了下面任何一种特性，那你就不应当允许你的应用安装到扩展存储上去，以避免产生当扩展存储被卸载时所导致的后果：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+>服务</span><span>Services</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >当扩展存储被卸载时，你正在运行的</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Service</span></a></span></code><span
+>将被结束并且不会再重新启动。你可以注册</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#ACTION_EXTERNAL_APPLICATIONS_AVAILABLE"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ACTION_EXTERNAL_APPLICATIONS_AVAILABLE</span></a></span></code><span
+lang=EN-US> </span><span >广播</span><span>(broadcast)
+Intent</span><span >，当安装在扩展存储上的应用对系统重新有效时，会通知你的应用。在那个时候，你可以重新启动你的</span><span
+lang=EN-US>Service</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+>定时服务</span><span>Alarm Services</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你注册到</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/AlarmManager.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AlarmManager</span></a></span></code><span
+>的闹钟会被取消。当扩展存储重新挂载时，你必须手工重新注册。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+>输入法引擎</span><span>Input Method Engines</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你的输入法</span><span>(<a target="_blank" href="http://developer.android.com/resources/articles/on-screen-inputs.html">IME</a>)</span><span
+>将被替换为默认输入法。当扩展存储重新挂载，用户可以打开系统设置以重新启用你的输入法。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+>壁纸</span><span>Live Wallpapers</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你正在运行的</span> <span
+lang=EN-US><a target="_blank" href="http://developer.android.com/resources/articles/live-wallpapers.html">Live
+Wallpaper</a> </span><span >会被替换为默认的。当扩展存储被挂载时，用户可以重新选择</span><span
+lang=EN-US>Live Wallpaper</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>Live Folders</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你的</span> <span><a target="_blank" href="http://developer.android.com/resources/articles/live-folders.html">Live
+Folder</a> </span><span >将被从</span><span>home</span><span
+>屏幕被移除。当扩展存储被挂载上时，用户可以重新添加</span><span>Live
+Folder</span><span >到</span><span>Home</span><span
+>界面。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+>应用程序部件</span><span>App Widgets</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你的</span><span><a target="_blank" href="http://developer.android.com/guide/topics/appwidgets/index.html">App
+Widget</a></span><span >将被从</span><span>Home</span><span
+>界面移除，当扩展存储被挂载时，在系统重置</span><span>Home</span><span
+>应用之前，用户将无法使用你的</span><span>App Widget</span><span
+>（通常直到系统重启）。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>Account Managers</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >在扩展存储被挂载之前，你使用</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/accounts/AccountManager.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AccountManager</span></a></span></code><span
+>创建的账户都是不可见的。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>Sync Adapters</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >在扩展存储被挂载之前，你的</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/AbstractThreadedSyncAdapter.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AbstractThreadedSyncAdapter</span></a></span></code><span
+>和所有相关的同步功能将无法工作。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>Device Administrators</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >你的</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/admin/DeviceAdminReceiver.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>DeviceAdminReceiver</span></a></span></code><span
+>和它的管理能力会被禁止，这会导致设备功能产生无法预料的结果，这种现象会持续到扩展存储重新挂载为止。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>Broadcast Receivers listening for &quot;boot completed&quot;</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>T</span><span >系统在扩展存储挂载到设备前发送广播</span>
+<code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ACTION_BOOT_COMPLETED</span></a></span></code><span
+>。所以如果你的应用安装到扩展存储上，它拥有也接收不到这个广播。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果你的应用使用的上面列表中的任何一种特性，那你就不应该允许你的应用安装到扩展存储上去。默认情况下，系统将不允许你的应用安装至扩展存储，所以你不需要担心你已存在的应用。然而，如果你不确定你的应用是否永远不会安装到扩展存储上去，那么你可以通过定义</span>
+<span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/manifest-element.html#install"><code><span
+style='font-size:12.0pt;text-decoration:none'>android:installLocation</span></code></a></span><span
+lang=EN-US> </span><span >值为</span> <span>&quot;</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>internalOnly</span></span><span
+lang=EN-US>&quot;</span><span >来确保其安装至内置存储。尽管这不会改变默认的行为，但它明确的指出，你的应用只会被安装在内置存储上并且作为提醒你和其他开发人员已经做出决定。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;font-family:宋体'>应当安装在扩展存储的应用</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt'>Applications That Should Install on External Storage</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>简单来说，任何没有使用上一章节功能列表中的应用安装在扩展存储上都是安全的。大型的游戏更是常见的应该允许安装至扩展存储的应用类型，因为游戏当处于非激活状态时，通常不需要提供额外的服务。当扩展存储无效后，游戏进程被结束，这并不会带来明显的影响，当存储重新有效后，用户可以重新启动游戏</span>
+<span >（假设游戏在正常的</span> <span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals/activities.html#Lifecycle">Activity
+lifecycle</a></span><span >中保存了状态）。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果你的应用的</span><span>APK</span><span
+>文件大小为几兆</span><span>(M)</span><span
+>，那你就需要认真考虑是否启用应用安装至扩展存储了，这样的话用户可以保留他们的内置存储空间。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

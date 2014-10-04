@@ -1,0 +1,56 @@
+│  AndroidBox.exe //主程序
+│  Data.dat	//数据文件
+│  System.Data.SQLite.dll
+│  UpBox.exe	//更新程序
+│  
+├─Android_API	//Android中文API缓存目录
+│  │  db.dat
+│  │  
+│  └─Cache	//缓存网页目录
+│      └─html
+│          │  100.htm
+│          │  .
+│          │  .
+│          │  .
+│          │  Word2Chm.css
+│          │  Word2CHM.js
+│          │  
+│          ├─image
+│          │      2011-4-12_1.jpg
+│          │      2011-4-12_1.png
+│          │      .
+│          │      .
+│          │      .
+│          │      image132.jpg
+│          │      
+│          └─index_files
+│                  2010-12-26_1.jpg
+│                  common.css
+│                  common2.css
+│                  style.css
+│                  
+└─Android_Dev_Guide	//Android开发者指南缓存目录
+    │  db.dat
+    │  
+    └─Cache //缓存网页目录
+        └─html
+            │  10.htm
+            │  .
+            │  .
+            │  .
+            │  Right.gif
+            │  Word2Chm.css
+            │  
+            ├─image
+            │      image001.jpg
+            │      .
+            │      .
+            │      .
+            │      image017.png
+            │      image018.jpg
+            │      
+            └─index_files
+                    2010-12-26_1.jpg
+                    common.css
+                    common2.css
+                    style.css

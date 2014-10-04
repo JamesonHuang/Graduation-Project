@@ -1,0 +1,784 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> RelativeLayout</title>
+</head>
+<body>     
+<div class=WordSection110 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=RelativeLayout><b><span style='font-size:18.0pt'>RelativeLayout</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>Atomic</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://iiapk.com">http://iiapk.com</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>RelativeLayout</span> extends <span style='color:#C00000'>ViewGroup</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.RelativeLayout
+</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:9.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>子类及间接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>直接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DialerFilter,
+TwoLineListItem</span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=200 height=284
+src="image/image101.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>RelativeLayout</span><span >顾名思义，相对布局，在这个容器内部的子元素们可以使用彼此之间的相对位置或者和容器间的相对位置来进行定位。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注意，不能在</span><span>RelativeLayout</span><span
+>容器本身和他的子元素之间产生循环依赖，比如说，不能将</span><span>RelativeLayout</span><span
+>的高设置成为</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WRAP_CONTENT</span></a></span></code><span
+>的时候将子元素的高设置成为</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/RelativeLayout.html#ALIGN_PARENT_BOTTOM"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ALIGN_PARENT_BOTTOM</span></a></span></code><code><span
+style='font-size:12.0pt'>。</span></code></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：这点额外要注意，当然这也很好理解，如果容器是不定高的，那么子元素当然无法对齐容器的底边</span><span
+lang=EN-US>^_^</span><span >）。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>可以参考官方</span><span>SDK</span><span
+>中的</span><span> RelativeLayout</span><span
+>教学贴</span><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-relativelayout.html">Relative
+Layout tutorial</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>常量</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=76 valign=top style='width:2.0cm;border:solid black 1.0pt;
+  border-right:solid windowtext 1.0pt;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >数据类型</span></p>
+  </td>
+  <td width=170 valign=top style='width:127.55pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >常量名称</span></p>
+  </td>
+  <td width=302 valign=top style='width:8.0cm;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ABOVE</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的底边对齐另一个元素的顶边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_BASELINE</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素基线的对齐另一个元素的基线</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_BOTTOM</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素底边的对齐另一个元素的底边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_LEFT</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的左边对齐另一个元素的左边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_PARENT_BOTTOM</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的底边对齐其父容器</span><span
+  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>的底边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_PARENT_LEFT</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的左边对齐其父容器</span><span
+  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>的左边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_PARENT_RIGHT</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的右边对齐其父容器</span><span
+  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>的右边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_PARENT_TOP</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的顶边对齐其父容器</span><span
+  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>的顶边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_RIGHT</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的右边对齐另一个元素的右边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>ALIGN_TOP</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的顶边对齐另一个元素的顶边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>BELOW</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的顶边对齐另一个元素的底边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>CENTER_HORIZONTAL</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义让元素在容器</span><span style='font-size:11.0pt;
+  font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>内水平居中</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>CENTER_IN_PARENT</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义让元素位于容器</span><span style='font-size:
+  11.0pt;font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>的中心</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>CENTER_VERTICAL</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义让元素在容器</span><span style='font-size:11.0pt;
+  font-family:"Arial","sans-serif"'>(RelativeLayout)</span><span
+  style='font-size:11.0pt;'>内垂直居中</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>LEFT_OF</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的右边对齐另一个元素的左边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>RIGHT_OF</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+  11.0pt;'>定义将元素的左边对齐另一个元素的右边</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=76 style='width:2.0cm;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>int</span></p>
+  </td>
+  <td width=170 style='width:127.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>TRUE</span></b></p>
+  </td>
+  <td width=302 style='width:8.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:11.0pt;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+<p class=MsoListParagraph><span style='background:#D9D9D9'>Class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>RelativeLayout.LayoutParams</b></span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoListParagraph><span >和</span><span
+lang=EN-US>RelativeLayout</span><span >相关联的布局信息</span><span
+lang=EN-US>.</span></p>
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>XML</span></b><b><span style='font-size:12.0pt;
+'>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=180 valign=top style='width:134.65pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=340 valign=top style='width:9.0cm;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.65pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:gravity</span></b></p>
+  </td>
+  <td width=340 style='width:9.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置容器中的内容该如何定位。对象本身的</span><span>x</span><span
+  >和</span><span>y</span><span
+  >轴。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.65pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:ignoreGravity</span></b></p>
+  </td>
+  <td width=340 style='width:9.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置容器中的哪个子元素会不受<span>Gravity</span>的影响<span>.</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>（译者注：接收参数<span>:</span>子元素的<span>Id,</span>如果设置成为<span
+ >0</span>，则全部子元素都会受到影响）</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>dispatchPopulateAccessibilityEvent</b>
+(AccessibilityEvent event)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>　</span><span >分发</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://android.toolib.net/reference/android/view/accessibility/AccessibilityEvent.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AccessibilityEvent</span></a></span></code><span
+lang=EN-US> </span><span >事件到该</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span></a></span></code><span
+lang=EN-US> </span><span >的子视图中。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >事件本身</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果事件分发完成，返回真。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public RelativeLayout.LayoutParams <b>generateLayoutParams</b>
+(AttributeSet attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回一个新的已设置属性集合的布局参数。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attrs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >构建</span><span
+lang=EN-US>layout</span><span >布局参数的属性集合</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>RelativeLayout.LayoutParams</span><span
+>的实例或者他的一个子类</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getBaseline</b> ()</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回窗口空间的文本基准线到其顶边界的偏移量。如果这个部件不支持基准线对齐，这个方法返回</span><span
+lang=EN-US>-1</span><span >。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>基准线的偏移量，如果不支持基准线对齐则返回</span><span>-1</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>requestLayout </b>()</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当容器中的某个视图发生改变，会影响整个布局时，就调用这个方法，他会改变整个视图树的布局。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setGravity </b>(int gravity)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>描述子视图该如何摆放，默认值是</span><span>Gravity.LEFT |
+Gravity.TOP</span><span >（译者注：说明</span><span>RelativeLayout</span><span
+>的元素如果不设置位置，会从左上角开始堆叠）。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gravity
+&nbsp;&nbsp; </span><span >位置值，可以参考</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/Gravity.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Gravity</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关的</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:gravity</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/RelativeLayout.html#setHorizontalGravity%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setHorizontalGravity(int)</span></a></span></code></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/RelativeLayout.html#setVerticalGravity%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setVerticalGravity(int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setHorizontalGravity </b>(int
+horizontalGravity)</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setVerticalGravity </b>(int verticalGravity))</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setIgnoreGravity </b>(int viewId)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>定义容器中的那个</span><span>VIew</span><span
+>会忽略容器设置的</span><span>Gravity</span><span
+>，如果容器设置的</span><span>Gravity</span><span
+>是</span><span>Gravity.LEFT | Gravity.TOP</span><span
+>时，定义这个属性没有任何效果。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; viewId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>将要忽略容器</span><span>Gravity</span><span
+>的视图的</span><span>id</span><span
+>，设置为</span><span>0</span><span
+>则不会有任何</span><span>View</span><span
+>忽略</span><span>Gravity.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关的</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:ignoreGravity</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/RelativeLayout.html#setGravity%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setGravity(int)</span></a></span></code></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected boolean <b>checkLayoutParams </b>(ViewGroup.LayoutParams
+p)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（译者注：检测是不是</span><span>AbsoluteLayout.LayoutParams</span><span
+>的实例）</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected ViewGroup.LayoutParams &nbsp;<b>generateDefaultLayoutParams
+</b>()</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回一组宽度为</span><span>WRAP_CONTENT,</span><span
+>高度为</span><span>WRAP_CONTENT,</span><span
+>坐标是（</span><span>0</span><span
+>，</span><span>0</span><span style='font-family:
+宋体'>）的布局参数。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一组默认的布局参数或</span><span>null</span><span
+>值。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected ViewGroup.LayoutParams <b>generateDefaultLayoutParams
+</b>( ViewGroup .LayoutParams p)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回一组合法的受支持的布局参数。当一个</span><span>ViewGroup</span><span
+>传递一个布局参数没有通过</span><span>checkLayoutParams(android.view.ViewGroup.LayoutParams)</span><span
+>检测的视图时，此方法被调用。此方法会返回一组新的适合当前</span><span>ViewGroup</span><span
+>的布局参数，可能从指定的一组布局参数中复制适当的属性。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span >被转换成一组适合当前</span><span
+lang=EN-US> ViewGroup</span><span >的布局参数</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>ViewGroup.LayoutParams</span><span
+>的实例或者其中的一个子节点</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onLayout </b>(boolean changed, int
+l, int t, int r, int b)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在此视图</span><span>view</span><span
+>给他的每一个子元素分配大小和位置时调用。</span> <span style='font-family:
+宋体'>派生类可以重写此方法并且重新安排他们子类的布局。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; changed&nbsp;&nbsp;
+</span><span >这是当前视图</span><span>view</span><span
+>的一个新的大小或位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父节点的左边位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父节点的顶点位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父节点的右边位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>相对于父节点的底部位置</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>onMeasure </b>(int widthMeasureSpec,
+int heightMeasureSpec)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>测量视图以确定其内容宽度和高度。此方法被</span><span>measure(int,
+int)</span><span >调用。需要被子类重写以提供对其内容准确高效的测量。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >约定：当重写此方法时，你必须调用</span><span
+lang=EN-US>setMeasuredDimension(int, int)</span><span >来保存当前视图</span><span
+lang=EN-US>view</span><span >的宽度和高度。不成功调用此方法将会导致一个</span><span
+lang=EN-US>IllegalStateException</span><span >异常，是由</span><span
+lang=EN-US>measure(int, int)</span><span >抛出。所以调用父类的</span><span
+lang=EN-US>onMeasure(int, int)</span><span >方法是必须的。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >父类的实现是以背景大小为默认大小，除非</span><span
+lang=EN-US>MeasureSpec</span><span >（测量细则）允许更大的背景。子类可以重写</span><span
+lang=EN-US>onMeasure(int,int)</span><span >以对其内容提供更佳的尺寸。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果此方法被重写，那么子类的责任是确认测量高度和测量宽度要大于视图</span><span
+lang=EN-US>view</span><span >的最小宽度和最小高度（</span><span
+lang=EN-US>getSuggestedMinimumHeight() and getSuggestedMinimumWidth()</span><span
+>），使用这两个方法可以取得最小宽度和最小高度。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; widthMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>强加于父节点的横向空间要求。要求是使用</span><span>View.MeasureSpec</span><span
+>进行编码。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; heightMeasureSpec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>强加于父节点的纵向空间要求。要求是使用</span><span>View.MeasureSpec</span><span
+>进行编码。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Android</span><span
+>学习指南</span><span>] <a target="_blank" href="http://android.yaohuiji.com/archives/tag/relativelayout"><span
+lang=EN-US ><span>相对布局</span></span>
+RelativeLayout</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://blog.sina.com.cn/s/blog_55b1b0d50100n3d9.html">Android
+RelativeLayout <span ><span>属性</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://ffej1022.blogspot.com/2010/10/android-relativelayout.html">&nbsp;RelativeLayout
+<span ><span>排版</span></span> _ <span
+lang=EN-US ><span>免寫程式</span></span></a>[blogspot]</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例代码</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&lt;RelativeLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; android:layout_height=&quot;fill_parent&quot;&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;TextView</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:id=&quot;@+id/label&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:text=&quot;Type
+here:&quot;/&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;EditText</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:id=&quot;@+id/entry&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:background=&quot;@android:drawable/editbox_background&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_below=&quot;@id/label&quot;/&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;Button</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:id=&quot;@+id/ok&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_below=&quot;@id/entry&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_alignParentRight=&quot;true&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_marginLeft=&quot;10dip&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;android:text=&quot;OK&quot;
+/&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;Button</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_toLeftOf=&quot;@id/ok&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_alignTop=&quot;@id/ok&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:text=&quot;Cancel&quot; /&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&lt;/RelativeLayout&gt;</span></p>
+
+</div>
+
+<b><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

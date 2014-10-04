@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Handling Runtime Changes</title>
+</head>
+<body bgcolor=white lang=ZH-CN link=blue vlink=purple style='text-justify-trim:
+punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name="OLE_LINK2"></a><a
+name="OLE_LINK1"></a><a name="OLE_LINK7"></a><a name="OLE_LINK6"></a><a
+name="OLE_LINK5"><b><span style='font-size:18.0pt;font-family:"Calibri","sans-serif"'>Handling
+Runtime Changes</span></b></a></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>CodeGuy </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span >译者链接：</span><a target="_blank" href="http://www.cnblogs.com/CodeGuy/"><span>http://www.cnblogs.com/CodeGuy/</span></a> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2 r1</span></p>
+
+<p class=MsoNormal style='line-height:23.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/runtime-changes.html">http://developer.android.com/guide/topics/resources/runtime-changes.html</a>
+</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:14.0pt;'>处理运行时更改</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >一些设备配置在运行过程中可能会发生改变（例如屏幕横向布局、键盘可用性和语言）。当这样的变化发生时，</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Android</span><span
+>会重新启动这个正在运行的</span><span style='font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></span><span
+>（</span><span style='font-family:"Calibri","sans-serif"'>onDestroy()</span><span
+>方法会被调用，然后调用</span><span style='font-family:
+"Calibri","sans-serif"'>onCreate()</span><span >方法）。这个重启的动作是为了通过自动往你的应用程序中载入可替代资源，从而使你的应用适应新的配置。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >为了正确执行一次重启，你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>在整个平凡的生命周期中重新保存它之前的状态是很重要的，</span><span
+style='font-family:"Calibri","sans-serif"'>Android</span><span
+>是通过在销毁你的</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>之前调用</span><span style='font-family:"Calibri","sans-serif"'>onSaveInstanceState()</span><span
+>方法来保存关于应用之前状态的数据。然后你就可以在</span><span
+style='font-family:"Calibri","sans-serif"'>onCreate()</span><span
+>方法或者</span><span style='font-family:"Calibri","sans-serif"'>onRestoreInstanceState()</span><span
+>方法中重新保存应用的状态了。为了测试你的应用可以通过应用的状态原封不动地重启自己，你应该给你的应用授权</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&#8212;&#8212;</span><span
+>当程序在执行不同的任务时应用的配置可以改变（例如屏幕的方向变化）。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >为了处理一些事件，例如当用户接听一个打入的电话然后返回到你的应用程序中，在没有丢失用户数据或者状态信息的情况下，你的应用应该具备在任何时候重启自己的能力（更多参见</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals/activities.html#Lifecycle">Activity
+lifecycle</a></span><span >）。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >然而，你可能要面对这样一个情景，重启你的应用程序并重新保存大量有价值的数据会导致很差的用户体验。在这样的情景面前，你有两种选择：</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >在配置改变期间维持一个对象</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt'><span >当配置发生改变时允许你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>重启，但让其携带一个有状态的对象到你的新</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>实例中。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >你自己来处理配置的变化</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt'><span >当某些配置发生变化的时候阻止系统重启你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>，并且当配置改变时要接收一个回调，这样你就可以根据需要来手动更新你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>。</span></p>
+
+<p class=MsoNormal><span >&nbsp;</span></p>
+
+<p class=MsoNormal><span >&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;'>在配置改变期间维持一个对象</span></b></p>
+
+<p class=MsoNormal><span >&nbsp;&nbsp;&nbsp; </span><span
+>如果重启你的</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>，你需要恢复大量的数据，重新执行网络连接，或者其他深入的操作，这样由配置改变引起的一次完全启动就会引起不好的用户体验。而且，仅有</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>生命周期中为你保存的的</span><span style='font-family:
+"Calibri","sans-serif"'>Bundle</span><span >对象，你是不可能完全维护你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>的状态的</span><span style='font-family:"Calibri","sans-serif"'>&#8212;</span><span
+>不能传递很大的对象（如</span><span style='font-family:
+"Calibri","sans-serif"'>bitmap</span><span >对象），并且这些对象里面的数据必须序列化，然后解序列化，这些都需要消耗很多内存从而使配置改变得很慢。在这样的情境下，当你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>由于配置发生改变而重启时，你可以通过重新预置一个有状态的对象来减缓你程序的负担。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在运行期间配置改变时维护一个对象：</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >重写</span><span
+style='font-family:"Calibri","sans-serif"'> onRetainNonConfigurationInstance() </span><span
+>方法来返回你想要维护的对象。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >当你的</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>再次创建时，调用</span><span style='font-family:"Calibri","sans-serif"'>getLastNonConfigurationInstance()</span><span
+>方法恢复你的对象。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>由于配置发生改变要关闭的时候，</span><span style='font-family:
+"Calibri","sans-serif"'>Android</span><span >会在执行</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onStop()</span><span
+>方法与</span><span style='font-family:"Calibri","sans-serif"'>onDestroy()</span><span
+>方法之间调用</span><span style='font-family:"Calibri","sans-serif"'>onRetainNonConfigurationInstance()</span><span
+>方法。为了在配置改变后更有效地保存状态，在实现</span><span
+style='font-family:"Calibri","sans-serif"'>onRetainNonConfigurationInstance() </span><span
+>方法时你应该返回你所需要的一个对象。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个场景的可贵之处在于当你的应用程序需要从网上下载很多数据的时候。如果用户更改设备的方向并且</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>重启，你的应用程序必须要重新载入数据，那就会很慢了。你需要做的就是实现</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onRetainNonConfigurationInstance()
+</span><span >方法并返回带有你的数据的对象，然后当你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'> Activity</span><span
+>通过</span><span style='font-family:"Calibri","sans-serif"'>getLastNonConfigurationInstance()</span><span
+>方法重启时就能获取数据。例如：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=520 valign=top style='width:389.8pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#646464'>@Override</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  Object onRetainNonConfigurationInstance() {</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>final</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> MyDataObject data =
+  collectMyLoadedData();</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>return</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> data;</span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span style=';
+background:yellow'>特别提醒：</span></b><span >当你要返回任何对象的时候，你应该不要传递一个跟</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>有关联的对象，例如一个</span><span style='font-family:
+"Calibri","sans-serif"'>Drawable</span><span >对象，一个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Adapter</span><span
+>对象，一个</span><span style='font-family:"Calibri","sans-serif"'>View</span><span
+>对象或者任何其他跟</span><span style='font-family:
+"Calibri","sans-serif"'>Context</span><span >相关的对象</span><span
+style='font-family:"Calibri","sans-serif"'> </span><span style='font-family:
+宋体'>。如果你这样做，它会泄漏原来</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>实例的所有视图和资源。（泄漏资源意味着您的应用程序保持对他们的持有，他们不能被当做垃圾收集，因此内存就泄露了）</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >然后当你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>重启时获取数据：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=520 valign=top style='width:389.8pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#646464'>@</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>Override</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  onCreate(Bundle savedInstanceState) {</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>super</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'>.onCreate(savedInstanceState);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  setContentView(R.layout.main);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>final</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> MyDataObject data = (MyDataObject)
+  getLastNonConfigurationInstance();</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>if</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> (data == </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>null</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>) {</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  data = loadMyData();</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  }</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  ...</span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个例子中，</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>getLastNonConfigurationInstance()</span><span
+>获取了</span><span style='font-family:"Calibri","sans-serif"'>onRetainNonConfigurationInstance()</span><span
+>方法中保存的数据。如果数据为空，（这种情况发生在，当</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>重启是由其他原因而不是配置改变引起的）那么程序将从原来的数据源载入数据对象</span><span
+style='font-family:"Calibri","sans-serif"'> </span><span style='font-family:
+宋体'>。</span></p>
+
+<p class=MsoNormal><span >&nbsp;</span></p>
+
+<p class=MsoNormal><span >&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;'>你自己来处理配置的变化</span></b></p>
+
+<p class=MsoNormal><span >&nbsp;&nbsp;&nbsp; </span><span
+>如果在某个特殊的配置发生改变的期间你的应用程序不需要更新资源，而且你有个操作限制需要你避免</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>的重启，那么你可以声明使你自己的</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>来处理配置的变化，从而阻止系统重启你的</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>特别提醒</span></b><b><span style='font-family:
+"Calibri","sans-serif"'>: </span></b><span >选择自己来处理配置的变化会使得可替代资源的使用变得更困难，因为系统不会为你来自动调用这些资源。这种技术应该被视为最后的手段，对于大多数应用程序不建议使用。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为了声明你的</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>来处理配置的变化，在清单文件中编辑正确的</span><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></span><span
+>元素，包括赋好值的</span><span style='font-family:
+"Calibri","sans-serif"'>android:configChanges</span><span style='font-family:
+宋体'>属性，代表你要处理的配置。</span><span style='font-family:"Calibri","sans-serif"'>android:configChanges</span><span
+>属性所有可能的值都要在文档中列出（最常用的值是：</span><span
+style='font-family:"Calibri","sans-serif";color:#007900'>orientation</span><span
+>来处理当屏幕的方向变化时，</span><span style='font-family:
+"Calibri","sans-serif"'>keyboardHidden</span><span >来处理键盘可用性改变时）。你可以在属性中声明多个配置的值，通过</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>“|”</span><span
+>符号将它们分隔开。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>例如，以下清单片段声明了</span><span style='font-family:
+"Calibri","sans-serif"'>Activity</span><span >中将同时处理屏幕的方向变化和键盘的可用性变化：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>activity</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>android:name</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;.MyActivity&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:configChanges</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;orientation|keyboardHidden&quot;</span></i></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:label</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;@string/app_name&quot;</span></i><span
+  style='color:teal'>&gt;</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span >&nbsp;&nbsp;&nbsp; </span><span
+>当这些配置中的一个发生改变时，</span><span style='font-family:
+"Calibri","sans-serif";color:#007900'>MyActivity</span><span style='font-family:
+宋体'>不会重新启动。相反，这个</span><span style='font-family:"Calibri","sans-serif"'>
+Activity</span><span >会接收</span><span
+style='font-family:"Calibri","sans-serif"'>onConfigurationChanged()</span><span
+>方法的调用。这个方法传递一个</span><span style='font-family:
+"Calibri","sans-serif"'>Configuration</span><span >类的对象来标识新的设备配置。通过读取配置字段，你可以确定新的配置信息并通过更新你界面中使用的资源来正确应用这些改变。任何时候这个方法被调用，你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>的</span><span style='font-family:"Calibri","sans-serif"'>Resources</span><span
+>对象会被更新并返回一个基于新配置的</span><span
+style='font-family:"Calibri","sans-serif"'>Resources</span><span
+>对象，因此你可以在不用系统重启你的</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>的情况下很容易地重置你的</span><span style='font-family:
+"Calibri","sans-serif"'>UI</span><span >元素。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style=';background:yellow'>注意：</span></b><span style='font-family:
+宋体'>从</span><span style='font-family:"Calibri","sans-serif"'>Android
+3.2 (API level 13)</span><span >开始，</span><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>&quot;</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>screen size</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>&quot;</span></strong><strong><span
+style=';font-weight:normal'>也随着设备的横竖屏切换而改变。因此，如果你在</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>API
+level 13</span></strong><strong><span style=';font-weight:normal'>或更高（</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>minSdkVersion</span></strong><strong><span
+style=';font-weight:normal'>和</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>targetSdkVersion</span></strong><strong><span
+style=';font-weight:normal'>属性声明）进行开发时，要防止因方向改变而重新启动，你必须为</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-weight:normal'>&quot;</span></strong><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007900'>
+orientation</span></code><strong><span style='font-family:"Calibri","sans-serif";
+font-weight:normal'> &quot;</span></strong><strong><span style='font-family:
+宋体;font-weight:normal'>添加</span></strong><strong><span
+style='font-family:"Calibri","sans-serif";font-weight:normal'>&quot;<span
+style='color:#007900'>screen size</span>&quot;</span></strong><strong><span
+style=';font-weight:normal'>值。也就是说，你必须定义</span></strong><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007900'>android:configChanges=&quot;orientation|screenSize&quot;</span></code><code>。但是，如果你的应用程序目标</code><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>API level</span></code><code>为</code><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>12</span></code><code>或更低，你的</code><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>activity</span></code><code>总是要处理配置更改（配置更改没有重新启动你的</code><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>activty</span></code><code>，即使运行在</code><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Android 3.2</span></code><code>或更高版本的设备）。</code></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>例如，接下来的</span><span style='font-family:"Calibri","sans-serif"'>onConfigurationChanged()</span><span
+>方法中实现了检查硬件键盘的可用性和当前设备的方向：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#646464'>@</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>Override</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  onConfigurationChanged(Configuration newConfig) {</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>super</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'>.onConfigurationChanged(newConfig);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#3F7F5F'>// Checks the orientation of the screen</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>if</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> (newConfig.orientation ==
+  Configuration.ORIENTATION_LANDSCAPE) {</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toast.makeText(</span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>this</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>, </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;landscape&quot;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>,
+  Toast.LENGTH_SHORT).show();</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  } </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+  color:#7F0055'>else</span></b><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'> </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>if</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Toast.makeText(</span><b><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#7F0055'>this</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>, </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;portrait&quot;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>,
+  Toast.LENGTH_SHORT).show();</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  }</span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>}</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span >&nbsp;&nbsp;&nbsp; </span><span
+>这个</span><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a></span><span
+>类的对象代表着当前所有的配置信息，不仅仅那些改变的配置信息。在很多时候，你不会确切地在乎这些配置是怎么改变的，并且可以简单地重新分配所有资源，提供您正在处理的配置的可替代资源。例如，因为这个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html">Resources</a></span><span
+>对象现在被更新，你可以通过</span><span style='font-family:
+"Calibri","sans-serif"'>setImageResource(int)</span><span style='font-family:
+宋体'>方法重置任何</span><span style='font-family:"Calibri","sans-serif"'>ImageView</span><span
+>，并重置恰当的资源给当前配置使用。（详见：</span><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html#AlternateResources">Providing
+Resources</a></span><span >）</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请注意，配置字段的值是一些匹配</span><span style='font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a></span><span
+>类里特定的常量的整数。对于文档中的每个字段使用那个常量，请在</span><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a></span><span
+>类中参阅相应的字段。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>记住：</span></b><span >当你声明你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>来处理配置的变化时，你负责重置所有你提供可替代资源的元素</span><span
+style='font-family:"Calibri","sans-serif"'> </span><span style='font-family:
+宋体'>。如果你声明你的</span><span style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>来处理屏幕方向的改变并具有在横向和纵向之间切换的图像，你必须在</span><span
+style='font-family:"Calibri","sans-serif"'>onConfigurationChanged()</span><span
+>方法中给每个元素重新指定一个资源。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你不需要根据配置的变化来更新你的程序，你可以不实现</span><span
+style='font-family:"Calibri","sans-serif"'>onConfigurationChanged()</span><span
+>方法。在这种情况下，所有在配置改变之前使用的资源仍然会被使用，并且你只需要避免你的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>被重启。然而，您的应用程序应该始终能够关闭并从其之前的状态完好地重新启动。这不仅是因为存在有一些配置发生改变时你不能防止它重新启动您的应用程序，而且为了处理一些事件，例如当用户接收了电话然后返回到应用程序。</span></p>
+
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>更多关于哪些配置变化时你可以在你的</span><span
+style='font-family:"Calibri","sans-serif"'>Activity</span><span
+>中处理，参见</span><span style='font-family:"Calibri","sans-serif"'>android:configChanges</span><span
+>文档和</span><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a></span><span
+>类。</span></p>
+
+</div>
+
+      
+</body>
+</html>

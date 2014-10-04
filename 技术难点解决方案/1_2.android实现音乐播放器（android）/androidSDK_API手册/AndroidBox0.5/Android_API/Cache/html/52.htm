@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> InputMethod</title>
+</head>
+<body>     
+<div class=WordSection52 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=InputMethod><b><span
+lang=EN-US style='font-size:18.0pt'>InputMethod</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：六必治</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><u><span style='font-size:12.0pt;
+color:blue'><a target="_blank" href="http://www.cnblogs.com/zcmky/">http://www.cnblogs.com/zcmky/</a></span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public interface <span
+style='color:#C00000'>InputMethod </span>extends <span style='color:#C00000'>Object</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view.inputmethod.InputMethod</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:9.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>子类及间接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>间接子类</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/inputmethodservice/AbstractInputMethodService.AbstractInputMethodImpl.html">AbstractInputMethodService.AbstractInputMethodImpl</a>,
+<a target="_blank" href="http://developer.android.com/reference/android/inputmethodservice/InputMethodService.InputMethodImpl.html">InputMethodService.InputMethodImpl</a>
+</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>InputMethod</span><span >接口代表了输入法，它可生成按键事件，生成文本，如数字，</span><span
+lang=EN-US>email</span><span >地址，</span><span>CJK</span><span
+>字符，其它语言字符等等。在处理输入事件时，将文本返回至需要文本输入的应用程序。</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>InputMethodManager</span></a></span></code><span
+>可得到更多关于架构的信息。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>应用程序通常不使用这个接口本身，而是依靠</span><span>TextView </span><span
+>和</span><span> EditText</span><span
+>提供的标准交互。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>输入法实现通常为</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/inputmethodservice/InputMethodService.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>InputMethodService</span></a></span></code><span
+>及其子类的派生。在实现输入法时，包含它的服务控件必须提供</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#SERVICE_META_DATA"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SERVICE_META_DATA</span></a></span></code><span
+>元数据字段，该元数据字段联接至一包含输入法细节的</span><span>XML</span><span
+>资源。所有输入法也必定要求客户端包含</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BIND_INPUT_METHOD"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BIND_INPUT_METHOD</span></a></span></code><span
+>以便与服务控件交互。如果不这样，系统将无法使用输入法，因其无法确认是否完整。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>InputMethod</span><span >接口实际上分为两部分：接口是输入法的最高级接口，提供所有的访问，只有系统能访问（需要</span><span
+lang=EN-US>BIND_INPUT_METHOD</span><span >权限）。另外调用方法</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#createSession%28android.view.inputmethod.InputMethod.SessionCallback%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>createSession(android.view.inputmethod.InputMethod.SessionCallback)</span></a></span></code><span
+>可实例化</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethodSession.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>InputMethodSession</span></a></span></code><span
+>副接口，用于与客户端通讯。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>内部类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>interface &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InputMethod.SessionCallback</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>常量</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>SERVICE_INTERFACE</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>接口名字，实现输入法的服务应说明它支持输入法，也就是它将用于意向过滤器（</span><span
+lang=EN-US>intent filter</span><span >）。服务还需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BIND_INPUT_METHOD"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BIND_INPUT_METHOD</span></a></span></code><span
+>权限，这样应用程序不会滥用它。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.view.InputMethod&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>SERVICE_META_DATA</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>输入法通过此名字发布其自身信息。此元数据必须引用一个包含</span><span>&lt;
+</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/R.styleable.html#InputMethod"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>input-method</span></a></span></code><span
+lang=EN-US>&gt;</span><span >标签的</span><span>XML</span><span
+>资源。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.view.im&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>SHOW_EXPLICIT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#showSoftInput%28int,%20android.os.ResultReceiver%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>showSoftInput(int,
+ResultReceiver)</span></a></span></code><span >的标志：它表示用户显式地要求其（软键盘）显示。如果没有设置，系统决定可能是一个好主意，显示输入法在用户界面上的导航操作。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>: 1
+(0x00000001)</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>SHOW_FORCED</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>标志用于</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#showSoftInput%28int,%20android.os.ResultReceiver%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>showSoftInput(int,
+ResultReceiver)</span></a></span></code><span >：表明用户强制其（软键盘）显示。如设置，输入法保持可见直至用户在</span><span
+lang=EN-US>UI</span><span >上取消。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>: 2
+(0x00000002)</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>公共方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>attachToken</b>
+(IBinder token)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>输入法创建后首先被调用，它提供一个与系统服务会话的唯一令牌。它需要通过服务识别输入法从而验证其操作。令牌不能传递给应用程序，因其取得了应用程序不应得到的特殊权限。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注意：为避免恶意客户端伤害，你应只接收第一个令牌。其后可能来自客户端。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>bindInput</b>
+(InputBinding binding)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>将输入法与新的应用程序环境绑定，以便稍后启动、停止输入处理。通常在应用程序第一次启用输入法时调用此方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>binding &nbsp;&nbsp; </span><span
+>与输入法绑定的应用程序窗口信息。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参见</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputBinding.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>InputBinding</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#unbindInput%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>unbindInput()</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>createSession</b>
+(InputMethod.SessionCallback callback)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个新的</span><span>InputMethodSession</span><span
+>，它可处理客户应用程序与输入法的交互。你可以随后用</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#revokeSession%28android.view.inputmethod.InputMethodSession%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>revokeSession(InputMethodSession)</span></a></span></code><span
+>销毁会话，这样就不会有任何客户端使用它。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>callback  </span><span style='font-family:
+宋体'>新创建会话调用的接口。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>hideSoftInput</b>
+(int flags, ResultReceiver resultReceiver)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>将输入法的软键盘</span><span>(soft input)</span><span
+>部分对用户隐藏。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>flags &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>显示要求的附加信息。当前总是</span><span>0</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>resultReceiver &nbsp;</span><span
+>向要求显示的客户端通知结果。其结果可能为</span><span>InputMethodManager.RESULT_UNCHANGED_SHOWN,
+InputMethodManager.RESULT_UNCHANGED_HIDDEN,InputMethodManager.RESULT_SHOWN, </span><span
+>或</span><span>
+InputMethodManager.RESULT_HIDDEN</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>restartInput</b>
+(InputConnection inputConnection, EditorInfo attribute)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>输入法需重置时调用此方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>通常输入焦点从一个文本框移至另一个时调用此方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>inputConnection &nbsp;&nbsp;&nbsp; </span><span
+>可选，确定与文本框通讯的输入通讯通道；如为空，你使用通常绑定的输入通讯通道。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>attribute &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文本框（通常是</span><span>EditText</span><span
+>）需要输入的属性</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参见</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/EditorInfo.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EditorInfo</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>revokeSession</b>
+(InputMethodSession session)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>关闭并销毁先前由</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#createSession%28android.view.inputmethod.InputMethod.SessionCallback%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>createSession(android.view.inputmethod.InputMethod.SessionCallback)</span></a></span></code><span
+>创建的会话。调用后，会话不再有效，对其的调用将失败。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>session &nbsp;</span><span
+>先前由</span><span>SessionCallback.sessionCreated()</span><span
+>提供的</span><span>InputMethodSession</span><span
+>将被吊销。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>setSessionEnabled</b>
+(InputMethodSession session, boolean enabled)</span><span>.</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>控制某特定输入法会话是否激活。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>session &nbsp; </span><span
+>先前由</span><span>SessionCallback.sessionCreated()</span><span
+>提供的</span><span>InputMethodSession</span><span
+>将改变。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>showSoftInput</b>
+(int flags, ResultReceiver resultReceiver)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>将输入法的软键盘</span><span>(soft input)</span><span
+>部分对用户显示。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>flags &nbsp;</span><span style='font-family:
+宋体'>提供显示要求的附加信息。当前为</span><span>0</span><span style='font-family:
+宋体'>或设置</span><span>SHOW_EXPLICIT </span><span style='font-family:
+宋体'>位。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>resultReceiver &nbsp;</span><span
+>向要求显示的客户端通知结果。其结果可能为</span><span>InputMethodManager.RESULT_UNCHANGED_SHOWN,
+InputMethodManager.RESULT_UNCHANGED_HIDDEN,InputMethodManager.RESULT_SHOWN, </span><span
+>或</span><span>
+InputMethodManager.RESULT_HIDDEN</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>startInput</b>
+(InputConnection inputConnection, EditorInfo info)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>应用程序开始接收文本，输入法准备好为应用程序处理接收事件并返回文本时调用本方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>inputConnection &nbsp;&nbsp;&nbsp; </span><span
+>可选，确定与文本框通讯的输入通讯通道；如为空，你使用通常绑定的输入通讯通道。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>info &nbsp;</span><span style='font-family:
+宋体'>需要输入的文本框（通常是</span><span>EditText</span><span style='font-family:
+宋体'>）信息。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参见</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/EditorInfo.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EditorInfo</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public abstract void <b>unbindInput</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>解除与应用程序的绑定，先前由</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/inputmethod/InputMethod.html#bindInput%28android.view.inputmethod.InputBinding%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>bindInput(InputBinding)</span></a></span></code><span
+>设定的信息对当前输入法无效时调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>通常在应用程序变为非前台调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://blog.chinaunix.net/u3/90973/showart_2146695.html"><span
+lang=EN-US ><span>在</span></span>Android<span
+lang=EN-US ><span>中创建一种新的输入法（</span></span>Creating
+an Input Method<span ><span>）</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://blog.csdn.net/yyy025025025/archive/2010/06/29/5701958.aspx">Android
+input method panel control</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://hi.baidu.com/studymemo/blog/item/02f23132251de7f01a4cff91.html"><span
+lang=EN-US ><span>通过一个</span></span>SoftKeyboard<span
+lang=EN-US ><span>例子</span></span></a></span><span
+>（可以看看博客里的其他几篇文章）</span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://www.poemcode.net/2009/07/android_imf/">Android IMF<span
+lang=EN-US ><span>的一处瑕疵</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://www.getideas.cn/?p=231">Android IMF<span
+><span>输入法总结</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://www.oschina.net/bbs/thread/1559"><span
+><span>为</span></span> Android <span
+lang=EN-US ><span>平台开发一个输入法</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://blog.csdn.net/linux_lyb/archive/2009/04/03/4047152.aspx">Android
+IMF<span ><span>学习笔记一</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://waterlife.javaeye.com/blog/783126">Android Framework<span
+lang=EN-US ><span>系列之</span></span>IMF<span
+lang=EN-US ><span>（一）</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://waterlife.javaeye.com/blog/785244">Android Framework<span
+lang=EN-US ><span>系列之</span></span>IMF<span
+lang=EN-US ><span>（二）</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:41.95pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://waterlife.javaeye.com/blog/800014">Android Framework<span
+lang=EN-US ><span>系列之</span></span>IMF<span
+lang=EN-US ><span>（三）</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

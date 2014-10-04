@@ -1,0 +1,614 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> TableLayout</title>
+</head>
+      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>TableLayout</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>cnmahj</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span> <u><span style='color:blue'>http://android.toolib.net/blog/</span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>TableLayout</span> extends <span style='color:#C00000'>LinerLayout</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.LinearLayout</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.TableLayout</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>按照行列来组织子视图的布局。表格布局包含一系列的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'> </span><code><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.html">TableRow</a></span></code><span
+style='font-size:10.5pt'>对象，用于定义行（实际上你也可以使用其它子对象，将在后面进行解释）。表格布局不为它的行、列和单元格显示表格线。每个行可以包含</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>0</span><span
+style='font-size:10.5pt'>个以上（包括</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>0</span><span style='font-size:10.5pt'>）的单元格；</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>每个单元格可以设置一个</span><code><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a></span></code><span
+style='font-size:10.5pt'>对象</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>与行包含很多单元格一样，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>表格包含很多列。表格的单元格可以为空</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>.</span><span
+style='font-size:10.5pt'>单元格可以象</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> HTML </span><span style='font-size:10.5pt'>那样跨列。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>列的宽度由该列所有行中最宽的一个单元格决定</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>.</span><span
+style='font-size:10.5pt'>不过表格布局可以通过</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> </span><code><span
+style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnShrinkable%28int,%20boolean%29">setColumnShrinkable()</a></span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>方法或者</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> </span><code><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnStretchable%28int,%20boolean%29">setColumnStretchable()</a></span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>方法来标记某些列可以收缩或可以拉伸</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>. </span><span
+style='font-size:10.5pt'>如果标记为可以收缩，列宽可以收缩以使表格适合容器的大小。如果标记为可以拉伸，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>列宽可以拉伸以占用多余的空间。表格的总宽度由其父容器决定</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>. </span><span
+style='font-size:10.5pt'>记住列可以同时具有可拉伸和可收缩标记是很重要的。在列可以调整其宽度以占用可用空间，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>但不能超过限度时是很有用的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>最后，你可以通过调用</span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnCollapsed%28int,%20boolean%29">setColumnCollapsed()</a></span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>方法来隐藏列。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>表格布局的子对象不能指定</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> <code><span style='font-family:
+"Calibri","sans-serif";color:#007000'>layout_width</span></code><span
+lang=EN-US> </span></span><span style='font-size:10.5pt'>属性</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>.</span><span
+style='font-size:10.5pt'>宽度永远是</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> <code><span style='font-family:"Calibri","sans-serif";
+color:#007000'>MATCH_PARENT</span></code></span><span style='font-size:10.5pt'>。不过子对象可以定义</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>layout_height</span></code><span
+lang=EN-US> </span></span><span style='font-size:10.5pt'>属性；其默认值是</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></span></code><span
+lang=EN-US>. </span></span><span style='font-size:10.5pt'>如果子对象是</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.html">TableRow</a></span></code><span
+style='font-size:10.5pt'>，其高度永远是</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> <code><span style='font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></span></code></span><span
+style='font-size:10.5pt'>。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>无论是在代码还是在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'> XML </span><span style='font-size:
+10.5pt'>布局文件中，单元格必须安装索引顺序加入表格行</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>. </span><span style='font-size:10.5pt'>列号是从</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> 0 </span><span
+style='font-size:10.5pt'>开始的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>如果你不为子单元格指定列号，其将自动增值，使用下一个可用列号</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>. </span><span
+style='font-size:10.5pt'>如果你跳过某个列号，他在表格行中作为空可以改对待。参见</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> ApiDemos </span><span
+style='font-size:10.5pt'>中通过</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> XML </span><span style='font-size:10.5pt'>创建表格的布局示例。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>虽然表格布局典型的子对象是表格行，实际上你可以使用任何视图类的子类，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>作为表格视图的直接子对象</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>视图会作为只有一行并结合了所有列的单元格显示。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-tablelayout.html">Table
+Layout tutorial</a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TableLayout.LayoutParams</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >该类强制将子视图的宽度设为</span>
+<code><span style='font-size:12.0pt'><a target="_blank" href="http://android.toolib.net/reference/android/view/ViewGroup.LayoutParams.html#MATCH_PARENT"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>MATCH_PARENT</span></a></span></code><span
+>，</span> <span >将没有设置高度的子视图的高度设为</span>
+<code><span style='font-size:12.0pt'><a target="_blank" href="http://android.toolib.net/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WRAP_CONTENT</span></a></span></code><code><span
+style='font-size:12.0pt'>。</span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>XML</span></b><b><span style='font-size:12.0pt;
+'>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=198 valign=top style='width:148.8pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=321 valign=top style='width:241.0pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:collapseColumns</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >隐藏从</span><span>0</span><span
+  >开始的索引列。列直接必须用逗号隔开：</span><span>1, 2, 5</span><span
+  >。非法或重复的设置将被忽略。</span></p>
+  <p class=MsoNormal><span >相关方法</span></p>
+  <p class=MsoNormal style='text-indent:21.0pt'><span><a
+  href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnCollapsed%28int,%20boolean%29">setColumnCollapsed(int,boolean)</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:shrinkColumns</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >收缩从</span><span>0</span><span
+  >开始的索引列。列直接必须用逗号隔开：</span><span>1, 2, 5</span><span
+  >。非法或重复的设置将被忽略。你可以通过</span><span>&quot;*&quot;</span><span
+  >代替收缩所有列。注意一列能同时表示收缩和拉伸。</span></p>
+  <p class=MsoNormal><span >相关方法</span></p>
+  <p class=MsoNormal style='text-indent:21.0pt'><span><a
+  href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnCollapsed%28int,%20boolean%29">setColumnCollapsed(int,boolean)</a></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:stretchColumns</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >拉伸从</span><span>0</span><span
+  >开始的索引列。列直接必须用逗号隔开：</span><span>1, 2, 5</span><span
+  >。非法或重复的设置将被忽略。你可以通过</span><span>&quot;*&quot;</span><span
+  >代替收缩所有列。注意一列能同时表示收缩和拉伸。</span></p>
+  <p class=MsoNormal><span >相关方法</span></p>
+  <p class=MsoNormal style='text-indent:21.0pt'><span><a
+  href="http://developer.android.com/reference/android/widget/TableLayout.html#setColumnCollapsed%28int,%20boolean%29">setColumnCollapsed(int,boolean)</a></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>构造函数</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public TableLayout (Context context)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为给定的上下文创建表格布局。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>context &nbsp; </span><span >应用程序上下文</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public TableLayout (Context context, AttributeSet
+attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使用指定的属性集合为给定的上下文创建表格布局。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>context &nbsp; </span><span >应用程序上下文</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>属性集合</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>addView</b> (View child)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >添加子视图。如果子视图没有设置布局参数，则使用视图组</span><span
+lang=EN-US>(ViewGroup)</span><span >的布局参数为该视图布局。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>添加的子视图</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>addView</b> (View child, int index)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >添加子视图。如果子视图没有设置布局参数，则使用视图组</span><span
+lang=EN-US>(ViewGroup)</span><span >的布局参数为该视图布局。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>添加的子视图</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>index &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>子视图加入的位置索引</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>addView</b> (View child, int index,
+ViewGroup.LayoutParams params)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >用指定的布局参数添加一个子视图。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>添加的子视图</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>index &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>子视图加入的位置索引</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>params &nbsp; </span><span
+>为子视图指定得布局参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void addView (View child,
+ViewGroup.LayoutParams params)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使用指定的布局参数添加子视图。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>添加的子视图</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>params &nbsp; </span><span
+>设置到子视图上的布局参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public TableLayout.LayoutParams <b>generateLayoutParams</b>
+(AttributeSet attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回一组基于提供的属性集合的布局参数集合。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于生成布局参数的属性集</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ViewGroup.LayoutParams</span></a></span></code><span
+>或其子类的实例</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isColumnCollapsed</b> (int
+columnIndex)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回指定列的折叠状态。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>折叠时为</span><span>true</span><span
+>；否则为</span><span>false </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isColumnShrinkable</b> (int
+columnIndex)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回指定的列是否可收缩。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果列可以收缩，返回</span><span>true</span><span
+>；否则返回</span><span>false</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isColumnStretchable</b> (int
+columnIndex)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回指定的列是否可拉伸。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果列可以拉伸，返回</span><span>true</span><span
+>；否则返回</span><span>false</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isShrinkAllColumns</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示是否所有的列都是可收缩的。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果所有列都可收缩，返回</span><span>true</span><span
+>；否则返回</span><span>false</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isStretchAllColumns</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >指示是否所有的列都是可拉伸的。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果所有列都可拉伸，返回</span><span>true</span><span
+>；否则返回</span><span>false</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>requestLayout</b> ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >当某些变更导致视图的布局失效时调用该方法。该方法按照视图树的顺序调用。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setColumnCollapsed</b> (int
+columnIndex, boolean isCollapsed)</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>折叠或恢复给定列。折叠时，列从屏幕上消失，其空间由其它列占用。 当列属于 <code><span
+lang=EN-US><a target="_blank" href="http://android.toolib.net/reference/android/widget/TableRow.html">TableRow</a></span></code><span
+lang=EN-US> </span>时才可以进行折叠<span>/</span>恢复操作。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>调用该方法会请求布局操作。</span></p>
+<p class=MsoNormal><span>&nbsp;</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#attr_android:collapseColumns">android:collapseColumns</a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>isCollapsed &nbsp;&nbsp;&nbsp; </span><span >折叠时为</span><span
+lang=EN-US>true</span><span >；否则为</span><span>false</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setColumnShrinkable</b> (int
+columnIndex, boolean isShrinkable)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置指定列是否可收缩。当行太宽时，表格可以收缩该列以提供更多空间</span><span
+>。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >调用该方法会请求布局操作</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#attr_android:shrinkColumns">android:shrinkColumns</a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>isShrinkable &nbsp;&nbsp; </span><span >如果列可以收缩，设为真；否则设为假。默认是假。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setColumnStretchable</b> (int
+columnIndex, boolean isStretchable)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置指定列是否可拉伸。可拉伸时，列会尽可能多的占用行中的可用空间</span><span
+>。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >调用该方法会请求布局操作</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#attr_android:stretchColumns">android:stretchColumns</a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>columnIndex &nbsp; </span><span >列索引</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>isStretchable  </span><span >如果列可以拉伸，设为真；否则设为假</span><span
+lang=EN-US>.</span><span >默认是假</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOnHierarchyChangeListener</b>
+(ViewGroup.OnHierarchyChangeListener listener)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >注册当从视图中添加或移除子视图时发生的回调函数</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>listener &nbsp; </span><span >层次结构变更时执行的回调函数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setShrinkAllColumns</b> (boolean
+shrinkAllColumns)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >标记所有列为可收缩的便利的方法。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#attr_android:shrinkColumns">android:shrinkColumns</a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>shrinkAllColumns &nbsp;&nbsp; </span><span >如果标记所有列为可收缩时为</span><span
+lang=EN-US>true</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setStretchAllColumns</b> (boolean
+stretchAllColumns)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >标记所有列为可拉伸的便利的方法。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相关</span><span>XML</span><span
+>属性</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html#attr_android:stretchColumns">android:stretchColumns</a></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>stretchAllColumns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果标记所有列为可拉伸时为</span><span>true</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected boolean <b>checkLayoutParams</b>
+(ViewGroup.LayoutParams p)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（译者注：检测是不是</span><span>AbsoluteLayout.LayoutParams</span><span
+>的实例）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected LinearLayout.LayoutParams <b>generateDefaultLayoutParams</b>
+()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回宽度为</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#MATCH_PARENT"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>MATCH_PARENT</span></a></span></code><span
+>，</span> <span >高度为</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WRAP_CONTENT</span></a></span></code><span
+>的布局参数集合。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>默认布局参数集合或空</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected LinearLayout.LayoutParams <b>generateLayoutParams</b>
+(ViewGroup.LayoutParams p)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >基于提供的布局参数返回一组安全的布局参数集合</span><span
+lang=EN-US>.</span><span >当传入</span><span>
+ViewGroup </span><span >的视图的参数没有通过</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html#checkLayoutParams%28android.view.ViewGroup.LayoutParams%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>checkLayoutParams(android.view.ViewGroup.LayoutParams)</span></a></span></code><span
+lang=EN-US> </span><span >的检测时，调用该方法</span><span
+lang=EN-US>. </span><span >该方法会返回适合</span><span
+lang=EN-US> ViewGroup </span><span >的新的布局参数，可能从指定的布局参数中复制适当的属性。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>p &nbsp;&nbsp;&nbsp;&nbsp; </span><span >要转换为适合于</span><span
+lang=EN-US> ViewGroup </span><span >的布局参数的集合</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ViewGroup.LayoutParams</span></a></span></code><span
+>或其子类的实例</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onLayout</b> (boolean changed, int
+l, int t, int r, int b)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >该视图设置其子视图的大小及位置时调用</span><span
+lang=EN-US>.</span><span >派生类可以重写此方法，并为其子类布局。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>changed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>是否为视图设置了新的大小和位置</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>l &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父视图的左侧的位置</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>t &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父视图的顶部的位置</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>r &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父视图的右侧的位置</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>b &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对于父视图的底部的位置</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onMeasure</b> (int
+widthMeasureSpec, int heightMeasureSpec)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >评估视图及其内容，以决定其宽度和高度</span><span
+lang=EN-US>.</span><span >此方法由</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#measure%28int,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>measure(int, int)</span></a></span></code><span
+lang=EN-US> </span><span >调用，子类可以重载以提供更精确、更有效率的衡量其内容尺寸的方法。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><strong><span
+style='font-size:10.5pt;'>约定：</span></strong><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>覆盖该方法时，<em><span >必须</span></em>调用</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#setMeasuredDimension%28int,%20int%29">setMeasuredDimension(int,
+int)</a></span></code><span> </span></span><span style='font-size:
+10.5pt'>方法来保存评估结果的视图的宽度和高度</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>如果忘记将导致</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#measure%28int,%20int%29">measure(int,
+int)</a></span></code><span> </span></span><span style='font-size:
+10.5pt'>方法抛出</span><code><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'>IllegalStateException</span></code><span
+style='font-size:10.5pt'>异常</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>要有效的利用父类的</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onMeasure%28int,%20int%29">onMeasure(int,
+int)</a></span></code><span style='font-size:10.5pt'>方法。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>基类测量的是背景的大小，除非</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> MeasureSpec </span><span
+style='font-size:10.5pt'>允许超过背景</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>.</span><span style='font-size:10.5pt'>子类应该重写</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onMeasure%28int,%20int%29">onMeasure(int,
+int)</a></span></code><span> </span></span><span style='font-size:
+10.5pt'>方法，以为其内容提供更适合的大小。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果重写了该方法，子类要确保其高度和宽度大于等于视图的最小高度和宽度</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>. </span><span
+style='font-size:10.5pt'>（</span><code><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getSuggestedMinimumHeight%28%29">getSuggestedMinimumHeight()</a></span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>和</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> <code><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getSuggestedMinimumWidth%28%29">getSuggestedMinimumWidth()</a></span></code></span><span
+style='font-size:10.5pt'>）</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>widthMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>父视图要求的横向空间大小</span><span>.</span><span
+>该要求由</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.MeasureSpec.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View.MeasureSpec</span></a></span></code><span
+lang=EN-US> </span><span >进行了编码处理。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>heightMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>父视图要求的纵向空间大小</span><span>.</span><span
+>该要求由</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.MeasureSpec.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View.MeasureSpec</span></a></span></code><span
+lang=EN-US> </span><span >进行了编码处理。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://android.blog.51cto.com/268543/314262">Android UI<span
+><span>学习</span></span> - TableLayout</a></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

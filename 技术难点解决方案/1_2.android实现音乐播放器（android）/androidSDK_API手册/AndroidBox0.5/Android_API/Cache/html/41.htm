@@ -1,0 +1,883 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> View</title>
+</head>
+<body>     
+<div class=WordSection41 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=View><b><span
+lang=EN-US style='font-size:22.0pt'>View</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >农民伯伯</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><a target="_blank" href="http://over140.cnblogs.com/"><span
+lang=EN-US>http://over140.cnblogs.com/</span></a><span> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>直接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>AnalogClock, ImageView, KeyboardView, ProgressBar, SurfaceView, <a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/08/27/1809745.html">TextView</a>,
+ViewGroup, ViewStub&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>间接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>AbsListView, AbsSeekBar, AbsSpinner, AbsoluteLayout,
+AdapterView&lt;T extends Adapter&gt;, AppWidgetHostView, AutoCompleteTextView,
+Button, CheckBox, CheckedTextView, Chronometer, CompoundButton, DatePicker,
+DialerFilter, DigitalClock, <a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/02/1815439.html">EditText</a>,
+ExpandableListView, ExtractEditText, FrameLayout, GLSurfaceView, Gallery,
+GestureOverlayView, GridView, HorizontalScrollView, ImageButton, ImageSwitcher,
+LinearLayout, ListView, MediaController, MultiAutoCompleteTextView, QuickContactBadge,
+RadioButton, RadioGroup, RatingBar, RelativeLayout, ScrollView, SeekBar,
+SlidingDrawer, Spinner, TabHost, TabWidget, TableLayout, TableRow,
+TextSwitcher, TimePicker, ToggleButton, TwoLineListItem, VideoView,
+ViewAnimator, ViewFlipper, ViewSwitcher, WebView, ZoomButton, ZoomControls</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>XML</span><span
+>属性</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=187 valign=top style='width:140.1pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=369 valign=top style='width:276.4pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:background</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置背景色</span><span>/</span><span
+  >背景图片。可以通过以下两种方法设置背景为</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >透明：</span><span>&quot;@android:color/transparent&quot;</span><span
+  >和</span><span>&quot;@null&quot;</span><span
+  >。注意</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>TextView</span><span
+  >默认是透明的，不用写此属性，但是</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>Buttom/ImageButton/ImageView</span><span
+  >想透明的话就得写这个属</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >性了。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:clickable</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >是否响应点击事件。</span><span>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:contentDescription</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>View</span><span
+  >的备注说明，作为一种辅助功能提供，为一些没</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >有文字描述的</span><span>View</span><span
+  >提供说明，如</span><span>ImageButton</span><span
+  >。这里在界</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >面上不会有效果，自己在程序中控制，可临时放一点字符</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >串数据。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawingCacheQuality</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置绘图时半透明质量。有以下值可设置：</span><span>auto</span><span
+  >（默认，</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>由框架决定）</span><span>/high</span><span >（高质量，使用较高的颜色深度，消耗</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>更多的内存）</span><span>/low</span><span >（低质量，使用较低的颜色深度，但是</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>用更少的内存）。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span><img
+  border=0 width=326 height=154
+  src="image/image029.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:duplicateParentState</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >如果设置此属性，将直接从父容器中获取绘图状态（光标，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >按下等）。</span><span>&nbsp;</span><span
+  >见下面代码部分，注意根据目前测试情况仅仅是</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >获取绘图状态，而没有获取事件，也就是你点一下</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>LinearLayout</span><span
+  >时</span><span>Button</span><span
+  >有被点击的效果，但是不执行点击事</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >件。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:fadingEdge</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置拉滚动条时</span><span>&nbsp;</span><span
+  >，边框渐变的放向。</span><span style='font-size:
+  12.0pt;'>none</span><span style='font-size:12.0pt;font-family:
+  宋体'>（边框颜色不</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>变），<span>horizontal</span>（水平方向颜色变淡），<span
+ >vertical</span></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>（垂直方向颜色变淡）。参照<span>fadingEdgeLength</span>的</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>效果图</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:fadingEdgeLength</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>&nbsp;</span><span
+  >边框渐变的长度。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=153 height=227
+  src="image/image030.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:fitsSystemWindows</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置布局调整时是否考虑系统窗口（如状态栏）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:focusable</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否获得焦点。若有</span><span style='font-family:
+  宋体'>requestFocus()</span><span >被调用时，后者</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >优先处理。注意在表单中想设置某一个如<span>EditText</span>获取焦</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >点，光设置这个是不行的，需要将这个<span>EditText</span>前面的</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >focusable</span><span >都设置为<span
+ >false</span>才行。在<span>Touch</span>模式下获取焦点</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >需要设置<span>focusableInTouchMode</span>为<span
+ >true</span>。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:focusableInTouchMode</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置在</span><span>Touch</span><span
+  >模式下</span><span>View</span><span
+  >是否能取得焦点。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:hapticFeedbackEnabled</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p align=center style='text-align:center'>设置触感反馈。（译者注：按软键以及进行某些<span
+ >UI</span>交互时振动，暂时不知道用法，大家可以找找<span>performHapticFeedback</span>或<span
+ >HapticFeedback</span>这个关键字的资料看看。）</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:id</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >给当前</span><span>View</span><span
+  >设置一个在当前</span><span>layout.xml</span><span
+  >中的唯一编号，可</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >以通过调用</span><span>View.findViewById() </span><span
+  >或</span><span>Activity.findViewById()</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >根据这个编号查找到对应的</span><span>View</span><span
+  >。不同的</span><span>layout.xml</span><span
+  >之间</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >定义相同的</span><span>id</span><span
+  >不会冲突。格式如</span><span>”@+id/btnName”</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:isScrollContainer</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置当前</span><span>View</span><span
+  >为滚动容器。这里没有测试出效果来，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>ListView/
+  GridView/ ScrollView</span><span >根本就不用设置这个属性，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >而</span><span>EdidText</span><span
+  >设置</span><span>android:scrollbars</span><span
+  >也能出滚动条。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:keepScreenOn</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>View</span><span
+  >在可见的情况下是否保持唤醒状态。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=326 height=225
+  src="image/image031.png"></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >常在</span><span>LinearLayout</span><span
+  >使用该属性，但是模拟器这里没有效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:longClickable</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否响应长按事件</span><span>.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minHeight</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置视图最小高度</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minWidth</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置视图最小宽度度</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:nextFocusDown</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置<b>下方</b>指定视图获得下一个焦点。焦点移动是基于一个</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在<b>给定方向</b>查找最近邻居的算法。如果指定视图不存在，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >移动焦点时将报运行时错误。可以设置</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>imeOptions=
+  actionDone</span><span >，这样输入完即跳到下一个焦点。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:nextFocusLeft</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置<b>左边</b>指定视图获得下一个焦点。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:nextFocusRight</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置<b>右边</b>指定视图获得下一个焦点。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:nextFocusUp</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置<b>上方</b>指定视图获得下一个焦点。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:onClick</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >点击时从上下文中调用指定的方法。这里指定一个方法名</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >称，一般在</span><span>Activity</span><span
+  >定义符合如下参数和返回值的函数并将</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >方法名字符串指定为该值即可：</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>public
+  void onClickButton(View view)</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>android:onClick=”
+  onClickButton”</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:padding</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置上下左右的边距，以像素为单位填充空白。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=325 height=107
+  src="image/image032.jpg"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:paddingBottom</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置底部的边距，以像素为单位填充空白。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=323 height=108
+  src="image/image033.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:paddingLeft</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置左边的边距，以像素为单位填充空白。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=326 height=88
+  src="image/image034.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:paddingRight</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置右边的边距，以像素为单位填充空白。</span><span>.</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=326 height=84
+  src="image/image035.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:paddingTop</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置上方的边距，以像素为单位填充空白。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=323 height=104
+  src="image/image036.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:saveEnabled</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否在窗口冻结时（如旋转屏幕）保存</span><span>View</span><span
+  >的数据，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >默认为</span><span>true</span><span
+  >，但是前提是你需要设置</span><span>id</span><span
+  >才能自动保存，参</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >见</span><span><a
+  href="http://handsomeliuyang.javaeye.com/blog/721813"><span
+  ><span>这里</span></span></a></span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollX</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >以像素为单位设置水平方向滚动的的偏移值，在</span><span>GridView</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >中可看的这个效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollY</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >以像素为单位设置垂直方向滚动的的偏移值</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarAlwaysDrawHorizontalTrack</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否始终显示垂直滚动条。这里用</span><span>ScrollView</span><span
+  >、</span><span>ListView</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >测试均没有效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarAlwaysDrawVerticalTrack</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否始终显示垂直滚动条。这里用</span><span>ScrollView</span><span
+  >、</span><span>ListView</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >测试均没有效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarDefaultDelayBeforeFade</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>N</span><span
+  >毫秒后开始淡化，以毫秒为单位。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarFadeDuration</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置滚动条淡出效果（从有到慢慢的变淡直至消失）时间，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >以毫秒为单位。</span><span>Android2.2</span><span
+  >中滚动条滚动完之后会消失，再</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >滚动又会出来，在</span><span>1.5</span><span
+  >、</span><span>1.6</span><span
+  >版本里面会一直显示着。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarSize</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置滚动条的宽度。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarStyle</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置滚动条的风格和位置。设置值：</span><span>insideOverlay</span><span
+  >、</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>insideInset</span><span
+  >、</span><span>outsideOverlay</span><span
+  >、</span><span>outsideInset</span><span
+  >。这里没有试出太</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >多效果，以下依次是</span><span>outsideOverlay</span><span
+  >与</span><span>outsideInset</span><span
+  >效果截</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >图比较：</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=326 height=160
+  src="image/image037.jpg"><img border=0
+  width=326 height=159 src="image/image038.jpg"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarThumbHorizontal</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置水平滚动条的</span><span>drawable</span><span
+  >（如颜色）。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=154 height=228
+  src="image/image039.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarThumbVertical</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置垂直滚动条的</span><span>drawable</span><span
+  >（如颜色）</span><span>.</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=153 height=226
+  src="image/image040.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarTrackHorizontal</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置水平滚动条背景（轨迹）的色</span><span>drawable</span><span
+  >（如颜色）</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=153 height=226
+  src="image/image041.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbarTrackVertical</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'><pre>设置垂直滚动条背景（轨迹）的<span
+ >drawable</span>注意直接</pre><pre>设置颜色值如<span>”android:color/white”</span>将得出很</pre><pre>难看的效果，甚至都不理解这个属性了，这里可以</pre><pre>参见<span
+ >ApiDemos</span>里<span>res/drawable/ </span></pre><pre><span
+ >scrollbar_vertical_thumb.xml</span>和</pre><pre><span>scrollbar_vertical_track.xml</span>，设置代码为：</pre><pre><span
+ >android:scrollbarTrackVertical </span></pre><pre><span>=&quot;@drawable/scrollbar_vertical_track&quot;</span></pre>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=153 height=228
+  src="image/image042.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollbars</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置滚动条显示。</span><span>none</span><span
+  >（隐藏），</span><span>horizontal</span><span
+  >（水平），</span><span>vertical</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >（垂直）。见下列代码演示使用该属性让</span><span>EditText</span><span
+  >内有滚动</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >条。但是其他容器如</span><span>LinearLayout</span><span
+  >设置了但是没有效果。</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=154 height=227
+  src="image/image043.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:soundEffectsEnabled</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置点击或触摸时是否有声音效果</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:tag</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置一个文本标签。可以通过</span><span>View.getTag()</span><span
+  >或</span><span> for with </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>View.findViewWithTag()</span><span
+  >检索含有该标签字符串的</span><span>View</span><span
+  >。但</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >一般最好通过</span><span>ID</span><span
+  >来查询</span><span>View</span><span
+  >，因为它的速度更快，并且允</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >许编译时类型检查。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 style='width:140.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:visibility</span></b></p>
+  </td>
+  <td width=369 style='width:276.4pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否显示<span>View</span>。设置值：</span><span
+  >visible</span><span style='font-family:
+  宋体'>（默认值，显示），</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >invisible</span><span >（不显示，但是仍然占用空间），<span
+ >gone</span></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >（不显示，不占用空间）</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span >代码：</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:duplicateParentState</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal'>&lt;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#3F7F7F'>LinearLayout</span><span
+style='font-size:10.0pt;font-family:"Courier New"'> <span style='color:#7F007F'>android:clickable</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;true&quot;</span></i>
+<span style='color:#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;#ff0fff&quot;</span></i> <span style='color:#7F007F'>android:layout_width</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;100dp&quot;</span></i>
+<span style='color:#7F007F'>android:layout_height</span><span style='color:
+black'>=</span><i><span style='color:#2A00FF'>&quot;100dp&quot;</span></i><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+ </span><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal'>&lt;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#3F7F7F'>Button</span><span style='font-size:
+10.0pt;font-family:"Courier New"'> <span style='color:#7F007F'>android:duplicateParentState</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;true&quot;</span></i>
+<span style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>/&gt;</span></span></p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal'>&lt;/</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>LinearLayout</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:teal'>&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+font-family:"Courier New"'>android:scrollbars</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>EditText</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:minHeight</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;50dp&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@android:drawable/editbox_background&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:scrollbars</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;vertical&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:maxLines</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;4&quot;</span></i><span style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal'>&lt;/</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>EditText</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+
+<span style='font-size:10.0pt;font-family:"Courier New";color:teal'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<b><span style='font-size:22.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

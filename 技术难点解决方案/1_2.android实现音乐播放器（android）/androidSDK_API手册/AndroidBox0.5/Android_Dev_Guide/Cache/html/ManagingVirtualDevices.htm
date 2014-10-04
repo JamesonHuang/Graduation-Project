@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Managing Virtual Devices</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'       
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Managing Virtual Devices</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>MeetAndroid</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://blog.csdn.net/meetandroid">http://blog.csdn.net/meetandroid</a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Arial","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/developing/devices/index.html">http://developer.android.com/guide/developing/devices/index.html</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>管理虚拟设备</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>Android</span><span
+>虚拟设备（</span><span>AVD</span><span
+>）就是一个仿真器配置。通过对硬件和软件配置进行定义，就能用</span><span>Android</span><span
+>仿真器来模拟一个实际的设备。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>创建</span><span>AVD</span><span
+>最简单的方法就是使用图形化的</span><span><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds.html">AVD<span
+><span>管理器</span></span></a></span><span
+>。它既可以通过在</span><span>Eclipse</span><span
+>中点击</span><b><span>Window &gt; Android SDK
+and AVD Manager</span></b><span >来启动，也可以通过在命令行中调用</span><span>Android SDK</span><span >的</span><span>tools </span><span >目录下的</span><span>android</span><span >工具来启动。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>创建</span><span>AVD</span><span
+>也可以通过在命令行中给</span><span style='color:#007900'>android</span><span
+>工具传入适当的选项参数来实现。有关如何用这种方法来创建</span><span>AVD</span><span
+>的更多信息，请查阅</span><span><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds-cmdline.html"><span
+><span>从命令行管理虚拟设备</span></span></a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>AVD</span><span
+>由以下内容组成：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个硬件配置文件：它定义了虚拟设备的硬件功能。例如，可以定义该设备是否有一个摄像头，它是否使用一个物理的</span><span>QWERTY</span><span >键盘或拨号盘，它有多少内存，等等。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>映射到一个系统映像：你可以定义将要运行在虚拟设备上的</span><span>Android</span><span
+>平台的版本。你可以选择标准</span><span>Android</span><span
+>平台的一个版本，也可以选择被打包在</span><span>SDK</span><span
+>附加组件中的系统映像。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>其它选项：你可以指定仿真器运行此</span><span>AVD</span><span
+>时使用的皮肤，它可以让你控制屏幕尺寸，外观，等等。你还可以指定</span><span>AVD</span><span
+>使用的模拟</span><span>SD</span><span
+>卡。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>开发机器上的一个专用存储区域：设备的用户数据（被安装的应用程序，设置，等等）和模拟</span><span>SD</span><span >卡都存储在这个区域中。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>基于想要模拟的设备类型，可以根据需要创建多个</span><span>AVD</span><span
+>。为了彻底地测试应用程序，需要为每个特定的设备配置都创建一个</span><span>AVD</span><span
+>（例如不同的屏幕尺寸和平台版本）。并在每个</span><span>AVD</span><span
+>上对应用程序进行测试，以确保其兼容性。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当你为</span><span>AVD</span><span
+>选择系统映像时，需要记住以下几点：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>目标设备的</span><span>API Level</span><span
+>很重要，因为应用程序在一个低于所需</span><span>API Level</span><span
+>的系统映像上是不能运行的。应用程序所需的最低</span><span>API Level</span><span
+>由它的</span><span>manifest</span><span
+>文件中的</span><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">minSdkVersion</a></span><span
+>属性指定。有关系统</span><span>API Level</span><span
+>和应用程序</span><span>minSdkVersion</span><span
+>之间关系的更多信息，请查阅</span><span><a target="_blank" href="http://developer.android.com/guide/publishing/versioning.html"><span
+><span>指定最小系统</span></span>API<span
+><span>版本</span></span></a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>至少创建一个</span><span>AVD</span><span
+>，其目标设备的</span><span>API Level</span><span
+>要高于应用程序所需。因为这样可以测试应用程序的向前兼容性。向前兼容性测试可以确保下载过你的应用程序的用户能够接收到系统更新，从而使你的应用程序能继续正常运行。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果你的应用程序在</span><span>manifest</span><span
+>文件中声明了</span><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-library-element.html">uses-library</a></span><span
+>元素，此应用程序就只能运行在提供了扩展库的系统映像中。如果你想在仿真器上运行应用程序，就需要追寻一个包含了所需库的</span><span>AVD</span><span >。通常，创建这样的</span><span>AVD</span><span >需要使用一个专用于此</span><span>AVD</span><span >平台的附加组件（例如，</span><span>Google APIs</span><span >附加组件包含了</span><span>Google Maps</span><span >库）。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>要继续学习如何使用图形化工具管理</span><span>AVD</span><span
+>，请查阅</span><span><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds.html"><span
+><span>用</span></span>AVD<span
+><span>管理器管理</span></span>AVD</a></span><span
+>。要继续学习如何在命令行管理</span><span>AVD</span><span
+>，请查阅</span><span><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds-cmdline.html"><span
+><span>从命令行管理</span></span>AVD</a></span><span
+>。</span></p>
+
+</div>
+
+     
+</body>
+</html>

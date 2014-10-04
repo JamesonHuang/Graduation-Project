@@ -1,0 +1,2027 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> Application Fundamentals</title>
+</head>
+<body>   
+<div class=WordSection7 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=ApplicationFundamentals><b><span style='font-size:18.0pt'>Application
+Fundamentals</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>署名：译言</span><span>biAji </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>链接：</span><span><a target="_blank" href="http://article.yeeyan.org/view/37503/34036">http://article.yeeyan.org/view/37503/34036</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>整理：农民伯伯</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体;color:red'>声明</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>本文档转载并整理自译言：</span><span><a target="_blank" href="http://article.yeeyan.org/view/37503/34036">Android<span
+><span>开发指南</span></span> 1<span
+><span>──应用程序基础</span></span></a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html">http://developer.android.com/guide/topics/fundamentals.html</a>&nbsp;
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>应用程序基础</span></b><b><span
+style='font-size:12.0pt'>(Application Fundamentals)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Android</span><span >应用程序使用</span><span
+lang=EN-US>Java</span><span >做为开发语言。</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/guide/developing/tools/aapt.html">aapt</a></span><span
+>工具把编译后的</span><span>Java</span><span
+>代码连同其它应用程序需要的数据和资源文件一起打包到一个</span><span>Android</span><span
+>包文件中，这个文件使用</span><span>.apk</span><span
+>做为扩展名，它是分发应用程序并安装到移动设备的媒介，用户只需下载并安装此文件到他们的设备。单一</span><span
+lang=EN-US>.apk</span><span >文件中的所有代码被认为是一个应用程序。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:11.9pt'><span
+>从很多方面来看，每个</span><span>Android</span><span
+>应用程序都存在于它自己的世界之中：</span></p>
+<p class=MsoNormal align=left style='margin-left:32.9pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:10.0pt;font-family:Wingdings;
+color:#333333'>l<span style='font:7.0pt "Times New Roman"'> </span></span><span
+>默认情况下，每个应用程序均运行于它自己的</span><span>Linux</span><span
+>进程中。当应用程序中的任意代码开始执行时，</span><span>Android</span><span
+>启动一个进程，而当不再需要此进程而其它应用程序又需要系统资源时，则关闭这个进程。</span></p>
+<p class=MsoNormal align=left style='margin-left:32.9pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:10.0pt;font-family:Wingdings;
+color:#333333'>l<span style='font:7.0pt "Times New Roman"'> </span></span><span
+>每个进程都运行于自己的</span><span>Java</span><span
+>虚拟机（</span><span>VM</span><span
+>）中。所以应用程序代码实际上与其它应用程序的代码是隔绝的。</span></p>
+<p class=MsoNormal align=left style='margin-left:32.9pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:10.0pt;font-family:Wingdings;
+color:#333333'>l<span style='font:7.0pt "Times New Roman"'> </span></span><span
+>默认情况下，每个应用程序均被赋予一个唯一的</span><span>Linux</span><span
+>用户</span><span>ID</span><span
+>，并加以权限设置，使得应用程序的文件仅对这个用户、这个应用程序可见。当然，也有其它的方法使得这些文件同样能为别的应用程序所访问。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:11.9pt'><span
+>使两个应用程序共有同一个用户</span><span>ID</span><span
+>是可行的，这种情况下他们可以看到彼此的文件。从系统资源维护的角度来看，拥有同一个</span><span
+lang=EN-US>ID</span><span >的应用程序也将在运行时使用同一个</span><span
+lang=EN-US>Linux</span><span >进程，以及同一个虚拟机。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:10.0pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;font-family:宋体'>应用程序组件</span></b><b><span
+style='font-size:14.0pt'>(Application Components)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:10.0pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>Android</span><span >的核心功能之一就是一个应用程序可以使用其它应用程序的元素（如果那个应用程序允许的话）。比如说，如果你的应用程序需要一个图片卷动列</span>
+<span >表，而另一个应用程序已经开发了一个合用的而又允许别人使用的话，你可以直接调用那个卷动列表来完成工作，而不用自己再开发一个。你的应用程序并没有吸纳</span>
+<span >或链接其它应用程序的代码，它只是在有需求的时候启动了其它应用程序的那个功能部分。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为达到这个目的，系统必须在一个应用程序的一部分被需要时启动这个应用程序，并将那个部分的</span><span
+lang=EN-US>Java</span><span >对象实例化。与在其它系统上的应用程序不同，</span><span
+lang=EN-US>Android</span><span >应用程序没有为应用准备一个单独的程序入口（比如说，没有</span><code><span
+lang=EN-US style='font-size:12.0pt'>main()</span></code><span style='font-family:
+宋体'>方法），</span> <span >而是为系统依照需求实例化提供了基本的组件。共有四种组件类型：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Activities</b></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span>Activity</span><span
+>是为用户操作而展示的可视化用户界面。比如说，一个</span><span>activity</span><span
+>可以展示一个菜单项列表供用户选择，或者显示一些包含说明的照片。一个短消息应用程序可以包括一个用于显示做为发送对象的联系人的列表的</span><span
+lang=EN-US>activity</span><span >，一个给选定的联系人写短信的</span><span
+lang=EN-US>activity</span><span >以及翻阅以前的短信和改变设置的</span><span
+lang=EN-US>activity</span><span >。尽管它们一起组成了一个内聚的用户界面，但其中每个</span><span
+lang=EN-US>activity</span><span >都与其它的保持独立。每个都是以</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></span><span
+>类为基类的子类实现。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个应用程序可以只有一个</span><span>activity</span><span
+>，或者，如刚才提到的短信应用程序那样，包含很多个。每个</span><span>activity</span><span
+>的作用，以及其数目，自然取决于应用</span> <span >程序及其设计。一般情况下，总有一个应用程序被标记为用户在应用程序启动的时候第一个看到的。从一个</span><span
+lang=EN-US>activity</span><span >转向另一个的方式是靠当前的</span><span
+lang=EN-US> activity</span><span >启动下一个。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>每个</span><span>activity</span><span
+>都被给予一个默认的窗口以进行绘制。一般情况下，这个窗口是满屏的，但它也可以是一个小的位于其它窗口之上的浮动窗口。一个</span><span
+lang=EN-US> activity</span><span >也可以使用超过一个的窗口</span><span
+>──</span><span >比如，在</span><span
+lang=EN-US>activity</span><span >运行过程中弹出的一个供用户反应的小对话框，或是当用户选择了屏幕上特定项目后显</span>
+<span >示的必要信息。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>窗口显示的可视内容是由一系列视图构成的，这些视图均继承自</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span></a></span></code><span
+lang=EN-US> </span><span >基类。每个视图均控制着窗口中一块特定的矩形空</span> <span
+>间。父级视图包含并组织它子视图的布局。叶节点视图（位于视图层次最底端）在它们控制的矩形中进行绘制，并对用户对其直接操作做出响应。所以，视图是</span><span
+lang=EN-US> activity</span><span >与用户进行交互的界面。比如说，视图可以显示一个小图片，并在用户指点它的时候产生动作。</span><span
+lang=EN-US>Android</span><span >有很多既定的视图供用户直接使</span> <span
+>用，包括按钮、文本域、卷轴、菜单项、复选框等等。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>视图层次是由</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#setContentView%28android.view.View%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Activity.setContentView()</span></a></span></code><span
+lang=EN-US> </span><span >方法放入</span><span>activity</span><span
+>的窗口之中的。上下文视图是位于视图层次根位置的视图对象。（参见用户界面章节获取关于视图及层次的更多信息。）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>服务</span><span>(Services)</span></b></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>服务没有可视化的用户界面，而是在一段时间内在后台运行。比如说，一个服务可以在用户做其它事情的时候在后台播放背景音乐、从网络上获取一些数据或者计算一些东西并提供给需要这个运算结果的</span><span
+lang=EN-US>activity</span><span >使用。每个服务都继承自</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html">Service</a></span><span
+>基类。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个媒体播放器播放播放列表中的曲目是一个不错的例子。播放器应用程序可能有一个或多个</span><span
+lang=EN-US>activity</span><span >来给用户选择歌曲并进行播放。然而，音乐播放这个</span>
+<span >任务本身不应该为任何</span><span>activity</span><span
+>所处理，因为用户期望在他们离开播放器应用程序而开始做别的事情时，音乐仍在继续播放。为达到这个目的，媒体播放器</span><span
+lang=EN-US> activity</span><span >应该启用一个运行于后台的服务。而系统将在这个</span><span
+lang=EN-US>activity</span><span >不再显示于屏幕之后，仍维持音乐播放服务的运行。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>你可以连接至（绑定）一个正在运行的服务（如果服务没有运行，则启动之）。连接之后，你可以通过那个服务暴露出来的接口与服务进行通讯。对于音乐服务来说，这个接口可以允许用户暂停、回退、停止以及重新开始播放。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如同</span><span>activity</span><span
+>和其它组件一样，服务运行于应用程序进程的主线程内。所以它不会对其它组件或用户界面有任何干扰，它们一般会派生一个新线程来进行一些耗时任务（比如音乐回放）。参见下述</span>
+<span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#procthread"><span
+lang=EN-US ><span>进程和线程</span></span>(<span
+style='color:windowtext;text-decoration:none'><u><span style='color:blue'>Processes
+and Threads</span></u></span>) </a></span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>广播接收器</span><span>(Broadcast receivers)</span></b></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>广播接收器是一个专注于接收广播通知信息，并做出对应处理的组件。很多广播是源自于系统代码的──比如，通知时区改变、电池电量低、拍摄了一张照片或者用户改变了语言选项。应用程序也可以进行广播──比如说，通知其它应用程序一些数据下载完成并处于可用状态。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>应用程序可以拥有任意数量的广播接收器以对所有它感兴趣的通知信息予以响应。所有的接收器均继承自</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></span><span
+>基类。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>广播接收器没有用户界面。然而，它们可以启动一个</span><span>activity</span><span
+>来响应它们收到的信息，或者用</span><span><a target="_blank" href="http://developer.android.com/reference/android/app/NotificationManager.html">NotificationManager</a></span><span
+>来通知用户。通知可以用很多种方式来吸引用户的注意力</span><span style='font-family:
+宋体'>──</span><span >闪动背灯、震动、播放声音等等。一般来说是在状态栏上放一个持久的图标，用户可以打开它并获取消息。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>内容提供者</span><span>(Content providers)</span></b></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>内容提供者将一些特定的应用程序数据供给其它应用程序使用。数据可以存储于文件系统、</span><span
+lang=EN-US>SQLite</span><span >数据库或其它方式。内容提供者继承于</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html">ContentProvider</a>
+</span><span >基类，为其它应用程序取用和存储它管理的数据实现了一套标准方法。然而，应用程序并不直接调用这些方法，而是使用一个</span>
+<span><a target="_blank" href="http://developer.android.com/reference/android/content/ContentResolver.html">ContentResolver</a>
+</span><span >对象，调用它的方法作为替代。</span><span>ContentResolver</span><span
+>可以与任意内容提供者进行会话，与其合作来对所有相关交互通讯进行管理。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>参阅独立的</span><span><a target="_blank" href="http://developer.android.com/guide/topics/providers/content-providers.html"><span
+lang=EN-US ><span>内容提供者</span></span></a><a target="_blank" href="http://developer.android.com/guide/topics/providers/content-providers.html">Content
+Providers</a> </span><span >章节获得更多关于使用内容提供者的内容。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>每当出现一个需要被特定组件处理的请求时，</span><span>Android</span><span
+>会确保那个组件的应用程序进程处于运行状态，或在必要的时候启动它。并确保那个相应组件的实例的存在，必要时会创建那个实例。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>激活组件</span></b><b><span
+style='font-size:12.0pt'>Activating components: intents</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当接收到</span><span>ContentResolver</span><span
+>发出的请求后，内容提供者被激活。而其它三种组件</span><span style='font-family:
+宋体'>──</span><span>activity</span><span >、服务和广播接收器被一种叫做</span><span
+lang=EN-US>intent</span><span >的异步消息所激活。</span><span
+lang=EN-US>intent</span><span >是一个保存着消息内容的</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></span><span
+>对</span> <span >象。对于</span><span
+lang=EN-US>activity</span><span >和服务来说，它指明了请求的操作名称以及作为操作对象的数据的</span><span
+lang=EN-US>URI</span><span >和其它一些信息。比如说，它可以承载对一个</span><span
+lang=EN-US>activity </span><span >的请求，让它为用户显示一张图片，或者让用户编辑一些文本。而对于广播接收器而言，</span><span
+lang=EN-US>Intent</span><span >对象指明了声明的行为。比如，它可以对所有感兴趣的对象声</span>
+<span >明照相按钮被按下。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>对于每种组件来说，激活的方法是不同的：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>通过传递一个</span><span>Intent</span><span
+>对象至</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startActivity%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.startActivity()</span></a></span></code><span
+>或</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#startActivityForResult%28android.content.Intent,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Activity.startActivityForResult()</span></a></span></code><span
+>以载入（或指定新工作给）一个</span><span>activity</span><span
+>。相应的</span><span>activity</span><span
+>可以通过调用</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#getIntent%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getIntent()</span></a></span></code><span
+lang=EN-US> </span><span >方法来查看激活它的</span><span
+lang=EN-US>intent</span><span >。</span><span>Android</span><span
+>通过调用</span><span>activity</span><span
+>的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onNewIntent%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onNewIntent()</span></a></span></code><span
+>方法来传递给它继发的</span><span>intent</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>一个</span><span>activity</span><span
+>经常启动了下一个。如果它期望它所启动的那个</span><span>activity</span><span
+>返回一个结果，它会以调用</span><span class=Char5><span
+style='color:#007900'>startActivityForResult()</span></span><code><span
+style='font-size:12.0pt'>来取代</span></code><span class=Char5><span
+style='color:#007900'>startActivity()</span></span><code><span
+style='font-size:12.0pt'>。比如说，如果它启动了另外一个</span></code><span class=Char5><span
+lang=EN-US>activity</span></span><code><span style='font-size:12.0pt'>以使用户挑选一张照片，它也许想知道哪张照片被选中了。结果将会被封装在一个</span></code><span
+class=Char5><span>Intent</span></span><code><span style='font-size:
+12.0pt'>对象中，并传递给发出调用的</span></code><span class=Char5><span>activity</span></span><code><span
+style='font-size:12.0pt'>的<span><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onActivityResult%28int,%20int,%20android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onActivityResult()</span></a></span></span></code><span
+lang=EN-US> </span><span >方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>通过传递一个</span><span>Intent</span><span
+>对象至</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.startService()</span></a></span></code><span
+>将启动一个服务（或给予正在运行的服务以一个新的指令）。</span><span>Android</span><span
+>调用服务的</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onStart%28android.content.Intent,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStart()</span></a></span></code><span
+>方法并将</span><span>Intent</span><span
+>对象传递给它。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>与此类似，一个</span><span>Intent</span><span
+>可以被调用组件传递给</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#bindService%28android.content.Intent,%20android.content.ServiceConnection,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.bindService()</span></a></span></code><span
+>以获取一个正在运行的目标服务的连接。这个服务会经由</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onBind%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onBind()</span></a></span></code><span
+lang=EN-US> </span><span >方法的调用获取这个</span><span
+lang=EN-US>Intent</span><span >对象（如果服务尚未启动，</span><span
+class=Char5><span style='color:#007900'>bindService()</span></span><code><span
+style='font-size:12.0pt'>会先启动它</span></code><span >）。比如说，一个</span><span
+lang=EN-US>activity</span><span >可以连接至前述的音乐回放服务，并提供给用户一个可操作的（用户界面）以对回放进行控制。这个</span><span
+lang=EN-US>activity</span><span >可以调用</span> <span
+class=Char5><span style='color:#007900'>bindService() </span></span><span
+>来建立连接，然后调用服务中定义的对象来影响回放。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>后面一节：</span><span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#rpc"><span
+lang=EN-US ><span>远程方法调</span></span><span
+lang=EN-US ><span>用</span></span>(Remote
+procedure calls)</a></span><span >将更详细的阐明如何绑定至服务。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>应用程序可以凭借将</span><span>Intent</span><span
+>对象传递给</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#sendBroadcast%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.sendBroadcast()</span></a></span></code><span
+lang=EN-US> </span><span >，</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#sendOrderedBroadcast%28android.content.Intent,%20java.lang.String%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.sendOrderedBroadcast()</span></a></span></code><span
+>，</span> <span >以及</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#sendStickyBroadcast%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.sendStickyBroadcast()</span></a></span></code><span
+>和其它类似方法来产生一个广播。</span><span>Android</span><span
+>会调用所有对此广播有兴趣的广播接收器的</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive%28android.content.Context,%20android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onReceive()</span></a></span></code><span
+>方法，将</span><span>intent</span><span
+>传递给它们。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>欲了解更多</span><span>intent</span><span
+>消息的信息，请参阅独立章节</span> <span><a target="_blank" href="http://developer.android.com/guide/topics/intents/intents-filters.html">Intent<span
+lang=EN-US ><span>和</span></span>Intent<span
+lang=EN-US ><span>滤过</span></span><span
+lang=EN-US ><span>器</span></span>(<span
+style='color:windowtext;text-decoration:none'><u><span style='color:blue'>Intents
+and Intent Filters</span></u></span>)</a></span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>关闭组件</span></b><b><span
+style='font-size:12.0pt'>(Shutting down components)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>内容提供者仅在响应</span><span>ContentResolver</span><span
+>提出请求的时候激活。而一个广播接收器仅在响应广播信息的时候激活。所以，没有必要去显式的关闭这些组件。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>而</span><span>activity</span><span
+>则不同，它提供了用户界面，并与用户进行会话。所以只要会话依然持续，哪怕对话过程暂时停顿，它都会一直保持激活状态。与此相似，服务也会在很长一段时间内保持运行。所以</span><span
+lang=EN-US>Android</span><span >为关闭</span><span
+lang=EN-US>activity</span><span >和服务提供了一系列的方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>可以通过调用它的</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#finish%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>finish()</span></a></span></code><span
+>方法来关闭一个</span><span>activity</span><span
+>。一个</span><span>activity</span><span
+>可以通过调用另外一个</span><span>activity</span><span
+>（它用</span><span class=Char5><span
+style='color:#007900'>startActivityForResult() </span></span><code><span
+style='font-size:12.0pt'>启动</span></code><span >的）的</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#finishActivity%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>finishActivity()</span></a></span></code><span
+>方法来关闭它。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>服务可以通过调用它的</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#stopSelf%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>stopSelf()</span></a></span></code><span
+>方法来停止，或者调用</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#stopService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.stopService()</span></a></span></code><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>系统也会在组件不再被使用的时候或者</span><span>Android</span><span
+>需要为活动组件声明更多内存的时候关闭它。后面的</span><span><a
+href="7.htm#ComponentLifecycles"><span ><span
+lang=EN-US>组件的生命周期</span></span></a></span><span >一节，将对这种可能及附属情况进行更详细的讨论。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>manifest</span></b><b><span style='font-size:12.0pt;
+font-family:宋体'>文件</span></b><b><span style='font-size:12.0pt'>(The
+manifest file)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当</span><span>Android</span><span
+>启动一个应用程序组件之前，它必须知道那个组件是存在的。所以，应用程序会在一个</span><span
+lang=EN-US>manifest</span><span >文件中声明它的组件，这个文件会被打包到</span><span
+lang=EN-US>Android</span><span >包中。这个</span><span
+lang=EN-US>.apk</span><span >文件还将涵括应用程序的代码、文件以及其它资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这个</span><span>manifest</span><span
+>文件以</span><span>XML</span><span
+>作为结构格式，而且对于所有应用程序，都叫做</span><span>AndroidManifest.xml</span><span
+>。为声明一个应用程序组件，它还会</span> <span >做很多额外工作，比如指明应用程序所需链接到的库的名称（除了默认的</span><span
+lang=EN-US>Android</span><span >库之外）以及声明应用程序期望获得的各种权限。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>但</span><span>manifest</span><span
+>文件的主要功能仍然是向</span><span>Android</span><span
+>声明应用程序的组件。举例说明，一个</span><span>activity</span><span
+>可以如下声明：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=545 height=189
+src="image/image007.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;activity&gt;</span></a></span></code><span
+>元素的</span><span>name</span><span
+>属性指定了实现了这个</span><span>activity</span><span
+>的</span> <span><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></span><span
+>的子类。</span><span>icon</span><span
+>和</span><span>label</span><span
+>属性指向了包含展示给用户的此</span><span>activity</span><span
+>的图标和标签的资源文件。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>其它组件也以类似的方法声明</span><span >──</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/service-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;service&gt;</span></a></span></code><span
+lang=EN-US> </span><span >元素用于声明服务，</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/receiver-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;receiver&gt;</span></a></span></code><span
+lang=EN-US> </span><span >元素用于声明广播接收器，而</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/provider-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;provider&gt;</span></a></span></code><span
+lang=EN-US> </span><span >元素用于声明内容提供者。</span><span
+lang=EN-US> manifest</span><span >文件中未进行声明的</span><span
+lang=EN-US>activity</span><span >、服务以及内容提供者将不为系统所见，从而也就不会被运行。然而，广播接收器既可以在</span><span
+lang=EN-US>manifest</span><span >文件中声明，也可以在代码中进行动态的创建，并以调用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#registerReceiver%28android.content.BroadcastReceiver,%20android.content.IntentFilter%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.registerReceiver()</span></a></span></code><span
+>的方式注册至系统。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲更多了解如何为你的应用程序构建</span><span>manifest</span><span
+>文件，请参阅</span><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">AndroidManifest.xml<span
+lang=EN-US ><span>文件</span></span></a></span><span
+>一章。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>Intent</span></b><b><span style='font-size:12.0pt;
+font-family:宋体'>过滤器</span></b><b><span style='font-size:12.0pt'>(Intent
+filters)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Intent</span><span
+>对象可以被显式的指定目标组件。如果进行了这种指定，</span><span>Android</span><span
+>会找到这个组件（依据</span><span>manifest</span><span
+>文件中的声明）并激活它。但如果</span><span> Intent</span><span
+>没有进行显式的指定，</span><span>Android</span><span
+>就必须为它找到对于</span><span>intent</span><span
+>来说最合适的组件。这个过程是通过比较</span><span>Intent</span><span
+>对象和所有可能对象的</span><span>intent</span><span
+>过滤器完成的。组件的</span><span>intent</span><span
+>过滤器会告知</span><span>Android</span><span
+>它所能处理的</span><span>intent</span><span
+>类型。如同其它相对于组件很重要的信息一样，这些是在</span><span>manifest</span><span
+>文件中进行声明的。这里是上面实例的一个扩展，其中加入了针对</span><span>activity</span><span
+>的两个</span><span>intent</span><span
+>过滤器声明：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=548 height=325
+src="image/image008.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例中的第一个过滤器</span><span >──</span><span
+lang=EN-US>actio</span><span>n “</span><span class=Char5><span
+lang=EN-US style='color:#007900'>android.intent.action.MAIN</span></span><span
+lang=EN-US>”</span><span >和类别</span><span>“</span><span
+class=Char5><span style='color:#007900'>android.intent.category.LAUNCHER</span></span><span
+lang=EN-US>”</span><span >的组合</span><span
+>──</span><span >是通常具有的。它标明了这个</span><span
+lang=EN-US>activity</span><span >将在应用程序加载器中显示，就是用户在设备上看到的可供加载的应用程序列表。换句话说，这个</span><span
+lang=EN-US>activity</span><span >是应用程序的入口，是用户选择运行这个应用程序后所见到的第一个</span><span
+lang=EN-US>activity</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>第二个过滤器声明了这个</span><span>activity</span><span
+>能被赋予一种特定类型的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>组件可以拥有任意数量的</span><span>intent</span><span
+>过滤器，每个都会声明一系列不同的能力。如果它没有包含任何过滤器，它将只能被显式声明了目标组件名称的</span><span
+lang=EN-US>intent</span><span >激活。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>对于在代码中创建并注册的广播接收器来说，</span><span>intent</span><span
+>过滤器将被直接以</span> <span><a target="_blank" href="http://developer.android.com/reference/android/content/IntentFilter.html">IntentFilter</a></span><span
+>对象实例化。其它过滤器则在</span><span>manifest</span><span
+>文件中设置。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲获得更多</span><span>intent</span><span
+>过滤器的信息，请参阅独立章节：</span> <span><a target="_blank" href="http://developer.android.com/guide/topics/intents/intents-filters.html">Intent<span
+lang=EN-US ><span>和</span></span>Intent<span
+lang=EN-US ><span>过滤器</span></span></a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt'>Activity</span></b><b><span style='font-size:14.0pt;
+font-family:宋体'>和任务</span></b><b><span style='font-size:14.0pt'>(Activities
+and Tasks)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如前所述，一个</span><span>activity</span><span
+>可以启动另外一个，甚至包括与它不处于同一应用程序之中的。举个例子说，假设你想让用户看到某个地方的街道地图。而已经存</span>
+<span >在一个具有此功能的</span><span>activity</span><span
+>了，那么你的</span><span>activity</span><span
+>所需要做的工作就是把请求信息放到一个</span><span>Intent</span><span
+>对象里面，并把它传递给</span><span class=Char5><span
+style='color:#007900'>startActivity()</span></span><span style='font-family:
+宋体'>。于是地图浏览器就会显示那个地图。而当用户按下</span><span>BACK</span><span
+>键的时候，你的</span><span>activity</span><span
+>又会再一次的显示在屏幕上。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>对于用户来说，这看起来就像是地图浏览器是你</span><span>activity</span><span
+>所在的应用程序中的一个组成部分，其实它是在另外一个应用程序中定义，并运行在那个应用程序的进程之中的。</span><span
+lang=EN-US>Android</span><span >将这两个</span><span
+lang=EN-US>activity</span><span >放在同一个任务中</span> <span
+>来维持一个完整的用户体验。简单的说，任务就是用户所体验到的</span><span>“</span><span
+>应用程序</span><span>”</span><span
+>。它是安排在一个堆栈中的一组相关的</span><span>activity</span><span
+>。堆栈中的根</span><span> activity</span><span
+>就是启动了这整个任务的那个</span><span >──</span><span
+>一般情况下，它就是用户在应用程序加载器中所选择的。而堆栈最上方的</span><span>activity</span><span
+>则是当前运行的</span><span >──</span> <span
+>用户直接对其进行操作的。当一个</span><span>activity</span><span
+>启动另外一个的时候，新的</span><span>activity</span><span
+>就被压入堆栈，并成为当前运行的</span><span>activity</span><span
+>。而前一个</span><span> activity</span><span
+>仍保持在堆栈之中。当用户按下</span><span>BACK</span><span
+>键的时候，当前</span><span>activity</span><span
+>出栈，而前一个恢复为当前运行的</span><span>activity</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>堆栈中保存的其实是对象，所以如果发生了诸如需要多个地图浏览器的情况，就会使得一个任务中出现多个同一</span><span
+lang=EN-US>Activity</span><span >子类的实例同时存在，堆栈会为每个实例单独开辟一个入口。堆栈中的</span><span
+lang=EN-US>Activity</span><span >永远不会重排，只会压入或弹出。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>任务其实就是</span><span>activity</span><span
+>的堆栈，而不是</span><span>manifest</span><span
+>文件中的一个类或者元素。所以你无法撇开</span><span>activity</span><span
+>而为一个任务设置一个值。而事实上</span> <span >整个任务使用的值是在根</span><span
+lang=EN-US>activity</span><span >中设置的。比如说，下一节我们会谈及</span><span
+lang=EN-US>“</span><span >任务的</span><span>affinity”</span><span
+>，从</span><span>affinity</span><span
+>中读出的值将会设置到任务的</span> <span >根</span><span
+lang=EN-US>activity</span><span >之中。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>任务中的所有</span><span>activity</span><span
+>是作为一个整体进行移动的。整个的任务（即</span><span>activity</span><span
+>堆栈）可以移到前台，或退至后台。举个例子说，比如当前任务在堆</span> <span
+>栈中存有四个</span><span>activity</span><span
+>──</span><span >三个在当前</span><span
+lang=EN-US>activity</span><span >之下。当用户按下</span><span
+lang=EN-US>HOME</span><span >键的时候，回到了应用程序加载器，然后选择了一个新的应用程序（也</span>
+<span >就是一个新<em><span >任务</span></em>）。则当前任务遁入后台，而新任务的根</span><span
+lang=EN-US>activity</span><span >显示出来。然后，过了一小会儿，用户再次回到了应用程序加载器而又选择了前一个应用程序（上一个任务）。于是那个任务，带着它堆栈中所有的四个</span><span
+lang=EN-US>activity</span><span >，再一次的到了前台。<em><span
+>当用户</span></em><em><span style='font-family:宋体;
+font-style:normal'>按下</span></em></span><em><span style='font-family:
+"Calibri","sans-serif";font-style:normal'>BACK</span></em><em><span
+style='font-family:宋体;font-style:normal'>键的时候，屏幕不会显示出用户刚才离开的</span></em><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>（上一个任务的根</span></em><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>）。取而代之，当前任务的堆栈中最上面的</span></em><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>被弹出，而同一任务中的上一个</span></em><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>显示了出来。</span></em></p>
+<p class=MsoNormal align=left style='text-align:left'><em><span
+style='font-family:"Calibri","sans-serif";font-style:normal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></em><span
+>上述的种种即是</span><span>activity</span><span
+>和任务的默认行为模式。但是有一些方法可以改变所有这一切。</span><span>activity</span><span
+>和任务的联系、任务中</span><span>activity</span><span
+>的行为</span> <span >方式都被启动那个</span><span
+lang=EN-US>activity</span><span >的</span><span
+lang=EN-US>Intent</span><span >对象中设置的一系列标记和</span><span
+lang=EN-US>manifest</span><span >文件中那个</span><span
+lang=EN-US>activity</span><span >中的</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;activity&gt;</span></a></span></code><span
+>元素的系列属性之间的交互所控制。无论是请求发出者和回应者在这里都拥有话语权。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>我们刚才所说的这些关键</span><span>Intent</span><span
+>标记如下：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#007900'>FLAG_ACTIVITY_NEW_TASK</span></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>FLAG_ACTIVITY_CLEAR_TOP</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>FLAG_ACTIVITY_RESET_TASK_IF_NEEDED</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>FLAG_ACTIVITY_SINGLE_TOP</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>而关键的</span><span class=Char5><span
+style='color:#007900'>&lt;activity&gt;</span></span><span style='font-family:
+宋体'>属性是：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#007900'>taskAffinity</span></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>launchMode</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>allowTaskReparenting</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>clearTaskOnLaunch</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>alwaysRetainTaskState</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='color:#007900'>finishOnTaskLaunch</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>接下来的一节会描述这些标记以及属性的作用，它们是如何互相影响的，以及控制它们的使用时必须考虑到的因素。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>任务共用性和新任务</span></b><b><span
+lang=EN-US style='font-size:12.0pt'>Affinities and new tasks</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>默认情况下，一个应用程序中的</span><span>activity</span><span
+>相互之间会有一种</span><span>Affinity</span><span
+>──</span><span >也就是说，它们首选都归属于一个任务。然而，可以在</span><code><span
+lang=EN-US style='font-size:12.0pt'>&lt;</span></code><span class=Char5><span
+lang=EN-US style='color:#007900'>activity</span></span><code><span
+style='font-size:12.0pt'>&gt;</span></code><code><span style='font-size:12.0pt'>元素中把每个</span></code><span
+class=Char5><span style='color:#007900'>activity</span></span><code><span
+style='font-size:12.0pt'>的</span></code><span class=Char5><span
+style='color:#007900'>taskAffinity</span></span><span >属</span>
+<span >性设置为一个独立的</span><span>affinity</span><span
+>。于是在不同的应用程序中定义的</span><span>activity</span><span
+>可以享有同一个</span><span>affinity</span><span
+>，或者在同一个应用程序中定义的</span><span> activity</span><span
+>有着不同的</span><span>affinity</span><span
+>。</span><span>affinity</span><span
+>在两种情况下生效：当加载</span><span>activity</span><span
+>的</span><span>Intent</span><span
+>对象包含了</span><span class=Char5><span
+style='color:#007900'>FLAG_ACTIVITY_NEW_TASK</span></span><span> </span><span
+>标记，或者当</span><span>activity</span><span
+>的</span><span class=Char5><span
+style='color:#007900'>allowTaskReparenting</span></span><span style='font-family:
+宋体'>属性设置为</span><span>“</span><span class=Char5><span
+style='color:#007900'>true</span></span><span>”</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>FLAG_ACTIVITY_NEW_TASK</span></a></span></code><span
+>标记</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如前所述，在默认情况下，一个新</span><span>activity</span><span
+>被另外一个调用了</span><span class=Char5><span
+style='color:#007900'>startActivity()</span></span><span style='font-family:
+宋体'>方法的</span><span>activity</span><span >载入了任务之中。并压入了调用者所在的堆栈。然而，如果传递给</span><span
+class=Char5><span style='color:#007900'>startActivity()</span></span><span
+>的</span><span>Intent</span><span
+>对象包含了</span><span class=Char5><span
+style='color:#007900'>FLAG_ACTIVITY_NEW_TASK</span></span><span
+>标记，系统会为新</span><span>activity</span><span
+>安排另外一个任务。一般情况下，如同标记所暗示的那样，这会是一个新任务。然而，这并不是必然的。如果已经存在了一个与新</span><span
+lang=EN-US>activity</span><span >有着同样</span><span
+lang=EN-US>affinity</span><span >的任务，则</span><span
+lang=EN-US>activity</span><span >会载入那个任务之中。如果没有，则启用新任务。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html#reparent"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>allowTaskReparenting</span></a></span></code><span
+lang=EN-US> </span><span >属性</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果一个</span><span>activity</span><span
+>将</span><span class=Char5><span
+style='color:#007900'>allowTaskReparenting</span></span><span style='font-family:
+宋体'>属</span> <span >性设置为</span><span>“true”</span><span
+>。它就可以从初始的任务中转移到与其拥有同一个</span><span>affinity</span><span
+>并转向前台的任务之中。比如说，一个旅行应用程序中包含的预报所选城</span> <span
+>市的天气情况的</span><span>activity</span><span
+>。它与这个应用程序中其它的</span><span>activity</span><span
+>拥有同样的</span><span>affinity</span><span
+>（默认的</span><span>affinity</span><span
+>）而且允许重定父级。你</span> <span >的另一个</span><span
+lang=EN-US>activity</span><span >启动了天气预报，于是它就会与这个</span><span
+lang=EN-US>activity</span><span >共处与同一任务之中。然而，当那个旅行应用程序再次回到前台的时候，这个天气</span>
+<span >预报</span><span>activity</span><span
+>就会被再次安排到原先的任务之中并显示出来。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果在用户的角度看来，一个</span><span class=Char5><span
+style='color:#007900'>.apk</span></span><span >文件中包含了多于一个的</span><span
+lang=EN-US>“</span><span >应用程序</span><span>”</span><span
+>，你可能会想要为它们所辖的</span><span>activity</span><span
+>安排不一样的</span><span>affinity</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>加载模式</span></b><b><span
+style='font-size:12.0pt'>(Launch modes)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=Char5><span style='color:#007900'>&lt;activity&gt;</span></span><span
+>元素的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html#lmode"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>launchMode</span></a></span></code><span
+>属性可以设置四种不同的加载模式：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&quot;<span style='color:#007900'>standard</span>&quot; (</span><span
+>默认模式</span><span>)</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&quot;<span style='color:#007900'>singleTop</span>&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&quot;<span style='color:#007900'>singleTask</span>&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&quot;<span style='color:#007900'>singleInstance</span>&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这些模式之间的差异主要体现在四个方面：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><strong><span
+>哪个任务会把持对</span></strong><strong><span
+style='font-family:"Calibri","sans-serif"'>intent</span></strong><strong><span
+>做出响应的</span></strong><strong><span
+style='font-family:"Calibri","sans-serif"'>activity</span></strong><strong><span
+style='font-family:宋体;font-weight:normal'>。</span></strong><span
+>对</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>standard</span></span><span>”</span><span
+>和</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTop</span></span><span>”</span><span
+>模式而言，是产生</span><span>intent</span><span
+>（并调用</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startActivity%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>startActivity()</span></a></span></code><span
+>）的任务</span><span >──</span><span
+>除非</span><span>Intent</span><span
+>对象包含</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>FLAG_ACTIVITY_NEW_TASK</span></a></span></code><span
+>标记。而在这种情况下，如同上面</span><span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#afftask">Affinitie<span
+lang=EN-US ><span>和新任务</span></span></a></span><span
+>一节所述，会是另外一个任务。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>相反，对</span><span>“</span><code><span
+lang=EN-US style='font-size:12.0pt'>singleTask</span></code><span>”</span><span
+>和</span><span>“</span><code><span
+style='font-size:12.0pt'>singleInstance</span></code><span>”</span><span
+>模式而言，</span><span>activity</span><span
+>总是位于任务的根部。正是它们定义了一个任务，所以它们绝不会被载入到其它任务之中。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>activity</span></strong><strong><span
+>是否可以存在多个实例。</span></strong><span style='font-family:
+宋体'>一个</span><span>“</span><span class=Char5><span
+style='color:#007900'>standard</span></span><span>”</span><span
+>或</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTop</span></span><span>”</span><span
+>的</span><span>activity</span><span
+>可以被多次初始化。它们可以归属于多个任务，而一个任务也可以拥有同一</span><span
+lang=EN-US>activity</span><span >的多个实例。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>相反，对</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTask</span></span><span>”</span><span
+>和</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleInstance</span></span><span>”</span><span
+>的</span><span>activity</span><span
+>被限定于只能有一个实例。因为这些</span><span>activity</span><span
+>都是任务的起源，这种限制意味着在一个设备中同一时间只允许存在一个任务的实例。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><strong><span
+>在实例所在的任务中是否会有别的</span></strong><strong><span
+style='font-family:"Calibri","sans-serif"'>activity</span></strong><strong><span
+>。</span></strong><span >一个</span><span
+lang=EN-US>“</span><span class=Char5><span style='color:#007900'>singleInstance</span></span><span
+lang=EN-US>”</span><span >模式的</span><span>activity</span><span
+>将会是它所在的任务中唯一的</span><span>activity</span><span
+>。如果它启动了别的</span><span>activity</span><span
+>，那个</span><span>activity</span><span
+>将会依据它自己的加载模式加载到其它的任务中去</span><span style='font-family:
+宋体'>──</span><span >如同在</span><span>intent</span><span
+>中设置了</span><span class=Char5><span
+style='color:#007900'>FLAG_ACTIVITY_NEW_TASK</span></span><span> </span><span
+>标记一样的效果。在其它方面，</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleInstance</span></span><span
+lang=EN-US>”</span><span >模式的效果与</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleTask</span></span><span
+lang=EN-US>”</span><span >是一样的。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>剩下的三种模式允许一个任务中出现多个</span><span>activity</span><span
+>。</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTask</span></span><span>”</span><span
+>模式的</span><span>activity</span><span
+>将是任务的根</span><span>activity</span><span
+>，但它可以启动别的</span><span>activity</span><span
+>并将它们置入所在的任务中。</span><span>“</span><span
+class=Char5><span style='color:#007900'>standard</span></span><span
+lang=EN-US>”</span><span >和</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleTop</span></span><span
+lang=EN-US>”activity</span><span >则可以在堆栈的任意位置出现。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><strong><span
+>是否要载入新的类实例以处理新的</span></strong><strong><span
+style='font-family:"Calibri","sans-serif"'>intent</span></strong><strong><span
+>。</span></strong><span >对默认的</span><span
+lang=EN-US>&quot;</span><span class=Char5><span style='color:#007900'>standard</span></span><span
+lang=EN-US>&quot;</span><span >模式来说，对于每个新</span><span
+lang=EN-US>intent</span><span >都会创建一个新的实例以进行响应，每个实例仅处理一个</span><span
+lang=EN-US>intent</span><span >。</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleTop</span></span><span
+lang=EN-US>”</span><span >模式下，如果</span><span>activity</span><span
+>位于目的任务堆栈的最上面，则重用目前现存的</span><span>activity</span><span
+>来处理新的</span><span>intent</span><span
+>。如果它不是在堆栈顶部，则不会发生重用。而是创建一个新实例来处理新的</span><span
+lang=EN-US>intent</span><span >并将其推入堆栈。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>举例来说，假设一个任务的堆栈由根</span><span>activityA</span><span
+>和</span><span>activity B</span><span
+>、</span><span>C</span><span style='font-family:
+宋体'>和位于堆栈顶部的</span><span>D</span><span >组成，即堆栈</span><span
+lang=EN-US>A-B-C-D</span><span >。一个针对</span><span
+lang=EN-US>D</span><span >类型的</span><span>activity</span><span
+>的</span><span>intent</span><span
+>抵达的时候，如果</span><span>D</span><span
+>是默认的</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>standard</span></span><span>”</span><span
+>加载模式，则创建并加载一个新的类实例，于是堆栈变为</span><span>A-B-C-D-D</span><span
+>。</span> <span >然而，如果</span><span
+lang=EN-US>D</span><span >的载入模式为</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleTop</span></span><span
+lang=EN-US>”</span><span >，则现有的实例会对新</span><span
+lang=EN-US>intent</span><span >进行处理（因为它位于堆栈顶部）而堆栈保持</span><span
+lang=EN-US>A-B-C-D</span><span >的形态。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>换言之，如果新抵达的</span><span>intent</span><span
+>是针对</span><span>B</span><span
+>类型的</span><span>activity</span><span
+>，则无论</span><span>B</span><span
+>的模式是</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>standard</span></span><span>”</span><span
+>还是</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTop</span></span><span>” </span><span
+>，都会加载一个新的</span><span>B</span><span
+>的实例（因为</span><span>B</span><span
+>不位于堆栈的顶部），而堆栈的顺序变为</span><span>A-B-C-D-B</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>如前所述，</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleTask</span></span><span>”</span><span
+>或</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleInstance</span></span><span>”</span><span
+>模式的</span><span>activity</span><span
+>永远不会存在多于一个实例。所以实例将处理所有新的</span><span>intent</span><span
+>。一个</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>singleInstance</span></span><span>”</span><span
+>模式的</span><span>activity</span><span
+>永远保持在堆栈的顶部（因为它是那个堆栈中唯一的一个</span><span>activity</span><span
+>），所以它一直坚守在处理</span><span>intent</span><span
+>的岗位上。然而，对一个</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleTask</span></span><span
+lang=EN-US>”</span><span >模式的</span><span>activity</span><span
+>来说，它上面可能有，也可能没有别的</span><span>activity</span><span
+>和它处于同一堆栈。</span><code><span style='font-size:12.0pt'>在有的情况下，它就不在能够处理</span></code><span
+class=Char5><span style='color:#007900'>intent</span></span><code><span
+style='font-size:12.0pt'>的位置上，</span></code><em><span style='font-family:宋体;
+font-style:normal'>则那个</span></em><em><span style='font-family:"Calibri","sans-serif";
+font-style:normal'>intent</span></em><em><span style='font-family:宋体;
+font-style:normal'>将被舍弃</span></em><i><span >。</span></i><span
+>（即便在</span><span>intent</span><span
+>被舍弃的情况下，它的抵达仍将使这个任务切换至前台，并一直保留）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当一个现存的</span><span>activity</span><span
+>被要求处理一个新的</span><span>intent</span><span
+>的时候，会调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onNewIntent%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onNewIntent()</span></a></span></code><span
+>方法来将</span><span>intent</span><span
+>对象传递至</span><span>activity</span><span
+>。（启动</span><span>activity</span><span
+>的原始</span><span>intent</span><span
+>对象可以通过调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#getIntent%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getIntent()</span></a></span></code><span
+>方法获得。）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请注意，当一个新的</span><span>activity</span><span
+>实例被创建以处理新的</span><span>intent</span><span
+>的时候，用户总可以按下</span><span>BACK</span><span
+>键来回到前面的状态（回到前一个</span> <span>activity</span><span
+>）。但当使用现存的</span><span>activity</span><span
+>来处理新</span><span>intent</span><span
+>的时候，用户是不能靠按下</span><span>BACK</span><span
+>键回到当这个新</span><span>intent</span><span
+>抵达之前的状态</span> <span >的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>想获得更多关于加载模式的内容，请参阅</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&lt;activity&gt;</span></a></span></code><span
+lang=EN-US> </span><span >元素的描述。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>清理堆栈</span></b><b><span
+style='font-size:12.0pt'>(Clearing the stack)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果用户离开一个任务很长一段时间，系统会清理该任务中除了根</span><span>activity</span><span
+>之外的所有</span><span>activity</span><span
+>。当用户再次回到这个任务的时候，除了只剩下初</span> <span style='font-family:
+宋体'>始化</span><span>activity</span><span >尚存之外，其余都跟用户上次离开它的时候一样。这样做的原因是：在一段时间之后，用户再次回到一个任务的时候，他们更期望放弃他们之</span>
+<span >前的所作所为，做些新的事情。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这些属于默认行为，另外，也存在一些</span><span>activity</span><span
+>的属性用以控制并改变这些行为：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html#always"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>alwaysRetainTaskState</span></a></span></code><span
+lang=EN-US> </span><span >属性</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果一个任务的根</span><span>activity</span><span
+>中此属性设置为</span><span>“</span><span
+class=Char5><span style='color:#007900'>true</span></span><span
+lang=EN-US>”</span><span >，则上述默认行为不会发生。任务将在很长的一段时间内保留它堆栈内的所有</span><span
+lang=EN-US>activity</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html#clear"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>clearTaskOnLaunch</span></a></span></code><span
+>属性</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果一个任务的根</span><span>activity</span><span
+>中此属性设置为</span><span>“</span><span
+class=Char5><span style='color:#007900'>true</span></span><span
+lang=EN-US>”</span><span >，则每当用户离开这个任务和返回它的时候，堆栈都会被清空至只留下</span><span
+lang=EN-US>rootactivity</span><span >。换句话说，这是</span><span
+class=Char5><span style='color:#007900'>alwaysRetainTaskState</span></span><span
+>的另一个极端。哪怕仅是过了一小会儿，用户回到任务时，也是见到它的初始状态。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html#finish"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>finishOnTaskLaunch</span></a></span></code><span
+>属性</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这个属性与</span><span class=Char5><span
+style='color:#007900'>clearTaskOnLaunch</span></span><span style='font-family:
+宋体'>属性相似，但它仅作用于单个的</span><span>activity</span><span
+>，而不是整个的</span><span>task</span><span
+>。而且它可以使任意</span><span>activity</span><span
+>都被清理，甚至根</span><span>activity</span><span
+>也不例外。当它设置为</span><span>“</span><span
+class=Char5><span style='color:#007900'>true</span></span><span
+lang=EN-US>”</span><span >的时候，此</span><span>activity</span><span
+>仅做为任务的一部分存在于当前回话中，一旦用户离开并再次回到这个任务，此</span><span
+lang=EN-US>activity</span><span >将不复存在。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此外，还有别的方式从堆栈中移除一个</span><span>activity</span><span
+>。如果一个</span><span>intent</span><span
+>对象包含</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TOP"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>FLAG_ACTIVITY_CLEAR_TOP</span></a></span></code><span
+>标记，而且目标任务的堆栈中已经存在了一个能够响应此</span><span>intent</span><span
+>的</span><span>activity</span><span
+>类型的实例。则这个实例之上的所有</span><span>activity</span><span
+>都将被清理以使它位于堆栈的顶部来对</span><span>intent</span><span
+>做出响应。如果此时指定的</span><span>activity</span><span
+>的加载模式为</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>standard</span></span><span>”</span><span
+>，则它本身也会从堆栈中移除，并加载一个新的实例来处理到来的</span><span>intent</span><span
+>。这是因为加载模式为</span><span>“</span><span
+class=Char5><span style='color:#007900'>standard</span></span><span
+lang=EN-US>”</span><span >的</span><span>activity</span><span
+>总会创建一个新实例来处理新的</span><span>intent</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=Char5><span style='color:#007900'>FLAG_ACTIVITY_CLEAR_TOP</span></span><span
+>与</span><span class=Char5><span
+style='color:#007900'>FLAG_ACTIVITY_NEW_TASK</span></span><span
+>经常合并使用。这时，这些标记提供了一种定位其它任务中现存的</span><span>activity</span><span
+>并将它们置于可以对</span><span>intent</span><span
+>做出响应的位置的方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>启动任务</span></b><b><span
+style='font-size:12.0pt'>(Starting tasks)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当一个</span><span>activity</span><span
+>被指定一个</span><span>“</span><span class=Char5><span
+lang=EN-US style='color:#007900'>android.intent.action.MAIN</span></span><span
+lang=EN-US>”</span><span >做为动作，以及</span><span>“</span><span
+class=Char5><span style='color:#007900'>android.intent.category.LAUNCHER</span></span><span
+lang=EN-US>”</span><span >做为类别的</span><span>intent</span><span
+>过滤器之后（在前述</span><span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#ifilters">intent<span
+lang=EN-US ><span>过滤器</span></span></a></span><span
+>一节中已经有了这个示例），它就被设置为一个任务的入口点。这样的过滤器设置会在应用程序加载器中为此</span><span
+lang=EN-US>activity</span><span >显示一个图标和标签，以供用户加载任务或加载之后在任意时间回到这个任务。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>第二个能力相当重要：用户必须可以离开一个任务，并在一段时间后返回它。出于这个考虑，加载模式被设定为</span><span
+lang=EN-US>“</span><span class=Char5><span style='color:#007900'>singleTask</span></span><span
+lang=EN-US>”</span><span >和</span><span>“</span><span
+class=Char5><span style='color:#007900'>singleInstance</span></span><span
+lang=EN-US>”</span><span >的</span><span>activity</span><span
+>总是会初始化一个新任务，这样的</span><span>activity</span><span
+>仅能用于指定了一个</span><span class=Char5><span
+style='color:#007900'>MAIN</span></span><span >和</span><span
+class=Char5><span style='color:#007900'>LAUNCHER</span></span><span
+>过滤器的情况之下。我们来举例说明如果没指定过滤器的情况下会发生的事情：一个</span><span
+lang=EN-US>intent</span><span >加载了一个</span><span
+lang=EN-US>“</span><span class=Char5><span style='color:#007900'>singleTask</span></span><span
+lang=EN-US>”</span><span >的</span><span>activity</span><span
+>，初始化了一个新任务，用户在这个任务中花费了一些时间来完成工作。然后用户按下了</span><span
+lang=EN-US>HOME</span><span >键。于是任务被要求转至后台并被主屏幕所掩盖。因为它并没有在应用程序加载器中显示图标，这将导致用户无法再返回它。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>类似的困境也可由</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>FLAG_ACTIVITY_NEW_TASK</span></span><span
+>标记引起。如果此标记使一个</span><span>activity</span><span
+>启动了一个新任务继而用户按下了</span><span>HOME</span><span
+>键离开了它，则用户必须要有一些方法再次回到这个任务。一些实体（诸如通知管理器）总是在另外的任务中启动新</span><span
+lang=EN-US>activity</span><span >，而不是做为它们自己的一部分，所以它们总是将</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>FLAG_ACTIVITY_NEW_TASK</span></span><span
+>标记包含在</span><span>intent</span><span
+>里面并传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>startActivity()</span></span><span
+>。如果你写了一个能被外部实体使用这个标记调用的</span><span>activity</span><span
+>，你必须注意要给用户留一个返回这个被外部实体启动的任务的方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当你不想让用户再次返回一个</span><span>activity</span><span
+>的情况下，可以将</span> <code><span style='font-size:
+12.0pt'>&lt;</span></code><span class=y2Char><span style='font-family:
+"Calibri","sans-serif"'>activity</span></span><code><span
+style='font-size:12.0pt'>&gt;</span></code><span> </span><span
+>元素的</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>finishOnTaskLaunch</span></span><span
+>设置为</span><span>“</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>true</span></span><span
+lang=EN-US>”</span><span >。参见前述</span><span><a target="_blank" href="http://www.yeeyan.com/articles/view/37503/34036#clearstack"><span
+lang=EN-US ><span>清理堆栈</span></span></a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;font-family:宋体'>进程和线程</span></b><b><span
+style='font-size:14.0pt'>(Processes and Threads)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当一个应用程序开始运行它的第一个组件时，</span><span>Android</span><span
+>会为它启动一个</span><span>Linux</span><span
+>进程，并在其中执行一个单一的线程。默认情况下，应用程序所有的组件均在这个进程的这个线程中运行。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>然而，你也可以安排组件在其他进程中运行，而且可以为任意进程衍生出其它线程。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>进程</span></b><b><span
+style='font-size:12.0pt'>(Processes)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>组件运行所在的进程由</span><span>manifest</span><span
+>文件所控制。组件元素</span><code><span
+style='font-size:12.0pt'>——&lt;</span></code><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>activity</span></span><code><span
+lang=EN-US style='font-size:12.0pt'>&gt;</span></code><span style='font-family:
+宋体'>，</span> <code><span style='font-size:12.0pt'>&lt;</span></code><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>service</span></span><code><span
+lang=EN-US style='font-size:12.0pt'>&gt;</span></code><span style='font-family:
+宋体'>，</span> <code><span style='font-size:12.0pt'>&lt;</span></code><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>receiver</span></span><code><span
+lang=EN-US style='font-size:12.0pt'>&gt;</span></code><span style='font-family:
+宋体'>和</span><code><span style='font-size:12.0pt'>&lt;</span></code><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>provider</span></span><code><span
+lang=EN-US style='font-size:12.0pt'>&gt;</span></code><span>——</span><span
+>都有一个</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>process</span></span><span
+lang=EN-US> </span><span >属性来指定组件应当运行于哪个进程之内。这些属性可以设置为使每个组件运行于它自己的进程之内，或一些组件共享一个进程而其余的组件不这么做。它们也可以</span>
+<span >设置为令不同应用程序的组件在一个进程中运行</span><span>——</span><span
+>使应用程序的组成部分共享同一个</span><span>Linux</span><span
+>用户</span><span>ID</span><span
+>并赋以同样的权限。</span><code><span style='font-size:
+12.0pt'>&lt;</span></code><span class=y2Char><span style='font-family:
+"Calibri","sans-serif"'>application</span></span><code><span
+style='font-size:12.0pt'>&gt;</span></code><span >元素也有一个</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>process</span></span><span
+>属性，以设定所有组件的默认值。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>所有的组件实例都位于特定进程的主线程内，而对这些组件的系统调用也将由那个线程进行分发。一般不会为每个实例创建线程。因此，某些方法总是运行在进程的主线程内，这些方法包括诸如</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onKeyDown%28int,%20android.view.KeyEvent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View.onKeyDown()</span></a></span></code><span
+>这样报告用户动作以及后面</span> <span><a
+href="7.htm#ComponentLifecycles"><span ><span
+lang=EN-US>组件生命周期</span></span></a></span><span >一节所要讨论的生命周期通告的。这意味着组件在被系统调用的时候，不应该施行长时间的抑或阻塞的操作（诸如网络相关操作或是循环计算），因为这将阻塞同样位于这个进程的其它组件的运行。你应该如同下面</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#threads"><span
+lang=EN-US ><span>线程</span></span></a></span><span
+>一节所叙述的那样，为这些长时间操作衍生出一个单独的线程进行处理。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在可用内存不足而又有一个正在为用户进行服务的进程需要更多内存的时候，</span><span
+lang=EN-US>Android</span><span >有时候可能会关闭一个进程。而在这个进程中运行着的应用程序也因此被销毁。当再次出现需要它们进行处理的工作的时候，会为这些组件重新创建进程。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在决定结束哪个进程的时候，</span><span>Android</span><span
+>会衡量它们对于用户的相对重要性。比如说，相对于一个仍有用户可见的</span><span>activity</span><span
+>的进程，它更有可能去关闭</span> <span >一个其</span><span
+lang=EN-US>activity</span><span >已经不为用户所见的进程。也可以说，决定是否关闭一个进程主要依据在那个进程中运行的组件的状态。这些状态将在后续的一节</span><span
+lang=EN-US><a href="7.htm#ComponentLifecycles"><span
+><span>组件生命周期</span></span></a></span><span
+>中予以说明。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>线程</span></b><b><span
+style='font-size:12.0pt'>(Threads)&nbsp;&nbsp;&nbsp; </span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>尽管你可以把你的应用程序限制于一个单独的进程中，有时，你仍然需要衍生出一个线程以处理后台任务。因为用户界面必须非常及时的对用户操作做出响应，所</span>
+<span >以，控管</span><span>activity</span><span
+>的线程不应用于处理一些诸如网络下载之类的耗时操作。所有不能在瞬间完成的任务都应安排到不同的线程中去。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>线程在代码中是以标准</span><span>Java <a target="_blank" href="http://developer.android.com/reference/java/lang/Thread.html">Thread</a></span><span
+>对象创建的。</span><span>Android</span><span
+>提供了很多便于管理线程的类：</span> <span><a target="_blank" href="http://developer.android.com/reference/android/os/Looper.html">Looper</a></span><span
+>用于在一个线程中运行一个消息循环，</span> <span><a target="_blank" href="http://developer.android.com/reference/android/os/Handler.html">Handler</a></span><span
+>用于处理消息，</span><span><a target="_blank" href="http://developer.android.com/reference/android/os/HandlerThread.html">HandlerThread</a>
+</span><span >用于使用一个消息循环启用一个线程。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>远程方法调用</span></b><b><span
+style='font-size:12.0pt'>(Remote procedure calls)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Android</span><span
+>有一个轻量级的远程方法调用（</span><span>RPC</span><span
+>）机制：即在本地调用一个方法，但在远程（其它的进程中）进行处理，然后将结果返回调用者。这将方法调用及其附属的数据以系统可以理解的方式进行分离，并将其从本地进程和本地地址空间传送至远程过程和远程地址空间，并在那里重新装配并对调用做出反应。返回</span>
+<span >的结果将以相反的方向进行传递。</span><span>Android</span><span
+>提供了完成这些工作所需的所有的代码，以使你可以集中精力来实现</span><span>RPC</span><span
+>接口本身。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RPC</span><span
+>接口可以只包括方法。即便没有返回值，所有方法仍以同步的方式执行（本地方法阻塞直至远程方法结束）。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>简单的说，这套机制是这样工作的：一开始，你用简单的</span><span>IDL</span><span
+>（界面描绘语言）声明一个你想要实现的</span><span>RPC</span><span
+>接口。然后用</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/guide/developing/tools/aidl.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>aidl</span></a></span></code><span
+lang=EN-US> </span><span >工具为这个声明生成一个</span><span
+lang=EN-US>Java</span><span >接口定义，这个定义必须对本地和远程进程都可见。它包含两个内部类，如下图所示：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span><img
+border=0 width=553 height=428
+src="image/image009.jpg"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>内部类中有管理实现了你用</span><span>IDL</span><span
+>声明的接口的远程方法调用所需要的所有代码。两个内部类均实现了</span> <span><a target="_blank" href="http://developer.android.com/reference/android/os/IBinder.html">IBinder</a></span><span
+>接口。一个用于系统在本地内部使用，你些的代码可以忽略它；另外一个，我们称为</span><span
+lang=EN-US>Stub</span><span >，扩展了</span><span><a target="_blank" href="http://developer.android.com/reference/android/os/Binder.html">Binder</a></span><span
+>类。除了实现了</span><span>IPC</span><span
+>调用的内部代码之外，它还包括了你声明的</span><span>RPC</span><span
+>接口中的方法的声明。你应该如上图所示的那样写一个</span><span>Stub</span><span
+>的子类来实现这些方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一般情况下，远程过程是被一个服务所管理的（因为服务可以通知系统关于进程以及它连接到别的进程的信息）。它包含着</span>
+<span class=y2Char><span style='font-family:"Calibri","sans-serif"'>aidl</span></span><span
+>工具产生的接口文件和实现了</span><span>RPC</span><span
+>方法的</span><span>Stub</span><span
+>的子类。而客户端只需要包括</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>aidl</span></span><span
+>工具产生的接口文件。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下面将说明服务与其客户端之间的连接是如何建立的：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>服务的客户端（位于本地）应该实现</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ServiceConnection.html#onServiceConnected%28android.content.ComponentName,%20android.os.IBinder%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onServiceConnected()</span></a></span></code><span
+lang=EN-US> </span><span >和</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ServiceConnection.html#onServiceDisconnected%28android.content.ComponentName%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onServiceDisconnected()</span></a></span></code><span
+lang=EN-US> </span><span >方法。这样，当至远程服务的连接成功建立或者断开的时候，它们会收到通知。这样它们就可以调用</span>
+<code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#bindService%28android.content.Intent,%20android.content.ServiceConnection,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>bindService()</span></a></span></code><span
+lang=EN-US> </span><span >来设置连接。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>而服务则应该实现</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onBind%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onBind()</span></a></span></code><span
+lang=EN-US> </span><span >方法以接受或拒绝连接。这取决于它收到的</span><span
+lang=EN-US>intent</span><span >（</span><span>intent</span><span
+>将传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>bindService()</span></span><span
+>）。如果接受了连接，它会返回一个</span><span>Stub</span><span
+>的子类的实例。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果服务接受了连接，</span><span>Android</span><span
+>将会调用客户端的</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onServiceConnected()</span></span><span
+lang=EN-US> </span><span >方法，并传递给它一个</span><span
+lang=EN-US>IBinder</span><span >对象，它是由服务所管理的</span><span
+lang=EN-US>Stub</span><span >的子类的代理。通过这个代理，客户端可以对远程服务进行调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>线程安全方法</span></b><b><span
+style='font-size:12.0pt'>(Thread-safe methods)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在一些情况下，你所实现的方法有可能会被多于一个的线程所调用，所以它们必须被写成线程安全的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>对于我们上一节所讨论的</span><span>RPC</span><span
+>机制中的可以被远程调用的方法来说，这是必须首先考虑的。如果针对一个</span><span
+lang=EN-US>IBinder</span><span >对象中实现的方法的调用源自这个</span><span
+lang=EN-US> IBinder</span><span >对象所在的进程时，这个方法将会在调用者的线程中执行。然而，如果这个调用源自其它的进程，则这个方法将会在一个线程池中选出的线程中运</span>
+<span >行，这个线程池由</span><span>Android</span><span
+>加以管理，并与</span><span>IBinder</span><span
+>存在于同一进程内；这个方法不会在进程的主线程内执行。反过来说，一个服务的</span> <span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onBind()
+</span></span><span >方法应为服务进程的主线程所调用，而实现了由</span> <span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onBind()
+</span></span><span >返回的对象（比如说，一个实现了</span><span
+lang=EN-US>RPC</span><span >方法的</span><span>Stub</span><span
+>的子类）的方法将为池中的线程所调用。因为服务可以拥有多于一个的客户端，而同一时间，也会有多个池中的线程调用同一个</span><span
+lang=EN-US>IBinder</span><span >方法。因此</span><span
+lang=EN-US>IBinder</span><span >方法必须实现为线程安全的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>类似的，一个内容提供者能接受源自其它进程的请求数据。尽管</span><span>ContentResolver</span><span
+>和</span><span>ContentProvider</span><span
+>类隐藏了交互沟通过程的管理细节，</span><span>ContentProvider</span><span
+>会由</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html#query%28android.net.Uri,%20java.lang.String%5B%5D,%20java.lang.String,%20java.lang.String%5B%5D,%20java.lang.String%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>query()</span></a></span></code><span
+>，</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html#insert%28android.net.Uri,%20android.content.ContentValues%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>insert()</span></a></span></code><span
+>，</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html#delete%28android.net.Uri,%20java.lang.String,%20java.lang.String%5B%5D%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>delete()</span></a></span></code><span
+>，</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html#update%28android.net.Uri,%20android.content.ContentValues,%20java.lang.String,%20java.lang.String%5B%5D%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>update()</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/ContentProvider.html#getType%28android.net.Uri%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getType()</span></a></span></code><span
+>方法来相应这些请求，而这些方法也都是由那个内容提供者的进程中所包涵的线程池提供的，而不是进程的主线程本身。所以这些有可能在同一时间被很多线程调用的方法也必须被实现为线程安全的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><a
+name=ComponentLifecycles><b><span style='font-size:14.0pt;font-family:宋体'>组件生命周期</span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>(Component Lifecycles)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>应用程序组件有其生命周期</span><span >──</span><span
+>由</span><span>Android</span><span
+>初始化它们以相应</span><span>intent</span><span
+>直到这个实例被摧毁。在此之间，它们有时是激活的有时则相反。或者，如果它是</span> <span
+>一个</span><span>activity</span><span
+>，则是可为用户所见或者不能。这一节讨论了</span><span>activity</span><span
+>、服务以及广播接收器的生命周期，包括它们在生命周期中的状态、在状态之</span> <span
+>间<em><span >转变</span></em>时通知你的方法、以及当这些进程被关闭或实例被摧毁时，这些状态产生的效果。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>Activity</span></b><b><span style='font-size:12.0pt;
+font-family:宋体'>生命周期</span></b><b><span style='font-size:12.0pt'>(Activity
+lifecycle)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>activity</span><span
+>主要有三个状态：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>当在屏幕前台时（位于当前任务堆栈的顶部），它是<em><span style='font-family:
+宋体'>活跃</span></em>或<em><span >运行</span></em>的状态。它就是相应用户操作的</span><span
+lang=EN-US>activity</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>当它失去焦点但仍然对用户可见时，它处于<em><span >暂停</span></em>状态。即是：在它之上有另外一个</span><span
+lang=EN-US>activity</span><span >。这个</span><span
+lang=EN-US>activity</span><span >也许是透明的，或者未能完全遮蔽全屏，所以被暂停的</span><span
+lang=EN-US>activity</span><span >仍对用户可见。<em><span
+style='font-family:宋体;font-style:normal'>暂停的</span></em></span><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>仍然是存活状态</span></em><span
+>（它保留着所有的状态和成员信息并连接至窗口管理器），但当系统处于极低内存的情况下，仍然可以杀死这个</span><span
+lang=EN-US>activity</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果它完全被另一个</span><span>activity</span><span
+>覆盖是，它处于<em><span >停止</span></em>状态。它仍然保留所有的状态和成员信息。然而它不在为用户可见，所以它的窗口将被隐藏，如果其它地方需要内存，则系统经常会杀死这个</span><span
+lang=EN-US>activity</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果一个</span><span>activity</span><span
+>处于暂停或停止状态，系统可以通过要求它结束（调用它的</span> <span><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#finish%28%29">finish()</a>
+</span><span >方法）或直接杀死它的进程来将它驱出内存。当它再次为用户可见的时候，它只能完全重新启动并恢复至以前的状态。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当一个</span><span>activity</span><span
+>从这个状态转变到另一个状态时，它被以下列</span><span>protected</span><span
+>方法所通知：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#007900'>void onCreate(Bundle savedInstanceState)</span></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onStart()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onRestart()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onResume()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onPause()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onStop()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onDestroy()</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>你可以重载所有这些方法以在状态改变时进行合适的工作。所有的</span><span>activity</span><span
+>都必须实现</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onCreate%28android.os.Bundle%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onCreate()</span></a></span></code><span
+lang=EN-US> </span><span >用以当对象第一次实例化时进行初始化设置。很多</span><span
+lang=EN-US>activity</span><span >会实现</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onPause%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onPause()</span></a></span></code><span
+>以提交数据变化或准备停止与用户的交互。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>调用父类</span></b><b><span
+style='font-size:12.0pt'>(Calling into the superclass)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>所有</span><span>activity</span><span
+>生命周期方法的实现都必须先调用其父类的版本。比如说：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=273 height=79
+src="image/image010.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>总得来说，这七个方法定义了一个</span><span>activity</span><span
+>完整的生命周期。实现这些方法可以帮助你监察三个嵌套的生命周期循环：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个</span><span>activity </span><strong><span
+>完整的生命周期</span></strong> <span >自第一次调用</span>
+<span class=y2Char><span style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>开始，直至调用</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>为止。</span><span>activity</span><span
+>在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>中设置所有</span><span>“</span><span
+>全局</span><span>”</span><span
+>状态以完成初始化，而在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>中释放所有系统资源。比如说，如果</span><span>activity</span><span
+>有一个线程在后台运行以从网络上下载数据，它会以</span> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><code><span
+style='font-size:12.0pt'>创建那个线程，而以</span></code> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>销毁那个线程。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个</span><span>activity</span><span
+>的</span> <strong><span >可视生命周期</span></strong><span
+>自</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStart() </span></span><span
+>调用开始直到相应的</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop()</span></span><span
+>调用。在此期间，用户可以在屏幕上看到此</span><span>activity</span><span
+>，尽管它也许并不是位于前台或者正在与用户做交互。在这两个方法中，你可以管控用来向用户显示这个</span><span
+lang=EN-US>activity</span><span >的资源。比如说，你可以在</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onStart()
+</span></span><span >中注册一个</span><span>BroadcastReceiver
+</span><span >来监控会影响到你</span><span>UI</span><span
+>的改变，而在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop() </span></span><span
+>中来取消注册，这时用户是无法看到你的程序显示的内容的。</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onStart() </span></span><span
+>和</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop() </span></span><span
+>方法可以随着应用程序是否为用户可见而被多次调用。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个</span><span>activity</span><span
+>的</span> <strong><span >前台生命周期</span></strong>
+<span >自</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onResume() </span></span><span
+>调用起，至相应的</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause()</span></span><span
+>调用为止。在此期间，</span><span>activity</span><span
+>位于前台最上面并与用户进行交互。</span><span>activity</span><span
+>会经常在暂停和恢复之间进行状态转换</span><span >──</span><span
+>比如说当设备转入休眠状态或有新的</span><span>activity</span><span
+>启动时，将调用</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause() </span></span><span
+>方法。当</span><span>activity</span><span
+>获得结果或者接收到新的</span><span>intent</span><span
+>的时候会调用</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onResume() </span></span><span
+>方法。因此，在这两个方法中的代码应当是轻量级的。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>下图展示了上述循环过程以及</span><span>activity</span><span
+>在这个过程之中历经的状态改变。着色的椭圆是</span><span>activity</span><span
+>可以经历的主要状态。矩形框代表了当</span><span>activity</span><span
+>在状态间发生改变的时候，你进行操作所要实现的回调方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=554 height=722
+src="image/image011.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下表详细描述了这些方法，并在</span><span>activity</span><span
+>的整个生命周期中定位了它们。</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=539
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-right:solid windowtext 1.0pt;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >方法</span></p>
+  </td>
+  <td width=255 valign=top style='width:191.35pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+  <td width=95 valign=top style='width:70.9pt;border-top:solid black 1.0pt;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >是否可被杀死</span><span>(Killable?)</span></p>
+  </td>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >下一个</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onCreate%28android.os.Bundle%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onCreate()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>在</span><span>activity</span><span >第一次被创建的时候调用。这里是你做所有初始化设置的地方</span><span
+  >──</span><span >创建视图、绑定数据至列表等。如果曾经有状态记录（参阅后述</span><span
+ ><a
+  href="http://developer.android.com/guide/topics/fundamentals.html#actstate">Saving
+  Activity State</a></span><span >。），则调用此方法时会传入一个包含着此</span><span
+ >activity</span><span >以前状态的包对象做为参数。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>接下来始终遵循调用</span><span class=y2Char><span style='font-family:
+  "Calibri","sans-serif"'>onStart()</span></span><span >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >否</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStart()</span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onRestart%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onRestart()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>在</span><span>activity</span><span >停止后，在再次启动之前被调用。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>接下来始终遵循调用</span><span class=y2Char><span style='font-family:
+  "Calibri","sans-serif"'>onStart()</span></span><span >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >否</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStart()</span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onStart%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStart()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>当</span><span>activity</span><span >正要变得为用户所见时被调用。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>当</span><span>activity</span><span >转向前台时接下来调用</span><span
+  class=y2Char><span style='font-family:"Calibri","sans-serif"'>onResume()</span></span><span
+  >，在</span><span>activity</span><span
+  >变为隐藏时接下来调用</span><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStop()</span></span><span
+  >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >否</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onResume()</span></span><span
+ > </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >或</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStop()</span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onResume%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onResume()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>在</span><span>activity</span><span >开始与用户进行交互之前被调用。此时</span><span
+ >activity</span><span >位于堆栈顶部，并接受用户输入。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>接下来始终遵循调用</span><span class=y2Char><span style='font-family:
+  "Calibri","sans-serif"'>onPause()</span></span><span >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >否</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=y2><code><span style='font-size:12.0pt'>onPause()</span></code></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onPause%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onPause()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>当系统将要启动另一个</span><span>activity</span><span style='font-family:
+  宋体'>时调用。此方法主要用来将未保存的变化进行持久化，停止类似动画这样耗费</span><span>CPU</span><span
+  >的动作等。这一切动作应该在短时间内完成，因为下一个</span><span>activity</span><span
+  >必须等到此方法返回后才会继续。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>当</span><span>activity</span><span >重新回到前台时接下来调用</span><span
+  class=y2Char><span style='font-family:"Calibri","sans-serif"'>onResume()</span></span><span
+  >。当</span><span>activity</span><span
+  >变为用户不可见时接下来调用</span><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStop()</span></span><span
+  >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:宋体;color:#C00000'>是</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onResume()</span></span><span
+ > </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >或</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onStop()</span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onStop%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStop()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>当</span><span>activity</span><span >不再为用户可见时调用此方法。这可能发生在它被销毁或者另一个</span><span
+ >activity</span><span >（可能是现存的或者是新的）回到运行状态并覆盖了它。</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>如果</span><span>activity</span><span >再次回到前台跟用户交互则接下来调用</span><span
+  class=y2Char><span style='font-family:"Calibri","sans-serif"'>onRestart()</span></span><span
+  >，如果关闭</span><span>activity</span><span
+  >则接下来调用</span><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+  >。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:宋体;color:#C00000'>是</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onRestart()</span></span><span
+ > </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span>or</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span class=y2Char><span
+  style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:solid black 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#onDestroy%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onDestroy()</span></a></span></code></p>
+  </td>
+  <td width=255 style='width:191.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>在</span><span>activity</span><span >销毁前调用。这是</span><span
+ >activity</span><span >接收的最后一个调用。这可能发生在</span><span
+ >activity</span><span >结束（调用了它的</span> <code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#finish%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>finish()</span></a></span></code><span
+ > </span><span >方法）或者因为系统需要空间所以临时的销毁了此</span><span
+ >acitivity</span><span >的实例时。你可以用</span><code><span
+  style='font-size:12.0pt'><a
+  href="http://developer.android.com/reference/android/app/Activity.html#isFinishing%28%29"><span
+  style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>isFinishing()</span></a></span></code><span
+ > </span><span >方法来区分这两种情况。</span></p>
+  </td>
+  <td width=95 style='width:70.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:宋体;color:#C00000'>是</span></p>
+  </td>
+  <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >无</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请注意上表中<strong><span >可被杀死</span></strong>一列。它标示了<em><span
+style='font-family:宋体;font-style:normal'>在方法返回后，还没执行</span></em></span><em><span
+lang=EN-US style='font-family:"Calibri","sans-serif";font-style:normal'>activity</span></em><em><span
+style='font-family:宋体;font-style:normal'>的其余代码的任意时间</span></em><span
+>里，系统是否可以杀死包含此</span><span>activity</span><span
+>的进程。三个方法（</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause()</span></span><span
+>、</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop()</span></span><code><span
+style='font-size:12.0pt'>和</span></code><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>）被标记为</span><span>“</span><span
+>是</span><span>”</span><span style='font-family:
+宋体'>。</span><span class=y2Char><span style='font-family:"Calibri","sans-serif"'>onPause()</span></span><span
+>是三个中的第一个，它也是唯一一个在进程被杀死之前必然会调用的方法</span><span
+>──</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop()</span></span><span
+lang=EN-US> </span><span >和</span> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onDestroy() </span></span><span
+>有可能不被执行。因此你应该用</span> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onPause() </span></span><span
+>来将所有持久性数据（比如用户的编辑结果）写入存储之中。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在<strong><span >可被杀死</span></strong>一列中标记为</span><span
+lang=EN-US>“</span><span >否</span><span>”</span><span
+>的方法在它们被调用时将保护</span><span>activity</span><span
+>所在的进程不会被杀死。所以只有在</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onPause()</span></span><code><span
+style='font-size:12.0pt'>方法返回后到</span></code><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onResume() </span></span><span
+>方法被调用时，一个</span><span>activity</span><span
+>才处于可被杀死的状态。在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause()</span></span><code><span
+style='font-size:12.0pt'>再次被调用并返回之前，它不会被系统杀死。</span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><code><span
+style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp; </span></code><span
+>如后面一节</span><span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html#proclife"><span
+lang=EN-US ><span>进程和生命周期</span></span></a></span><span
+>所述，即使是在这里技术上没有被定义为</span><span>“</span><span
+>可杀死</span><span>”</span><span
+>的</span><span>activity</span><span
+>仍然有可能被系统杀死</span><span >──</span><span
+>但这仅会发生在实在没有其它方法的极端情况之下。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>保存</span></b><b><span
+style='font-size:12.0pt'>activity</span></b><b><span style='font-size:12.0pt;
+font-family:宋体'>状态</span></b><b><span style='font-size:12.0pt'>(Saving
+activity state)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当系统而不是用户自己出于回收内存的考虑，关闭了一个</span><span>activity</span><span
+>之后。用户会期望当他再次回到那个</span><span>activity</span><span
+>的时候，它仍保持着上次离开时的样子。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为了获取</span><span>activity</span><span
+>被杀死前的状态，你应该为</span><span>activity</span><span
+>实现</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState%28android.os.Bundle%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onSaveInstanceState()</span></a></span></code><span
+lang=EN-US> </span><span >方法。</span><span>Android</span><span
+>在</span><span>activity</span><span
+>有可能被销毁之前（即</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause() </span></span><span
+>调用之前）会调用此方法。它会将一个以名称</span><span>-</span><span
+>值对方式记录了</span><span>activity</span><span
+>动态状态的</span><span><a target="_blank" href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a>
+</span><span >对象传递给该方法。当</span><span>activity</span><span
+>再次启动时，这个</span><span>Bundle</span><span
+>会传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>方法和随着</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStart()</span></span><span
+>方法调用的</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onRestoreInstanceState%28android.os.Bundle%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onRestoreInstanceState()</span></a></span></code><span
+>，所以它们两个都可以恢复捕获的状态。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>与</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onPause()</span></span><span
+>或先前讨论的其它方法不同，</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onSaveInstanceState()</span></span><span
+lang=EN-US> </span><span >和</span> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onRestoreInstanceState() </span></span><span
+>并不是生命周期方法。它们并不是总会被调用。比如说，</span><span>Android</span><span
+>会在</span><span>activity</span><span
+>易于被系统销毁之前调用</span> <span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onSaveInstanceState()</span></span><span
+>，但用户动作（比如按下了</span><span>BACK</span><span
+>键）造成的销毁则不调用。在这种情况下，用户没打算再次回到这个</span><span>activity</span><span
+>，所以没有保存状态的必要。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>因为</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onSaveInstanceState()</span></span><span
+>不是总被调用，所以你应该只用它来为</span><span>activity</span><span
+>保存一些临时的状态，而不能用来保存持久性数据。而是应该用</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onPause()</span></span><span
+>来达到这个目的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>服务生命周期</span></b><b><span
+style='font-size:12.0pt'>(Coordinating activities)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>服务以两种方式使用：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它可以启动并运行，直至有人停止了它或它自己停止。在这种方式下，它以调用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.startService()</span></a></span></code><span
+>启动，而以调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#stopService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.stopService()</span></a></span></code><span
+>结束。它可以调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#stopSelf%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Service.stopSelf()</span></a></span></code><span
+lang=EN-US> </span><span >或</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#stopSelfResult%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Service.stopSelfResult()</span></a></span></code><span
+>来自己停止。不论调用了多少次</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>startService()</span></span><span
+>方法，你只需要调用一次</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>stopService()</span></span><span
+>来停止服务。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它可以通过自己定义并暴露出来的接口进行程序操作。客户端建立一个到服务对象的连接，并通过那个连接来调用服务。连接以调用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#bindService%28android.content.Intent,%20android.content.ServiceConnection,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.bindService()</span></a></span></code><span
+>方法建立，以调用</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#unbindService%28android.content.ServiceConnection%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.unbindService()</span></a></span></code><span
+>关闭。多个客户端可以绑定至同一个服务。如果服务此时还没有加载，</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>bindService()</span></span><span
+>会先加载它。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>这两种模式并不是完全分离的。你可以绑定至一个用</span> <span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>startService()</span></span><span
+>启动的服务。比如说，一个后台音乐播放服务可以调用</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>startService()</span></span><span
+>并传递给它一个包含欲播放的音乐列表的</span><span>Intent</span><span
+>对象来启动。不久，当用户想要对播放器进行控制或者查看当前播放曲目的详情时，会启用一个</span><span
+lang=EN-US>activity</span><span >，调用</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>bindService()</span></span><span
+>连接到服务来完成操作。在这种情况下，直到绑定连接关闭</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>stopService() </span></span><span
+>才会真正停止一个服务。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>与</span><span>activity</span><span
+>一样，服务也有一系列你可以实现以用于监控其状态变化的生命周期方法。但相对于</span><span
+lang=EN-US>activity</span><span >要少一些，只有三个，而且，它们是</span><span
+lang=EN-US>public</span><span >属性，并非</span><span
+lang=EN-US>protected</span><span >：</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onCreate()</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onStart(Intent
+intent)</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007900'>void onDestroy()</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>倚仗实现这些方法，你监控服务的两个嵌套的生命周期循环：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>服务的<strong><span >完整生命周期</span></strong>始于调用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onCreate%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onCreate()</span></a></span></code><span
+>而终于</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onDestroy%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onDestroy()</span></a></span></code><span
+>方法返回。如同</span><span>activity</span><span
+>一样，服务在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>里面进行它自己的初始化，而在</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>里面释放所有资源。比如说，一个音乐回放服务可以在</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>中创建播放音乐的线程，</span> <span >而在</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>中停止这个线程。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>服务的<strong><span >活跃生命周期</span></strong>始于调用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onStart%28android.content.Intent,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStart()</span></a></span></code><span
+>。这个方法用于处理传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>startService()</span></span><span
+>的</span><span>Intent</span><span
+>对象。音乐服务会打开</span><span>Intent</span><span
+>来探明将要播放哪首音乐，并开始播放。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>服务停止时没有相应的回调方法</span><span >──</span><span
+>不存在</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStop()</span></span><span
+>方法。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onCreate()</span></span><span
+>和</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onDestroy()</span></span><span
+>方法在所有服务中都会被调用，无论它们是由</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.startService()</span></a></span></code><span
+>还是由</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#bindService%28android.content.Intent,%20android.content.ServiceConnection,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Context.bindService()</span></a></span></code><span
+>所启动的。而</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onStart()</span></span><span
+>仅会被</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>startService()</span></span><span
+>所启用的服务调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果一个服务允许别的进程绑定，则它还会有以下额外的回调方法以供实现：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:31.5pt'><span
+lang=EN-US style='color:#007900'>IBinder onBind(Intent intent)</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left'><span
+lang=EN-US style='color:#007900'>boolean onUnbind(Intent intent)</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left'><span
+lang=EN-US style='color:#007900'>void onRebind(Intent intent)</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>bindService</span></span><span
+>的</span><span>Intent</span><span
+>的对象也会传递给</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onBind%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onBind()</span></a></span></code><span
+>回调方法，而传递给</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>unbindService()</span></span><span
+>的</span><span>Intent</span><span
+>对象同样传递给</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onUnbind%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onUnbind()</span></a></span></code><span
+>。如果服务允许绑定，</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onBind()</span></span><span
+>将返回一个供客户端与服务进行交互的通讯渠道。如果有新的客户端连接至服务，则</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onUnbind()</span></span><span
+>方法可以要求调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onRebind%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onRebind()</span></a></span></code><span
+lang=EN-US> </span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下图描绘了服务的回调方法。尽管图中对由</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>startService</span></span><span
+lang=EN-US> </span><span >和</span><span class=y2Char><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>startService</span></span><span
+>方法启动的服务做了区分，但要记住，不论一个服务是怎么启动的，它都可能允许客户端的连接，所以任何服务都可以接受</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onBind()</span></span><span
+>和</span><span class=y2Char><span
+style='font-family:"Calibri","sans-serif"'>onUnbind()</span></span><span
+>调用。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US><img border=0 width=553 height=540
+src="image/image012.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><a
+name=BroadcastReceiverLifecycle><b><span style='font-size:12.0pt;font-family:
+宋体'>广播接收器生命周期</span></b></a><b><span style='font-size:12.0pt'>(Broadcast
+receiver lifecycle)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>广播接收器只有一个回调方法：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#007900'>void onReceive(Context curContext, Intent broadcastMsg)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当广播消息抵达接收器时，</span><span>Android</span><span
+>调用它的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive%28android.content.Context,%20android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onReceive()</span></a></span></code><span
+lang=EN-US> </span><span >方法并将包含消息的</span><span
+lang=EN-US>Intent</span><span >对象传递给它。广播接收器仅在它执行这个方法时处于活跃状态。当</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onReceive()</span></span><span
+>返回后，它即为失活状态。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>拥有一个活跃状态的广播接收器的进程被保护起来而不会被杀死。但仅拥有失活状态组件的进程则会在其它进程需要它所占有的内存的时候随时被杀掉。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这种方式引出了一个问题：如果响应一个广播信息需要很长的一段时间，我们一般会将其纳入一个衍生的线程中去完成，而不是在主线程内完成它，从而保证用户交互过程的流畅。如果</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onReceive()</span></span><span
+>衍生了一个线程并且返回，则包涵新线程在内的整个进程都被会判为失活状态（除非进程内的其它应用程序组件仍处于活跃状态），于是它就有可能被杀掉。这个问题的解决方法是令</span><span
+class=y2Char><span style='font-family:"Calibri","sans-serif"'>onReceive()</span></span><span
+>启动一个新服务，并用其完成任务，于是系统就会知道进程中仍然在处理着工作。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下一节中，我们会讨论更多进程易误杀的问题。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-family:宋体'>进程与生命周期</span></b><b><span
+style='font-size:12.0pt'>(Processes and lifecycles)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Android</span><span
+>系统会尽可能长的延续一个应用程序进程，但在内存过低的时候，仍然会不可避免需要移除旧的进程。为决定保留或移除一个进程，</span><span
+lang=EN-US>Android </span><span >将每个进程都放入一个</span><span
+lang=EN-US>“</span><span >重要性层次</span><span>”</span><span
+>中，依据则是它其中运行着的组件及其状态。重要性最低的进程首先被消灭，然后是较低的，依此类推。重要性共分五层，依</span>
+<span >据重要性列表如下：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><strong><span >前台进程</span></strong><span
+>是用户操作所必须的。当满足如下任一条件时，进程被认为是处于前台的：</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它运行着正在与用户交互的</span><span>activity</span><span
+>（</span><span>Activity</span><span
+>对象的</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onResume%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onResume()</span></a></span></code><span
+lang=EN-US> </span><span >方法已被调用）。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>一个正在与用户交互的</span><span>activity</span><span
+>使用着它提供的一个服务。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它包含着一个正在执行生命周期回调方法（</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onCreate%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onCreate()</span></a></span></code><span
+>、</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onStart%28android.content.Intent,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStart()</span></a></span></code><span
+>或</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html#onDestroy%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onDestroy()</span></a></span></code><span
+>）的</span><span><a target="_blank" href="http://developer.android.com/reference/android/app/Service.html">Service</a></span><span
+>对象。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它包含着一个正在执行</span> <code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/BroadcastReceiver.html#onReceive%28android.content.Context,%20android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onReceive()</span></a></span></code><span
+lang=EN-US> </span><span >方法的</span><span><a target="_blank" href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></span><span
+>对象。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>任一时间下，仅有少数进程会处于前台，仅当内存实在无法供给它们维持同时运行时才会被杀死。一般来说，在这种情况下，设备已然处于使用虚拟内存的状态，必须要杀死一些前台进程以用户界面保持响应。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><strong><span >可视进程</span></strong><span
+>没有前台组件，但仍可被用户在屏幕上所见。当满足如下任一条件时，进程被认为是可视的：</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它包含着一个不在前台，但仍然为用户可见的</span><span>activity</span><span
+>（它的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onPause%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onPause()</span></a></span></code><span
+>方法被调用）。这种情况可能出现在以下情况：比如说，前台</span><span>activity</span><span
+>是一个对话框，而之前的</span><span>activity</span><span
+>位于其下并可以看到。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>它包含了一个绑定至一个可视的</span><span>activity</span><span
+>的服务。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>可视进程依然被视为是很重要的，非到不杀死它们便无法维持前台进程运行时，才会被杀死。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><strong><span >服务进程</span></strong><span
+>是由</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>startService()</span></a></span></code><span
+lang=EN-US> </span><span >方法启动的服务，它不会变成上述两类。尽管服务进程不会直接为用户所见，但它们一般都在做着用户所关心的事情（比如在后台播放</span><span
+lang=EN-US>mp3</span><span >或者从网上下载东西）。所以系统会尽量维持它们的运行，除非系统内存不足以维持前台进程和可视进程的运行需要。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><strong><span >背景进程</span></strong><span
+>包含目前不为用户所见的</span><span>activity</span><span
+>（</span><span>Activity</span><span
+>对象的</span> <code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/app/Activity.html#onStop%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onStop()</span></a></span></code><span
+lang=EN-US> </span><span >方法已被调用）。这些进程与用户体验没有直接的联系，可以在任意时间被杀死以回收内存供前台进程、可视进程以及服务进程使用。一般来说，会有很多背景进程</span>
+<span >运行，所以它们一般存放于一个</span><span>LRU</span><span
+>（最后使用）列表中以确保最后被用户使用的</span><span>activity</span><span
+>最后被杀死。如果一个</span><span>activity</span><span
+>正确的实现了生命周</span> <span >期方法，并捕获了正确的状态，则杀死它的进程对用户体验不会有任何不良影响。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><strong><span >空进程</span></strong><span
+>不包含任何活动应用程序组件。这种进程存在的唯一原因是做为缓存以改善组件再次于其中运行时的启动时间。系统经常会杀死这种进程以保持进程缓存和系统内核缓存之间的平衡。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Android</span><span >会依据进程中当前活跃组件的重要程度来尽可能高的估量一个进程的级别。比如说，如果一个进程中同时有一个服务和一个可视的</span><span
+lang=EN-US>activity</span><span >，则进程会被判定为可视进程，而不是服务进程。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>此外，一个进程的级别可能会由于其它进程依赖于它而升高。一个为其它进程提供服务的进程级别永远高于使用它服务的进程。比如说，如果</span><span
+lang=EN-US>A</span><span >进程中的内容提供者</span> <span
+>为进程</span><span>B</span><span
+>中的客户端提供服务，或进程</span><span>A</span><span
+>中的服务为进程</span><span>B</span><span
+>中的组件所绑定，则</span><span>A</span><span
+>进程最低也会被视为与进程</span><span>B</span><span
+>拥有同样的重要性。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>为运行着一个服务的进程重要级别总高于一个背景</span><span>activity</span><span
+>。所以一个</span><span>activity</span><span
+>以启动一个服务的方式启动一个长时间运行过程比简单的衍生一个</span> <span
+>线程来进行处理要好。尤其是当处理过程比</span><span>activity</span><span
+>本身存在时间要长的情况之下。我们以背景音乐播放和上传一个相机拍摄的图片至网站上为例。使用服</span> <span
+>务则不论</span><span>activity</span><span
+>发生何事，都至少可以保证操作拥有</span><span>“</span><span
+>服务进程</span><span>”</span><span
+>的权限。如上一节</span><span><a
+href="7.htm#BroadcastReceiverLifecycle"><span style='font-family:
+宋体'><span>广播接收器生命周期</span></span></a> </span><span style='font-family:
+宋体'>所提到的，这也正是广播接收器使用服务，而不是使用线程来处理耗时任务的原因。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

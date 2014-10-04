@@ -1,0 +1,915 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Activity and Task Design</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Activity and Task Design</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span >深夜未眠</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://chris1012f.javaeye.com/">http://chris1012f.javaeye.com/</a></span> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+
+<p class=MsoNormal style='line-height:23.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a target="_blank" href="http://developer.android.com/guide/practices/ui_guidelines/activity_task_design.html">http://developer.android.com/guide/practices/ui_guidelines/activity_task_design.html</a></span>&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>Activity and Task</span></b><b><span style='font-size:
+12.0pt;'>设计指导</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这篇文档主要讲述</span><span>Android</span><span
+>应用框架的核心原则。站在高层来说，以用户为中心来设计良好的交互程序，对于应用设计者或是开发者来说是非常重要的。</span>
+</p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下面用例子来阐述了</span><span>activities</span><span
+>和</span><span>tasks</span><span
+>的一些底层原则和机制</span> <span >，例如导航，多任务，</span>activity</span><span >重用，意图和</span>activity</span><span >栈。这篇文档也着重讨论了一些设计决策，针对如何利用好它们去设计你的应用程序</span>UI</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这篇文档中的例子均是</span><span>Android</span><span
+>应用程序，包括默认应用程序（比如拨号器）、</span><span>Google</span><span
+>应用程序（比如地图）。你可以自己在</span><span>Android</span><span
+>模拟器上或是</span><span>Android</span><span
+>手机上去试验这些例子。如果你使用</span><span>Android</span><span
+>手机试验时，可能未提供本文档中的某些例子。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>再看这篇文档之前，请确保您看过本篇中的</span><span><a target="_blank" href="http://developer.android.com/guide/practices/ui_guidelines/activity_task_design.html#design_tips">Design
+Tips</a></span><span >章节。此篇算做是</span><span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals.html">Application
+Fundamentals</a></span><span >文档的的一部分（特指</span><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals/tasks-and-back-stack.html">Tasks
+and Back Stack</a></span><span >章节），它对于程序员来说覆盖了整个底层机制。</span></p>
+
+<p class=MsoNormal><b><span>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:12.0pt'>Applications, Activities, Activity Stack and Tasks</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >理解</span>Android</span><span >系统中的四个基本概念对你是很有帮助的，它们分别是：</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span><a href="1.htm#Applications">Applications</a></span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span><a href="1.htm#Activities">Activities</a></span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span><a href="1.htm#ActivityStack">Activity Stack</a></span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span><a href="1.htm#Tasks">Tasks</a></span></p>
+
+<p class=MsoNormal><a name=Applications><b><span>&nbsp;</span></b></a></p>
+
+<p class=MsoNormal><b><span>Applications</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span>Android</span><span
+>应用程序其实就是由一个或者多个</span><span>Activity</span><span
+>组成。它们被捆绑在一起并存放进</span><span>.apk</span><span
+>文件中，这就是</span><span>Android</span><span
+>应用程序。</span><span>Android</span><span
+>中有着丰富的应用程序，比如邮件、日历、地图定位、文本消息、联系人、照相机、打电话、音乐播放器，系统设置等应用。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一般情况下，桌面上都会有</span><span>Android</span><span
+>应用程序快捷图标，用户可以选择某一个图标来启动应用程序。</span></p>
+
+<p class=MsoNormal><a name=Activities><b><span>Activities</span></b></a></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Activity</span><span >是</span>Android</span><span >应用程序的主要组成部分，</span>activity</span><span >可以是你自己创建的，当然，还可以是其它应用程序中的</span>activity</span><span >。它们都是在运行时绑定上的，以便于应用程序扩展其自身的功能，它们一旦组合在一起，就会如同一个应用程序一样。每个</span>activity</span><span >都有其独特的</span>UI</span><span >、明确的功能，诸如打电话、看照片、听音乐等。任何一个应用程序都应至少有一个</span>activity</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当使用</span><span>Android</span><span
+>手机时，用户在屏幕上一个接一个地滑动或是点击图标启动</span><span>activity</span><span
+>，完全不会注意到底层的行为——他们体验是无缝的。</span><span>activity</span><span
+>后面有</span><span>activity</span><span
+>，</span><span><a href="1.htm#Tasks">task</a></span><span
+>后面还会有</span><span>task</span><span
+>。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Activity</span><span
+>可以处理特定的数据类型和接受一相关的动作。每个</span><span>activity</span><span
+>都有其各自的生命周期，互不干扰；并且它们都可以被用户或者系统独立启动、运行、暂停、恢复运行、停止、重新开始。正因为这个独立性，</span>activity</span><span >可以以不同的方式被其它的</span>activity</span><span >进行替换。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>比如打电话的应用程序就包含了四个</span><span>activity</span><span
+>：打电话、联系人列表、查看联系人、添加联系人，如下图：</span></p>
+
+<p class=MsoNormal><span><img border=0 width=135 height=203 id="图片 1"
+src="image/2011-7-6_1.jpg"><img
+border=0 width=135 height=203 id="图片 4"
+src="image/2011-7-6_2.jpg"
+alt="http://api.d-android.com/images/activity_task_design/ContactsList.png"><img
+border=0 width=135 height=203 id="图片 7"
+src="image/2011-7-6_3.jpg"
+alt="http://api.d-android.com/images/activity_task_design/ContactView.png"><img
+border=0 width=135 height=203 id="图片 10"
+src="image/2011-7-6_4.jpg"
+alt="http://api.d-android.com/images/activity_task_design/ContactNew.png"></span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+</span><span >打电话</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>联系人列表</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=apple-style-span><span style=';color:#333333'>查看联系人</span></span><span
+class=apple-style-span><span style='font-family:"Arial","sans-serif";
+color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+>添加联系人</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >下面的应用程序同样也包含了很多</span>activity</span><span >：</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >邮件</span><span> - </span><span
+>查看文件夹、邮件列表、邮件，发送邮件和设置邮件账号。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >日历</span><span> - </span><span
+>查看天、星期、月、议程，编辑事件、首选项。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >照相机</span><span> - </span><span
+>运行照相机、查看图片列表、图片，编辑图片，运行录像机，查看录像列表和录像。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >游戏</span><span> - </span><span
+>玩游戏和安装游戏。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >地图</span><span> - </span><span
+>查看地图上的位置，查看朋友的位置以及他们的详细信息（朋友的位置、状态、照片）。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>Activity</span><span
+>是</span><span>Android</span><span
+>应用中最为突出的组件，其余组件分别为：</span><span>service</span><span
+>、</span><span>content provider</span><span
+>、</span><span>broadcast receiver</span><span
+>。更多</span><span>activities</span><span
+>的详情，参见</span><span><a target="_blank" href="http://api.d-android.com/guide/topics/fundamentals.html#appcomp"
+title="Application Components">Application Components</a></span><span
+>。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span>Activity Stack</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >用户之所以能够从一个</span>activity</span><span >转到下一个</span>activity</span><span >，是因为</span>Android</span><span >系统针对</span>activity</span><span >而设计了一个线性的导航历史以供用户追溯访问，这就是</span>activity</span><span >栈，也称为</span>back stack</span><span >。当用户启动了一个新的</span>activity</span><span >，它就被添加进</span>activity</span><span >栈，以便按</span>BACK</span><span >键时能够返回到上一个</span>activity</span><span >。然而，用户不能按</span>BACK</span><span >键就直接返回到桌面（除非</span>activity</span><span >的前一个是桌面才可以）。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; activity</span><span
+>栈里面存放的只能是</span><span>activity</span><span
+>，而视图、窗体、菜单和对话框则不能。也就是说，如果你可以让用户从屏幕</span>A</span><span >跳转到屏幕</span><span>B</span><span
+>，当用户按</span><span>BACK</span><span
+>键时，他就应该会回到屏幕</span><span>A</span><span
+>，那屏幕</span><span>A</span><span
+>必须是一个</span><span>activity</span><span
+>。有个例外情况就是，你的应用程序需要利用</span><span>BACK</span><span
+>键控制自身的导航，那就要自己重新设定</span><span>BACK</span><span
+>键的导航功能。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><a name=Tasks></a><a name=ActivityStack><b><span>Tasks</span></b></a></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >任务则是一系列的</span>activity</span><span >集合，它能使用户完成既定的操作，而又不用去关心这些</span>activity</span><span >是哪个应用程序里面的，除明确指定一个新任务之外（参见“中断任务”小段），那么其他</span>activity</span><span >都属于当前任务的一部分。再次注意的是，这些</span>activity</span><span >可是任意应用程序中的其中一个，也就是说不管它们所属的应用程序是否相同。举个例子，用户打开了联系人的程序，任务随之也会启动，他选择了</span>email</span><span >地址准备发邮件，这时跳转到了</span>email activity</span><span >，之后他要添加附件，需要在画廊中挑选图片。这里面，联系人，</span>email</span><span >，图片画廊都是不同的应用程序。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当一个</span>activity</span><span >启动时，任务也随之启动的话，那个</span>activity</span><span >就是根</span>activity</span><span >。启动</span>activity</span><span >一般有这么几种方式，应用程序发射器、桌面快捷方式、最近任务切换器。</span>Android</span><span >系统内部一旦有任务，那么按</span>BACK</span><span >键就可以回到上一个</span>activity</span><span >。</span>Activity</span><span >栈可以是多个任务的组成部分。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >下面是关于任务的例子，以供参考：</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >发送文本消息并含有附件</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >观看</span><span>YouTube</span><span
+>视频并以邮件的方式向其他人分享。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span >中断任务</span></b> ——</span><span >任务中有一个重要特性就是能使用户中断当前正在做的操作（他们的任务）而去执行其它操作，当然他们也可以回到之前的任务上，也就是说支持同时运行多任务并且来回切换它们。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这里有两种情况来开始其它任务，并且都可以返回到原先的任务上。</span></p>
+
+<p class=ListParagraph style='margin-left:42.15pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >打开通知：用户接收到通知并打开查看它。</span></p>
+
+<p class=ListParagraph style='margin-left:42.15pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span >用户转去做其它操作：用户在桌面启动。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当然，也有例外的。</span><span
+>除了刚才提到的两种方式，</span><span >另外还有一种打开新任务的情况，就在其内部开启一个</span>activity</span><span >。例如，在邮件中以新任务的方式打开地图</span>activity</span><span >或是打开一个浏览器</span>activity</span><span >，当按</span>BACK</span><span >键时就又会回到邮件</span>activity</span><span >中。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:12.0pt'>Activities</span></b><b><span style='font-size:12.0pt;
+'>和</span></b><b><span style='font-size:12.0pt'>Tasks</span></b><b><span
+style='font-size:12.0pt;'>之旅</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下面的例子阐述了应用程序的基本原则，主要有</span><span>activities</span><span
+>，</span><span>activity</span><span
+>栈，回退键，任务和意图；并展示了系统是如何响应用户请求的，例如用户开始了一个应用程序，用户不断的切换</span>UI</span><span >，程序内部就是利用在不同任务之间切换</span>activities</span><span >的。下面的许多例子你都可以在</span>Android</span><span >手机上运行起来。</span></p>
+
+<p class=MsoNormal><b><span >在桌面上开始一个</span></b><b>Activity</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >桌面是启动应用程序的主要地方，比如在桌面上点击应用程序图标就能将其打开，用户第一眼看到的就是应用程序中的主</span>activity</span><span >。如下图，所描述的是用户在桌面点击</span>Email</span><span >图标所发生的事情：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=334 height=201 id="图片 13"
+src="image/2011-7-6_5.jpg"></span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span >用</span></b><b>BACK</span></b><b><span >和</span></b><b>HOME</span></b><b><span >键进行导航</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>Activity</span><span
+>保持或者丢掉其状态完全取决于用户是怎样离开这个</span><span>activity</span><span
+>的</span><span>——</span><span
+>使用</span><span>HOME</span><span
+>键还是</span><span>BACK</span><span
+>键。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >默认情况下，按下</span>BACK</span><span >键来结束（销毁）当前</span>activity</span><span >并为用户显示上一个</span>activity</span><span >。例如下图，用户在桌面上打开了邮件，当前</span>activity</span><span >显示着邮件列表。用户将列表滚动条往下拉以便看到后面的邮件，这时用户按了</span>BACK</span><span >键，那么</span><span>Android</span><span
+>就会销毁这个邮件信息列表</span><span>activity</span><span
+>并返回之前的</span><span>activity</span><span
+>（桌面）。然后用户又重新打开邮件，还是那个列表，但是滚动条又回到了起始位置上。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=346 height=204 id="图片 16"
+src="image/2011-7-6_6.jpg"></span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >上面的例子中，当按下</span>BACK</span><span >键就返回到了桌面，由于那是用户在上一次看到的</span>activity</span><span >。不过如果用户从其他</span>activity</span><span >里面跳转到邮件列表，然后按下</span>BACK</span><span >键则回到了先前的那个</span>activity</span><span >（这里只是说明一下</span>BACK</span><span >键的作用）。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >相比之下，下面的图就是用</span>HOME</span><span >键离开邮件列表</span>activity</span><span >而不是</span>BACK</span><span >键，那么当前</span>activity</span><span >就呈</span>stop</span><span >状态并移置后台而不是销毁。当再次打开邮件列表</span>activity</span><span >时状态保持不变。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=346 height=204 id="图片 19"
+src="image/2011-7-6_7.jpg"></span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >其它情况：有些应用程序则不是如上面所说的那样。例如联系人和画廊，用户在桌面打开联系人后查看了某个联系人的资料，接着再次打开联系人时，就不会显示之前的</span>activity</span><span >了。这是因为联系人的主</span>activity</span><span >有四个标签，是为了让用户能够看到全部的功能特性。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >此外，也不是所有</span>activity</span><span >都是当按下</span>BACK</span><span >键之后销毁掉的。例如用户开始播放音乐，接着按下</span>BACK</span><span >键，却不会影响音乐的播放。即使它的</span>activity</span><span >不再可见，音乐应用程序依然会在状态栏上提示着用户。注意：你也可以让</span>activity</span><span >不再可见时停止掉或是继续在后台运行</span>,</span><span >但后者更适合像音乐这样的应用程序。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span >重用</span></b><b>activity</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>有两个应用程序中，它们分别也有两个</span><span>activity</span><span
+>：</span><span>activity A </span><span
+>和</span><span>activity B</span><span
+>。</span><span>A</span><span style='font-family:
+宋体'>的部分功能需要调用</span><span>B</span><span >的已实现功能，那么</span>B</span><span >就叫被重用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span >联系人重用画廊来获取图片</span></b><b>
+</b><span>— </span><span >联系人</span>activity</span><span >中会有联系人的照片，但是照片一般存放在画廊里面，所以联系人要重用画廊的功能来获取图片，画廊</span>activity</span><span >就是重用的绝佳例子。下面的图画出了重用的流程</span><span
+>。</span><span >具体流程是这样的：用户打开了联系人，查看某一个联系人的资料并想编辑他的照片，这时，打开了画廊</span>activity</span><span >，对图片进行设置并保存，那个联系人的图片也就相应的改变了。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >注意画廊最终会返回给联系人一张图片。</span>
+<span >下一个例子讲述一个</span><span>activity</span><span
+>的重用并且不返回任何结果。同样需要注意下面的插图是说明通过</span><span>activity</span><span
+>或是</span><span>activity</span><span
+>栈来实现历史导航——用户可以通过每个</span><span>activity</span><span
+>用任何方式回到桌面。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当开始设计一个应用程序时，一个不错的想法就是怎样能够在重用其它应用程序中的</span>activity</span><span >或是你的</span>activity</span><span >怎样被其它应用程序重用。如果用一样的</span><a target="_blank" href="http://developer.android.com/guide/practices/ui_guidelines/activity_task_design.html#intents"
+title="intent filter">intent filter</a></span><span >（已经存在了一个</span>activity</span><span >）再添加一个</span>activity</span><span >，那么系统会为用户显示出一个选择</span>UI</span><span >，供用户选择使用那个</span>activity</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=298 height=339 id="图片 22"
+src="image/2011-7-6_8.jpg"></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><b><span
+style='font-size:10.5pt'>画廊重用短信来与其他人分享图片</span></b><span style='font-size:10.5pt'>。</span><span
+style='font-size:10.5pt'>分享也是不同应用程序之前重用的好例子。如下图所示，</span><span
+style='font-size:10.5pt'>用户打开了画廊，从中挑选了一张图片并点击了共享菜单，选择</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“</span><span
+style='font-size:10.5pt'>短信</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>。这时，就打开了短信</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>，在其里面写些文字和附加上那张图片之后发送出去。用户现在在短信</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>当中，如果想回到画廊</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>，就按</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>BACK</span><span style='font-size:10.5pt'>键返回。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>注意这里的短信</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>并没有给画廊返回任何的东西。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=300 height=294 id="图片 25"
+src="image/2011-7-6_9.jpg"></span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这些例子都在阐述任务——一系列的</span><span>activities</span><span
+>都在实现同一个目标。每一个例子中的</span><span>activity</span><span
+>都是从两个不同的应用程序中完成本职工作的。</span></p>
+
+<p class=MsoNormal><b><span >替换</span><span>activity</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这个例子描述的是不用应用程序中的两个</span><span>activity</span><span
+>互相替换，</span><span>activity A</span><span
+>替换</span><span>activity B</span><span
+>。这种一般发生在</span><span>activity A</span><span
+>比</span><span>activity B</span><span
+>的功能更为强大一些。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:black'>换句话来说</span><span
+style='color:black'>,A</span><span style=';color:black'>和</span><span
+lang=EN-US style='color:black'>B</span><span style=';color:black'>妥妥得等价，当然就可以实现</span><span
+lang=EN-US style='color:black'>A</span><span style=';color:black'>替换</span><span
+lang=EN-US style='color:black'>B</span><span style=';color:black'>。这个例子中的联系人应用程序重用了</span><span
+lang=EN-US style='color:black'>activity</span><span style=';
+color:black'>，</span><span style='color:black'>A</span><span
+style=';color:black'>和</span><span style='color:black'>B</span><span
+style=';color:black'>虽然是完全不同的</span><span
+style='color:black'>activity</span><span style=';color:black'>，但是它们两个彼此形成了互补，使程序更加的强大。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在这里例子中，用户下载了一个手机铃声的</span><span>activity</span><span
+>，称之为“铃声扩展”。用户这时进入到“设置</span><span> &gt; </span><span
+>声音</span><span>&amp;</span><span
+>显示</span><span> &gt; </span><span
+>手机铃声”里面，系统会展示两个可用</span><span>activity</span><span
+>供用户选择。此时弹出的对话有一个选项是让你设置“是否默认使用此</span><span>activity</span><span
+>”，选中它。当用户选择“铃声扩”时，以后在加载的时候就替换了</span><span>Android</span><span
+>默认铃声的</span><span>activity</span><span
+>了。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=257 height=196 id="图片 9"
+src="image/2011-7-6_10.jpg"></span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span >多任务</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >如前所述，当一个</span>activity</span><span >启动后，用户还可以回到桌面启动第二个</span>activity</span><span >，第一个</span>activity</span><span >则不会被销毁还是继续运行着，我们换个例子来说明这一小节</span>——</span><span >地图应用程序。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>状态</span><span>1</span><span
+>：用户打开了地图应用程序并查询一个地址。这时，用户该说了，网络太</span><span>TMD</span><span
+>慢了！因为地图定位是需要一些时间的。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>状态</span><span>2</span><span
+>：用户准备做些其它事情，按下</span><span>HOME</span><span
+>键，不过这样做不会干扰地图应用程序，还是保持其加载地图的状态。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>状态</span><span>3</span><span
+>：地图</span><span>activity</span><span
+>现在是在后台运行着，桌面在来到了前台。这时用户打开了日历</span><span>activity</span><span
+>，比如查看今天是星期几。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><img border=0 width=550 height=171 id="图片 28"
+src="image/2011-7-6_11.jpg"></span></p>
+
+<p class=ListParagraph align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>状态</span><span>4</span><span
+>：用户回到桌面，重新打开</span><span>Map</span><span
+>，这时地图已经全部加载完毕了。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:63.0pt;text-align:left;
+text-indent:0cm'><span><img border=0 width=303 height=204 id="图片 31"
+src="image/2011-7-6_12.jpg"></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>以上两个应用程序“地图”和“日历”是两个不同的任务，因此</span><span>Android</span><span
+>支持多任务模式。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span >两个入口点</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>相对于应用程序来说，必须至少要有一个入口点，也就是至少要有一个</span><span>activity</span><span
+>。桌面上的图标就代表着每个应用程序的入口点，同样也可以在其它应用程序中启动，当然，它们的入口点都在其内部。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>而电话应用程序就有两个入口点：联系人和打电话。用户进入到联系人里面选择了一个电话号码并拨打该电话。如下图的图所示，用户打开联系人，也就是启动了联系人的</span>activity</span><span >，然后选择了一个电话号码随之进入了打电话的</span>activity</span><span >，最后拨打它。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一旦用户在应用程序里，它们就可以通过标签、菜单项、列表项、屏幕上的按钮或其他用户界面访问诸如新增联系人和编辑联系人。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=249 height=345 id="图片 34"
+src="image/2011-7-6_13.jpg"></span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><span >意图</span><span>(Intents)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用户点击一个</span><span>mailto:</span><span
+>的连接时，这实际上就被看作是一个意图，发邮件的意图。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>关于意图有三点要说明：</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.15pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果是显式意图，</span><span>Android</span><span
+>就会立即启动那个</span><span>activity</span><span
+>。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.15pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果是隐式意图，</span><span>Android</span><span
+>先去</span><span>intent filter</span><span
+>寻找合适的</span><span>activity</span><span
+>再启动。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.15pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>如果有多个合适的意图，</span><span>Android</span><span
+>就会列出一个意图选择列表供用户选择。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >下面就举用户发邮件的例子，此时用户的</span>Android</span><span >上有两个邮件应用程序，当他在页面点击了</span>mailto:</span><span >链接的时候，</span>Android</span><span >会提示给他一个对话框，其中有两个可用的程序供其选择（</span>Gmail</span><span >和</span><span>Email</span><span
+>）。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=393 height=298 id="图片 37"
+src="image/2011-7-6_14.jpg"></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>下面列举一些常用的意图和其对应的</span><span>activity</span><span
+>：</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>查看联系人列表：对应联系人列表查看</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>查看指定的联系人：对应联系人查看</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>编辑指定的联系人：对应联系人编辑</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>发邮件：对应邮件</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>拨打电话：对应电话拨打</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>查看图片列表：对应图片列表查看</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>查看指定的图片：对应图片查看</span><span>activity</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>裁剪指定的图片：对应图片裁剪</span><span>activity</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>意图必须由两部分构成：动作和数据。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>动作：由上面的意图列表中可得出，查看、编辑、打电话、裁剪</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>数据：由上面的意图列表中可得出，联系人的列表、指定的联系人、电话号码、图片列表、指定的图片。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注意：任何在桌面上启动的应用程序都是显式意图，目的是指定其内部特有的那个</span>activity</span><span >。同理，应用程序也可以在内部以显式意图的方式启动自身的</span>activity</span><span >，外部</span>activity</span><span >都是访问不到它们的。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >关于意图更多信息，参见</span><a target="_blank" href="http://developer.android.com/guide/topics/intents/intents-filters.html">Intents
+and Intent Filters</a></span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span >切换任务</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:18.0pt'><span
+>下面的例子描述的是用户如何在两个任务之间进行切换。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:-21.0pt'><span>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span >开始第一个任务</span></b><span
+>。你想要发送一条短消息并附加一张图片。你会这样操作：</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span >桌面</span><span> &gt; </span><span
+>短消息</span><span> &gt; </span><span
+>新的短信息</span><span> &gt; </span><span
+>菜单</span><span> &gt; </span><span
+>附件</span><span>&nbsp; &gt; </span><span
+>图片。最后一步启动了画廊</span><span>activity</span><span
+>来选择一张照片。注意画廊是另外的一个应用程序。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span><img border=0 width=551 height=174 id="图片 58"
+src="image/2011-7-6_15.jpg"></span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span >在选择照片之前，可以先去桌面打开日历，目的是为了开始第二个任务。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:-21.0pt'><span>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span >开始第二个任务</span></b><span
+>。你会这样操作：桌面</span><span> &gt; </span><span
+>查看日历。从桌面上打开日历，就等于是开始一个新任务了。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span><img border=0 width=517 height=303 id="图片 61"
+src="image/2011-7-6_16.jpg"></span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:-21.0pt'><span>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >切换到第一个任务并完成后面的操作。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span >查看完日历之后，继续回到先前的任务上：桌面</span> &gt; </span><span >短消息，此时进入的并不是短消息</span>activity</span><span >，而是画廊</span>activity</span><span >，也就是之前离开的</span>activity</span><span >。然后你就可以选择图片并发送短消息出去了，也就完成了第一个任务。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:39.0pt;text-align:left;
+text-indent:0cm'><span><img border=0 width=553 height=198 id="图片 64"
+src="image/2011-7-6_17.jpg"></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:12.0pt;'>设计小贴士</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下面的提示和指导都是针对应用设计者和开发者而提出的。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>使用显式意图来防止外部应用调用你的</span></b><b><span>activity</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你不想自己的</span><span>activity</span><span
+>被外部使用，就别在</span><span>manifest.xml</span><span
+>里面配置</span><span>intent-filter</span><span
+>。这样的话，你的</span><span>activity</span><span
+>就只会在应用程序内部来启动了，同样也避免了安全漏洞。反之，创建一个意图并指定明确要启动的组件，这就是显示意图，在这个例子中，就不需要</span>intent filters</span><span >。</span>Intent filters</span><span >可以发布所有的应用程序，当你创建了一个</span>intent filter</span><span >时，其它应用程序就可以访问到你的</span>activity</span><span >了，至于它们怎么用，你就不知道了，这意味着不经意间形成了安全隐患。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>如果使用外部的</span></b><b><span>activity</span></b><b><span
+>，但却没有匹配上，该怎么办</span></b><b><span>?</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>有这一种情况，你利用</span><span>Intent</span><span
+>去调用外部应用程序中的</span><span>activity</span><span
+>，但遗憾的是，那个应用程序并没有安装进手机里，因此我们需要妥善的处理这种情况。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >（译者注：官方提出了两个不太完善的解决方案，我们来看下：）</span></p>
+
+<p class=ListParagraph style='margin-left:39.0pt;text-indent:-18.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >在启动那个</span><span>activity</span><span
+>之前用</span><span>intent</span><span
+>先对其测试一下。</span></p>
+
+<p class=ListParagraph style='margin-left:39.0pt;text-indent:-18.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >如果启动</span><span>activity</span><span
+>会失败的话，则捕获它的异常信息。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>以上更多信息请参阅官方文档提供的博客文章：</span><span><a target="_blank" href="http://android-developers.blogspot.com/2009/01/can-i-use-this-intent.html">Can
+I use this Intent?</a></span><span >。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>该博文中提供了一种比较好的解决方式，正如其提供的样例代码中的</span><span>isIntentAvailable()</span><span
+>方法，我们可以在初始化阶段调用它；如果该应用不存在的话，我们就给用户提示一条消息，告诉他某某应用不存在，请去</span>Google Market</span><span >下载等友好信息。</span><span
+>如果要让意图决定显示哪个</span><span>activity</span><span
+>，那我们就使用</span><span>startActivity()</span><span
+>或是</span><span>startActivityForResult()</span><span
+>来启动</span><span>activity</span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>思考：以怎样的方式来启动</span></b><b><span>activity</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>做为</span><span>Android</span><span
+>设计者或开发者，完全取决于用户如何启动你的应用程序，而应用程序则是由一系列的</span>activity</span><span >组成，用户会从</span>Home</span><span >或是其他应用程序中启动这些</span>activity</span><span >。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >在桌面点</span><span>icon</span></b><b><span
+>来启动应用程序主</span><span>activity</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你的应用程序是独立运行的，它应该是用户在屏幕上触摸应用程序的</span><span>icon</span><span
+>或是任务选择器当中来启动（这个机制需要在</span><span>manifest.xml</span><span
+>中配置</span><span>intent filter</span><span
+>，</span><span>action</span><span
+>为</span><span>MAIN</span><span
+>，</span><span>category</span><span
+>为</span><span>LAUNCHER</span><span
+>）。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >在其它应用程序中启动你的</span>activity</span></b></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>这种方式就意味着你的</span><span>activity</span><span style='font-family:
+宋体'>是可重用的，也就是隐式意图。许多应用程序中的数据都需要共享给其它用户的，例如，</span><span>email</span><span
+>、文本消息、上传下载等。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>还会有一种情况是这样，就是当用户选择了一个功能，正好有一个或多个</span><span>activity</span><span
+>符合用户的这种需求，就会向用户提供一个</span><span>activity</span><span
+>列表供其选择。举一个具体的例子，</span><span>Gallery</span><span
+>（画廊），它能让用户查看并共享图片，这时用户选择了“共享”菜单，</span><span>Android</span><span
+>系统会在</span><span>intent filter</span><span
+>中寻找适合该请求的</span><span>activity</span><span
+>，如果有多个，就会以列表的形式展现给用户，供其选择。在这个例子中，</span>intent filter</span><span >能找到</span>Email</span><span >、</span><span>Gmail</span><span
+>、</span><span>Messaging</span><span
+>、</span><span>Picasa</span><span
+>等。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>当其它的</span><span>activity</span><span >启动了你的</span>activity</span><span >时，会根据需求给它们返回一个结果。</span></p>
+
+<p class=ListParagraph style='margin-left:63.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>m<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >启动一个</span><span>activity</span></b><b><span
+>并需要返回一个结果</span></b></p>
+
+<p class=MsoNormal style='margin-left:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>官方称这种方式为</span><span>closed loop</span><span
+>，也就是说当启动一个</span><span>activity</span><span
+>之后，会返回一个结果回来。再拿上面那个例子来说，当用户完成上传或者发送的过程之后，会将图片信息返回给</span>Gallery</span><span >。这个例子中的上传过程所用到的</span>activity</span><span >就是由外部的</span>Gallery</span><span >启动的。（这种方式需使用</span>startActivityForResult()</span><span >）</span></p>
+
+<p class=ListParagraph style='margin-left:63.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>m<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >启动一个</span><span>activity</span></b><b><span
+>不需要返回结果</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>官方称这种方式为</span><span>open-ended</span><span
+>。举个例子，在</span><span>Email</span><span
+>中可定位一个住址，那么应用程序便会启动地图</span><span>activity</span><span
+>来定位地址，完成之后不会再给</span><span>Email</span><span
+>返回任何的结果；此时用户可以按</span><span>BACK</span><span
+>键回到</span><span>Email</span><span
+>中来。（这种方式需使用</span><span>startActivity()</span><span
+>）</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >只从其他应用程序中启动</span>activity</span></b><span> -</span><span style='font-family:
+宋体'>前面所说的例子，</span><span>Gmail</span><span >、消息、</span>Picasa</span><span >（在</span><span>Gallery</span><span
+>启动）都是</span><span>activity</span><span
+>，它们均从桌面上的</span><span>icon</span><span
+>来启动的，与之形成对比的是，像裁剪图片和添加附件则不是在桌面启动的，因为这些都不是独立运行的。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>实际上，并非所有的应用程序都有</span><span>icon</span><span style='font-family:
+宋体'>以供启动，它们都算作是一种小小的应用而已，因为它们使用并不频繁，而且其启动点都嵌在已有的应用程度当中。例如，</span>Android</span><span >手机里面的打电话程序，其内部有个铃声设置功能，它存在于</span>Android</span><span >手机里面的设置（</span>Setting</span><span >）菜单里面，你也可以使用同样的</span>Intent</span><span >开发出一个定制的铃声设置应用，这样，在用户需要改变铃声时，会向其展示出两个铃声设置应用，一个是</span>Android</span><span >内置的，另一个就是你开发出来的。如下图：</span></p>
+
+<p class=MsoNormal><b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=135 height=201 id="图片 67"
+src="image/2011-7-6_18.jpg"></span></b></p>
+
+<p class=MsoNormal><b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+>铃声设置并不是经常使用，而且其定义的功能也很明确，所以也就不需要在桌面提供应用程序</span>icon</span><span >了。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >不同的图标能够启动多个相同的应用程序</span> -</span></b><span >由于</span><span>Android</span><span
+>应用程序的运行代码均存在于</span><span>.apk</span><span
+>文件中，因此就把这个文件看作是一个应用程序。我们甚至还可以让其内部存在两个主</span>activity</span><span >，也就是两个应用程序启动入口点。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span>Camera.apk</span><span
+>（照相机）就是一个非常好的例子，它内部就含有两个独立的主</span><span>activity</span><span
+>，</span><span>Camera</span><span
+>和</span><span>Camcorder</span><span
+>（摄像机）；它们均拥有自己的</span><span>icon</span><span
+>并且独立运行；在用户角度上来看，这就是两个应用程序。它们都共享使用一个镜头、在</span>Gallery</span><span >里面保存图片等。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>实现这样的功能其实很简单，只需将它们都关联到不同的任务上即可。（每个</span><span>activity</span><span
+>都其各自的任务，每个任务都有不同的亲缘性</span><span>(affinity)</span><span
+>。（这个例子的两个应用它们所在的两个包是</span><span>&quot;com.android.camera&quot;</span><span
+>和</span><span>&quot;com.android.videocamera&quot;</span><span
+>，有兴趣的可以深入研究）。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>联系人和拨号器也是同一个应用两个主</span><span>activity</span><span
+>的典型例子。</span></p>
+
+<p class=ListParagraph style='margin-left:21.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><b><span >应用程序部件</span><span> - </span></b><span
+>我们也可以将应用程序以部件的形式嵌进桌面上或是其它应用程序中并能它们持续更新。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal><b><span >允许你的</span><span>activity</span></b><b><span
+>添加到当前任务中</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果你的</span>activity</span><span >是在外部应用程序已经启动的话，那么也允许把它们添加到当前的任务中来（或者是已存在的任务</span>——</span><span >它有自身的</span><span>affinity</span><span
+>），这样做的话能会使用户能够在其它任务和你的</span><span>activity</span><span
+>之间进行自由切换。但不包括你的</span><span>activity</span><span
+>仅有一个实例的情况。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>对于这种行为，你的</span><span>activity</span><span
+>应该有一个</span><span class=apple-style-span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Arial","sans-serif";color:#333333'>standard</span></span><span
+class=apple-converted-space><span style='font-size:10.0pt;
+font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></span><span
+>或</span><span>singleTop</span><span
+>的启动模式，而不是</span><span>singleTask</span><span
+>或</span><span>singleInstance</span><span
+>，这样，你的</span><span>activity</span><span
+>就会以多实例的模式来运行。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>通知，应该能让用户更容易的返回上一个</span></b><b><span>activity</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>利用后台运行的服务能够给用户发出他们感兴趣的事件消息。下面举个例子，主要是以</span>Calendar</span><span >为主，这个例子含两部分，一个是以</span>Email</span><span >的形式发出即将来临的消息，另一个是当有新消息时就发出通知。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >我们来模拟一个应用场景，当某个用户处于</span>activity A</span><span >中，这时获取到了</span>activity B</span><span >发出的通知，他打开了这个通知，也就是进入到了</span>activity B</span><span >，当用户按下</span>BACK</span><span >键，他应该回退到</span>activity A</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下面的具体流程描述了当用户响应通知时，</span><span>activity</span><span
+>栈是怎样工作的：</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >首先，用户在</span><span>Calendar</span><span
+>中设置了一个开会通知，也就是创建了一个新的事件，并将已写进</span><span>Email</span><span
+>中的部分信息复制到该事务上。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >其它用户选择</span> <span
+>桌面</span><span> &gt; Gmail</span><span
+>。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >他们打开</span><span>Gmail</span><span
+>，接收到来自</span><span>Calendar</span><span
+>发出的一个开会通知。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >接着他们打开了那条通知，进入到</span>Calendar activity</span><span >中，并查看会议的简要说明。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >这时用户进入到其里面查看更为详细的内容（就是在第一步当中复制的信息）。</span></p>
+
+<p class=ListParagraph style='margin-left:42.0pt;text-indent:-21.0pt'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >当用户完成查看的操作时，按下了</span>BACK</span><span >键。他们回到了</span>Gmail</span><span >上，也就是打开通知的那个地方。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>但上面的流程在默认情况下却不是这样的。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>通常情况下主要有两种方式来发出通知：</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.05pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><b><span
+>通知专用的</span><span>activity&nbsp; - </span></b><span
+>接着上面的应用场景来说，某用户接受了一条</span><span>Calendar</span><span
+>通知，用户首先进入</span><span>Gmail</span><span
+>，查看详细的内容就要进入</span><span>Calendar activity</span><span
+>中；用户查看完后，按下</span><span>BACK</span><span
+>键必须要返回到</span><span>Gmail activity</span><span
+>上。实现此功能的前提是，</span><span>Calendar activity</span><span
+>不能有与</span><span>Calendar</span><span
+>或其它</span><span>activity</span><span
+>同样的亲缘性</span><span>(affinity)</span><span
+>，也就是将该亲缘性设为空字符串即可。下来解释一下为什么这么做。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.05pt;text-align:left;
+text-indent:20.95pt'><span >那个</span><span>Calendar
+activity</span><span >拥有其默认的任务亲缘性（</span>taskAffinity</span><span >），当按下</span>BACK</span><span >键时（如上述第六步）回到了</span>Calendar</span><span >，而不是</span>Gmail</span><span >，这就是上面那样做的主要原因。特定应用程序中的所有</span>activity</span><span >都具有相同的任务亲缘性，因此</span>Calendar activity</span><span >的亲缘性匹配了</span>Calendar</span><span >的任务，这个任务是在第一步当中运行起来的</span>,</span><span >那第四步就表示打开</span>Calendar activity</span><span >，又回到了</span>Calendar</span><span >的任务中，所以最后返回的还是</span>Calendar activity</span><span >。但这不是我们想要的结果，只有将任务亲缘性设为空字符串才能解决这个问题。</span></p>
+
+<p class=ListParagraph align=left style='margin-left:42.05pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><b><span
+>选择已有的</span><span>activity</span></b><b><span
+>，但只会展示其初始的状态</span><span> -</span></b><span
+>例如，用户在于</span><span>Gmail</span><span
+>交互的过程中进入到了其它</span><span>Activity</span><span
+>，稍后再在回到</span><span>Gmail activity</span><span
+>时显示要显示其初始的状态，而不是先前的状态。</span><span style='font-family:
+宋体'>首先，你要确保通知触发器起作用时，</span><span>intent</span><span
+>的标识是“</span><span>clear top</span><span
+>”，所以当</span><span>activity</span><span
+>启动时，它显示的是初始化之后的</span><span>activity</span><span
+>，防止</span><span>Gmail</span><span
+>再次来到前台时还是用户上一次的看到的那些状态。</span><span style='font-family:
+宋体'>（你需要在</span><span>intent</span><span >对象中设置</span><a target="_blank" href="http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TOP">FLAG_ACTIVITY_CLEAR_TOP</a></span><span
+>标志）</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>另外还有其它方式去处理通知，比如让一个</span><span>activity</span><span
+>到前台并设置好其显示的指定数据，比如短信息。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>一般情况下都是以新任务的形式来启动通知</span><span>activity</span><span
+>的（也就是说，在</span><span>intent</span><span
+>对象中设置</span><span>FLAG_ACTIVITY_NEW_TASK</span><span
+>），这么做是避免这个任务成为另一个任务中的一部分。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>请使用通知系统，而不要使用对话框来代替通知</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果你的后台服务在某个时刻要通知给用户一个消息，那么请使用标准通知系统</span>-</span><span >，不要使用</span><span>dialog</span><span
+>或</span><span>toast</span><span
+>来通知。这两个会直接弹出来提示用户，再说通俗一些就是会突然打断用户的当前操作，这是一个极为不友好的用户体验。通知系统在这方面就做得就比较好，用户可以在适当的时候从屏幕上方拉下通知列表以便回应消息。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>不要重新设置</span></b><b><span>BACK</span></b><b><span
+>键的功能，除非你有绝对的需要</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>BACK</span><span >键的主要功能就是从当前的</span>activity</span><span >回退到上一个</span>activity</span><span >，就是所谓的导航功能。大多数的</span>activity</span><span >都是一些比较通用的操作，诸如查看联系人列表，查看照片等，如果按</span>BACK</span><span >键，就直接返回先前调用它的</span>activity</span><span >就好了，不需其它的功能需求。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >但要考虑一个问题，如果是应用程序非常得大，并需要细粒度的</span>BACK</span><span >键来加以控制该如何呢？例如</span>Google</span><span >浏览器，已经打开了几个</span>web</span><span >页面和地图页面，其中有一些关于地图数据的图层面板，我们需要在它们之间进行切换操作，也就是说在其内部通过</span>BACK</span><span >键来对其进行回退导航，而不是针对整体的</span>activity</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>接上面的例子继续说，地图应用程序展现给用户不同的数据图层面板：有用来显示查询结果的定位信息、有显示朋友的位置、有显示街道方向的路线等。地图应用程序将这些图层面板保存在自身的历史记录里面，所以需要</span>BACK</span><span >键来进行回退导航。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>同样地，浏览器使用浏览器窗体为用户展示多个的</span><span>web</span><span
+>页面，每个窗体都有它自身的历史导航，也就是桌面操作系统上的浏览器中的标签。例如，你在</span>Android</span><span >浏览器中的一个窗体上打开</span>Google</span><span >进行查询，并点击一条查询结果，那么这个结果页面会在当前窗体上打开，然后按</span>BACK</span><span >键就会回到了查询页面。总结一句话就是，当前窗体是从先前的窗体上跳转过来的，这时按</span>BACK</span><span >键就会回到了先前的窗体。如果用户一直按</span>BACK</span><span >键的话，最后就会离开浏览器所在的</span>activity</span><span >，回到了桌面。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这些例子就是你有绝对的需要才要重新设置</span><span>BACK</span><span
+>键功能的理由。</span></p>
+
+</div>
+
+      
+</body>
+</html>

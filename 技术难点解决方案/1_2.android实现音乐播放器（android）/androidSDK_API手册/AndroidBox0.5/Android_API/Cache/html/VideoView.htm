@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> VideoView</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'       
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>VideoView</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：唐明</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>审核：</span><span>cnmahj</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>VideoView</span> extends <span style='color:#C00000'>SurfaceView</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:126.0pt;text-align:left;
+text-indent:15.5pt'><b><i><span>implements <span style='color:#C00000'>MediaController.MediaPlayerControl</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.SurfaceView</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.VideoView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span><img width=240 height=320
+src="image/2011-6-13_1.jpg"></span><span
+>（图片转载至</span><span><a target="_blank" href="http://androidbiancheng.blogspot.com/2010/11/videoviewyoutube.html"><span
+><span>这里</span></span></a></span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于播放视频文件。</span><span> VideoView </span><span
+>类可以从不同的来源（例如资源文件或内容提供器）</span> <span style='font-family:
+宋体'>读取图像，计算和维护视频的画面尺寸以使其适用于任何布局管理器，</span> <span >并提供一些诸如缩放、着色之类的显示选项。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>构造函数：</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public <b>VideoView</b> (</span><span><a target="_blank" href="http://android.toolib.net/reference/android/content/Context.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>Context</span></a></span><span
+style='background:#D9D9D9'> context) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个默认属性的</span><span>VideoView</span><span
+>实例。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>context</span><span>&nbsp;&nbsp;&nbsp; </span><span
+>视图运行的应用程序上下文，通过它可以访问当前主题、资源等等。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public <b>VideoView</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/content/Context.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>Context</span></a></span><span
+style='background:#D9D9D9'> context, </span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/util/AttributeSet.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>AttributeSet</span></a></span><span
+style='background:#D9D9D9'> attrs) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个带有</span><span>attrs</span><span
+>属性的</span><span>VideoView</span><span
+>实例。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>context &nbsp; </span><span
+>视图运行的应用程序上下文，通过它可以访问当前主题、资源等等。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于视图的</span><span> XML </span><span
+>标签属性集合。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public <b>VideoView</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/content/Context.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>Context</span></a></span><span
+style='background:#D9D9D9'> context, </span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/util/AttributeSet.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>AttributeSet</span></a></span><span
+style='background:#D9D9D9'> attrs, int defStyle) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个带有</span><span>attrs</span><span
+>属性，并且指定其默认样式的</span><span>VideoView</span><span
+>实例。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span>context &nbsp; </span><span >视图运行的应用程序上下文，通过它可以访问当前主题、资源等等。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于视图的</span><span> XML </span><span
+>标签属性集合。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span>defStyle  </span><span >应用到视图的默认风格。如果为</span><span> 0 </span><span >则不应用（包括当前主题中的）风格。</span> <span
+>该值可以是当前主题中的属性资源，或者是明确的风格资源</span><span> ID</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>canPause</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：判断是否能够暂停播放视频）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>canSeekBackward</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：判断是否能够倒退）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>canSeekForward</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：判断是否能够快进）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getBufferPercentage</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：获得缓冲区的百分比）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getCurrentPosition</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：获得当前的位置）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getDuration</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：获得所播放视频的总时间）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isPlaying</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：判断是否正在播放视频）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onKeyDown</b> (int keyCode,
+</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/KeyEvent.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>KeyEvent</span></a></span><span
+style='background:#D9D9D9'> event) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>KeyEvent.Callback.onKeyMultiple() </span><span style='font-family:
+"SimSun","serif"'>的默认实现</span><span >。</span><span
+style='font-family:"SimSun","serif"'>如果视图可用并可按，</span> <span style='font-family:
+"SimSun","serif"'>当按下</span><span> KEYCODE_DPAD_CENTER </span><span
+style='font-family:"SimSun","serif"'>或</span><span> KEYCODE_ENTER </span><span
+style='font-family:"SimSun","serif"'>时执行视图的按下事件</span><span style='font-family:
+宋体'>。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>keyCode</span><span>&nbsp;&nbsp; </span><span
+style='font-family:"SimSun","serif"'>表示按下的键的、在</span><span>
+KEYCODE_ENTER </span><span style='font-family:"SimSun","serif"'>中定义的键盘代码</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KeyEvent </span><span
+style='font-family:"SimSun","serif"'>对象，定义了按钮动作</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>如果处理了事件，返回真</span><span style='font-family:
+宋体'>。</span><span style='font-family:"SimSun","serif"'>如果允许下一个事件接受器处理该事件，可以返回假</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onTouchEvent</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/MotionEvent.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MotionEvent</span></a></span><span
+style='background:#D9D9D9'> ev) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>实现该方法来处理触屏事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"SimSun","serif"'>触屏事件</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>如果事件已经处理返回</span><span>True</span><span
+style='font-family:"SimSun","serif"'>，否则返回</span><span>false</span><span
+style='font-family:"SimSun","serif"'>。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onTrackballEvent</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/MotionEvent.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MotionEvent</span></a></span><span
+style='background:#D9D9D9'> ev) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>实现这个方法去处理轨迹球的动作事件，轨迹球相对于上次事件移动的位置能用</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/MotionEvent.html#getX()"><span
+style='color:windowtext;text-decoration:none'>MotionEvent.getX()</span></a></span><span> </span><span style='font-family:"SimSun","serif"'>和</span> <span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/MotionEvent.html#getY()"><span
+style='color:windowtext;text-decoration:none'>MotionEvent.getY()</span></a></span><span
+>函数取回</span><span style='font-family:"SimSun","serif"'>。</span><span
+>对应用户按下一次方向键，</span> <span >他们通常作为一次移动处理（为了表现来自轨迹球的更小粒度的移动信息，他们返回小数）。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style='font-family:"SimSun","serif"'>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>ev</span><span>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"SimSun","serif"'>动作的事件</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>pause</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>使得播放暂停</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>resolveAdjustedSize</b>
+(int desiredSize, int measureSpec)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span >取得调整后的尺寸。</span><span
+style='font-family:"SimSun","serif"'>如果</span><span>measureSpec</span><span
+style='font-family:"SimSun","serif"'>对象传入的模式是</span><span>UNSPECIFIED</span><span
+style='font-family:"SimSun","serif"'>那么返回的是</span><span>desiredSize</span><span
+style='font-family:"SimSun","serif"'>。如果</span><a name="OLE_LINK8"></a><a
+name="OLE_LINK7"><span>measureSpec</span></a><span style='font-family:
+"SimSun","serif"'>对象</span><span style='font-family:"SimSun","serif"'>传入的模式是</span><span>AT_MOST</span><span style='font-family:"SimSun","serif"'>，返回的将是</span><span>desiredSize</span><span style='font-family:"SimSun","serif"'>和</span><span>measureSpec</span><span style='font-family:"SimSun","serif"'>对象的尺寸两者中最小的那个。如果</span><a
+name="OLE_LINK10"></a><a name="OLE_LINK9"><span>measureSpec</span></a><span
+style='font-family:"SimSun","serif"'>对象</span><span style='font-family:"SimSun","serif"'>传入的模式是</span><span>EXACTLY</span><span style='font-family:"SimSun","serif"'>，那么返回的是</span><span>measureSpec</span><span style='font-family:"SimSun","serif"'>对象中的尺寸大小值。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >关于</span><span>MeasureSpec</span><span >类的额外说明：</span><span>MeasureSpec</span><span >是一个</span><span>android.view.View</span><span >的内部类。它封装了从父类传送到子类的布局要求信息。每个</span><span>MeasureSpec</span><span >对象描述了控件的高度或者宽度。</span><span>MeasureSpec</span><span >对象是由尺寸和模式组成的，有</span><span>3</span><span >个模式：</span><span>UNSPECIFIED</span><span
+>、</span><span>EXACTLY</span><span
+>、</span><a name="OLE_LINK6"></a><a name="OLE_LINK5"><span>AT_MOST</span></a><span >，</span><span
+style='font-family:"SimSun","serif"'>这个对象由</span><span>MeasureSpec.makeMeasureSpec()</span><span
+style='font-family:"SimSun","serif"'>函数创建。</span><span >）</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>resume</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span >恢复挂起的播放器</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>seekTo</b> (int msec) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>设置播放位置</span><span
+>）</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setMediaController</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/MediaController.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MediaController</span></a></span><span
+style='background:#D9D9D9'> controller) </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >（译者注：</span><span
+>设置媒体控制器</span><span >）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOnCompletionListener</b>
+(</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/media/MediaPlayer.OnCompletionListener.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MediaPlayer.OnCompletionListener</span></a></span><span
+style='background:#D9D9D9'> l) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注册在媒体文件播放完毕时调用的回调函数</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>l</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要执行的回调函数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOnErrorListener</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/media/MediaPlayer.OnErrorListener.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MediaPlayer.OnErrorListener</span></a></span><span
+style='background:#D9D9D9'> l) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注册在设置或播放过程中发生错误时调用的回调函数。如果未指定回调函数，</span> <span
+>或回调函数返回假，</span><span>VideoView </span><span
+>会通知用户发生了错误。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>l</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要执行的回调函数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setOnPreparedListener</b>
+(</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/media/MediaPlayer.OnPreparedListener.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>MediaPlayer.OnPreparedListener</span></a></span><span
+style='background:#D9D9D9'> l) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注册在媒体文件加载完毕，可以播放时调用的回调函数。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>l</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要执行的回调函数</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setVideoPath</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/java/lang/String.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>String</span></a></span><span
+style='background:#D9D9D9'> path) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>设置视频文件的路径名</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setVideoURI</b> (</span><span><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/net/Uri.html"><span
+style='color:windowtext;background:#D9D9D9;text-decoration:none'>Uri</span></a></span><span
+style='background:#D9D9D9'> uri) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>设置视频文件的统一资源标识符</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>start</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>开始播放视频文件</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>stopPlayback</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>停止回放视频文件</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>suspend</b> () </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：</span><span style='font-family:"SimSun","serif"'>挂起视频文件的播放</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://android.yaohuiji.com/archives/tag/videoview">VideoView &laquo; { Android<span
+><span>学习指南</span></span>}</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://my.unix-center.net/~Simon_fu/?p=662">Android<span
+><span>利用</span></span>VideoView<span
+><span>实现</span></span>VideoPlayer</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://marshal.easymorse.com/archives/3160"><span
+><span>编写简单自定义</span></span>VideoView</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.shouyanwang.org/thread-96-1-1.html">Android VideoView<span
+><span>如何播放</span></span>RTSP<span
+><span>的流</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://wangjun.easymorse.com/?p=167">android<span
+><span>利用</span></span>VideoView<span
+><span>实现视频全屏播放</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+     
+</body>
+</html>

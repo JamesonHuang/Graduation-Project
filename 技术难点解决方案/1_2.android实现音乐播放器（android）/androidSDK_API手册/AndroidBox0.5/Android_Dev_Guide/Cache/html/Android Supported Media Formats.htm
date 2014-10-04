@@ -1,0 +1,500 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Managing AVDs with AVD Manager</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'       
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Managing AVDs with AVD Manager</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>MeetAndroid</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://blog.csdn.net/meetandroid">http://blog.csdn.net/meetandroid</a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Arial","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds.html">http://developer.android.com/guide/developing/devices/managing-avds.html</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>用</span></b><b><span
+style='font-size:12.0pt'>AVD</span></b><b><span style='font-size:12.0pt;
+'>管理器来管理</span></b><b><span style='font-size:12.0pt'>AVD</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:#333333'>用</span><span style='font-family:
+"Arial","sans-serif";color:#333333'>AVD</span><span style=';
+color:#333333'>管理器来管理</span><span style='font-family:"Arial","sans-serif";
+color:#333333'>AVD</span><span style=';color:#333333'>（</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>Android</span><span
+style=';color:#333333'>虚拟设备）配置很容易。一个</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>AVD</span><span
+style=';color:#333333'>就是一份</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>Android</span><span
+style=';color:#333333'>仿真器的设备配置，仿真器可以模拟</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>Android</span><span
+style=';color:#333333'>所支持设备的不同配置。通过</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>Eclipse</span><span
+style=';color:#333333'>或命令行的</span><span
+style='font-family:"Arial","sans-serif";color:#337933'>android</span><span
+style=';color:#333333'>工具起动</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>AVD</span><span
+style=';color:#333333'>管理器后，就会看到它了。如图</span><span
+style='font-family:"Arial","sans-serif";color:#333333'>1</span><span
+style=';color:#333333'>所示：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span><img border=0 width=554 height=289
+src="image/2011-6-16_1.jpg"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+>图</span></b><b><span style='font-family:"Arial","sans-serif"'>1</span></b><span
+style='font-family:"Arial","sans-serif"'>. AVD</span><span
+>管理器屏幕截图。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Arial","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>通过主屏幕，可以创建，删除，更改和启动</span><span
+style='font-family:"Arial","sans-serif"'>AVD</span><span style='font-family:
+宋体'>。还可以查看</span><span style='font-family:"Arial","sans-serif"'>AVD</span><span
+>的详情。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>创建</span></b><b><span>AVD (Creating an AVD)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>你可以根据自己的需要，创建任意数量的</span><span>AVD</span><span
+>。推荐的做法是，在高于目标</span><span>API</span><span
+>级的所有</span><span>API</span><span
+>级上测试自己的应用程序。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建</span><span>AVD</span><span
+>步骤：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >起动</span><span>AVD</span><span
+>管理器：</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>在</span><span>Eclipse</span><span
+>中：选择</span><span>Window &gt; Android SDK and
+AVD Manager</span><span >，或点击</span><span>Eclipse</span><span
+>工具栏中的</span><span>Android SDK and AVD Manager</span><span
+>图标。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>在其它</span><span>IDE</span><span
+>中：到</span><span>SDK</span><span
+>的</span><span>tools/</span><span
+>目录中，执行</span><span>android</span><span
+>工具，不用给任何参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >在</span><span>Virtual
+Devices</span><span >面板中，可以看到已创建的</span><span>AVD</span><span
+>的列表。点击</span><span>New</span><span
+>可以创建一个新的</span><span>AVD</span><span
+>，这时会显示</span><span>Create New AVD</span><span
+>对话框。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span><img border=0 width=287 height=396
+src="image/2011-6-16_2.jpg"
+alt="AVD Dialog"></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><b><span
+>图</span><span>2</span></b><span>. </span><span
+>创建</span><span>AVD</span><span
+>的窗口屏幕截图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >填写</span><span>AVD</span><span
+>详情。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>需要给出名称、目标平台、</span><span>SD</span><span
+>卡大小和皮肤（默认为</span><span>HVGA</span><span
+>）。此外，还可以通过点击</span><b><span>New</span></b><span
+>…按钮并选择相应功能来添加特殊的硬件功能。要获取硬件功能的清单，请查阅</span><span><a target="_blank" href="http://developer.android.com/guide/developing/devices/managing-avds.html#hardwareopts"><span
+><span>硬件选项</span></span></a></span><span
+>。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 11.0pt;
+margin-left:63.0pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='margin-top:6.0pt;margin-right:0cm;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:left;
+line-height:15.6pt;border:none;padding:0cm'><b><span >注：</span></b><span
+>确保按照应用程序的构建目标（</span><span style='font-family:
+"Arial","sans-serif"'>AVD</span><span >平台目标的</span><span
+style='font-family:"Arial","sans-serif"'>API</span><span
+>级必须等于或高于应用程序编译的</span><span style='font-family:
+"Arial","sans-serif"'>API</span><span >级）来为</span><span
+style='font-family:"Arial","sans-serif"'>AVD</span><span
+>定义目标设备。</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >点击</span><span>Create AVD</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>现在，</span><span>AVD</span><span
+>就准备好了。接下来可以关闭</span><span>SDK</span><span
+>和</span><span>AVD</span><span
+>管理器、或创建更多的</span><span>AVD</span><span
+>。也可以选择一个设备的</span><span>AVD</span><span
+>，并点击</span><span>Start</span><span
+>来启动仿真器。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+>硬件选项</span><span>(ardware options)</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>新创建</span><span>AVD</span><span >时，可指定下列用于模拟的硬件选项：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=123 valign=top style='width:92.1pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >特征</span></p>
+  </td>
+  <td width=265 valign=top style='width:7.0cm;border-top:solid black 1.0pt;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+  <td width=123 valign=top style='width:92.15pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设备内存尺寸</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备的物理内存数量，以兆字节计，默认值为“</span><span
+ >6</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.ramSize</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >触摸屏支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有一个触摸屏，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.touchScreen</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >轨迹球支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有一个轨迹球，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.trackBall</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >键盘支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有一个</span><span
+ >QWERTY</span><span >键盘，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.keyboard</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >拨号盘支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有拨号盘按键，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.dPad</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>GSM
+  modem</span><span >支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有</span><span>SDM
+  modem</span><span >，默认值为“</span><span>yes</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.gsmModem</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >摄像头支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有摄像头，默认值为“</span><span
+ >no</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.camera</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >摄像头水平最大像素</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >默认值为“</span><span>640</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.camera.maxHorizontalPixels</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >摄像头垂直最大像素</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >默认值为“</span><span>480</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.camera.maxVerticalPixels</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>GPS</span><span
+  >支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有</span><span>GPS</span><span
+  >，默认值为“</span><span>yes</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.gps</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >电池支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有电池，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.battery</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >加速度感应器</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否有加速度感应器，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.accelerometer</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >音频录制支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否能录制音频，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.audioInput</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >音频回放支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否能回放音频，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.audioOutput</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>SD</span><span
+  >卡支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否支持虚拟</span><span
+ >SD</span><span >卡的插入</span><span>/</span><span
+  >拔出，默认值为“</span><span>yes</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.sdCard</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >缓存分区支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备是否使用</span><span
+ >/cache</span><span >分区，默认值为“</span><span
+ >yes</span><span >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>disk.cachePartition</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >缓存分区大小</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >默认值为“</span><span>66MB</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>disk.cachePartition.size</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>LCD</span><span
+  >密度</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >设备</span><span>AVD</span><span
+  >屏幕的密度特征，默认值为”</span><span>160</span><span
+  >”。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.lcd.density</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=123 style='width:92.1pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >轨迹球支持</span></p>
+  </td>
+  <td width=265 style='width:7.0cm;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span >是否有轨迹球。</span></p>
+  </td>
+  <td width=123 style='width:92.15pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>hw.trackBall</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://book.51cto.com/art/201105/265361.htm"><span
+><span>创建</span></span> Android<span
+><span>虚拟设备</span></span> AVD</a></span></p>
+
+</div>
+
+     
+</body>
+</html>

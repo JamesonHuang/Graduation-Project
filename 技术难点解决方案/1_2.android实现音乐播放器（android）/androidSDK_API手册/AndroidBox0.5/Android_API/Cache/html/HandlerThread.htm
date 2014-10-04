@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> HandlerThread</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>HandlerThread</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：雪鹰工作室</span> </p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>HandleThread </span>extends <span style='color:#C00000'>Thread</span></span></i></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object </span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Thread </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-family:"MS Gothic"'>&nbsp;&nbsp;&nbsp; </span>android.os.HandlerThread </span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于方便的创建一个含有</span><span>looper</span><span
+>的线程类。</span><span>looper</span><span
+>用来创建</span><span>handler</span><span
+>类。请注意，仍然需要调用</span><span>start()</span><span
+>方法。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>构造函数</span></b></p>
+
+<p class=MsoListParagraph><span style='background:#D9D9D9'>public
+HandlerThread (String name)</span></p>
+
+<p class=MsoListParagraph><span >构造一个</span>HandlerThread</span></p>
+
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+
+<p class=MsoListParagraph><span style='background:#D9D9D9'>public <b>HandlerThread</b>
+(String name, int priority)</span><span> </span></p>
+
+<p class=MsoListParagraph><span >构造一个</span>HandlerThread</span></p>
+
+<p class=MsoListParagraph style='margin-left:21.0pt'><span style='font-family:
+宋体'>参数</span></p>
+
+<p class=MsoListParagraph style='margin-left:42.0pt'><span>priority&nbsp;
+</span><span >运行线程的优先级，这个值是由</span><span>Android.os.Process</span><span
+>提供而不是来自</span><span>java.lang.Thread.</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public Looper <b>getLooper</b> ()</span> </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法返回与此线程相关的</span>Looper</span><span >。如果该线程不能启动或是由于某种原因</span>isAlive()</span><span >方法返回</span>false</span><span >，则这个方法返回</span>null</span><span >，假如这个线程已经启动，那么此方法将阻塞，直到</span>looper</span><span >被初始化。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回值</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>Looper</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getThreadId</b> ()</span> </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回线程的标志。详见：</span>Process.myTid()</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>quit</b> ()</span> </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >查看当前运行的</span>looper</span><span >是否已经退出。假如线程这未启动或者已经结束（即</span>getLooper()</span><span >方法返回</span>null</span><span >），这个方法将返回</span>false</span><span >。否则</span><span>looper</span><span
+>被要求退出并返回</span><span>true</span><span
+>。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>run</b> ()</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >调用设置</span>Runnable</span><span >对象的</span>run()</span><span >方法。如果没有设置</span>Runnable</span><span >，什么也不做。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>onLooperPrepared</b> ()</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果需要在</span>Looper</span><span >循环之前执行一些设置，可明确继承该回调方法。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >（译者注：如下代码：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void
+run() {</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTid
+= Process.myTid();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Looper.prepare();//</span><span
+>创建一个</span><span>Looper</span><span
+>实例，并且存储在</span><span>ThreadLocal</span><span
+>中，</span><span>ThreadLocal</span><span
+>中维护一个</span><span>HashMap</span><span
+>，键是线程号</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; synchronized
+(this) {</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mLooper
+= Looper.myLooper();//</span><span >得到当前线程的</span>Looper</span><span >，就是刚才</span>perpare</span><span >方法中创建并存储的那个</span>Looper</span><span >实例</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Process.setThreadPriority(mPriority);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; notifyAll();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onLooperPrepared();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Looper.loop();//</span><span
+>开始轮询</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTid
+= -1;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >）</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+
+<p class=MsoNormal style='background:white'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://hi.baidu.com/lphack/blog/item/6e6e2f2bc9cd273cd52af15b.html">Android<span
+lang=EN-US ><span>开发入门</span></span>——handler<span
+lang=EN-US ><span>使用（二）</span></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://cnitcastsdut.blog.163.com/blog/static/146018093201010902952939">AsyncQueryHandler<span
+lang=EN-US ><span>研究</span></span></a></span></p>
+
+<p class=MsoNormal style='background:white'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.android123.com.cn/androidkaifa/422.html">Thread<span
+lang=EN-US ><span>和</span></span>Looper<span
+lang=EN-US ><span>以及</span></span>Handler<span
+lang=EN-US ><span>和</span></span>Message<span
+lang=EN-US ><span>详解</span></span> Android<span
+lang=EN-US ><span>开发必读</span></span></a>[Android123]</span></p>
+
+<p class=MsoNormal style='background:white'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://tw.myblog.yahoo.com/blog-stellvia7/article?mid=667&amp;prev=669&amp;next=665">android
+Thread HandlerThread Looper Message MessageQueue Handler<span
+><span>的关系</span></span></a></span></p>
+
+</div>
+
+      
+</body>
+</html>

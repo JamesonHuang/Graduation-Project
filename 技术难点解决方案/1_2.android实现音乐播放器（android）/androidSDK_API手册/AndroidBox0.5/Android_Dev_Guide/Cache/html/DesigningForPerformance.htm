@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Application Resources</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:18.0pt'>Application Resources</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>CodeGuy </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span >译者链接：</span><span><a target="_blank" href="http://www.cnblogs.com/CodeGuy/">http://www.cnblogs.com/CodeGuy/</a> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2 r1</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/topics/resources/index.html">http://developer.android.com/guide/topics/resources/index.html</a>&nbsp;
+</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当你写程序的时候应该习惯于把一些程序需要用到的资源，例如图片和字符串，分开并独立地保存在你的程序代码之外，这样你就可以独立地维护这些资源文件。将资源文件独立于代码之外，这样就允许你给程序提供更多可选的资源来支持一些特殊的设备配置，例如不同语言和不同屏幕大小。随着越来越多的</span>Android</span><span >设备开始支持不同的配置，这变得越来越重要。为了让这些</span>Android</span><span >设备兼容各种不同的配置，你必须得组织你的工程下面的</span>res/ </span><span >目录，</span><span
+class=apple-style-span><span style=';color:black'>根据类型和配置，通过不同的子目录来对资源进行分组管理。</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=apple-style-span><span style=';color:black'>对于任意类型的资源，你都可以为你的程序指定默认的和多种可选的资源：</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+class=apple-style-span><span style=';color:black'>默认（缺省）的资源应该是那些可以在忽视设备的配置的情况下使用的或者当没有其他可匹配当前配置的可替代资源的情况下使用的资源。</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+class=apple-style-span><span style=';color:black'>可替代资源是那些你为特定配置而设置的资源。一个特定的配置对应一组特定的资源</span></span><span
+>，</span><span class=apple-style-span><span
+style=';color:black'>然后给该资源文件夹添加一个合适的配置限定词作为命名</span></span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>（译者注：一组特定的资源即你的工程目录下的一个资源文件夹，</span><span
+style='color:#007F00'>res/layout</span><span >这个布局文件夹）</span>
+</p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>例如，当你默认的</span><span>UI</span><span
+>布局保存在</span><span style='color:#007F00'>res/layout</span><span
+>目录下，你可能要设置另一个不同的</span><span>UI</span><span
+>布局保存在</span><span>res/layout-land/</span><span
+>这个目录下，在你的</span><span class=apple-style-span><span
+style=';color:black'>屏幕是横向的时候使用。</span></span><span
+class=apple-style-span><span style='font-family:"Tahoma","sans-serif";
+color:black'>Android</span></span><span class=apple-style-span><span
+style=';color:black'>通过把设备当前的配置信息匹配到你的资源文件目录下的命名，自动调用恰当的资源。</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;<img
+border=0 width=553 height=180
+src="image/2011-9-7_1.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>图</span><span>1. </span><span
+>两个设备使用的都是缺省（默认）的资源</span> <span><img
+border=0 width=553 height=180
+src="image/2011-9-7_2.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+class=apple-style-span><span style=';color:black'>图</span></span><span
+class=apple-style-span><span style='font-family:"Tahoma","sans-serif";
+color:black'>2.</span></span><span class=apple-style-span><span
+style=';color:black'>两种不同的设备配置，一个使用了可替代的资源</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>图</span><span>1</span><span style='font-family:
+宋体'>给我们展示了在没有可利用的可</span><span class=apple-style-span><span style='font-family:
+宋体;color:black'>替代</span></span><span >资源的情况下，一个应用程序的一组默认的资源是如何应用到不同的设备配置上的。图</span>2 </span><span >给我们展示了相同的应用程序在具有一组可</span><span
+class=apple-style-span><span style=';color:black'>替代</span></span><span
+>的资源，并且每种资源限定于一种设备配置的情况下，这两种设备配置就会使用不同资源。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>以上信息仅仅介绍了应用程序资源是如何应用在</span><span>Android</span><span
+>上的。</span><span class=apple-style-span><span
+style=';color:black'>下面的文档就如何组织管理你的应用程序中的资源、如何指定可替代的资源、如何在你的程序中使用它们等等提供了完整的指南：</span></span>
+</p>
+
+<p class=MsoNormal align=left style='text-align:left'><span><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html">Providing
+Resources</a> </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>这篇文档会说明你可以在你的应用程序中使用什么样的资源文件，这些资源文件分别保存在哪里，如何为特定的设备配置创建可替换的资源。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span><a target="_blank" href="http://www.cnblogs.com/over140/archive/2011/09/05/2167524.html">Accessing
+Resources</a> </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>这篇文档会说明如何使用你提供的资源，或者说如何通过你的程序代码或者从其他</span>XML</span><span >类型的资源文件里面引用资源文件。</span> </span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span><a target="_blank" href="http://www.cnblogs.com/over140/archive/2011/08/29/2158170.html">Handling
+Runtime Changes</a> </span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+</span><span >这篇文档会说明</span><span>Activity</span><span
+>处于运行状态时时如何管理配置当配置发生改变时。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span><a target="_blank" href="http://developer.android.com/guide/topics/resources/localization.html">Localization</a>
+</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:black'>这篇文档会一个自下而上地指导你<span class=apple-style-span>如何使用可替换的资源文件来初始化你的应用程序虽然这只是一个特定用途的替代资源，但是这对于吸引更多用户是非常重要的。</span></span> </span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span><a target="_blank" href="http://developer.android.com/guide/topics/resources/available-resources.html">Resource
+Types</a> </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>这篇文档介绍各种你可以引用的各种资源类型，描述资源的</span><span>XML</span><span
+>元素、属性和语法。例如，这个引用将告诉你如何为应用程序的菜单，图片或颜色，动画等等创建一个资源。</span> </p>
+
+</div>
+
+      
+</body>
+</html>

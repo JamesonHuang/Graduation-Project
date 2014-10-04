@@ -1,0 +1,2294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> AudioManager</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>AudioManager</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >文炜</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.cnblogs.com/iezhyg/">http://www.cnblogs.com/iezhyg/</a></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2 r1</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>AudioManager</span> extends <span style='color:#C00000'>Object</span></span></i></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>java.lang.Object</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.media.AudioManager</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>AudioManager</span><span >类提供访问音量和振铃模式的控制。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>用</span><span style='color:#007F00'>Context.getSystemService(Context.AUDIO_SERVICE)</span><span
+>得到这个类的实例。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>常量</span></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>ACTION_AUDIO_BECOMING_NOISY</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>广播</span><span>intent</span><span
+>，提示应用程序音频信号由于音频输出的变化将变得“嘈杂”。例如，当拔出一个有线耳机，或断开一个支持</span>A2DP</span><span >的音频接收器，这个</span>intent</span><span >就会被发送，且音频系统将自动切换音频线路到扬声器。收到这个</span>intent</span><span >后，控制音频流的应用程序会考虑暂停，减小音量或其他措施，以免扬声器的声音使用户<span
+class=trans>惊奇。</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span class=trans><span >常量值：</span>&quot;android.media.AUDIO_BECOMING_NOISY&quot;</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+class=trans><span>&nbsp;</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String<b>
+ACTION_SCO_AUDIO_STATE_CHANGED</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=trans><span >广播</span><span>intent</span></span><span
+class=trans><span >，表明蓝牙</span><span>SCO</span></span><span
+class=trans><span >音频连接状态已改变。这个</span><span>intent</span></span><span
+class=trans><span >包含额外信息：</span><span>EXTRA_SCO_AUDIO_STATE</span></span><span
+class=trans><span >，它表明新的状态是</span><span>SCO_AUDIO_STATE_DISCONNECTED</span></span><span
+class=trans><span >或</span><span>SCO_AUDIO_STATE_CONNECTED</span></span><span
+class=trans><span >。</span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='color:yellow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startBluetoothSco()</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>常量值：</span><span>&quot;android.media.SCO_AUDIO_STATE_CHANGED&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ADJUST_LOWER</b></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>减小铃声音量。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-1 (0xffffffff)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ADJUST_RAISE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>增大铃声音量。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ADJUST_SAME</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>保持先前的铃声音量。当需要</span><span>toast</span><span
+>显示音量而不修改它时可能是有用的。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_GAIN</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用来指示获得音频焦点，请求音频焦点，未知持续时间</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>requestAudioFocus(OnAudioFocusChangeListener,
+int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=FR> 1 (0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_GAIN_TRANSIENT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用来指示临时获得或请求音频焦点，预期持续很短的时间。临时改变的例子是操纵方向的回放，或一个事件的通知。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>requestAudioFocus(OnAudioFocusChangeListener,
+int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=FR> 2 (0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用来指示一个临时的音频焦点请求，预期持续很短的时间，其它音频程序降低他们的输出级别后保持播放是可接受的（也被称为“</span>ducking</span><span >”）。临时改变的例子是操纵方向的回入，在后台回放音乐是可接受的。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>requestAudioFocus(OnAudioFocusChangeListener,
+int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>常量值</span><span >：</span><span
+lang=FR> 3 (0x00000003)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=FR>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_LOSS</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用来指示在未知持续时间内丢失音频焦点</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-1 (0xffffffff)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_LOSS_TRANSIENT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用来指示暂时的丢失音频焦点。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-2 (0xfffffffe)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用来指示暂时的丢失音频焦点，若音频焦点的丢失者想继续播放，它会降低自己的输出</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>音量（也被称为“</span><span>ducking</span><span
+>”），因为新的焦点拥有者不要求其它静音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>onAudioFocusChange(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-3 (0xfffffffd)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_REQUEST_FAILED</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>一个失败的焦点转移请求。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>AUDIOFOCUS_REQUEST_GRANTED</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>一个成功的焦点转移请求。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>EXTRA_RINGER_MODE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>新的振铃模式。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>RINGER_MODE_CHANGED_ACTION</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>RINGER_MODE_NORMAL</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>RINGER_MODE_SILENT</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>RINGER_MODE_VIBRATE</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span lang=FR>
+&quot;android.media.EXTRA_RINGER_MODE&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>EXTRA_SCO_AUDIO_STATE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>额外的</span><span>intent ACTION_SCO_AUDIO_STATE_CHANGED</span><span
+>包含新的蓝牙</span><span>SCO</span><span
+>连接状态。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+&quot;android.media.extra.SCO_AUDIO_STATE&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>EXTRA_VIBRATE_SETTING</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>特定类型的新振动设置。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_SETTING_CHANGED_ACTION</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>EXTRA_VIBRATE_TYPE</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_SETTING_ON</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_SETTING_OFF</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_SETTING_ONLY_SILENT</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+&quot;android.media.EXTRA_VIBRATE_SETTING&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>EXTRA_VIBRATE_TYPE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>振动类型设置发生变化。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_SETTING_CHANGED_ACTION</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_TYPE_NOTIFICATION</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>VIBRATE_TYPE_RINGER</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+&quot;android.media.EXTRA_VIBRATE_TYPE&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FLAG_ALLOW_RINGER_MODES</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当改变音量时，是否将振铃模式作为候选项。例如，如果为</span><span>true</span><span
+>且音量级别为</span><span>0</span><span
+>音量或用</span><span>ADJUST_LOWER</span><span
+>调整音量，那么振铃模式会改变静音或振动模式。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>对铃声流来说这个选项默认是打开的。如果包括这个标志，这个行为将被展示，不管流类型受振铃模式的影响。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FLAG_PLAY_SOUND</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当改变音量时，是否播放声音。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>若由</span><span>adjustVolume(int, int)</span><span
+>或</span><span>adjustSuggestedStreamVolume(int,
+int, int)</span><span >给出，则在某些情况下会被忽略（例如，采用的流类型不是</span>STREAM_RING</span><span >，或正在向下调整音量）。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FLAG_REMOVE_SOUND_AND_VIBRATE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>移除队列中或正在播放（与改变音量相关）的声音</span><span>/</span><span
+>振动。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FLAG_SHOW_UI</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>显示包含当前音量的</span><span>toast</span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setRingerMode(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FLAG_VIBRATE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>若进入振动铃声模式是否振动。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16 (0x00000010)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_FOCUS_NAVIGATION_DOWN</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>焦点下移。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_FOCUS_NAVIGATION_LEFT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>焦点左移</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 3
+(0x00000003)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_FOCUS_NAVIGATION_RIGHT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>焦点右移。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_FOCUS_NAVIGATION_UP</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>焦点上移。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_KEYPRESS_DELETE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'>IME</span><span >删除按键声音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 7
+(0x00000007)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_KEYPRESS_RETURN</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IME</span><span
+>返回按键声音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_KEYPRESS_SPACEBAR</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'>IME</span><span >空格按键声音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 6
+(0x00000006)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_KEYPRESS_STANDARD</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IME</span><span
+>标准按键声音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 5
+(0x00000005)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>FX_KEY_CLICK</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>键盘和方向键点击声音。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>playSoundEffect(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_CURRENT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当前音频模式。用来请求音频路由到当前模式。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-1 (0xffffffff)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_INVALID</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>无效的音频模式</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-2 (0xfffffffe)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_IN_CALL</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>呼叫的音频模式。建立一个电话呼叫。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_IN_COMMUNICATION</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>通信的音频模式。建立一个音频</span><span>/</span><span
+>视频或</span><span>VoIP</span><span
+>呼叫。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 3
+(0x00000003)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_NORMAL</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>正常的音频模式：不是振铃或建立呼叫。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>MODE_RINGTONE</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>振铃的音频模式。获取信号输入。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>NUM_STREAMS</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'> AudioSystem.getNumStreamTypes() </span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 5
+(0x00000005)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>RINGER_MODE_CHANGED_ACTION</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>广播</span><span>intent</span><span
+>表明振铃模式被改变。包括新的振铃模式。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>EXTRA_RINGER_MODE</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=FR>
+&quot;android.media.RINGER_MODE_CHANGED&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=FR>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>RINGER_MODE_NORMAL</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>振铃模式可以是听得见的或振动的。若音量在改变这一模式前是听得见的，则它是听得见的。若打开振动设置，则它是振动的。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>setRingerMode(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>getRingerMode()</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=DE> 2 (0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>RINGER_MODE_SILENT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>振铃模式是静音且不振动。（这要覆盖振动设置。）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>setRingerMode(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>getRingerMode()</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=DE> 0 (0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>RINGER_MODE_VIBRATE</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>振铃模式是静音且振动。（这会导致电话铃声一直振动，但若设置当通知振动时振动）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>setRingerMode(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>getRingerMode()</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span
+>：</span><span lang=DE> 1 (0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span lang=DE>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_ALL</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用来屏蔽</span><span>setRouting(int, int, int)</span><span
+>的参数。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-1 (0xffffffff)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_BLUETOOTH</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'>ROUTE_BLUETOOTH_SCO</span><span style='font-family:
+宋体;background:yellow'>。不要直接设置音频路由，用方法</span><span style='background:
+yellow'>setSpeakerphoneOn(), </span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:yellow'>setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>常量值：</span> <span>4 (0x00000004)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_BLUETOOTH_A2DP</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>路由音频输出到蓝牙</span><span>A2DP</span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16 (0x00000010)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_BLUETOOTH_SCO</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>路由音频输出到蓝牙</span><span>SCO</span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_EARPIECE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>路由音频输出到听筒。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_HEADSET</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>路由音频输出到耳机。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ROUTE_SPEAKER</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>不要直接设置音频路由，用方法</span><span
+style='background:yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span
+style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>路由音频输出到扬声器。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>SCO_AUDIO_STATE_CONNECTED</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'>EXTRA_SCO_AUDIO_STATE</span><span >的额外值表明</span>SCO</span><span >音频通道已建立。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>SCO_AUDIO_STATE_DISCONNECTED</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXTRA_SCO_AUDIO_STATE</span><span
+>的额外值表明</span><span>SCO</span><span
+>音频通道未建立。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>SCO_AUDIO_STATE_ERROR</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXTRA_SCO_AUDIO_STATE</span><span
+>的额外值表明尝试获取状态有错误。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-1 (0xffffffff)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_ALARM</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于报警的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_DTMF</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于</span><span>DTMF Tones</span><span
+>的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_MUSIC</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于音乐回放的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 3
+(0x00000003)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_NOTIFICATION</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于通知的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 5
+(0x00000005)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_RING</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于电话铃声的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_SYSTEM</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于系统声音的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>STREAM_VOICE_CALL</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用于电话的音频流。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>USE_DEFAULT_STREAM_TYPE</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>建议使用默认的流类型。这可能不适用于所有需要流类型的地方。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+-2147483648 (0x80000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final String <b>VIBRATE_SETTING_CHANGED_ACTION</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>广播</span><span>intent</span><span
+>，表明振动设置已改变。包括振动类型和其新设置。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>EXTRA_VIBRATE_TYPE</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>EXTRA_VIBRATE_SETTING</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+&quot;android.media.VIBRATE_SETTING_CHANGED&quot;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>VIBRATE_SETTING_OFF</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>建议不振动的振动设置</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>VIBRATE_SETTING_ON</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>建议在合适时振动的振动设置。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>VIBRATE_SETTING_ONLY_SILENT</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>建议只在振动铃声模式中振动的振动设置。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>VIBRATE_TYPE_NOTIFICATION</b></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>与通知相符的振动类型。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>shouldVibrate(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>VIBRATE_TYPE_RINGER</b></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>与振铃相符的振动类型。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参照</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>shouldVibrate(int)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>abandonAudioFocus</b>
+(AudioManager.OnAudioFocusChangeListener l) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >放弃音频焦点。若存在先前焦点拥有者，则使它接收焦点。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>I&nbsp; </span><span >请求焦点的监听器。</span> </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>AUDIOFOCUS_REQUEST_FAILED</span><span >或</span> AUDIOFOCUS_REQUEST_GRANTED </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>adjustStreamVolume</b> (int streamType, int direction,
+int flags) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >通过同一方向的一步调整特定流的音量。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲调整的流类型。</span> <span >值为</span>STREAM_VOICE_CALL, STREAM_SYSTEM, </span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>STREAM_RING, STREAM_MUSIC</span><span >或</span>STREAM_ALARM</span><span >。</span> </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>Direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲调整音量的方向。值为</span><span>ADJUST_LOWER,
+ADJUST_RAISE, </span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>ADJUST_SAME. </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>Flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个或多个标志。</span> </p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>adjustSuggestedStreamVolume</b> (int direction, int
+suggestedStreamType, int flags) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >调整最相关流或给定的回放流的音量。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲调整音量的方向。</span> <span >值为</span> ADJUST_LOWER, ADJUST_RAISE, </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>或</span><span> ADJUST_SAME. </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>suggestedStreamType&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若不存在相关流，则用该流类型。</span></p>
+
+<p class=MsoNormal style='margin-left:126.0pt;text-indent:21.0pt'>USE_DEFAULT_STREAM_TYPE</span><span >在这是有效的。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>Flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个或多个标志。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>adjustVolume(int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>adjustVolume</b> (int direction, int flags) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >调整最相关流的音量。例如，若在通话中，不管通话屏幕是否显示，它都将拥有最高的</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >优先级。另一个例子，若音乐正在后台播放且不在通话中，刚将调整音频流。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>direction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲调整音量的方向。</span> <span >值为</span>ADJUST_LOWER, ADJUST_RAISE, </span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>ADJUST_SAME. </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个或多个标志。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>adjustSuggestedStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>adjustStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int <b>getM</b></span><b><span lang=FR
+style='background:#D9D9D9'>ode</span></b><span lang=FR style='background:#D9D9D9'>
+() </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回当前的音频模式。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>当前音频模式</span><span>(MODE_NORMAL,
+MODE_RINGTONE, MODE_IN_CALL </span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>MODE_IN_COMMUNICATION). </span><span >从</span>HAL</span><span >中返回当前音频状态。</span> </p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public String <b>getParameters</b> (String keys) </span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>获得音频硬件设置的参数值变量。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>keys&nbsp; </span><span >参数列表</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>键值对形式的参数列表：</span><span>
+key1=value1;key2=value2;... </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>getRingerMode</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回当前铃声模式。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>当前铃声模式，值为</span><span>RINGER_MODE_NORMAL,
+RINGER_MODE_SILENT, </span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>RINGER_MODE_VIBRATE.</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setRingerMode(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>getRouting</b> (int mode) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt'><span style=';
+background:yellow'>不要直接查询音频路由，用方法</span><span style='background:
+yellow'>isSpeakerphoneOn(), isBluetoothScoOn(), isBluetoothA2dpOn() and
+isWiredHeadsetOn()</span><span style=';background:yellow'>代替。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回指定模式的当前音频路由位向量。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>mode&nbsp; </span><span >获取路由的音频模式</span> (e.g., MODE_RINGTONE) </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>可以与</span><span>ROUTE_xxx</span><span
+>相比较的一个音频路由位向量</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>getStreamMaxVolume</b> (int streamType) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回特定流的最大音量索引。</span><span
+lang=FR> </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp; </span><span >返回最大音量索引的流类型。</span> </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>流的最大有效音量索引。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getStreamVolume(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>getStreamVolume</b> (int streamType) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回特定类的当前音量索引。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp; </span><span >返回音量索引的流类型。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>The current volume index for the stream.</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>流的当前音量索引。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getStreamMaxVolume(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setStreamVolume(int, int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>getVibrateSetting</b> (int vibrateType) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回振动类型对应的用户振动设置。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >大多数需要振动的客户端不应该使用这个方法，用</span>shouldVibrate(int)</span><span >代替。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>vibrateType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>振动类型。值为</span><span>VIBRATE_TYPE_NOTIFICATION</span><span
+>或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>VIBRATE_TYPE_RINGER</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>振动设置，值为</span><span>VIBRATE_SETTING_ON,
+VIBRATE_SETTING_OFF, </span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>VIBRATE_SETTING_ONLY_SILENT.</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>shouldVibrate(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isBluetoothA2dpOn</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查</span>A2DP</span><span >音频路由到蓝牙耳机是否打开。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal><span>true if A2DP audio is being routed to/from
+Bluetooth headset; false if otherwise </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若</span><span>A2DP</span><span
+>音频被路由到</span><span>/</span><span
+>从蓝牙耳机，返回</span><span>ture</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>isBluetoothScoAvailableOffCall</b>
+()</span><span> </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >表明当前平台是否支持使用</span>SCO</span><span >关闭通话用例。当电话不在通话中，应用程序需要使用蓝牙</span>SCO</span><span >音频，必须先调用这个方法以确保平台支持这一特性。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>true if bluetooth SCO can be used for audio when not in call false
+otherwise</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若当不在通话中时音频可以使用蓝牙</span><span>SCO</span><span
+>，返回</span><span>ture</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>startBluetoothSco()</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>isBluetoothScoOn</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查通信是否使用蓝牙</span>SCO</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若通信使用</span><span>SCO,</span><span
+>返回</span><span>true</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>isMicrophoneMute</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查麦克风是否静音。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若麦克风静音，返回</span><span>true</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>isMusicActive</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查是否有音乐是活动的。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若有音乐曲目是活动的，返回</span><span>true</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>isSpeakerphoneOn</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查喇叭扩音器是否开着。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若喇叭扩音器开着，返回</span><span>true</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>isWiredHeadsetOn</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >检查音频路由到有线耳机是否开着。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>若音频被路由到</span><span>/</span><span
+>从有线耳机，返回</span><span>true</span><span
+>。反之，返回</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>loadSoundEffects</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >加载音效。当音效可用时，要先调用这个方法。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>playSoundEffect</b> (int effectType, float volume) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >播放音效（按键声音，打开</span>/</span><span >关闭盖子）</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>effectType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>音效的类型。值为</span><span>FX_KEY_CLICK,
+FX_FOCUS_NAVIGATION_UP, </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_FOCUS_NAVIGATION_DOWN,
+FX_FOCUS_NAVIGATION_LEFT, </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_FOCUS_NAVIGATION_RIGHT,FX_KEYPRESS_STANDARD,
+</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_KEYPRESS_SPACEBAR,FX_KEYPRESS_DELETE,
+</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_KEYPRESS_RETURN</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>Volume&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>音效的音量。</span> <span >音量值是原始标量</span>so UI controls should be scaled logarithmically. </span><span
+>若音量指定为</span><span>-1</span><span
+>，用</span><span>AudioManager.STREAM_MUSIC </span><span
+>流音量减去</span><span>3dB</span><span
+>。注意：这个版本应用于启动和控制音量面板的设置。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>playSoundEffect</b> (int effectType) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >播放音效（按键声音，打开</span>/</span><span >关闭盖子）</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>effectType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>音效的类型。值为</span><span>FX_KEY_CLICK,
+FX_FOCUS_NAVIGATION_UP, </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_FOCUS_NAVIGATION_DOWN,
+FX_FOCUS_NAVIGATION_LEFT, </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FX_FOCUS_NAVIGATION_RIGHT,
+FX_KEYPRESS_STANDARD,</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>FX_KEYPRESS_SPACEBAR, FX_KEYPRESS_DELETE, </span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>FX_KEYPRESS_RETURN,</span><span >注意：这个版本使用</span>UI</span><span >设置决定声音能否</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'><span
+>被听见。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>registerMediaButtonEventReceiver</b> (ComponentName
+eventReceiver) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >注册一个组件，它是</span>MEDIA_BUTTON intent</span><span >的唯一接收器。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>eventReceiver </span><span >接收媒体按钮</span>intent</span><span >的</span><span>BroadcastReceiver
+</span><span >的标志符。这个广播</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>接收器必须在应用程序清单中声明。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public int <b>requestAudioFocus</b>
+(AudioManager.OnAudioFocusChangeListener l, int</span><span lang=FR> </span><span
+lang=FR style='background:#D9D9D9'>streamType, int durationHint) </span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请求音频焦点。发送请求以获得音频焦点。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>音频焦点改变时通知的接收器。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>受焦点请求影响的主要音频流类型。</span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt'><span>durationHint&nbsp;&nbsp;&nbsp; </span><span
+>用</span><span>AUDIOFOCUS_GAIN_TRANSIENT</span><span
+>表示这个焦点请求是暂时的，很快会放弃这个焦点。暂时请求的例子有操纵方向的回放，通知声音。用</span>AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK</span><span style='font-family:
+宋体'>表示若先前焦点拥有者躲开它的音频输出，它保持播放是可行的。</span><span>AUDIOFOCUS_GAIN</span><span
+>用于一个求和持续时间的焦点请求，如回放歌曲或音频。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>AUDIOFOCUS_REQUEST_FAILED</span><span >或</span> AUDIOFOCUS_REQUEST_GRANTED </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setBluetoothA2dpOn</b> (boolean on) </span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt'><span style=';
+background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt'><span style=';
+background:yellow'>不要使用。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>on&nbsp; </span><span >若为</span>true</span><span >，路由</span><span>A2DP</span><span
+>音频到</span><span>/</span><span
+>从蓝牙耳机；若为</span><span>false</span><span
+>，禁用</span><span>A2DP</span><span
+>音频。</span><span> </span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setBluetoothScoOn</b> (boolean on) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >请求在通信中使用蓝牙</span>SCO</span><span >耳机。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>on&nbsp; </span><span >若为</span>true</span><span >，在通信中使用蓝牙</span>SCO</span><span >；若为</span><span>false</span><span
+>，不使用。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setMicrophoneMute</b> (boolean on) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置麦克风是否静音。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>on&nbsp; </span><span >若为</span>ture</span><span >，麦克风静音。若为</span>flase</span><span >，不静音。</span> </span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setMode</b> (int mode) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置音频模式。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >音频模式包含音频路由和电话层的行为。因此，这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。特别地，</span>MODE_IN_CALL</span><span >模式只能用在当打电话时的电话程序中，因为它会引起信号从音频层馈入到平台混音器。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请求的音频模式</span><span>(MODE_NORMAL,
+MODE_RINGTONE, MODE_IN_CALL </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>或</span><span>MODE_IN_COMMUNICATION)</span><span
+>。通知</span><span>HAL</span><span
+>当前的音频状态以便它能</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>适当的路由音频。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setParameters</b> (String keyValuePairs) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >给音频硬件设置一个可变数目的参数值。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>keyValuePairs&nbsp; </span><span >键值对形式的参数列表：</span>key1=value1;key2=value2;...&nbsp; </span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setRingerMode</b> (int ringerMode) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置铃声模式。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >静音模式会静音且不会振动。振动模式会静音且会振动。正常模式是听得见的且根据用户设置决定是否振动。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>ringerMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>铃声模式。值为</span><span>RINGER_MODE_NORMAL,
+RINGER_MODE_SILENT, </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+RINGER_MODE_VIBRATE.</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getRingerMode()</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setRouting</b> (int mode, int routes, int mask) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+background:yellow'>不要直接设置音频路由，用方法</span><span style='background:
+yellow'>setSpeakerphoneOn(), setBluetoothScoOn()</span><span style='font-family:
+宋体;background:yellow'>代替。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >为特定模式设置音频路由。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>改变路由的音频模式。</span><span>E.g., MODE_RINGTONE. </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>routes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>请求路由的位向量，由一个或多个</span><span>ROUTE_xxx</span><span
+>类型创建。设置位表</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>明路由应该打开。</span><span> </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>mask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>改变路由位向量由一个或多个</span><span>ROUTE_xxx</span><span
+>类型创建复原位表明路由</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>应该不改变。</span><span> </span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setSpeakerphoneOn</b> (boolean on) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置喇叭扩音器打开或关闭。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>on&nbsp; </span><span >为</span>true</span><span >打开喇叭扩音器；为</span>false</span><span >关闭喇叭扩音器。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setStreamMute</b> (int streamType, boolean state) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >静音或不静音音频流。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >静音命令被保护以免客户端进程死亡：若具有流上的活动静音请求的进程死亡，这个流会自动取消静音。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >对于给定的流，静音请求是累计的：</span>AudioManager</span><span >会从一个或多个客户端接收数个静音请求，只有当接收到相同数目的取消静音请求时流才会取消静音。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >为了更好的用户体验，应该程序必须在</span>onPause()</span><span >中取消已静音流，若合适在</span>onResume()</span><span >中再次静音</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲静音</span><span>/</span><span
+>取消静音的流。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>state&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请求静音状态：若为</span><span>true</span><span
+>，静音；若为</span><span>false</span><span
+>，取消静音。</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setStreamSolo</b> (int streamType, boolean state) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >单独的或不单独的一个特定类。其它流静音。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>保护</span><span>solo</span><span
+>命令以免客户端进程死亡：若有在流上活动的</span><span>solo</span><span
+>请求的进程死亡，所有的流都被静音，因为这一请求被自动取消静音。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >对给定类的</span>solo</span><span >请求是累计的：</span>AudioManager</span><span >会从一个或多个客户端接收数个</span>solo</span><span >请求，只有当接收到相同数目的</span>unsoloed</span><span >请求时流才会是</span>unsoloed</span><span >。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >为了更好的用户体验，应该程序必须在</span>onPause()</span><span >中</span>unsole a soloed </span><span >流，若合适在</span>onResume()</span><span >中再次</span>solo</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; soloed/unsolod</span><span
+>的流。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>state &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>请求的</span><span>solo</span><span
+>状态：</span><span>solo</span><span
+>打开为</span><span>true</span><span
+>，关闭为</span><span>false</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>setStreamVolume</b> (int streamType,
+int index, </span><span lang=FR style='background:#D9D9D9'>int flags) </span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置特定流的音量索引。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>streamType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲设置音量索引的流。</span><span> </span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>欲设置的音量索引。参照</span><span>getStreamMaxVolume(int)
+</span><span >获得最大有效值。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个或多个标志。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getStreamMaxVolume(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getStreamVolume(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setVibrateSetting</b> (int vibrateType, int
+vibrateSetting) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当振动类型应该振动时，设置配置。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >这个方法只能用于代替音频设置的平台范围管理应用程序或主要电话应用程序。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt'><span>vibrateType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>振动类型。值为</span><span>VIBRATE_TYPE_NOTIFICATION
+</span><span >或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>VIBRATE_TYPE_RINGER</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>vibrateSetting </span><span >振动设置。值为</span>VIBRATE_SETTING_ON, VIBRATE_SETTING_OFF,</span><span
+>或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>VIBRATE_SETTING_ONLY_SILENT</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>shouldVibrate(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>setWiredHeadsetOn</b> (boolean on) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+background:yellow'>已弃用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+background:yellow'>不再使用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置打开或关闭音频路由到有线耳机。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>on&nbsp; </span><span >为</span>true</span><span >，设置路由音频到</span>/</span><span >从有线耳机；为</span><span>false</span><span
+>，</span> <span >禁用有线耳机音频。</span> </span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public boolean <b>shouldVibrate</b> (int vibrateType) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >根据用户的设置和当前铃声模式，返回一个特定类型是否应该振动。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>使用通知来振动的大多数客户端不应该使用这个方法。若策略不允许，通知管理器不会振动，故客户端常常设置振动模式且让通知管理器控制是否振动。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:63.0pt'><span>vibrateType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>振动类型。值为</span><span>VIBRATE_TYPE_NOTIFICATION</span><span
+>或</span></p>
+
+<p class=MsoNormal style='margin-left:105.0pt;text-indent:21.0pt'>VIBRATE_TYPE_RINGER</span><span >。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>在调用这个方法的瞬间，类型是否应该振动。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>setVibrateSetting(int, int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>getVibrateSetting(int)</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>startBluetoothSco</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >启动蓝牙</span>SCO</span><span >音频连接。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+color:#C00000'>需要权限：</span><span style='color:#C00000'>MODIFY_AUDIO_SETTINGS</span><span
+style=';color:#C00000'>。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >当电话不在通话中，想发送</span>/</span><span >接收音频到</span><span>/</span><span
+>从蓝牙</span><span>SCO</span><span
+>耳机的应用程序可以使用这个方法。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>由于</span><span>SCO</span><span
+>连接会花费几秒钟，应用程序不应该依赖方法返回的可用连接，而是注册接</span></p>
+
+<p class=MsoNormal><span >收</span><span>intent
+ACTION_SCO_AUDIO_STATE_CHANGED</span><span >，并等待状态变为</span>SCO_AUDIO_STATE_CONNECTED</span><span >。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>由于不保证连接成功，应用程序必须等待这个</span><span>intent</span><span
+>超时。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当完成</span><span>SCO</span><span
+>连接或建立超时，应用程序必须调用</span><span>stopBluetoothSco()</span><span
+>去清空请求并关闭蓝牙连接。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>即使</span><span>SCO</span><span
+>连接已建立，下列限制应用在音频输出流以使他们被路由到</span><span>SCO</span><span
+>耳机：</span><span>1.</span><span
+>流类型必须是</span><span>STREAM_VOICE_CALL 2.</span><span
+>格式必须是</span><span>mono 3.</span><span
+>取样必须是</span><span>16kH</span><span
+>或</span><span>8kHz</span><span
+>。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下列限制应用在输出流：</span> <span>1.</span><span
+>格式必须是</span><span>mono2.</span><span
+>取样必须是</span><span>16kH</span><span
+>或</span><span>8kHz</span><span
+>。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>注意电话应用程序总是有使用</span><span>SCO</span><span
+>连接的优先权。当电话在通话中，调用这个方法会被忽略。类似，当应用程序正在使用</span>SCO</span><span >连接，若接听来电或呼叫发送，连接会丢失且不会在通话结束后自动返回。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>stopBluetoothSco()</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>ACTION_SCO_AUDIO_STATE_CHANGED</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void <b>stopBluetoothSco</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >停止蓝牙</span>SCO</span><span >音频连接。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:#C00000'>需要权限：</span><span
+style='color:#C00000'>MODIFY_AUDIO_SETTINGS</span><span style='font-family:
+宋体;color:#C00000'>。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >应用程序用</span>startBluetoothSco()</span><span >请求使用蓝牙</span>SCO</span><span >音频，当应用程序完成</span>SCO</span><span >连接或建立时间超时，</span> <span
+>必须调用这个方法。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参照</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>startBluetoothSco()</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>unloadSoundEffects</b> () </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >不加载音效。当音效被禁用时，调用这个方法释放一些内存。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=FR style='background:
+#D9D9D9'>public void <b>unregisterMediaButtonEventReceiver</b> (ComponentName
+eventReceiver) </span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >移除注册</span>MEDIA_BUTTON intent</span><span >的接收器。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+
+<p class=MsoNormal style='margin-left:146.8pt;text-indent:-83.8pt'>eventReceiver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用</span><span>registerMediaButtonEventReceiver(ComponentName)</span><span
+>注册的</span><span>BroadcastReceiver</span><span
+>的标识符。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.cnblogs.com/TerryBlog/archive/2010/07/02/1769921.html">Android
+<span ><span>小项目之</span></span>--<span
+lang=EN-US ><span>使用【</span></span>AudioManager<span
+lang=EN-US ><span>】类控制音量</span></span></a></span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a target="_blank" href="http://blog.csdn.net/chenzheng_java/article/details/6263184">android<span
+lang=EN-US ><span>之声音管理器</span></span>AudioManager<span
+lang=EN-US ><span>的<span>使用</span></span></span></a></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+</div>
+
+      
+</body>
+</html>

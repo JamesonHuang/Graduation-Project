@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> AbsoluteLayout.LayoutParams</title>
+</head>
+<body>     
+<div class=WordSection58 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name="AbsoluteLayout_LayoutParams"><b><span style='font-size:22.0pt'>AbsoluteLayout.LayoutParams</span></b></a><b><span
+lang=EN-US style='font-size:22.0pt'> </span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：绵白糖</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：<span>Android 2.2 r1</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+static class <span style='color:#C00000'>AbsoluteLayout.LayoutParams </span>extends<span
+style='color:#C00000'> ViewGroup.LayoutParams</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.ViewGroup.LayoutParams</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"MS Gothic"'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.AbsoluteLayout.LayoutParams</span><span> </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>每个子元素布局信息与绝对布局相关联。参见绝对布局属性中该类所支持的子视图属性列表。</span><span
+>（译者注</span><span>: AbsoluteLayout </span><span
+>的这种</span><span>“</span><span
+>绝对</span><span>”</span><span
+>定位的布局方式和我们非常熟悉的</span><span> Windows </span><span
+>编程中的</span> <span>Left </span><span
+>和</span><span>Top</span><span
+>设置</span><span>UI</span><span
+>元素的位置是基本一致的。）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>字段</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public int x</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在</span><span>View Group</span><span
+>内部子元素中的</span><span>X</span><span
+>水平位置</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public int y</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在</span><span>View Group</span><span
+>内部子元素中的</span><span>Y</span><span
+>垂直位置</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>构造函数</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public <span class=sympad>AbsoluteLayout.LayoutParams</span>(int
+width, int height, int x, int y)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个新的具有指定宽度、高度和位置的布局参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>width &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'>MATCH_PARENT</span></code><span>,
+</span><code><span style='font-size:12.0pt'>WRAP_CONTENT</span></code><code><span
+style='font-size:12.0pt'>或者固定大小的像素</span></code></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>height &nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'>MATCH_PARENT</span></code><span>,
+</span><code><span style='font-size:12.0pt'>WRAP_CONTENT</span></code><code><span
+style='font-size:12.0pt'>或者固定大小的像素</span></code></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子元素的</span><span>X</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子元素的</span><span>Y</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public<span style='color:blue'> </span><span
+class=sympad>AbsoluteLayout.LayoutParams</span>(Context c, AttributeSet attrs)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一组新的布局参数，通过上下文提取的相关属性值设置。</span><span>XML</span><span
+>属性映射到这个布局参数设置如下：</span></p>
+<p class=MsoNormal align=left style='margin-left:57.0pt;text-align:left;
+text-indent:-18.0pt'><span style='font-size:10.0pt;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><code><span style='font-size:12.0pt'>layout_x</span></code><span
+lang=EN-US>: </span><span >子元素的</span><span>X</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:57.0pt;text-align:left;
+text-indent:-18.0pt'><span style='font-size:10.0pt;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><code><span style='font-size:12.0pt'>layout_y</span></code><span
+lang=EN-US>: </span><span >子元素的</span><span>Y</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:57.0pt;text-align:left;
+text-indent:-18.0pt'><span style='font-size:10.0pt;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><code><span style='font-size:12.0pt'>所有来自<span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ViewGroup.LayoutParams</span></a></span>的<span
+lang=EN-US>XML</span>属性</span></code></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数：</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>c </span><span >上下文环境</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal align=left style='margin-left:104.8pt;text-align:left;
+text-indent:-41.8pt'><span>attrs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>从属性设置中提取布局参数值。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>public <span class=sympad>AbsoluteLayout.LayoutParams</span>(ViewGroup.LayoutParams
+source)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：根据</span><span>ViewGroup.LayoutParams</span><span
+>实例化布局参数，从源码可以看出：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=423 height=48
+src="image/image051.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>公共方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public String &nbsp;debug (String output)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回设置的布局参数的字符串表示形式。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>output </span><span >用于内部表示的预置字符串</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>返回如下格式字符串：输出</span><span> +
+&quot;ViewGroup.LayoutParams={ width=WIDTH, height=HEIGHT }&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

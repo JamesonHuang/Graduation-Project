@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> ResourceCursorAdapter</title>
+</head>
+<body>     
+<div class=WordSection111 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=ResourceCursorAdapter><b><span style='font-size:18.0pt'>ResourceCursorAdapter</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> HalZhang</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.cnblogs.com/halzhang">http://www.cnblogs.com/halzhang</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public abstract class<span
+style='color:#C00000'> ResourceCursorAdapter </span>extends<span
+style='color:#C00000'> CursorAdapter</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.BaseAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.CursorAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.ResourceCursorAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:9.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>子类及间接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>直接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SimpleCursorAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>这是一个简单的适配器，通过指定一个定义了视图</span><span>UI</span><span
+>的</span><span>XML</span><span
+>文件来创建视图。</span></p>
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+<p class=MsoListParagraph style='text-indent:0cm'><b><span style='font-size:
+12.0pt;'>构造函数</span></b></p>
+<p class=MsoNormal><span class=normal><span style='font-size:10.0pt;
+font-family:"Arial","sans-serif";color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.0pt;color:#222222;background:
+#D9D9D9'>public</span></span><span class=apple-converted-space><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=sympad><b><span style='color:#222222;background:#D9D9D9'>ResourceCursorAdapter</span></b></span><span
+class=apple-converted-space><span style='font-size:11.0pt;
+color:#222222;background:#D9D9D9'>&nbsp;</span></span><span class=normal><span
+lang=EN-US style='font-size:10.0pt;color:#222222;background:#D9D9D9'>(</span></span><span
+class=normal><span style='font-size:10.0pt;color:#222222;background:
+#D9D9D9'>Context</span></span><span class=apple-converted-space><span
+lang=EN-US style='font-size:10.0pt;color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='font-size:10.0pt;color:#222222;background:
+#D9D9D9'>context, int layout,</span></span><span class=apple-converted-space><span
+lang=EN-US style='font-size:10.0pt;color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='font-size:10.0pt;color:#222222;background:
+#D9D9D9'>Cursor</span></span><span class=apple-converted-space><span
+lang=EN-US style='font-size:10.0pt;color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='font-size:10.0pt;color:#222222;background:
+#D9D9D9'>c)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>构造函数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Context&nbsp;&nbsp;&nbsp; </span><span
+>与</span><span>ListView</span><span
+>相关的正在运行的</span> <span>SimpleListItemFactory</span><span
+>上下文</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个定义了列表项视图的布局文件资源</span><span>ID</span><span
+>，这个布局同时定义列表</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>项视图和下拉视图，直到你重写它们。</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>获取数据的游标</span></p>
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+<p class=MsoNormal><span class=normal><span style='font-family:"Arial","sans-serif";
+color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>ResourceCursorAdapter</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,int layout,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>Cursor</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>c, boolean autoRequery)</span></span></p>
+<p class=MsoListParagraph><span >构造函数</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Context&nbsp;&nbsp;&nbsp; </span><span
+>与</span><span>ListView</span><span
+>相关的正在运行的</span> <span>SimpleListItemFactory</span><span
+>上下文</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个定义了列表项视图的布局文件资源</span><span>ID</span><span
+>，这个布局同时定义列表</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>项视图和下拉视图，直到你重写它们。</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>获取数据的游标</span></p>
+<p class=MsoListParagraph><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; autoRequery&nbsp;&nbsp;&nbsp; </span><span
+>如果此参数为</span><span>true</span><span
+>，当适配器的数据发生变化的时，适配器会调</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用游标的</span><span>requery()</span><span
+>方法，<span class=shorttext>使最新的数据始终显示</span>。</span></p>
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal><span class=normal><span style='color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public</span></span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>View</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>newDropDownView</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>Cursor</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>cursor,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>ViewGroup</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >生成一个新的下拉视图来控制游标指向的数据</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context&nbsp;&nbsp;&nbsp; </span><span
+>应用程序全局信息接口（应用上下文）</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cursor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>获取数据的游标，它已经移动到正确的位置</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>与新视图相关联的上级视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>新创建的视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span class=normal><span style='color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public</span></span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>View</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>newView</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>Cursor</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>cursor,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>ViewGroup</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>根据指定的</span><span>xml</span><span
+>文件创建视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context&nbsp;&nbsp;&nbsp; </span><span
+>应用程序全局信息接口（应用上下文）</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cursor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>获取数据的游标，它已经移动到正确的位置</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>与新视图相关联的上级视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>新创建的视图</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/CursorAdapter.html#newView%28android.content.Context,%20android.database.Cursor,%20android.view.ViewGroup%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>newView(android.content.Context,
+android.database.Cursor, ViewGroup)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span class=normal><span style='color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public void</span></span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>setDropDownViewResource</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(int dropDownLayout)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置下拉视图相应的布局资源</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dropDownLayout&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于创建下拉视图的布局资源</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span class=normal><span style='color:#222222'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public void</span></span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>setViewResource</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(int layout)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置列表项视图相应的布局资源</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于创建列表项视图的布局资源</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://handsomeliuyang.javaeye.com/blog/716355">ListActivity<span
+lang=EN-US ><span>简介</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>代码示例（</span><span>ApiDemos\src\com\example\android\apis\app\QuickContactsDemo.java</span><span
+>）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Java</span><span
+>：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public class
+QuickContactsDemo extends ListActivity {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final String[] CONTACTS_SUMMARY_PROJECTION
+= new String[] {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts._ID, // 0</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.DISPLAY_NAME, // 1</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.STARRED, // 2</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.TIMES_CONTACTED, // 3</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.CONTACT_PRESENCE, // 4</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contacts.PHOTO_ID,
+// 5</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.LOOKUP_KEY, // 6</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Contacts.HAS_PHONE_NUMBER, // 7</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; };</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_ID_COLUMN_INDEX = 0;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_NAME_COLUMN_INDEX = 1;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_STARRED_COLUMN_INDEX =
+2;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int
+SUMMARY_TIMES_CONTACTED_COLUMN_INDEX = 3;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int
+SUMMARY_PRESENCE_STATUS_COLUMN_INDEX = 4;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_PHOTO_ID_COLUMN_INDEX =
+5;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_LOOKUP_KEY = 6;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; static final int SUMMARY_HAS_PHONE_COLUMN_INDEX =
+7;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; public void onCreate(Bundle savedInstanceState) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+super.onCreate(savedInstanceState);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String select =
+&quot;((&quot; + Contacts.DISPLAY_NAME + &quot; NOTNULL) AND (&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ Contacts.HAS_PHONE_NUMBER + &quot;=1) AND (&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++ Contacts.DISPLAY_NAME + &quot; != '' ))&quot;;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cursor c =</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+getContentResolver().query(Contacts.CONTENT_URI, CONTACTS_SUMMARY_PROJECTION,
+select,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+null, Contacts.DISPLAY_NAME + &quot; COLLATE LOCALIZED ASC&quot;);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startManagingCursor(c);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ContactListItemAdapter
+adapter = new ContactListItemAdapter(this, R.layout.quick_contacts, c);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setListAdapter(adapter);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; private final class ContactListItemAdapter extends
+ResourceCursorAdapter {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public
+ContactListItemAdapter(Context context, int layout, Cursor c) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+super(context, layout, c);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void bindView(View
+view, Context context, Cursor cursor) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;final
+ContactListItemCache cache = (ContactListItemCache) view.getTag();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TextView nameView = cache.nameView;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+QuickContactBadge photoView = cache.photoView;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Set the name</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cursor.copyStringToBuffer(SUMMARY_NAME_COLUMN_INDEX, cache.nameBuffer);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int size = cache.nameBuffer.sizeCopied;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.nameView.setText(cache.nameBuffer.data, 0, size);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+final long contactId = cursor.getLong(SUMMARY_ID_COLUMN_INDEX);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+final String lookupKey = cursor.getString(SUMMARY_LOOKUP_KEY);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.photoView.assignContactUri(Contacts.getLookupUri(contactId, lookupKey));</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public View
+newView(Context context, Cursor cursor, ViewGroup parent) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+View view = super.newView(context, cursor, parent);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ContactListItemCache cache = new ContactListItemCache();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.nameView = (TextView) view.findViewById(R.id.name);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.photoView = (QuickContactBadge) view.findViewById(R.id.badge);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+view.setTag(cache);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return view;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; final static class ContactListItemCache {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public TextView nameView;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public QuickContactBadge
+photoView;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public CharArrayBuffer
+nameBuffer = new CharArrayBuffer(128);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal align=right style='text-align:right'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

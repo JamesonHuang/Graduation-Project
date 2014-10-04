@@ -1,0 +1,696 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> GridView</title>
+</head>
+<body>     
+<div class=WordSection94 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=GridView><b><span
+lang=EN-US style='font-size:22.0pt'>GridView</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>0_1</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+final class <span style='color:#C00000'>GridView</span> extends<span
+style='color:#C00000'> AbsListView</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/11/1823806.html">android.view.View</a>
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; </span><span>android.view.ViewGroup </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.AdapterView&lt;T extends
+android.widget.Adapter&gt; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"MS Gothic"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.AbsListView </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"MS Gothic"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.GridView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>一个在平面上可显示多个条目的可滚动的视图组件，该组件中的条目通过一个</span><span
+lang=EN-US>ListAdapter</span><span >和该组件进行关联。比如</span><span
+lang=EN-US>android</span><span >手机中显示的应用：</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;font-family:隶书'><img border=0 width=303 height=195
+src="image/image073.jpg"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>比如实现九宫格图，用</span><span>GridView</span><span style='font-family:
+宋体'>是首选，也是最简单的。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>构造函数</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public
+GridView (Context context) </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>创建一个默认属性的</span><span>GridView</span><span
+>实例</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>public GridView (Context context, AttributeSet attrs) </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个带有</span><span>attrs</span><span
+>属性的</span><span>GridView</span><span
+>实例</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>public GridView (Context context, AttributeSet attrs, int defStyle)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>创建一个带有</span><span>attrs</span><span
+>属性，并且指定其默认样式的</span><span>GridView</span><span
+>实例</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>XML</span></b><b><span
+>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:5.4pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=227 valign=top style='width:6.0cm;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=321 valign=top style='width:241.0pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:columnWidth</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置列的宽度。关联的方法为：</span><span>setColumnWidth(int)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:gravity</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置此组件中的内容在组件中的位置。可选的值有：</span><span>top</span><span
+  >、</span><span>bottom</span><span
+  >、</span><span>left</span><span
+  >、</span><span>right</span><span
+  >、</span><span>center_vertical</span><span
+  >、</span><span>fill_vertical</span><span
+  >、</span><span>center_horizontal</span><span
+  >、</span><span>fill_horizontal</span><span
+  >、</span><span>center</span><span
+  >、</span><span>fill</span><span
+  >、</span><span>clip_vertical </span><span
+  >可以多选，用“</span><span>|</span><span
+  >”分开。关联方法：</span><span>setGravity (int gravity)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:horizontalSpacing</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >两列之间的间距。关联方法：</span><span>setHorizontalSpacing(int)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:numColumns</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >列数。关联方法：</span><span>setNumColumns(int)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:stretchMode</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >缩放模式。关联方法：</span><span>setStretchMode(int)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=227 style='width:6.0cm;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:verticalSpacing</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >两行之间的间距。关联方法：</span><span>setVerticalSpacing(int)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public ListAdapter getAdapter ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >获得与此组件相关的适配器</span><span
+lang=EN-US>..</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; ListAdapter</span><span >适配器实例</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public int getStretchMode ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >获得</span><span
+lang=EN-US>GridView</span><span >的缩放模式</span><span
+lang=EN-US>..</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public boolean onKeyDown (int keyCode, KeyEvent
+event)</span></span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >默认由</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KeyEvent.Callback.onKeyMultiple</span><span
+style=';color:black;background:#E6ECF9'>（）实现，如果视图是可用的并且是可点击的，那么传入</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KEYCODE_DPAD_CENTER</span><span
+style=';color:black;background:#E6ECF9'>或</span><span
+style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KEYCODE_ENTER</span><span
+style=';color:black;background:#E6ECF9'>值是执行的是按下视图操作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span
+style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:black;background:#E6ECF9'>参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span
+style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; keyCode&nbsp;
+</span><span style=';color:black;background:#E6ECF9'>一个表示按下操作的键值</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>.
+</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>event&nbsp;
+</span><span style=';color:black;background:#E6ECF9'>表示按钮事件的对象</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>.&nbsp;
+</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果你认为已经完成事件处理</span><span>,</span><span
+>不想让让下一个处理器来处理此事件，则返回</span><span>true,</span><span
+>否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public boolean onKeyMultiple (int keyCode, int
+repeatCount, KeyEvent event)</span></span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >默认由</span><span
+lang=EN-US>KeyEvent.Callback.onKeyMultiple()</span><span style='font-family:
+宋体'>实现，总是返回</span><span>false</span><span >（不处理此事件）。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; keyCode&nbsp;
+</span><span >键值</span><span>. </span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>repeatCount&nbsp; </span><span >该动作发生的次数</span><span
+lang=EN-US>. </span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>event&nbsp; </span><span >事件对象</span><span
+lang=EN-US>.&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果你认为已经完成事件处理</span><span>,</span><span
+>不想让让下一个处理器来处理此事件，则返回</span><span>true,</span><span
+>否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public boolean onKeyUp (int keyCode, KeyEvent event)</span></span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >默认由</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KeyEvent.Callback.onKeyMultiple</span><span
+style=';color:black;background:#E6ECF9'>（）实现，如果视图是可用的并且是可点击的，那么传入</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KEYCODE_DPAD_CENTER</span><span
+style=';color:black;background:#E6ECF9'>或</span><span
+style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>KEYCODE_ENTER</span><span
+style=';color:black;background:#E6ECF9'>值是执行的是点击视图操作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style=';color:black;background:#E6ECF9'>参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span
+style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; keyCode&nbsp;
+</span><span style=';color:black;background:#E6ECF9'>键值</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>.
+</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>event&nbsp;
+</span><span style=';color:black;background:#E6ECF9'>事件对象</span><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:black;background:#E6ECF9'>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果你认为已经完成事件处理</span><span>,</span><span
+>不想让让下一个处理器来处理此事件，则返回</span><span>true,</span><span
+>否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void setAdapter (ListAdapter adapter)</span></span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >设置</span><span
+lang=EN-US>GridView</span><span >的数据。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; adapter&nbsp;
+</span><span >为</span><span>grid</span><span
+>提供数据的适配器</span><span>&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void setColumnWidth (int columnWidth)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置</span><span
+lang=EN-US>GridView</span><span >的列宽</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; columnWidth&nbsp;
+</span><span >列的宽度，以像素为单位</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void setGravity (int gravity)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置控件内容的位置，默认值为：</span><span
+lang=EN-US>Gravity.LEFT.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gravity&nbsp;
+</span><span >位置值</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void setHorizontalSpacing (int
+horizontalSpacing)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置列间距</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; horizontalSpacing&nbsp;
+</span><span >列间距值</span><span> </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:silver'>public void setNumColumns (int numColumns)</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置</span><span>grid</span><span
+>的列数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>numColumns&nbsp; </span><span >列数值</span><span
+lang=EN-US>. </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:silver'>public void setSelection (int position)</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置选中的条目</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>position&nbsp; </span><span >数据条目在列表中的索引值（从</span><span
+lang=EN-US>0</span><span >开始），如果在可触摸的模式下，在该索引值下的条目将不会被选中，但是该索引值仍然指向该条目。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:silver'>public void setStretchMode (int stretchMode)</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置</span><span
+lang=EN-US>grid</span><span >中的条目以什么缩放模式去填充空间。</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>stretchMode&nbsp;
+</span><span >可选值：</span><span
+style='font-family:"Arial","sans-serif";color:black'>NO_STRETCH</span><span
+style=';color:black'>，</span><span style='font-family:
+"Arial","sans-serif";color:black'>STRETCH_SPACING</span><span style='font-family:
+宋体;color:black'>，</span><span style='font-family:"Arial","sans-serif";
+color:black'>STRETCH_SPACING_UNIFORM</span><span style=';
+color:black'>，或</span><span style='font-family:"Arial","sans-serif";
+color:black'>STRETCH_COLUMN_WIDTH</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:silver'>public void setVerticalSpacing (int verticalSpacing)</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置行间距</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>verticalSpacing&nbsp; </span><span >间距值，以像素为单位</span><span
+lang=EN-US>..</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span >示例：</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >下面给出一个小例子，先看效果：</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=273 height=305 src="image/image074.png"></span></p>
+<p class=MsoNormal><span >代码：</span></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><b><span
+lang=EN-US style='font-size:18.0pt'>1、<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:18.0pt;font-family:"Courier New";
+color:black'>GridView01.java</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>class</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>
+GridView01 </span><b><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F0055'>extends</span></b><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'> Activity {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>private</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>
+GridView </span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#0000C0;background:silver'>gridview</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>protected</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>
+onCreate(Bundle savedInstanceState) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>// </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F9FBF'>TODO</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>
+Auto-generated method stub</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>super</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>.onCreate(savedInstanceState);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setContentView(R.layout.</span><i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#0000C0'>gridview</span></i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>//</span><span style='font-size:12.0pt;
+;color:black'>准备要添加的数据条目</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Map&lt;String,
+Object&gt;&gt; items = </span><b><span style='font-size:12.0pt;
+font-family:"Courier New";color:#7F0055'>new</span></b><span
+style='font-size:12.0pt;font-family:"Courier New";color:black'>
+ArrayList&lt;Map&lt;String,Object&gt;&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>for</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> (</span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> i =
+0; i &lt; 10; i++) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Map&lt;String,
+Object&gt; item = </span><b><span style='font-size:12.0pt;
+font-family:"Courier New";color:#7F0055'>new</span></b><span
+style='font-size:12.0pt;font-family:"Courier New";color:black'>
+HashMap&lt;String, Object&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item.put(</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;imageItem&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>,
+R.drawable.</span><i><span style='font-size:12.0pt;font-family:"Courier New";
+color:#0000C0'>icon</span></i><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item.put(</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;textItem&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>, </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;text&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> +
+i);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; items.add(item);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>//</span><span
+style='font-size:12.0pt;;color:black'>实例化一个适配器</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SimpleAdapter
+adapter = </span><b><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'> SimpleAdapter(</span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>this</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>,
+items, R.layout.</span><i><span style='font-size:12.0pt;font-family:
+"Courier New";color:#0000C0'>grid_item</span></i><span
+style='font-size:12.0pt;font-family:"Courier New";color:black'>, </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>
+String[]{</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#2A00FF'>&quot;imageItem&quot;</span><span style='font-size:
+12.0pt;font-family:"Courier New";color:black'>, </span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;textItem&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>}, </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>[]{R.id.</span><i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#0000C0'>image_item</span></i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>,
+R.id.</span><i><span style='font-size:12.0pt;font-family:"Courier New";
+color:#0000C0'>text_item</span></i><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>});</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='font-size:12.0pt;;color:black'>获得</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:black'>GridView</span><span
+style='font-size:12.0pt;;color:black'>实例</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#0000C0;
+background:silver'>gridview</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'> = (GridView)findViewById(R.id.</span><i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#0000C0'>mygridview</span></i><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>//gridview.setNumColumns(3);//</span><span
+style='font-size:12.0pt;;color:#3F7F5F'>可以在</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>xml</span><span
+style='font-size:12.0pt;;color:#3F7F5F'>中设置</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>//<span
+style='background:silver'>gridview</span>.setGravity(Gravity.CENTER);//</span><span
+style='font-size:12.0pt;;color:#3F7F5F'>同上</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>//</span><span
+style='font-size:12.0pt;;color:#3F7F5F'>将</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>GridView</span><span
+style='font-size:12.0pt;;color:#3F7F5F'>和数据适配器关联</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#0000C0;
+background:silver'>gridview</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>.setAdapter(adapter);</span></p>
+<p class=MsoNormal><span style='font-size:12.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><b><span
+lang=EN-US style='font-size:18.0pt'>2、<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:18.0pt;font-family:"Courier New";
+color:black'>gridview.xml</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>xml
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>version</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;1.0&quot;
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>encoding</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;utf-8&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>?&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>LinearLayout
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>xmlns:android</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;http://schemas.android.com/apk/res/androi&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_width</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_height</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>GridView
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>android:id</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;@+id/mygridview&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:numColumns</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;3&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:gravity</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;center_horizontal&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_width</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_height</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;/</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>GridView</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal><span style='font-size:12.0pt;font-family:"Courier New";
+color:teal'>&lt;/</span><span style='font-size:12.0pt;font-family:
+"Courier New";color:#3F7F7F'>LinearLayout</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><b><span
+lang=EN-US style='font-size:18.0pt'>3、<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:18.0pt;font-family:"Courier New";
+color:black'>grid_item.xml</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>xml
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>version</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;1.0&quot;
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>encoding</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;utf-8&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>?&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>RelativeLayout
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>android:id</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;@+id/RelativeLayout01&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_width</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;fill_parent&quot;
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>android:layout_height</span><span style='font-size:
+12.0pt;font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>xmlns:android</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;http://schemas.android.com/apk/res/android&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>android:id</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;@+id/image_item&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_width</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_height</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;/</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>TextView
+</span><span style='font-size:12.0pt;font-family:"Courier New";
+color:#7F007F'>android:id</span><span style='font-size:12.0pt;
+font-family:"Courier New";color:black'>=</span><span
+style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;@+id/text_item&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_below</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;@+id/image_item&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_height</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#7F007F'>android:layout_width</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>=</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#2A00FF'>&quot;wrap_content&quot;</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;/</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>TextView</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&lt;/</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:#3F7F7F'>RelativeLayout</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+<p class=MsoNormal><span >第一次翻译文档，翻译的不太好，请大家多多包涵。</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

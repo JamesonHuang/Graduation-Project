@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> BluetoothServerSocket</title>
+</head>
+<body>     
+<div class=WordSection24 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=BluetoothServerSocket><b><span style='font-size:18.0pt'>BluetoothServerSocket</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>Android Club SYSU</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.android-wiki.net">http://www.android-wiki.net</a>&nbsp; </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public final class <span
+style='color:#C00000'>BluetoothServerSocket</span> extends <span
+style='color:#C00000'>Object</span> implements <span style='color:#C00000'>Closeable</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.bluetooth.BluetoothServerSocket</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个蓝牙监听端口。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>蓝牙端口监听接口和</span><span>TCP</span><span
+>端口类似：</span><span>Socket</span><span
+>和</span><span>ServerSocket</span><span
+>类。在服务器端，使用</span><span>BluetoothServerSocket</span><span
+>类来创建一个</span> <span >监听服务端口。当一个连接被</span><span
+lang=EN-US>BluetoothServerSocket</span><span >所接受，它会返回一个新的</span><span
+lang=EN-US>BluetoothSocket</span><span >来管理该连接。在客户</span>
+<span >端，使用一个单独的</span><span>BluetoothSocket</span><span
+>类去初始化一个外接连接和管理该连接。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>最通常使用的蓝牙端口是</span><span>RFCOMM</span><span
+>，它是被</span><span>Android API</span><span
+>支持的类型。</span><span>RFCOMM</span><span
+>是一个面向连接，通过蓝牙模块进行的数据流传输方式，它也被称为串行端口规范（</span><span
+lang=EN-US>Serial Port Profile</span><span >，</span><span
+lang=EN-US>SPP</span><span >）。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为了创建一个对准备好的新来的连接去进行监听</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothServerSocket</span></a></span></code><span
+>类，使用</span> <code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothAdapter.html#listenUsingRfcommWithServiceRecord%28java.lang.String,%20java.util.UUID%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothAdapter.listenUsingRfcommWithServiceRecord()</span></a></span></code><span
+>方法。然后调用</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html#accept%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>accept()</span></a></span></code><span
+>方法去监</span> <span >听该链接的请求。在连接建立之前，该调用会被阻断，也就是说，它将返回一个</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothSocket</span></a></span></code><span
+>类去管理该连接。每次获得该类之后，如果不再需</span> <span style='font-family:
+宋体'>要接受连接，最好调用在</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothServerSocket</span></a></span></code><span
+>类下的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html#close%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>close()</span></a></span></code><span
+>方法。关闭</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothServerSocket</span></a></span></code><span
+>类不会关</span> <span >闭这个已经返回的</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothSocket</span></a></span></code><span
+>类。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothSocket</span></a></span></code><span
+>类线程安全。特别的，</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html#close%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>close()</span></a></span></code><span
+>方法总会马上放弃外界操作并关闭服务器端口。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>注意：需要</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothSocket</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>公共方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='background:#D9D9D9'>public <a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a>
+</span></span><span class=sympad><b><span style='background:#D9D9D9'>accept</span></b></span><span
+lang=EN-US style='background:#D9D9D9'> <span class=normal>(int timeout)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>阻塞直到超时时间内的连接建立。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在一个成功建立的连接上返回一个已连接的</span><span>BluetoothSocket</span><span
+>类。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>每当该调用返回的时候，它可以在此调用去接收以后新来的连接。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html#close%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>close()</span></a></span></code><span
+>方法可以用来放弃从另一线程来的调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+class=normal>timeout&nbsp;&nbsp;&nbsp; </span></span><span class=normal><span
+>（译者注：</span></span><span >阻塞<span
+class=normal>超时时间）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>已连接的</span><span> BluetoothSocket</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>异常</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IOException&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>出现错误，比如该调用被放弃，或者超时。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='background:#D9D9D9'>public <a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a>
+</span></span><span class=sympad><b><span style='background:#D9D9D9'>accept</span></b></span><span
+lang=EN-US style='background:#D9D9D9'> <span class=normal>()</span></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>阻塞直到一个连接已经建立。（译者注：默认超时时间设置为</span><span>-1</span><span
+>，见源码）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在一个成功建立的连接上返回一个已连接的</span><span>BluetoothSocket</span><span
+>类。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>每当该调用返回的时候，它可以在此调用去接收以后新来的连接。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothServerSocket.html#close%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>close()</span></a></span></code><span
+>方法可以用来放弃从另一线程来的调用。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>已连接的</span><span> BluetoothSocket</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>异常</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IOException&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>出现错误，比如该调用被放弃，或者超时。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public void <b>close</b> ()</span> </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>马上关闭端口，并释放所有相关的资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在其他线程的该端口中引起阻塞，从而使系统马上抛出一个</span><span>IO</span><span
+>异常。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>关闭</span><span>BluetoothServerSocket</span><span
+>不会关闭接受自</span><span>accept()</span><span
+>的任意</span><span>BluetoothSocket</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >异常</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>IOException</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

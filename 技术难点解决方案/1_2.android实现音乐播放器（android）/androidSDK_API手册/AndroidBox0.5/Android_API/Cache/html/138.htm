@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> TwoLineListItem</title>
+</head>
+<body>     
+<div class=WordSection138 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=TwoLineListItem></a><b><span style='font-size:22.0pt'>TwoLineListItem</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名</span><span>:loveshirui</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><u><span style='font-size:12.0pt;
+;color:blue'><a target="_blank" href="http://heji.javaeye.com/">http://heji.javaeye.com</a></span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：<span>Android 2.2 r1</span></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+class <span style='color:#C00000'>TwoLineListItem </span>extends<span
+style='color:#C00000'> RelativeLayout </span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span>android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.RelativeLayout</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.TwoLineListItem</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=382 height=138
+src="image/image124.png">&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>这个布局是用在</span><span>ListView</span><span
+>中的，有两个子</span><span>View</span><span
+>。每一项有两个</span><span>ID</span><span
+>值为</span><span>text1</span><span
+>和</span><span>text2</span><span
+>的</span><span>TextView</span><span
+>的元素。也有一个</span><span>ID</span><span
+>是</span><span>selecteIcon</span><span
+>的元素，这个元素可以是任何</span><span>View</span><span
+>的子类（最典型的就是</span><span>ImageView</span><span
+>）。支持标准的布局资源文件（不包含所选择的</span><span>icon</span><span
+>），但是你可以为这个对象自己定义</span><span>XML</span><span
+>布局文件。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>XML</span></b><b><span
+>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=529
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=208 valign=top style='width:155.9pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=321 valign=top style='width:241.0pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=208 style='width:155.9pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:mode</span></b></p>
+  </td>
+  <td width=321 style='width:241.0pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+  >布局模式：</span><span>oneLine </span><span
+  >一行</span><span>collapsing </span><span
+  >折叠</span><span>twoLine </span><span
+  >两行</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>Public TextView getText1 ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回</span><span>ID</span><span
+>为</span><span>Text1</span><span
+>的</span><span>TextView</span><span
+>对象</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID</span><span
+>为</span><span>Text1</span><span
+>的</span><span>TextView</span><span
+>对象</span><span> </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>Public TextView getText2 ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回</span><span
+lang=EN-US>ID</span><span >为</span><span>Text1</span><span
+>的</span><span>TextView</span><span
+>对象</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;
+</span><span >返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ID</span><span >为</span><span>Text1</span><span
+>的</span><span>TextView</span><span
+>对象</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >受保护方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>protected void onFinishInflate ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>初始化</span><span>XML</span><span
+>布局。</span> </p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

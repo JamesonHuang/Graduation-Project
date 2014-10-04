@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> AudioFormat</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>AudioFormat</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >文炜</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.cnblogs.com/iezhyg/">http://www.cnblogs.com/iezhyg/</a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>AudioFormat</span> extends <span style='color:#C00000'>Object</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.media.AudioFormat</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+AndioFormat</span><span >类用于访问一些音频格式和通道配置常量。这些常量应用在</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/media/AudioTrack.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AudioTrack</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/media/AudioRecord.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AudioRecord</span></a></span></code><span
+>类中。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>常量</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int&nbsp;<b>CHANNEL_CONFIGURATION_DEFAULT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'> CHANNEL_OUT_DEFAULT or CHANNEL_IN_DEFAULT </span><span
+style=';background:yellow'>代替。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>1
+(0x00000001)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_CONFIGURATION_INVALID</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'> CHANNEL_INVALID </span><span style='font-family:
+宋体;background:yellow'>代替。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_CONFIGURATION_MONO</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'> CHANNEL_OUT_MONO or CHANNEL_IN_MONO </span><span
+style=';background:yellow'>代替。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_CONFIGURATION_STEREO</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>已弃用。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';background:yellow'>用</span><span
+style='background:yellow'> CHANNEL_OUT_STEREO or CHANNEL_IN_STEREO </span><span
+style=';background:yellow'>代替。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 3
+(0x00000003)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_INVALID</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>无效的音频通道掩码</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_BACK</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+32 (0x00000020)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_BACK_PROCESSED</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+512 (0x00000200)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_DEFAULT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_FRONT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16 (0x00000010)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_FRONT_PROCESSED</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+256 (0x00000100)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_LEFT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_LEFT_PROCESSED</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+64 (0x00000040)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_MONO</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16 (0x00000010)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_PRESSURE</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+1024 (0x00000400)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_RIGHT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_RIGHT_PROCESSED</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+128 (0x00000080)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_STEREO</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+12 (0x0000000c)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_VOICE_DNLINK</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+32768 (0x00008000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_VOICE_UPLINK</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16384 (0x00004000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_X_AXIS</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+2048 (0x00000800)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_Y_AXIS</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+4096 (0x00001000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_IN_Z_AXIS</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+8192 (0x00002000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_5POINT1</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+252 (0x000000fc)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_7POINT1</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+1020 (0x000003fc)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_BACK_CENTER</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+1024 (0x00000400)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_BACK_LEFT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+64 (0x00000040)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_BACK_RIGHT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+128 (0x00000080)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_DEFAULT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>默认的音频通道掩码。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 1
+(0x00000001)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_FRONT_CENTER</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+16 (0x00000010)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_FRONT_LEFT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_FRONT_LEFT_OF_CENTER</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+256 (0x00000100)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_FRONT_RIGHT</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 8
+(0x00000008)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_FRONT_RIGHT_OF_CENTER</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+512 (0x00000200)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_LOW_FREQUENCY</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+32 (0x00000020)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_MONO</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 4
+(0x00000004)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_QUAD</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+204 (0x000000cc)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_STEREO</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+12 (0x0000000c)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>CHANNEL_OUT_SURROUND</b></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span>
+1052 (0x0000041c)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ENCODING_DEFAULT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>默认的音频数据格式</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span> <span>1
+(0x00000001)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ENCODING_INVALID</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>无效的音频数据格式</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 0
+(0x00000000)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ENCODING_PCM_16BIT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>音频数据格式：脉冲编码调制（</span><span>PCM</span><span
+>）每个样品</span><span>16</span><span
+>位。设备保证提供支持。</span><span>(</span><span
+>参见：</span><span><a target="_blank" href="http://baike.baidu.com/view/86849.htm"><span style='font-family:
+宋体'><span>这里</span></span></a>)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 2
+(0x00000002)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public static final int <b>ENCODING_PCM_8BIT</b></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>音频数据格式：脉冲编码调制（</span><span>PCM</span><span
+>）每个样品</span><span>8</span><span
+>位。设备不保证提供支持。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >常量值：</span><span> 3
+(0x00000003)</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.mikespook.com/2010/11/android-%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E9%BA%A6%E5%85%8B%E9%A3%8E%E8%BE%93%E5%85%A5%E9%9F%B3%E9%87%8F%E7%9A%84%E4%BB%A3%E7%A0%81/">Android
+<span ><span>实时获取麦克风输入音量的代码</span></span></a></span></p>
+
+</div>
+
+     
+</body>
+</html>

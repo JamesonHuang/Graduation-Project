@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:22.0pt'>USB</span></b><b><span style='font-size:
+22.0pt'> Host and Accessory</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：太阳火神的美丽人生</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://alot.sinaapp.com">http://alot.sinaapp.com</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 4.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><a target="_blank" href="http://developer.android.com/guide/topics/usb/index.html">http://developer.android.com/guide/topics/usb/index.html</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>USB</span></b><b><span
+>主从设备</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>Android</span><span >支持各种</span><span>USB</span><span >外围设备，通过两种模式来支持</span><span>Android USB</span><span >外设</span> <span
+>（实现了</span><span> Android </span><span
+>外设协议的硬件）：</span><span>USB </span><span
+>外设模式和</span><span>USB</span><span
+>主机模式。在</span><span> USB </span><span
+>外设模式下，外部</span><span> USB </span><span
+>硬件（装有</span><span>Android</span><span
+>的设备要连接的外部设备）充当</span><span> USB </span><span
+>主机。外设的例子包括机器人、扩展插座</span><span >、</span><span
+>诊断和音乐设备</span><span >、电子报亭、</span><span
+>读卡器等其他设备。这种模式给予不具备主机功能的</span><span> Android </span><span
+>设备以与</span><span>USB</span><span
+>硬件交互的能力。</span><span>Android USB </span><span
+>外设必须设计用来与装有</span><span>Android</span><span
+>的设备一起工作，并且必须遵循</span><span><a target="_blank" href="http://accessories.android.com/demokit">Android <span
+><span>外设</span></span><span
+><span>通讯协议</span></span></a></span><span
+>。在</span><span>USB</span><span
+>主机模式下，装有</span><span> Android </span><span
+>的设备扮演着主机的角色。这种设备的例子包括数码像机，键盘，鼠标和游戏手柄。那些适应面很广的</span><span>USB</span><span >设备仍可以与</span><span>Android</span><span >应用交互，前提是这些</span><span>Android</span><span >应用可以正确的与这些设备通讯。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>图</span><span>1</span><span style='font-family:
+宋体'>展示了两种模式的异同。当</span><span>Android</span><span style='font-family:
+宋体'>设备处于主机模式时，它扮演</span><span>USB</span><span style='font-family:
+宋体'>主机角色并为总线供电。当</span><span>Android</span><span style='font-family:
+宋体'>设备处于附件模式时，被连接的</span><span>USB</span><span style='font-family:
+宋体'>硬件（在这种情况下是一个</span><span>Android USB</span><span
+>附件）扮演主机角色并给总线供电。</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span><img
+border=0 width=564 height=363 id="图片 1"
+src="http://images.cnblogs.com/cnblogs_com/over140/2011/11/2011-11-3_1.jpg"
+alt="说明: http://developer.android.com/images/usb-host-accessory.png"></span><span
+>图</span><span>1. USB</span><span
+>主从模式</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span>USB</span><span >外设和主机模式在</span><span>Android 3.1 (API level 12)</span><span >或更高的平台中直接支持。</span><span>USB</span><span >外设模式作为一个外设库也被回馈到</span><span>Android 2.3.4 (API level 10)</span><span >来支持更广泛的设备。设备厂商可以选择是否在设备的系统镜像中包含附加库。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:31.5pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='margin-left:0cm;text-align:left;
+border:none;padding:0cm'><b><span >注意</span></b><span
+>：对</span><span>USB</span><span
+>主机和外设模式的支持最终取决于设备的硬件，不管平台的等级（是多少）。你可以通过</span><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></span><span
+>元素过滤那些支持</span><span>USB</span><span
+>主机和外设的设备。查看</span><span>USB</span><u><span
+style=';color:blue'>外设</span></u><span >和<u><span
+style='color:blue'>主机</span></u>文档获取更多详细信息。</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;font-variant:small-caps;color:#333333'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:12.0pt;'>调试注意事项</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当调试那些使用了</span><span>USB</span><span
+>外设和主机特性的应用时，你很有可能把你的</span><span>USB</span><span
+>硬件连接到你的</span><span>Android</span><span
+>设备上，这将阻止你通过</span><span>USB</span><span
+>建立</span><span style='color:#007F00'>adb</span><span
+>到</span><span>Android</span><span
+>设备的连接。你通过网络仍可以访问</span><span
+style='color:#007F00'>adb</span><span >。通过网络连接</span><span
+lang=EN-US style='color:#007F00'>adb</span><span >：</span></p>
+
+<ol style='margin-top:0cm' start=1 type=1>
+ <li class=MsoNormal style='text-align:left'><span >通过</span><span
+    >USB</span><span >将</span><span
+    >Android</span><span >设备连接到电脑。</span></li>
+ <li class=MsoNormal style='text-align:left'><span >从</span><span
+    >SDK </span><span >的</span> <span
+     style='color:#007F00'>platform-tools</span><span> </span><span
+     >目录，在命令行输入</span><span style='color:#007F00'>adb
+     tcpip 5555</span></li>
+ <li class=MsoNormal style='text-align:left'><span >输入：</span><span
+     style='color:#007F00'>adb connect &lt;</span><span
+     style=';color:#007F00'>设备的</span><span
+     style='color:#007F00'>IP</span><span style=';color:#007F00'>地址</span><span
+     style='color:#007F00'>&gt;:5555</span><span> </span><span
+     >，你现在将被连接到</span><span>Android</span><span
+     >设备并能像</span><span style='color:#007F00'>adb
+     logcat</span><span >一样发出通用的</span><span
+     style='color:#007F00'>adb</span><span >命令。</span></li>
+ <li class=MsoNormal style='text-align:left'><span >要设置你的设备监听</span><span
+    >USB</span><span >，输入</span><span
+     style='color:#007F00'>adb usb</span><span> </span><span
+     >。</span></li>
+</ol>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://baike.baidu.com/view/854.htm">USB<span
+><span>百度百科</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://app.mobiomni.com/bbs/viewthread.php?tid=4648"><span
+><span>谷歌</span></span>I/O<span
+><span>大会主题演讲内容：走进新版蜂巢</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+</div>
+
+</body>
+
+</html>

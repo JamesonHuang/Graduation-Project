@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> MultiAutoCompleteTextView</title>
+</head>
+<body>     
+<div class=WordSection103 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=MultiAutoCompleteTextView><b><span style='font-size:22.0pt'>MultiAutoCompleteTextView</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>颖哥儿</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+class <span style='color:#C00000'>MultiAutoCompleteTextView</span> extends <span
+style='color:#C00000'>AutoCompleteTextView</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/11/1823806.html">android.view.View</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span><span><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/08/27/1809745.html">android.widget.TextView</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/02/1815439.html">android.widget.EditText</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.AutoCompleteTextView</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.MultiAutoCompleteTextView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b> </p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=320 height=416
+src="image/image095.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>一个继承自</span><code><span style='font-size:
+12.0pt'><a
+href="file:///E:\Program\Android\Android%20SDK\android-sdk-windows\docs\reference\android\widget\AutoCompleteTextView.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AutoCompleteTextView</span></a></span></code><code><span
+style='font-size:12.0pt'>的</span></code><span >可编辑的文本视图，能够对用户键入的文本进行有效地扩充提示，而不需要用户输入整个内容。（用户输入一部分内容，剩下的部分系统就会给予提示）。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用户必须提供一个</span><code><span style='font-size:
+12.0pt'><a
+href="file:///E:\Program\Android\Android%20SDK\android-sdk-windows\docs\reference\android\widget\MultiAutoCompleteTextView.Tokenizer.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>MultiAutoCompleteTextView.Tokenizer</span></a></span></code><code><span
+style='font-size:12.0pt'>以用来区分不同的子串。</span></code></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>下面的代码片段展示了如何创建一个文本视图，这个视图用来对用户输入的国家名称进行有效地补充提示。</span><span
+lang=EN-US><img border=0 width=626 height=235
+src="image/image096.jpg"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public boolean enoughToFilter ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; </span><span
+>此方法并不是检验什么时候文本的总长度超过了预定的值，而是在仅当从函数</span><span
+lang=EN-US>findTokenStart</span><span >（）到</span><span
+lang=EN-US>getSelectionEnd()</span><span >函数得到的文本长度为</span><span
+lang=EN-US>0</span><span >或者超过了预定值的时候才起作用。（译者注：</span><span
+>当文本长度超过阈值时过滤</span><span >）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void performValidation ()</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此子类方法并不是用来确定整个文本的有效性，而是用来确定文本中的单个符号的有效性。空标记将被移除。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>public void setTokenizer
+(MultiAutoCompleteTextView.Tokenizer t)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置用来决定用户正在输入文本的范围的分词组件。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >受保护方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>protected void performFiltering (CharSequence text,
+int keyCode)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >此方法并不过滤整个编辑框的内容</span><span
+lang=EN-US>,</span><span >只是过滤从函数</span><span>findTokenStart()
+</span><span >到函数</span><span>getSelectionEnd()</span><span
+>获得的长度为</span><span>0</span><span
+>或者超过了预定的值的文本内容。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>指定过滤模式</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>keyCode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>插入到编辑框中的最后一个字符；当字符（文本）是通过软键盘输入的时候，小心此字符的值可能为</span><span
+lang=EN-US>NULL</span><span >。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>protected void performFiltering (CharSequence text,
+int start, int end, int keyCode)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>启动对下拉式列表内容的过滤。过滤模式为编辑框中指定的范围。子类可覆盖此方法，以便于采用一个不同的模式。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:silver'>protected void replaceText (CharSequence text)</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; </span><span
+>通过替换从函数</span><span>findTokenStart() </span><span
+>到函数</span><span> getSelectionEnd()</span><span
+>得到的文本文本范围以及传递给函数</span><span>terminateToken()</span><span
+>的文版返回的结果来实现文本的输入。另外，文本的替换区域将会被标记为自动文本区，这样如果用户直接按</span><span
+lang=EN-US>DEL</span><span >键，执行过程就会停止。子类可覆盖此方法来实现许多不同的文本插入工作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>下拉列表里的选中项</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >补充</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >相关文章链接</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/salam/archive/2010/10/05/1843943.html"
+title="Android控件之AutoCompleteTextView、MultiAutoCompleteTextView探究">Android<span
+lang=EN-US ><span>控件之</span></span>AutoCompleteTextView<span
+lang=EN-US ><span>、</span></span>MultiAutoCompleteTextView<span
+lang=EN-US ><span>探究</span></span></a></span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/salam/archive/2010/10/05/1843943.html"
+title=AutoCompleteTextView和MultiAutoCompleteTextView>AutoCompleteTextView<span
+lang=EN-US ><span>和</span></span>MultiAutoCompleteTextView</a>
+</span></p>
+<p class=MsoNormal><span><a target="_blank" href="http://pengpengeveryday.blog.163.com/blog/static/208909562008111233259965/"
+title="Auto Complete Text ">Auto Complete Text </a></span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

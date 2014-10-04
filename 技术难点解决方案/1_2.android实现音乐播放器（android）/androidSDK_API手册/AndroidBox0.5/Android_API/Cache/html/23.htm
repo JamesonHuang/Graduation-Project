@@ -1,0 +1,637 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> BluetoothDevice</title>
+</head>
+<body>     
+<div class=WordSection23 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=BluetoothDevice><b><span style='font-size:18.0pt'>BluetoothDevice</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>Android Club SYSU</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.android-wiki.net">http://www.android-wiki.net</a>&nbsp; </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public static class <span
+style='color:#C00000'>BluetoothDevice</span> extends <span style='color:#C00000'>ViewGroup.LayoutParams</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view. ViewGroup.LayoutParams</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.Gallery.LayoutParams</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >代表一个远程蓝牙设备。让你创建一个带有各自设备的</span><span
+lang=EN-US>BluetoothDevice</span><span >或者查询其皆如名称、地址、类和连接状态等信息。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >对于蓝牙硬件地址而言，这个类仅仅是一个瘦包装器。这个类的对象是不可改变的。这个类上的操作会使用这个用来创建</span><span
+lang=EN-US>BluetoothDevice</span><span >类的</span><span
+lang=EN-US>BluetoothAdapter</span><span >类执行在远程蓝牙硬件上。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >为了获得</span><span>BluetoothDevice,</span><span
+>类，使用</span><span>BluetoothAdapter.getRemoteDevice(String)</span><span
+>方法去创建一个表示</span> <span >已知</span><span
+lang=EN-US>MAC</span><span >地址的设备（用户可以通过带有</span><span
+lang=EN-US>BluetoothAdapter</span><span >类来完成对设备的查找）或者从一个通过</span><span
+lang=EN-US> BluetoothAdapter.getBondedDevices()</span><span style='font-family:
+宋体'>得到返回值的有联系的设备集合来得到该设备。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >注意：需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参见</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothAdapter.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothAdapter</span></a></span></code></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothSocket</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>常量</span></b></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_ACL_CONNECTED
+</span><span>&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动：</span><span
+>指明一个与远程设备建立的低级别（</span><span>ACL</span><span
+>）连接。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_DEVICE"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_DEVICE</span></a></span></code><span
+>附加域</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>ACL</span><span >连接通过</span><span
+lang=EN-US>Android</span><span >蓝牙栈自动进行管理</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal style='margin-left:10.5pt'><code><span
+style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; </span></code><span
+>常量值</span><span>:
+&quot;android.bluetooth.device.action.ACL_CONNECTED&quot; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_ACL_DISCONNECTED
+</span><span>&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动</span><span
+>：指明一个来自于远程设备的低级别（</span><span>ACL</span><span
+>）连接的断开</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_DEVICE"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_DEVICE</span></a></span></code><span
+>附加域</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>ACL</span><span >连接通过</span><span
+lang=EN-US>Android</span><span >蓝牙栈自动进行管理</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.action.ACL_DISCONNECTED&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_ACL_DISCONNECT_REQUESTED
+</span><span>&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动</span><span
+>：</span><span >指明一个为远程设备提出的低级别（</span><span
+lang=EN-US>ACL</span><span >）的断开连接请求，并即将断开连接。</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >对于友好的断开连接，该常量是有作用的。应用程序可以用它作为暗示去马上中断对远程设备的高级别的连接（</span><span
+lang=EN-US>RFCOMM,L2CAP,</span><span >或者其它连接）。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_DEVICE"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_DEVICE</span></a></span></code><span
+>附加域</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_BOND_STATE_CHANGED
+</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动</span><span
+>：</span><span >指明一个远程设备的连接状态的改变。比如，当一个设备已经被匹配。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><span>EXTRA_DEVICE,
+EXTRA_BOND_STATE</span><span >和</span><span>
+EXTRA_PREVIOUS_BOND_STATE.</span><span >这些附加域。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.action.BOND_STATE_CHANGED&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_CLASS_CHANGED</span><span
+lang=EN-US> &nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动：一个已经改变的远程设备的蓝牙类。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><span>EXTRA_DEVICE</span><span
+>和</span><span>EXTRA_BOND_STATE</span><span
+>这些附加域。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'>&nbsp; </span></code><code><span
+style='font-size:12.0pt'>参见</span></code></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; </span></code><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ERROR(BluetoothClass}
+/{@link BluetoothClass})</span></a></span></code></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'>&nbsp; </span></code><span
+>常量值</span><span>:
+&quot;android.bluetooth.device.action.CLASS_CHANGED&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_FOUND</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动：发现远程设备</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >当一个远程设备在查找过程中被发现时，发送该常量值。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_DEVICE"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_DEVICE</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_CLASS"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_CLASS</span></a></span></code><span
+>这些附加域。如果可用的话，也可包含</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_NAME"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_NAME</span></a></span></code><span
+>和</span><span>/</span><span style='font-family:
+宋体'>或</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#EXTRA_RSSI"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>EXTRA_RSSI</span></a></span></code><span
+>这些附加域。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.action.FOUND&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  ACTION_NAME_CHANGED</span><span
+lang=EN-US> &nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >广播活动：指明一个远程设备的昵称第一次找到，或者自从最后一次找到该昵称开始已经改变。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >总是包含</span><span>EXTRA_DEVICE</span><span
+>和</span><span>EXTRA_NAME</span><span
+>这些附加域</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><code><span
+style='font-size:12.0pt'>权限接收</span></code></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.action.NAME_CHANGED&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>int &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOND_BONDED
+</span><span>&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >指明远程设备已经匹配。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >一个共享的连接键为了远程设备而存在于本地，因而设备间的通讯可以被认证和加密。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >和远程设备的匹配并不意味着设备间已经成功连接。它只意味着匹配过程已经在稍早之前完成，并且连接键已经存储在本地，准备在下次连接的时候使用。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+12 (0x0000000c)</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>int &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOND_BONDING</span><span
+lang=EN-US> &nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >指明和远程设备的匹配正在进行中</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+11 (0x0000000b)</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>int &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOND_NONE</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >指明远程设备未被匹配。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >不存在为了远程设备而已经共享的连接键，因而设备间的通讯（如果完全被允许）不可被认证和加密。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>常量值</span><span>: 10 (0x0000000a)</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>Creator&lt;BluetoothDevice&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CREATOR</span><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>int &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ERROR</span><span
+lang=EN-US> &nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >该</span> <span
+>类的错误标志值</span><span>. </span><span
+>标记该类的错误值。确保和该类中的任意其它整数常量不相等。它为需要一个标记错误值的函数提供了便利。例如：</span>
+<span style='color:#00B050'>Intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+BluetoothAdapter.ERROR) </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+-2147483648 (0x80000000)</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_BOND_STATE</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >作为一个</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_BOND_STATE_CHANGED"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ACTION_BOND_STATE_CHANGED</span></a></span></code><span
+>的整型附加域。包含了远程设备的匹配状态。</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >可能值有</span><span>:
+BOND_NONE, BOND_BONDING, BOND_BONDED. </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.BOND_STATE&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_CLASS</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >作为一个</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_FOUND"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ACTION_FOUND</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#ACTION_CLASS_CHANGED"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ACTION_CLASS_CHANGED</span></a></span></code><span
+>的</span><span>Parcelabe </span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothClass.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BluetoothClass</span></a></span></code><span
+>附加域。</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.CLASS&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_DEVICE</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >每次通过该类进行广播时，作为</span><span
+lang=EN-US>Parcelable BluetoothDevice</span><span >的附加域。它包含了该常量适用的</span><span
+lang=EN-US>BluetoothDevice</span><span >类。</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.DEVICE&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_NAME</span><span
+lang=EN-US> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >作为</span><span>ACTION_NAME_CHANGED</span><span
+>和</span><span>ACTION_FOUND</span><span
+>的字符串附加域。它包含了这个蓝牙昵称。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.NAME&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_PREVIOUS_BOND_STATE
+</span><span>&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >作为</span><span>ACTION_BOND_STATE_CHANGED</span><span
+>的整型附加域。包含了远程设备以前的匹配状态。</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >可能值有</span><span>:
+BOND_NONE, BOND_BONDING, BOND_BONDED. </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.PREVIOUS_BOND_STATE&quot;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>String  EXTRA_RSSI
+</span><span>&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >作为</span><span>ACTION_FOUND</span><span
+>的可选短整型附加域。包含了被蓝牙硬件通知的远程设备的</span><span>RSSI(Receive
+Signal Strength Indication</span><span >，接收信号强度指示</span><span
+lang=EN-US>)</span><span >值。</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >常量值</span><span>:
+&quot;android.bluetooth.device.extra.RSSI&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>公共方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='background:#D9D9D9'>public <a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a>
+</span></span><span class=sympad><b><span style='background:#D9D9D9'>createRfcommSocketToServiceRecord</span></b></span><span
+lang=EN-US style='background:#D9D9D9'> <span class=normal>(<a target="_blank" href="http://developer.android.com/reference/java/util/UUID.html">UUID</a>
+uuid)</span></span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; </span><span >该方法是为了使用带有</span><span
+lang=EN-US>listenUsingRfcommWithServiceRecord(String, UUID)</span><span
+>方法来进行对等的蓝牙应用而设计的。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; </span><span >使用</span><span
+lang=EN-US>connect()</span><span >初始化这个外界连接。它也将执行一个已给与</span><span
+lang=EN-US>UUID</span><span >的</span><span>SDP</span><span
+>查找，从而确定连接到哪个通道上。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; </span><span >远程设备将被认证，在这个端口上的通讯会被加密。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; </span><span >提示：如果你正试图连接蓝牙串口，那么使用众所周知的</span><span
+lang=EN-US>SPP UUID 00001101-0000-1000-8000-00805F9B34FB</span><span
+>。但是你如果正试图连接</span><span>Android</span><span
+>设备那么请你生成你自己的专有</span><span>UUID</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; </span><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uuid
+</span><span >查询</span><span>RFCOMM</span><span
+>通道的服务记录</span><span>UUID</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个准备好外界连接的</span><span>RFCOMM</span><span
+>蓝牙服务端口</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>异常</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IOException&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>出现错误，比如蓝牙模块不可用，或者许可无效。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public int
+<b>describeContents</b> ()</span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >描述了包含在</span><span>Parcelable's
+marshalled representation</span><span >中的特殊对象的种类。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >一个指示被</span><span>Parcelabel</span><span
+>所排列的特殊对象类型集合的位屏蔽。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public
+boolean <b>equals</b> (Object o)</span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >比较带有特定目标的常量。如果他们相等则标示出来。</span>
+<span >为了保证其相等，</span><span>o</span><span
+>必须代表相同的对象，该对象作为这个使用类依赖比较的常量。通常约定，该比较既需要可复制、相等和可传递。另外，没有对象引用的时候</span><span
+lang=EN-US>null</span><span >等于</span><span>null</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >默认实现是返回</span><span
+lang=EN-US>ture</span><span >，仅当</span><span>this
+== o</span><span >。如果你想实现你自己的</span><code><span
+lang=EN-US style='font-size:12.0pt'>equals</span></code><code><span
+style='font-size:12.0pt'>方法，</span></code><code><span style='font-size:12.0pt'>参见</span></code><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#writing_equals">Writing
+a correct <code><span style='font-size:12.0pt;text-decoration:none'>equals</span></code>
+method</a></span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >当且仅当</span><span>o</span><span
+>是一个作为接收器（使用</span><span>==</span><span
+>操作符来做比较）的精确相同的对象是，这个对象的实现才返回</span><span>true</span><span
+>值。子类通常实现</span><span>equals(Object)</span><span
+>方法，这样它才会重视这两个对象的类型和状态。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >通常约定，对于</span><span
+lang=EN-US>equals(Object)</span><span >和</span><span
+lang=EN-US>hashCode() </span><span >方法，如果</span><span
+lang=EN-US>equals</span><span >对于任意两个对象返回真值，那么</span><span
+lang=EN-US>hashCode()</span><span >必须对这些对象返回相同的纸。这意味着对象的子类通常都覆盖或者都不覆盖这两个方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span>o </span><span >需要对比常量的对象</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >如果指定的对象和该对象相等则返回</span><span
+lang=EN-US>true</span><span >，否则返回</span><span
+lang=EN-US>false</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>public String <b>getAddress</b>
+() </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >返回该蓝牙设备的硬件地址</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >例如：</span><span>
+&quot;00:11:22:AA:BB:CC&quot;.</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >字符串类型的蓝牙硬件地址</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public
+BluetoothClass <b>getBluetoothClass</b> () </span></span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >获取远程设备的蓝牙类</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >蓝牙类对象出错时返回空值</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span style='background:#D9D9D9'>public int <b>getBondState</b>
+()</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >获取远程设备的连接状态。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >连接状态的可能值有</span><span
+lang=EN-US>: BOND_NONE, BOND_BONDING, BOND_BONDED. </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>连接状态。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public
+String <b>getName</b> () </span></span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >获取远程设备的蓝牙昵称。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >当执行设备扫描的时候，本地适配器将自动寻找远程名称。该方法只返回来自存储器中该设备的名称。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >需要</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/Manifest.permission.html#BLUETOOTH"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>BLUETOOTH</span></a></span></code><span
+>权限。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >蓝牙昵称，如果出现问题则返回</span><span
+lang=EN-US>null</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public int
+<b>hashCode</b> ()</span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >返回该对象的一个整型哈希值</span><span
+lang=EN-US>. </span><span >通常约定，如果</span><span
+lang=EN-US>equals</span><span >对于任意两个对象返回真值，那么</span><span
+lang=EN-US>hashCode()</span><span >必须对这些对象返回相同的值。这意味着对象的子类通常都覆盖或者都不覆盖这两个方法。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:10.5pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt'>注意：</span><span
+style='font-size:10.5pt'>除非同等对比信息发生改变，否则哈希码不随时间改变而改变。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:10.5pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt'>如果你想要实现你自己的</span><span
+style='font-size:10.5pt'>哈希码方法，参见</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothClass.html#writing_hashCode">Writing
+a correct <code><span style='font-family:"Calibri","sans-serif";text-decoration:
+none'>hashCode</span></code> method</a></span><span style='font-size:10.5pt'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >该对象的哈希值</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public String
+<b>toString</b> ()</span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >返回该蓝牙设备的字符串表达式。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >这是一个蓝牙硬件地址，例如</span><span
+lang=EN-US>&quot;00:11:22:AA:BB:CC&quot;.</span><span >然而，如果用户明确需要蓝牙硬件地址以防以后</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#toString%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>toString()</span></a></span></code><span
+>表达式会改变的话，用户总是需要使用</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/bluetooth/BluetoothDevice.html#getAddress%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getAddress()</span></a></span></code><span
+>方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span >该蓝牙设备的字符串表达式。</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp; <span style='background:#D9D9D9'>public
+void <b>writeToParcel</b> (Parcel out, int flags)</span> </span></p>
+<p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+text-indent:21.0pt'><span >将类的数据写入外部提供的</span><span
+lang=EN-US>Parcel</span><span >中</span></p>
+<p class=MsoNormal align=left style='margin-left:31.5pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span>out </span><span >对象需要被写入的</span><span
+lang=EN-US>Parcel</span></p>
+<p class=MsoNormal align=left style='margin-left:52.5pt;text-align:left;
+text-indent:21.0pt'><span>flags </span><span style='font-family:
+宋体'>和对象需要如何被写入有关的附加标志。可能是</span><span>0</span><span
+>，或者可能是</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://blog.csdn.net/hellogv/archive/2010/11/26/6036849.aspx">Android<span
+lang=EN-US ><span>提高第十二篇之蓝牙传感应用</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://blog.csdn.net/hellogv/archive/2010/11/29/6042091.aspx">Android<span
+lang=EN-US ><span>提高第十三篇之探秘蓝牙隐藏</span></span>API</a></span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> TableRow</title>
+</head>
+<body bgcolor=white lang=ZH-CN link=blue vlink=purple style='text-justify-trim:
+punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>TableRow</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>Snail</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><u><span style='color:blue'><a target="_blank" href="http://blog.csdn.net/zuolongsnail"><span style='color:purple'>http://blog.csdn.net/zuolongsnail</span></a></span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><i><span
+lang=EN-US>public class <span style='color:#C00000'>TableRow </span>extends <span
+style='color:#C00000'>LinerLayout</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.html">android.view.View</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html">android.view.ViewGroup</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.html">android.widget.LinearLayout</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.TableRow</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>按照水平方向来组织子视图的布局。</span><span>TableRow</span><span
+>应该总是作为</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html">TableLayout</a></span><span
+>的子视图。如果</span><span>TableRow</span><span
+>的父视图不是</span><span>TableLayout</span><span
+>，那么</span><span>TableRow</span><span
+>将相当于一个水平方向布局的</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.html">LinearLayout</a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在</span><span>XML</span><span
+>配置文件中</span><span>TableRow</span><span
+>的子视图不需要详细指定其</span><span style='color:green'>layout_width</span><span
+>和</span><span style='color:green'>layout_height</span><span
+>属性值。</span><span>TableRow</span><span
+>总是强制将这两个属性分别赋值为</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#MATCH_PARENT">MATCH_PARENT</a></span><span
+>和</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>可参考</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.LayoutParams.html">android.widget.TableRow.LayoutParams</a></span><span
+>的布局属性。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TableRow.LayoutParams</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>适用于</span><span>TableRow</span><span
+>的子视图的属性设置</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>构造函数</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public <b>TableRow </b>(<a target="_blank" href="http://developer.android.com/reference/android/content/Context.html">Context</a>
+context)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >为给定的上下文创建</span><span
+lang=EN-US>TableRow</span><span >布局。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>context</span></i><span> &nbsp; </span><span
+>应用程序环境</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public <b>TableRow </b>(<a target="_blank" href="http://developer.android.com/reference/android/content/Context.html">Context</a>
+context, <a target="_blank" href="http://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet
+</a>attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >使用指定的属性集合为给定的上下文创建</span><span
+lang=EN-US>TableRow</span><span >布局</span><span
+>。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>context </span></i><span>&nbsp; </span><span
+>应用程序环境</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>attrs</span></i><span>&nbsp; </span><span
+>属性集合</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public <a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.LayoutParams.html">TableRow.LayoutParams</a><b>
+generateLayoutParams </b>(<a target="_blank" href="http://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet
+</a>attrs)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回一组基于提供的属性集合的布局参数集合</span><span
+>。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>attrs&nbsp; </span></i><span >用于生成布局参数的属性集</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a></span><span
+>或其子类的实例</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public <a target="_blank" href="http://developer.android.com/reference/android/view/View.html">View</a> <b>getVirtualChildAt
+</b>(int i)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回指定索引的视图</span><span
+>。这个方法被重载时应当考虑到其虚拟子视图。参见</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html">TableLayout</a></span><span
+>和</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.html">TableRow</a></span><span
+>的示例代码。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>i&nbsp; </span></i><span >子视图的索引</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>指定索引的子视图</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public int<b> getVirtualChildCount </b>()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回虚拟子视图的个数</span><span
+>。如果这个布局支持子视图，此数量可能与实际子视图数量不同。</span><span>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参见</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableLayout.html">TableLayout</a></span><span
+>和</span><span><a target="_blank" href="http://developer.android.com/reference/android/widget/TableRow.html">TableRow</a></span><span
+>的示例代码。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>虚拟子视图的数量</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setOnHierarchyChangeListener </b>(<a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.OnHierarchyChangeListener.html">ViewGroup.OnHierarchyChangeListener</a>
+listener)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >注册一个回调函数，当从视图中添加或移除子视图时被调用。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>listener&nbsp; </span></i><span >层次结构变更时执行的回调函数</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected boolean <b>checkLayoutParams </b>(<a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a>
+p)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>（译者注：检测是不是</span><span>AbsoluteLayout.LayoutParams</span><span
+>的实例）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US >&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected <a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html">LinearLayout.LayoutParams</a><b>
+generateDefaultLayoutParams </b>()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回宽度为</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#MATCH_PARENT">MATCH_PARENT</a></span><span
+>，高度为</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#WRAP_CONTENT">WRAP_CONTENT</a></span><span
+>且没有跨度的布局参数集合</span><span >。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>默认布局参数集合或空</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected <a target="_blank" href="http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html">LinearLayout.LayoutParams</a>
+<b>generateLayoutParams </b>(<a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a>
+p)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回一组合法的受支持的布局参数集合</span><span
+>。当一个</span><span>ViewGroup</span><span
+>传递一个布局参数没有通过</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html#checkLayoutParams(android.view.ViewGroup.LayoutParams)">checkLayoutParams(android.view.ViewGroup.LayoutParams)</a></span><span
+>检测的视图时，此方法将被调用。此方法会返回一组新的适合当前</span><span>ViewGroup</span><span
+>的布局参数，可能从指定的一组布局参数集合中复制适当的属性。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>p&nbsp; </span></i><span >被转换成一组适合当前</span><span
+lang=EN-US>ViewGroup</span><span >的布局参数</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a></span><span
+>的实例或者其中的一个子节点</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected void <b>onLayout </b>(boolean changed, int
+l, int t, int r, int b)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在此视图设置其子视图的大小及位置时调用。派生类可以重写此方法并重新为其子类布</span><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>局。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>changed&nbsp; </span></i><span >这是当前视图的一个新大小或位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>l&nbsp; </span></i><span >相对于父节点的左边位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>t&nbsp; </span></i><span >相对于父节点的顶点位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>r&nbsp; </span></i><span >相对于父节点的右边位置</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>b&nbsp; </span></i><span >相对于父节点的底部位置</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected void <b>onMeasure </b>(int
+widthMeasureSpec, int heightMeasureSpec)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >测量视图及其内容，以确定其宽度和高度。此方法由</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#measure(int, int)">measure(int,
+int)</a></span><span >调用。需要被子类重写以提供准确、高效的测量其内容的方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><b><span >约定</span></b><span
+>：当重写此方法时，必须调用</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#setMeasuredDimension(int, int)">setMeasuredDimension(int,
+int)</a></span><span >来保存当前视图的宽度和高度。如果调用不成功将会导致一个</span><span
+lang=EN-US style='color:green'>IllegalStateException</span><span
+>异常，由</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#measure(int, int)">measure(int,
+int)</a></span><span >抛出。要有效的调用父类的</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onMeasure(int, int)">onMeasure(int,
+int)</a></span><span >方法。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >基类的实现是以背景大小为默认大小，除非</span><span
+lang=EN-US>MeasureSpec</span><span >（测量细则）允许更大的背景。子类应重写</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onMeasure(int, int)">onMeasure(int,
+int)</a></span><span >以对其内容提供更合适的大小。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果此方法被重写，那么子类要确保其测量高度和测量宽度要大于视图的最小宽度和最小高度（</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getSuggestedMinimumHeight()">getSuggestedMinimumHeight()</a></span><span
+>和</span><span><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#getSuggestedMinimumWidth()">getSuggestedMinimumWidth()</a></span><span
+>）。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><b><span
+>参数</span></b></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>widthMeasureSpec&nbsp; </span></i><span >父视图要求的横向空间大小。该要求由</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.MeasureSpec.html">View.MeasureSpec</a></span><span
+>进行编码</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><i><span
+lang=EN-US>heightMeasureSpec&nbsp; </span></i><span >父视图要求的纵向空间大小。该要求由</span><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/View.MeasureSpec.html">View.MeasureSpec</a></span><span
+>进行编码</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>推荐教程：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-tablelayout.html">Android
+Doc<span ><span>官方教程</span></span>-<span
+lang=EN-US ><span>在</span></span>TableLayout<span
+lang=EN-US ><span>中使用</span></span>TableRow</a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a target="_blank" href="http://blog.csdn.net/zuolongsnail/archive/2011/04/17/6329013.aspx"><span
+lang=EN-US ><span>在</span></span>TableLayout<span
+lang=EN-US ><span>中使用</span></span>TableRow<span
+lang=EN-US ><span>对象来定义多行</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+<b><span style='font-size:18.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

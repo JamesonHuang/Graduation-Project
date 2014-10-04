@@ -1,0 +1,1594 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt;font-family:"Calibri","sans-serif"'>Resources Types -
+String</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span style='font-family:"Calibri","sans-serif"'>
+</span><span >呆呆大虾</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者微博：</span><span class=apple-style-span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+color:#4B4B4B;background:white'><a target="_blank" href="http://weibo.com/popapa">http://weibo.com/popapa</a>
+</span></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span style='font-family:"Calibri","sans-serif"'>Android
+4.0 r1</span></p>
+<p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/string-resource.html">http://developer.android.com/guide/topics/resources/string-resource.html</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>字符串资源</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>string</span><span style='font-family:
+宋体'>资源为应用程序提供字符串文本，并可附带文本样式和格式。有以下三种类型的</span><span
+style='font-family:"Calibri","sans-serif"'>string</span><span style='font-family:
+宋体'>资源可供应用程序使用：</span></p>
+<p class=MsoNormal align=left style='text-align:left'><u><span
+style='font-family:"Calibri","sans-serif";color:#3366FF'><a href="1.htm#String"><span
+style='color:#3366FF'>String</span></a></span></u></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>提供单个字符串的</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#String_Array"><span style='color:#3366FF'>String Array</span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>提供字符串数组的</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><u><span
+style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#Quantity_Strings"><span style='color:#3366FF'>Quantity Strings </span><span
+lang=EN-US style=';color:#3366FF'><span>（</span></span><span
+lang=EN-US style=';color:#3366FF'><span>复数</span></span><span
+lang=EN-US style=';color:#3366FF;text-decoration:none'><span>）</span></span></a></span></u></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>保存单词或词组各种数量形式（单数</span><span
+style='font-family:"Calibri","sans-serif"'>/</span><span style='font-family:
+宋体'>复数）下的字符串</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>所有字符串都能应用各种样式标记及格式参数。样式化和格式化串的信息请参阅章节</span><u><span
+style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#Formating_and_Styling"><span style=';
+color:#3366FF'><span>格<span>式</span></span></span><span
+lang=EN-US style=';color:#3366FF'><span>化</span></span><span
+lang=EN-US style=';color:#3366FF'><span>和样式</span></span></a></span></u><u><span
+style=';color:#3366FF'>化</span></u><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><a name=String><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>String</span></b></a></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>能被应用程序或者其他资源文件（比如</span><span style='font-family:"Calibri","sans-serif"'>layout
+XML</span><span >）引用的单个字符串。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:31.5pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='margin-left:0cm;text-align:left;
+border:none;padding:0cm'><b><span style=';color:#333333'>注意</span></b><span
+style=';color:#333333'>：</span><span >字符串是简单类型资源，是用名称（</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>name</span><span
+>）（而非</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件名）来直接引用的。因此，在一个</span><span
+style='font-family:"Calibri","sans-serif"'>XML</span><span style='font-family:
+宋体'>文件里，可以把字符串资源和其他简单类型资源一起放在一个</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>&lt;resources&gt;</span><span >元素下。</span></p>
+
+</div>
+
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>文件位置</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>res/values/<i>filename</i>.xml</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>文件名可随意指定。</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>&lt;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>string</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>&gt;</span><span
+style=';color:#333333'>元素的</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>name</span><span
+style=';color:#333333'>将被用作资源</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+layout-grid-mode:char'><span style='font-size:11.0pt;font-family:
+"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>编译后资源的数据类型</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>指向</span><code><span style='font-size:12.0pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/java/lang/String.html"><span
+style='font-size:10.5pt'>String</span></a></span></code><span style='font-family:
+宋体'>的资源指针。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>资源引用</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>Java</span><span
+>代码</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>:</span><span style=';color:#333333'>：</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>R.string.<i>string_name</i></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>XML</span><span
+>代码<span style='color:#333333'>：</span></span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>@string/<i>string_name</i></span></p>
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>语法</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=502 valign=top style='width:376.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;?xml version=<span
+  style='color:#007000'>&quot;1.0&quot; </span>encoding=<span style='color:
+  #007000'>&quot;utf-8&quot;</span>?&gt;<span style='color:#007000'> </span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:4.5pt;text-align:left;
+  text-indent:16.5pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif"'>&lt;</span><span class=tag1><span
+  style='font-family:"Calibri","sans-serif"'>string</span></span><span
+  style='font-family:"Calibri","sans-serif"'> <span
+  style='color:#882288'>name</span>=&quot;<i><span style='color:#007000'>string_name</span></i>&quot;&gt;<i>text_string</i>&lt;<i>/</i></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>string</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;/</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>元素</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><a
+name=resources></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;resources&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><b><span
+>必填项</span></b><span >。</span><span
+>必须是根元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>无属性。</span></p>
+<p class=MsoNormal align=left style='margin-left:57.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>可以包含样式标记的字符串。注意须对单引号或双引号进行转义。更多信息请参阅下文</span><u><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#Formating_and_Styling"><span style=';
+color:#3366FF'><span>格式化和样式</span></span></a></span></u><u><span
+style=';color:#3366FF'>化</span></u><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+style='font-size:12.0pt;'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#882288'>name</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left'><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>String</span></i><i><span
+>类型。</span></i><span >字符串的名称。此名称将作为资源</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>ID</span><span
+>用于引用此字符串。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>示例</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>保存在</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>res/values/strings.xml</span><span style='font-family:
+"Calibri","sans-serif"'> </span><span >的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=420
+ style='width:315.0pt;margin-left:64.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=420 valign=top style='width:315.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;?xml version=<span
+  style='color:#007000'>&quot;1.0&quot;</span> encoding=&quot;<span
+  style='color:#007000'>utf-8</span>&quot;?&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-indent:22.5pt;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif"'>&lt;</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>string</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'> </span></span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif"'>=&quot;<span
+  style='color:#007000'>hello</span>&quot;&gt;Hello!&lt;/</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>string</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;/</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>以下布局（</span><span style='font-family:"Calibri","sans-serif"'>layout</span><span
+>）</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>将字符串资源用于</span><span style='font-family:"Calibri","sans-serif"'>View</span><span
+>：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=496
+ style='width:372.0pt;margin-left:64.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=496 valign=top style='width:372.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif"'>&lt;</span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>TextView</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_width</span><span style='font-family:
+  "Calibri","sans-serif"'>=&quot;<span style='color:#007000'>fill_parent</span>&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:layout_height</span><span style='font-family:
+  "Calibri","sans-serif"'>=&quot;<span style='color:#007000'>wrap_content</span>&quot;</span></p>
+  <p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+  layout-grid-mode:char'><b><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>android:text</span></b><b><span style='font-family:
+  "Calibri","sans-serif"'>=&quot;</span></b><b><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>@string/hello</span></b><b><span
+  style='font-family:"Calibri","sans-serif"'>&quot;</span></b><span
+  style='font-family:"Calibri","sans-serif"'> /&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>以下应用程序代码读取一个字符串资源：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=496
+ style='width:372.0pt;margin-left:64.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=496 valign=top style='width:372.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getString(int)"><span
+  style='color:black'>getString</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>string</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>hello</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span >可以用</span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#getString(int)">getString(int)</a></span></code><span
+>或</span><code><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#getText(int)">getText(int)</a></span></code><span
+>来读取字符串资源，</span><code><span style='font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/Context.html#getText(int)">getText(int)</a></span></code><span
+>会一并读取应用于字符串的</span><span style='font-family:
+"Calibri","sans-serif"'>rich text</span><span >样式。</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=Arial55 align=center style='margin:0cm;margin-bottom:.0001pt;
+text-align:center'><a name="String_Array"><span style='font-size:
+14.0pt;font-family:"Calibri","sans-serif"'>String Array</span></a></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>可被应用程序引用的字符串数组。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:31.5pt;margin-right:0cm'>
+
+<p class=MsoNormal align=left style='margin-left:0cm;text-align:left;
+border:none;padding:0cm'><b><span style='font-size:11.0pt;;
+color:#333333'>注意</span></b><span style='font-size:11.0pt;;
+color:#333333'>：</span><span >字符串数组是简单类型资源，是用名称（而非</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件名）来直接引用的。因此，在一个</span><span
+style='font-family:"Calibri","sans-serif"'>XML</span><span style='font-family:
+宋体'>文件里，可以把字符串数组资源和其他简单类型资源一起放入一个</span><span style='font-family:
+"Calibri","sans-serif"'>&lt;</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>resources</span><span style='font-family:"Calibri","sans-serif"'>&gt;</span><span
+>元素下。</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>文件位置</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>res/values/<i>filename</i>.xml</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+style=';color:#333333'>文件名可随意指定。</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>&lt;string-array&gt;</span><span
+style=';color:#333333'>元素的名字</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>name</span><span
+style=';color:#333333'>将被用作资源</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>编译后资源的数据类型</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>指向</span><code><span style='font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/java/lang/String.html">String</a></span></code><span
+style=';color:#333333'>数组</span><span >的资源指针。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>资源引用</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>Java</span><span
+>代码</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>:</span><span style=';color:#333333'>：</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>R.array.<i>string_array_name</i></span></p>
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>语法</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=502 valign=top style='width:376.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>&lt;?</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>xml
+  version</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;1.0&quot;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  encoding</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;utf-8&quot;</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>?&gt;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;resources&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:4.5pt;text-align:left;
+  text-indent:16.5pt;layout-grid-mode:char'><span class=tag1><span
+  style='font-family:"Calibri","sans-serif"'>&lt;string-array</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span class=atn1><span
+  style='font-family:"Calibri","sans-serif"'>name</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>=</span></span><span
+  class=atv1><span style='font-family:"Calibri","sans-serif"'>&quot;<i>string_array_name</i>&quot;</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span class=tag1><span
+  style='font-family:"Calibri","sans-serif"'>&lt;item</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:25.5pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif";color:#882288'>&gt;</span><span class=pln1><i><span
+  style='font-family:"Calibri","sans-serif"'>text_string</span></i></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;/string-array&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>元素</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name="resources_string_array"></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;resources&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><b><span
+>必填项</span></b><span >。</span><span
+>必须是根元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+>无属性。</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name="string_array节"></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;string-array&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span >定义一个字符串数组。包含了一个或多个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;item&gt;</span><span
+>元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-size:12.0pt;'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#882288'>Name </span></p>
+<p class=MsoNormal align=left style='margin-left:94.5pt;text-align:left;
+layout-grid-mode:char'><i><span style='font-family:"Calibri","sans-serif"'>String</span></i><i><span
+>类型。</span></i><span >字符串数组的名称。此名称将作为资源</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>ID</span><span
+>用于引用此数组。</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></i></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name=item></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;item&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span >一个字符串，可以包含样式标识。可以是对其他字符串资源的引用。必须作为</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;string-array&gt;</span><span
+>元素的子元素存在。注意对单引号和双引号须进行转义。有关如何正确地样式化及格式化字符串，请参阅下文</span><u><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#Formating_and_Styling"><span style=';
+color:#3366FF'><span>格式化和样式</span></span></a></span></u><u><span
+style=';color:#3366FF'>化</span></u><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+>无属性。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>示例</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>保存在</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>res/values/strings.xml</span><span style='font-family:
+"Calibri","sans-serif"'> </span><span >的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=502 valign=top style='width:376.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>&lt;?</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>xml
+  version</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;1.0&quot;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  encoding</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;utf-8&quot;</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>?&gt;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;resources&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;string-array</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'> </span></span><span
+  class=atn1><span style='font-family:"Calibri","sans-serif"'>name</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>=</span></span><span
+  class=atv1><span style='font-family:"Calibri","sans-serif"'>&quot;planets_array&quot;</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item&gt;</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'>Mercury</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;&lt;/string-array&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item&gt;</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'>Venus</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item&gt;</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'>Earth</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item&gt;</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'>Mars</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;/string-array&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+layout-grid-mode:char'><span >以下程序代码返回字符串数组：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Resources</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getResources()"><span
+  style='color:black'>getResources</span><span style='color:#666600'>()</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>[]</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> planets </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/res/Resources.html#getStringArray(int)"><span
+  style='color:black'>getStringArray</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>array</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>planets_array</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><b><span
+style='font-size:14.5pt;font-family:"Calibri","sans-serif";color:#111111'>&nbsp;</span></b></p>
+<p class=Arial55 align=center style='margin:0cm;margin-bottom:.0001pt;
+text-align:center'><a name="Quantity_Strings"></a><span
+style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>Quantity Strings</span><span
+style='font-size:14.0pt;'>（复数）</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>不同的语言对数量进行描述的语法规则也不同。比如在英语里，数量</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>1</span><span
+style='font-size:10.5pt'>是个特殊情况，我们写成</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>“1 book”</span><span
+style='font-size:10.5pt'>，但其他任何数量都要写成</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>“<i>n</i> books”</span><span
+style='font-size:10.5pt'>。这种单复数之间的区别是很普遍的，不过其他语言会有更好的区分方式。</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt;color:#333333'>支持的全集包括</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>zero</span><span
+style='font-size:10.5pt;color:#007000'>、</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>one</span><span
+style='font-size:10.5pt;color:#007000'>、</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:#333333'> </span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>two</span><span
+style='font-size:10.5pt;color:#007000'>、</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>few</span><span
+style='font-size:10.5pt;color:#007000'>、</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>many</span><span
+style='font-size:10.5pt'>和</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:#007000'>other</span><span
+style='font-size:10.5pt;color:#333333'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>决定选择和使用某种语言和复数的规则是非常复杂的，所以</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>提供了诸如</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html#getQuantityString(int, int)"><span
+style='color:windowtext'>getQuantityString()</span></a></span><span
+style='font-size:10.5pt'>的方法来选择合适的资源。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>注意，要按照语法规则来建立可选项。在英语里，即使数量为</span><span
+style='font-family:"Calibri","sans-serif"'>0</span><span style='font-family:
+宋体'>，字符串零（</span><span style='font-family:"Calibri","sans-serif"'>zero</span><span
+>）也不需要建立。因为</span><span style='font-family:
+"Calibri","sans-serif"'>0</span><span >在英语语法表达上和</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>2</span><span
+>没有区别，和其他除</span><span style='font-family:
+"Calibri","sans-serif"'>1</span><span >以外的任何数字都没有差别（</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&quot;zero books&quot;,
+&quot;one book&quot;, &quot;two books&quot;</span><span style='font-family:
+宋体'>，等等）。</span><span style='font-family:"Calibri","sans-serif";color:#333333'>
+</span><span >不要被</span><span
+style='font-family:"Calibri","sans-serif"'>“<span style='color:#007000'>two</span></span><span
+style=';color:#333333'>听起来似乎只能用于数量</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>2”</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'> </span><span
+>样的事误导<span style='color:#333333'>。某语言可能需要</span></span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>2</span><span
+style=';color:#333333'>、</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'>12</span><span style=';
+color:#333333'>、</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>102</span><span style=';color:#333333'>（等等）和</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>1</span><span
+style=';color:#333333'>一样形式表示，而又与其他数的形式都不同。请依靠翻译人员来了解一下实际语言中的差别。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';color:#333333'>如果和应用程序的风格一致，常可以用诸如</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>“Books: 1”</span><span
+style=';color:#333333'>的模糊数量形式来避免使用数量字符串。这会让你和翻译人员都轻松些。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:30.75pt;margin-right:11.95pt'>
+
+<p class=MsoNormal align=left style='margin:0cm;margin-bottom:.0001pt;
+text-align:left;border:none;padding:0cm'><b><span style=';
+color:#333333'>注意：</span></b><span style=';color:#333333'>复数字符串</span><span
+>是简单类型资源，是用名称（</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>name</span><span >）（而不是</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件名）来直接引用的。因此，在一个</span><span
+style='font-family:"Calibri","sans-serif"'>XML</span><span style='font-family:
+宋体'>文件里，可以把<span style='color:#333333'>复数</span>字符串资源和其他简单类型资源一起放在一个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;resources&gt;</span><span
+>元素下。</span></p>
+
+</div>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif";font-variant:small-caps;
+color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>文件位置</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-size:12.0pt;font-family:
+"Calibri","sans-serif";color:#007000'>res/values/<i>filename</i>.xml</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+layout-grid-mode:char'><span style=';color:#333333'>文件名可随意指定。</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>plurals</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&gt;</span><span
+style=';color:#333333'>元素的名字</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>name</span><span
+style=';color:#333333'>将被用作资源</span><span
+style='font-family:"Calibri","sans-serif";color:#333333'>ID</span><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>资源引用</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>Java</span><span
+>代码</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'>:</span><span style=';color:#333333'>：</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>R.plurals.<i>plural_name</i></span></p>
+<p class=A><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>语法</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:37.05pt;border-collapse:collapse'>
+ <tr>
+  <td width=502 valign=top style='width:376.45pt;border:solid #CCCCCC 1.0pt;
+  padding:5.0pt 10.05pt 5.0pt 10.05pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>&lt;?</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>xml
+  version</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;1.0&quot;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  encoding</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;utf-8&quot;</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>?&gt;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;resources&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&lt;</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="1.htm#plurals"><span style='color:#000088;text-decoration:none'>plurals</span></a></span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;<i>plural_name</i>&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span class=tag1><span
+  style='font-family:"Calibri","sans-serif"'>&lt;item_plurals</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:15.0pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif";color:#882288'>quantity</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>[&quot;zero&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> | </span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;one&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> | </span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;two&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> | </span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;few&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> | </span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;many&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> | </span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;other&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>]&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-left:25.5pt;text-align:left;
+  text-indent:21.75pt;layout-grid-mode:char'><span style='font-family:
+  "Calibri","sans-serif";color:#882288'>&gt;</span><span class=pln1><i><span
+  style='font-family:"Calibri","sans-serif"'>text_string</span></i></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/plurals&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&lt;/resources</span></span><span
+  style='font-family:"Calibri","sans-serif"'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>元素</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name="resources_plurals"></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;resources&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><b><span
+>必填项</span></b><span >。</span><span
+>必须是根元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+>无属性。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name=plurals></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;plurals&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span >一个字符串集，每个数量表示提供一个字符串。包含一个或多个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;item&gt;</span><span
+>元素。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-size:12.0pt;'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#882288'>name</span></p>
+<p class=MsoNormal align=left style='margin-left:94.5pt;text-align:left;
+layout-grid-mode:char'><i><span style='font-family:"Calibri","sans-serif"'>String</span></i><i><span
+>类型。</span></i><span >字符串对的名称。此名称将作为资源</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>ID</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><a
+name="item_plurals"></a><span style='font-family:"Calibri","sans-serif";
+color:#000088'>&lt;item&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span >一个单数或复数形式的字符串。可以是对其他字符串资源的引用。必须作为</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&lt;</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>plurals</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>&gt;</span><span
+>元素的子元素存在。注意须对单引号和双引号进行转义。有关如何正确地样式化及格式化字符串，请参阅下文</span><u><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#3366FF'><a
+href="1.htm#Formating_and_Styling"><span style=';
+color:#3366FF'><span>格式化和样式</span></span></a></span></u><u><span
+style=';color:#3366FF'>化</span></u><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-size:12.0pt;'>属性：</span></p>
+<p class=MsoNormal align=left style='margin-left:84.0pt;text-align:left;
+layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+color:#882288'>quantity </span></p>
+<p class=MsoNormal align=left style='margin-left:94.5pt;text-align:left;
+layout-grid-mode:char'><i><span >关键字</span></i><span
+>。</span><span style='font-family:"Calibri","sans-serif"'>
+</span><span >表示要使用此字符串的数量值。以下是合法的值（括号内列出部分语言要求）：</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'> </span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=456
+ style='width:342.0pt;margin-left:90.0pt;border-collapse:collapse'>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;background:#DEE8F1;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><b><span
+  style=';color:#333333'>值</span></b></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;background:#DEE8F1;padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><b><span
+  style=';color:#333333'>描述</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>zero</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言需要对数字</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>0</span><span
+  style=';color:#333333'>进行特殊处理。（比如阿拉伯语）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>one</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言需要对类似</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>1</span><span
+  style=';color:#333333'>的数字进行特殊处理。（比如英语和其它大多数语言里的</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>1</span><span
+  style=';color:#333333'>；在俄语里，任何以</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>1</span><span
+  style=';color:#333333'>结尾但不以</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>11</span><span
+  style=';color:#333333'>结尾的数也属于此类型。）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>two</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言需要对类似</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>2</span><span
+  style=';color:#333333'>的数字进行特殊处理。（比如威尔士语）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>few</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言需要对较小数字进行特殊处理（比如捷克语里的</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>2</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>3</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>4</span><span
+  style=';color:#333333'>；或者波兰语里以</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>2</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>3</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>4</span><span
+  style=';color:#333333'>结尾但不是</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>12</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>13</span><span
+  style=';color:#333333'>、</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>14</span><span
+  style=';color:#333333'>的数。）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>many</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言需要对较大数字进行特殊处理（比如马耳他语里以</span><span
+  style='font-family:"Calibri","sans-serif";color:#333333'>11-99</span><span
+  style=';color:#333333'>结尾的数）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-top:none;padding:
+  4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#007000'>other</span></p>
+  </td>
+  <td width=390 valign=top style='width:292.45pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style=';color:#333333'>语言不需要对数字进行特殊处理。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=A><span style='font-size:10.5pt;;color:windowtext;
+font-weight:normal'>示例</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>存放在</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>res/values/strings.xml</span><span style='font-family:
+"Calibri","sans-serif"'> </span><span >的</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=504
+ style='width:378.0pt;margin-left:45.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=504 valign=top style='width:378.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>&lt;?</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>xml
+  version</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;1.0&quot;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  encoding</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;utf-8&quot;</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;resources&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;plurals</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>name</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;numberOfSongsAvailable&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;item</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>quantity</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;one&quot;</span><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>One song found.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/item&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;item</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>quantity</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;other&quot;</span><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>%d songs found.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/item&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/plurals&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/resources&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>存放在</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>res/values-pl/strings.xml</span><span
+style='font-family:"Calibri","sans-serif"'> </span><span style='font-family:
+宋体'>的</span><span style='font-family:"Calibri","sans-serif"'>XML</span><span
+>文件：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=504
+ style='width:378.0pt;margin-left:45.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=504 valign=top style='width:378.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>&lt;?</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>xml
+  version</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;1.0&quot;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  encoding</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=str1><span
+  style='font-family:"Calibri","sans-serif"'>&quot;utf-8&quot;</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;resources&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;plurals</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>name</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;numberOfSongsAvailable&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;item</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>quantity</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;one&quot;</span><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>Znaleziono jedn</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&#261;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> piosenk</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&#281;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/item&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'> </span></span><span
+  class=atn1><span style='font-family:"Calibri","sans-serif"'>quantity</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>=</span></span><span
+  class=atv1><span style='font-family:"Calibri","sans-serif"'>&quot;few&quot;</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&gt;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>Znaleziono
+  %d piosenki.</span></span><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+  layout-grid-mode:char'><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;item</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'> </span></span><span
+  class=atn1><span style='font-family:"Calibri","sans-serif"'>quantity</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>=</span></span><span
+  class=atv1><span style='font-family:"Calibri","sans-serif"'>&quot;other&quot;</span></span><span
+  class=tag1><span style='font-family:"Calibri","sans-serif"'>&gt;</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>Znaleziono
+  %d piosenek.</span></span><span class=tag1><span style='font-family:
+  "Calibri","sans-serif"'>&lt;/item&gt;</span></span></p>
+  <p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/plurals&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/resources&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>Java</span><span style='font-size:10.0pt;;
+color:#333333'>代码：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=504
+ style='width:378.0pt;margin-left:45.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=504 valign=top style='width:378.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>int</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> count </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>
+  getNumberOfsongsAvailable</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>();</span><span style='font-family:"Calibri","sans-serif";
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Resources</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getResources()"><span
+  style='color:black'>getResources</span><span style='color:#666600'>()</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> songsFound
+  </span><span style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/res/Resources.html#getQuantityString(int, int)"><span
+  style='color:black'>getQuantityString</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>plurals</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>numberOfSongsAvailable</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>,</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> count</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>,</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> count</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:36.0pt;text-align:left'><span
+>在使用</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html#getQuantityString(int, int)"><span
+style='color:#006699'>getQuantityString()</span></a></span><span
+>方法时，如果字符串包含数字</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling#FormattingAndStyling"><span
+lang=EN-US style=';color:#006699'><span>格式化串</span></span></a></span><span
+>，则需要传递</span><span style='font-family:"Calibri","sans-serif"'>2</span><span
+>个</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>count</span><span >参数。例如：对于字符串</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>“<span style='color:#007000'>%d
+songs found”</span></span><span >，第一个</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>count</span><span
+>参数选择合适的复数字符串，第二个</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>count</span><span
+>参数插入占位符</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>%d</span><span >中。如果复数字符串资源不包含格式化信息，就不需要给</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html#getQuantityString(int, int)"><span
+style='color:#006699'>getQuantityString()</span></a></span><span
+>传递第三个参数。</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=Arial55 align=center style='margin:0cm;margin-bottom:.0001pt;
+text-align:center'><a name="Formating_and_Styling"></a><span style='font-size:
+14.0pt;'>格式化和样式化</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>关于如何格式化和样式化字符串资源，下面这些比较重要的地方应该了解。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>单引号和双引号的转义</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果字符串里包含单引号或双引号，必须进行转义，或者把整个串封闭在与当前引号不同的成对的引号内。下面是一些有效或无效的字符串示例：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=504
+ style='width:378.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=504 valign=top style='width:378.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;good_example&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&quot;This'll
+  work&quot;</span><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;good_example_2&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>This\'ll
+  also work</span><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;good_example_2&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>This\'ll
+  also work</span><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;bad_example&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>This
+  doesn't work</span><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;bad_example_2&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>XML
+  encodings don’t work</span><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;/string&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>字符串的格式化</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果需要使用</span><span style='font-family:"Calibri","sans-serif";
+color:#333333'><a target="_blank" href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+style='color:#006699'>String.format(String, Object...)</span></a></span><span
+>格式化字符串，可以把格式化参数放在字符串（</span><span
+style='font-family:"Calibri","sans-serif"'>string</span><span style='font-family:
+宋体'>）资源里。比如存在以下资源：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=504
+ style='width:378.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=504 valign=top style='width:378.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;string</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#882288'>name</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;welcome_messages&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>Hello,
+  %1$s! You have %2$d new messages.</span><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&lt;/string&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>此例中存在两个参数：</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>%1$s</span><span style=';color:#333333'>是个字符串，</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'>%2$d</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+>是个数字。则在应用程序中可以用如下方式用参数来格式化字符串：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=528
+ style='width:396.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Resources</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getResources()"><span
+  style='color:black'>getResources</span><span style='color:#666600'>()</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> text </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+  style='color:black'>format</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>res</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>getString</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>string</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>welcome_messages</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>),</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> username</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>,</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> mailCount</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:13.0pt;font-family:"Calibri","sans-serif";color:#3A3A3A'>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>用</span></b><b><span style='font-family:"Calibri","sans-serif"'>HTML</span></b><b><span
+>标记来样式化</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>可以用</span><span style='font-family:"Calibri","sans-serif"'>HTML
+</span><span >标记来为字符串加入样式。例如：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=528
+ style='width:396.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>&lt;?</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>xml version</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;1.0&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> encoding</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:#008800'>&quot;utf-8&quot;</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>?&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;resources&gt;</span></p>
+  <p class=MsoNormal align=left style='margin-left:10.5pt;text-align:left;
+  layout-grid-mode:char'><span style='font-family:"Calibri","sans-serif";
+  color:#000088'>&lt;string</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#882288'>name</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:#008800'>&quot;welcome&quot;</span><span style='font-family:
+  "Calibri","sans-serif";color:#000088'>&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>Welcome to </span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;b&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>Android</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/b&gt;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>!</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/resources&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+layout-grid-mode:char'><span >支持以下</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>元素：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;layout-grid-mode:char'><span style='font-size:10.0pt;
+font-family:Symbol;color:#333333'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>&lt;b&gt;</span><span style=';color:#333333'>文本加粗</span><b><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>bold</span></b><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;layout-grid-mode:char'><span style='font-size:10.0pt;
+font-family:Symbol;color:#333333'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>&lt;i&gt;</span><span style=';color:#333333'>文本变斜体</span><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>italic</span></i><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:0cm;layout-grid-mode:char'><span style='font-size:10.0pt;
+font-family:Symbol;color:#333333'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span style='font-family:"Calibri","sans-serif";
+color:#007000'>&lt;u&gt;</span><span style=';color:#333333'>文本加下划线</span><u><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'>underline</span></u><span
+style=';color:#333333'>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+layout-grid-mode:char'><span >有时可能要创建一个样式化的文本资源，并可作为格式化串使用。通常这不能生效，因为</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+style='color:#006699'>String.format(String, Object...)</span></a></span><span
+>方法会去除字符串内的所有的样式信息。解决方法是写入一段转义后的</span><span
+style='font-family:"Calibri","sans-serif"'>HTML</span><span style='font-family:
+宋体'>标记，然后在格式化后再用</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/text/Html.html#fromHtml(java.lang.String)"><span
+style='color:#006699'>fromHtml(String)</span></a></span><span style='font-family:
+宋体'>恢复出这些样式。例如：</span></p>
+<p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>1. &nbsp;</span><span
+>将样式化的文本资源存储为转义后的</span><span
+style='font-family:"Calibri","sans-serif"'>HTML</span><span style='font-family:
+宋体'>字符串：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=528
+ style='width:396.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;resources&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&nbsp;&nbsp;&nbsp;
+  &lt;string name=&quot;welcome_messages&quot;&gt;Hello, %1$s! You have
+  &amp;lt;b&gt;%2$d new messages&amp;lt;/b&gt;.&lt;/string&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>&lt;/resources&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>在这个格式化字符串里，加入了一个</span><span
+style='font-family:"Calibri","sans-serif";color:#007000'>&lt;b&gt;</span><span
+>元素。注意左尖括号是用标记</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&amp;lt</span><span style='font-family:
+宋体'>转义过的</span><span style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:18.0pt;text-align:left;
+text-indent:-18.0pt;layout-grid-mode:char'><span style='font-family:
+"Calibri","sans-serif";color:#333333'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span >然后，按照通常方式格式化字符串，并调用</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/text/Html.html#fromHtml(java.lang.String)"><span
+style='color:#006699'>fromHtml(String)</span></a></span><span
+style='font-family:"Calibri","sans-serif";color:#333333'> </span><span
+>把</span><span style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>文本转换成带样式的文本。</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=528
+ style='width:396.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Resources</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getResources()"><span
+  style='color:black'>getResources</span><span style='color:#666600'>()</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>;</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=typ1><span style='font-family:"Calibri","sans-serif"'>String</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'> text </span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>=</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'> </span></span><span
+  class=typ1><span style='font-family:"Calibri","sans-serif"'>String</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>.</span></span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+  class=pln1>format</span></a></span><span class=pun1><span
+  style='font-family:"Calibri","sans-serif"'>(</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'>res</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>.</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>getString</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>(</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>R</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>.</span></span><span
+  class=kwd1><span style='font-family:"Calibri","sans-serif"'>string</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>.</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>welcome_messages</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>),</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  username</span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>,</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'> mailCount</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>);</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>&nbsp;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  class=typ1><span style='font-family:"Calibri","sans-serif"'>CharSequence</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>
+  styledText </span></span><span class=pun1><span style='font-family:
+  "Calibri","sans-serif"'>=</span></span><span class=pln1><span
+  style='font-family:"Calibri","sans-serif"'> </span></span><span class=typ1><span
+  style='font-family:"Calibri","sans-serif"'>Html</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>.</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>fromHtml</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>(</span></span><span
+  class=pln1><span style='font-family:"Calibri","sans-serif"'>text</span></span><span
+  class=pun1><span style='font-family:"Calibri","sans-serif"'>);</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>因为</span><span style='font-family:"Calibri","sans-serif";
+color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/text/Html.html#fromHtml(java.lang.String)"><span
+style='color:#006699'>fromHtml(String)</span></a></span><span style='font-family:
+宋体'>方法会格式化所有的</span><span style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>内容，所以要确保用</span><span style='font-family:
+"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/text/TextUtils.html#htmlEncode(java.lang.String)"><span
+style='color:#006699'>htmlEncode(String)</span></a></span><span
+>对带格式化文本的字符串内所有可能的</span><span
+style='font-family:"Calibri","sans-serif"'>HTML</span><span style='font-family:
+宋体'>字符进行转义。比如，如果要把可能包含诸如</span><span style='font-family:"Calibri","sans-serif"'>“&lt;”</span><span
+>或</span><span style='font-family:"Calibri","sans-serif"'>“&amp;”</span><span
+>等字符的串作为参数传给</span><span style='font-family:
+"Calibri","sans-serif";color:#333333'><a target="_blank" href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+style='color:#006699'>String.format()</span></a></span><span style='font-family:
+宋体;color:#333333'>，</span><span >那么必须在格式化之前对这些字符进行转义。格式化后，再把字符串传入</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007000'><a target="_blank" href="http://developer.android.com/reference/android/text/Html.html#fromHtml(java.lang.String)"><span
+style='color:#006699'>fromHtml(String)</span></a></span><span style='font-family:
+宋体;color:#333333'>，</span><span >这些特殊字符就能还原成本来意义了。例如：</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=528
+ style='width:396.0pt;margin-left:27.0pt;border-collapse:collapse'>
+ <tr>
+  <td width=528 valign=top style='width:396.0pt;border:solid #CCCCCC 1.0pt;
+  padding:4.5pt 9.0pt 4.5pt 9.0pt'>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>
+  escapedUsername </span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>=</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> </span><span style='font-family:"Calibri","sans-serif";
+  color:#660066'>TextUtil</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>.</span><span style='font-family:"Calibri","sans-serif";
+  color:#007000'><a
+  href="http://developer.android.com/reference/android/text/TextUtils.html#htmlEncode(java.lang.String)"><span
+  style='color:black'>htmlEncode</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>username</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>)</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Resources</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> res </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/android/content/Context.html#getResources()"><span
+  style='color:black'>getResources</span><span style='color:#666600'>()</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> text </span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>String</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#007000'><a
+  href="http://developer.android.com/reference/java/lang/String.html#format(java.lang.String,java.lang.Object...)"><span
+  style='color:black'>format</span></a></span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>res</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>getString</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>R</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:#000088'>string</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>welcome_messages</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>),</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>
+  escapedUsername</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>,</span><span style='font-family:"Calibri","sans-serif";
+  color:black'> mailCount</span><span style='font-family:"Calibri","sans-serif";
+  color:#666600'>);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;layout-grid-mode:char'><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>CharSequence</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> styledText
+  </span><span style='font-family:"Calibri","sans-serif";color:#666600'>=</span><span
+  style='font-family:"Calibri","sans-serif";color:black'> </span><span
+  style='font-family:"Calibri","sans-serif";color:#660066'>Html</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>.</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>fromHtml</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>(</span><span
+  style='font-family:"Calibri","sans-serif";color:black'>text</span><span
+  style='font-family:"Calibri","sans-serif";color:#666600'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

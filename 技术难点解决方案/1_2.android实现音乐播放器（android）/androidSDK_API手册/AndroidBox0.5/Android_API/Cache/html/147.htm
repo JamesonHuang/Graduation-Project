@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> TabWidget</title>
+</head>
+<body>   
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt;font-family:"Cambria","serif"'>TabWidget</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://madgoat.cn">http://madgoat.cn</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span style='font-size:12.0pt;
+'>结构</span></b></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><b><i><span
+lang=EN-US>public class <span style='color:#C00000'>TabWidget</span> extends <span
+style='color:#C00000'>LinearLayout</span> </span></i></b></p>
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:21.0pt'><b><i><span
+lang=EN-US>implements <span style='color:#C00000'>View.OnFocusChangeListener</span></span></i></b></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='font-size:9.0pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.view.ViewGroup</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.LinearLayout</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.TabWidget</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span style='font-size:12.0pt;
+'>类概述</span></b></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span><img
+border=0 width=324 height=263
+src="image/2011-4-12_1.jpg"></span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>显示选项卡标签的列表，用于代表父选项卡集合的每一页。当前</span><span>widget</span><span
+>的容器对象是</span><span>TabHost</span><span
+>。当用户选择一个选项卡时，此对象给父容器对象</span><span>TabHost</span><span
+>发送一个消息，告诉</span><span>TabHost</span><span
+>切换到对应的页面显示。此对象上的很多方法，你通常不会直接使用。容器</span><span
+lang=EN-US>TabHost</span><span >被用来添加标签，添加并管理回调函数。你可能会调用此对象以迭代选项卡列表，或者调整选项卡列表的布局，但大多数方法应该是通过容器</span><span
+lang=EN-US>TabHost</span><span >对象调用。</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>参见</span><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-tabwidget.html">Tab
+Layout tutorial</a></span><span >。</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span
+style='font-size:12.0pt'>XML</span></b><b><span style='font-size:12.0pt;
+'>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=198 valign=top style='width:148.8pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=284 valign=top style='width:212.65pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><b><span
+  style='color:#C00000'>android:divider</span></b></p>
+  </td>
+  <td width=284 style='width:212.65pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm'><span >可绘制对象，被绘制在选项卡窗口间充当分割物。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><b><span
+  style='color:#C00000'>android:tabStripEnabled</span></b></p>
+  </td>
+  <td width=284 style='width:212.65pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm'><span >确定是否在选项卡绘制</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><b><span
+  style='color:#C00000'>android:tabStripLeft</span></b></p>
+  </td>
+  <td width=284 style='width:212.65pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm'><span >被用来绘制选项卡下面的分割线左边部分的可视化对象。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 style='width:148.8pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><b><span
+  style='color:#C00000'>android:tabStripRight</span></b></p>
+  </td>
+  <td width=284 style='width:212.65pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm'><span >被用来绘制选项卡下面的分割线右边部分的可视化对象。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span >公共方法</span></b></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>addView</b> (View child)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>增加子视图。如果子视图没有设置布局参数，那么将为子视图设置此</span><span>ViewGroup</span><span
+>默认的布局参数。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>child&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>新增的子视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>childDrawableStateChanged</b> (View
+child)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>如果调用</span><span>addStatesFromChildren</span><span
+>函数返回</span><span>true</span><span
+>，刷新此组的可视化对象的状态（包括它的子元素的状态）。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>可视化对象状态被改变的子元素。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>dispatchDraw</b> (Canvas canvas)</span><a
+name="OLE_LINK20"></a><a name="OLE_LINK19"></a></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>绘制时调用此方法来绘制子视图。派生类在被绘制之前，为获取控制可能会重写此方法（但必须在它自己的视图已经被绘制之后）。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>绘制视图的画布</span><span>(canvas)</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>focusCurrentTab</b> (int index)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置当前选项卡并且让其获得焦点。此方法确保获取焦点的选项卡窗口匹配选中的窗口，一般情况下类似</span> <span
+lang=EN-US>setCurrentTab(int)</span><span >。通常当我们通过操作</span><span
+lang=EN-US>UI</span><span >实现时，这些都不是问题，</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span >因为</span><span
+lang=EN-US>UI</span><span >负责调用</span><span>TabWidget.onFocusChanged()</span><span
+>，但如果我们通过程序控制选中选项卡窗口，那么我们就必须确认保持焦点。（译者注：</span><span
+lang=EN-US>setCurrentTab(int)</span><span >执行后，选中指定索引的选项卡窗口，但不获取焦点。</span><span
+lang=EN-US>focusCurrentTab(int)</span><span >执行后，不仅通过调用</span><span
+lang=EN-US>setCurrentTab(int)</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span >选中指定索引的选项卡窗口还获取焦点。）</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>你想要设置焦点（橘色高亮）并且选中（选项卡被至于部件</span><span>widget</span><span
+>的前端）的选项卡。</span></p>
+<p class=MsoNormal><span >参见</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/TabWidget.html#setCurrentTab%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setCurrentTab(int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public View <b>getChildTabViewAt</b> (int index)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>返回位于指定索引位置的选项卡标识符的视图</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>选项卡指示符视图返回的从零开始的索引</span></p>
+<p class=MsoNormal><span >返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在提供的索引位置上的选项卡指示符视图</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public int <b>getTabCount</b> ()</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>返回选项卡的数量</span></p>
+<p class=MsoNormal><span >返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >选项卡指示符视图的数量</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public boolean <b>isStripEnabled</b> ()</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>指明选项卡指示符的底部分隔线是否绘制</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>onFocusChange</b> (View v, boolean
+hasFocus)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>当视图的焦点状态被改变时调用。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>状态变化的视图</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>hasFocus </span><span
+>视图的新焦点状态。</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public void <b>sendAccessibilityEventUnchecked</b>
+(AccessibilityEvent event)</span></span></p>
+<p class=MsoNormal style='margin-left:0cm'><span style='font-family:
+宋体'>&nbsp;&nbsp;&nbsp; </span><span >处理用于发送</span><code><span
+lang=EN-US><a target="_blank" href="http://developer.android.com/reference/android/view/accessibility/AccessibilityEvent.html"><span
+style='font-family:"Calibri","sans-serif"'>AccessibilityEvent</span></a></span></code><code>的请求。</code><span
+>如果再发送之前调度事件，</span><code>本</code><span style='font-family:
+宋体'>方法不保证可访问性检查。可以通过调用者调用</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/accessibility/AccessibilityManager.html#isEnabled%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>isEnabled()</span></a></span></code><code>检查。</code></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>事件</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void setCurrentTab (int index)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置当前选项卡。此方法被用来将选项卡置于</span><span>widget</span><span
+>的前部，并且通知其它的</span><span>UI</span><span
+>元素，一个不同的选项卡被调整到了前台。注意，这不同于传统的“焦点”，是从视图逻辑的焦点。</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span >例如，如果我们在选项卡式视图中有一个列表，一个用户可能会上下移动列表，通过列表选项移动</span><span
+lang=EN-US>UI</span><span >焦点（橘色高亮）。光标的移动并不影响选项卡的选中状态，因为滚动</span>
+<span >是在同一个选项卡上的。选中的选项卡仅仅当我们在选项卡上切换时（在此例中，从列表视图移到下一选项卡视图）更改。如果想要一次性的设置焦点并选中选项卡，请使用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/TabWidget.html#setCurrentTab%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setCurrentTab(int)</span></a></span></code><span
+>。</span></p>
+<p class=MsoNormal style='margin-left:0cm'><span >正常情况下，视图逻辑关注调整焦点，除非你规避了</span><span
+lang=EN-US>UI</span><span >，你可能仅仅将你的兴趣集中在这里。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>你想要指做选中选项卡的选项卡索引（选项卡被显示到</span><span>widget</span><span
+>的前部）</span></p>
+<p class=MsoNormal><span >参见</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/TabWidget.html#focusCurrentTab%28int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>focusCurrentTab(int)</span></a></span></code></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setDividerDrawable</b> (Drawable
+drawable)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置用于在选项窗口指示符间分隔的可绘制对象</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>drawable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于分隔的可绘制对象</span></p>
+<p class=MsoNormal><span style='background:silver'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setDividerDrawable</b> (int resId)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置用于在两个选项卡标识符之间进行分隔的可绘制对象</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>resId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被用来分隔的可绘制对象的资源标识</span></p>
+<p class=MsoNormal><span style='background:silver'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setEnabled</b> (boolean enabled)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置当前视图的启用状态。子类的不同而其对应的启用状态的解释也不相同。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>enabled&nbsp;&nbsp;&nbsp; </span><span
+>是否启动</span></p>
+<p class=MsoNormal><span style='background:silver'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setLeftStripDrawable</b> (int resId)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置被用来当作选项卡指示符下面的分割线，左边部分的可绘制对象。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>resId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the&nbsp;&nbsp; </span><span
+>被用来当作左边分隔线的可绘制对象的资源标识符</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setLeftStripDrawable</b> (Drawable
+drawable)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置被用来当作选项卡指示符下面的分割线，左边部分的可绘制对象。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>drawable  </span><span
+>左边分隔线的可绘制对象</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setRightStripDrawable</b> (int resId)</span><a
+name="OLE_LINK14"></a><a name="OLE_LINK13"></a></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><a
+name="OLE_LINK16"></a><a name="OLE_LINK15"><span >设置被用来当作选项卡指示符下面的分割线，右边部分的可绘制对象。</span></a></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>resId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被用来当作右边分隔线的可绘制对象的资源标识符</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setRightStripDrawable</b> (Drawable
+drawable)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>设置被用来当作选项卡指示符下面的分割线，右边部分的可绘制对象。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>drawable  </span><span
+>右边分隔线的可绘制对象</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>public void <b>setStripEnabled</b> (boolean stripEnabled)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>控制选项卡指示符底部的分隔线是否绘制。默认是绘制。如果用户为选项卡指示符指定一个定制的视图，那么</span><span
+lang=EN-US>TabHost</span><span >类调用此方法以禁用绘制底部分割线。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>stripEnabled&nbsp;&nbsp;&nbsp; </span><span
+>如果需要绘制底部分割线为</span><span>true</span></p>
+<p class=MsoNormal><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span style='font-size:12.0pt;
+'>受保护方法</span></b></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>protected int getChildDrawingOrder (int childCount,
+int i)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>返回要绘制的子元素在当前迭代中的索引。如果你需要修改子元素的绘制顺序，可以覆写此方法。默认情况下返回参数</span><span
+lang=EN-US>i</span><span >值。</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>注意：为使此方法被调用，你必须先通过调用</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html#setChildrenDrawingOrderEnabled%28boolean%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setChildrenDrawingOrderEnabled(boolean)</span></a></span></code><span
+>启用子元素排序</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当前的迭代值</span></p>
+<p class=MsoNormal><span >返回值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >将要绘制的子元素在当前迭代的索引</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+style='background:silver'>protected void onSizeChanged (int w, int h, int oldw,
+int oldh)</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>布局过程中，当此视图的大小发生改变时被调用的。如果你只是添加到视图的层次结构，你调用时可以使用</span><span
+lang=EN-US>0</span><span >当作之前的值（</span><span>old
+value</span><span >）。</span></p>
+<p class=MsoNormal><span >参数</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此视图的当前宽度</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此视图的当前高度</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>oldw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Old</span><span
+>此视图之前的宽度</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>oldh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此视图之前的高度</span></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-left:0cm'><b><span style='font-size:12.0pt;
+'>补充</span></b></p>
+<p class=MsoNormal style='margin-left:0cm'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>术语对照</span></p>
+<p class=MsoNormal><span>indicator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>指示符</span></p>
+<p class=MsoNormal><span>drawable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>可绘制对象</span></p>
+<p class=MsoNormal><span>iteration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>迭代</span></p>
+<p class=MsoNormal><span>strips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>分割线</span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>文章链接</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US><a target="_blank" href="http://fatkun.com/2010/06/android-tabwidget.html">Android<span
+lang=EN-US ><span>选项卡</span></span>(TabWidget)<span
+lang=EN-US ><span>例子</span></span></a></span></p>
+<p class=MsoNormal><span><a target="_blank" href="http://android.yaohuiji.com/archives/tag/tabwidget">{Android<span
+lang=EN-US ><span>学习指南</span></span>}TabWidget</a></span></p>
+<p class=MsoNormal><span><a target="_blank" href="http://wangliping.net/android-tab-bottom">Android<span
+><span>将</span></span>TAB<span
+><span>选项卡放在屏幕底部</span></span></a></span></p>
+<p class=MsoNormal style='margin-left:0cm;text-indent:21.0pt'><span
+>示例代码</span></p>
+<p class=MsoNormal><span><img border=0 width=328 height=243
+src="image/2011-4-12_2.jpg"></span></p>
+<p class=MsoNormal><span><img border=0 width=335 height=245
+src="image/2011-4-12_3.jpg"></span></p>
+<p class=MsoNormal><span><img border=0 width=337 height=181
+src="image/2011-4-12_4.jpg"></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Java</span><span
+>：</span></p>
+<p class=MsoNormal><span>public class TabDemo1 extends Activity
+implements OnClickListener {</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabHost
+mTabHost = null;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabWidget
+mTabWidget = null;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Button
+btnVisiable, btnStrip;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected
+void onCreate(Bundle savedInstanceState) {</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+TODO Auto-generated method stub</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.onCreate(savedInstanceState);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setContentView(R.layout.tabdemo1);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabHost
+= (TabHost) findViewById(android.R.id.tabhost);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabHost.setup();</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabWidget
+= mTabHost.getTabWidget();</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabHost.addTab(mTabHost.newTabSpec(&quot;tab1&quot;).setContent(</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.id.LinearLayout001).setIndicator(&quot;Tab1&quot;));</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabHost.addTab(mTabHost.newTabSpec(&quot;tab2&quot;).setContent(</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.id.LinearLayout002).setIndicator(&quot;Tab2&quot;));</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabHost.addTab(mTabHost.newTabSpec(&quot;tab3&quot;).setContent(</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.id.LinearLayout003).setIndicator(&quot;Tab3&quot;));</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+mTabHost.setCurrentTab(1);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnVisiable
+= (Button) findViewById(R.id.btnVisiable);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnStrip
+= (Button) findViewById(R.id.btnStrip);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnVisiable.setOnClickListener(this);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; btnStrip.setOnClickListener(this);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setTitle(&quot;</span><span
+>共有</span><span>&quot; +
+mTabWidget.getTabCount() + &quot;</span><span >个</span><span
+lang=EN-US>tab&quot;);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public
+void onClick(View v) {</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+TODO Auto-generated method stub</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch
+(v.getId()) {</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case
+R.id.btnVisiable:</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(mTabWidget.getVisibility() != android.view.View.VISIBLE)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabWidget.setVisibility(android.view.View.VISIBLE);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabWidget.setVisibility(android.view.View.INVISIBLE);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case
+R.id.btnStrip:</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabWidget.setStripEnabled(!mTabWidget.isStripEnabled());</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mTabWidget.setRightStripDrawable(android.R.color.transparent);</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default:</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal><span>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XML</span><span
+>：</span></p>
+<p class=MsoNormal><span>&lt;?xml version=&quot;1.0&quot;
+encoding=&quot;utf-8&quot;?&gt;</span></p>
+<p class=MsoNormal><span>&lt;TabHost
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:id=&quot;@android:id/tabhost&quot;</span></p>
+<p class=MsoNormal><span>&gt;&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LinearLayout
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:orientation=&quot;vertical&quot;
+android:layout_height=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TabWidget
+android:id=&quot;@android:id/tabs&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/TabWidget&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;FrameLayout
+android:id=&quot;@android:id/tabcontent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_height=&quot;wrap_content&quot;
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LinearLayout
+android:id=&quot;@+id/LinearLayout001&quot;
+android:orientation=&quot;vertical&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button
+android:id=&quot;@+id/btnVisiable&quot; android:text=&quot;</span><span
+>显示状态切换</span><span>&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;wrap_content&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/Button&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Button
+android:id=&quot;@+id/btnStrip&quot; android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_height=&quot;wrap_content&quot;
+android:text=&quot;</span><span >分隔线状态切换</span><span
+lang=EN-US>&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/Button&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextView
+android:id=&quot;@+id/TextView1&quot;
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_height=&quot;wrap_content&quot;
+android:text=&quot;</span><span >小龙是好人</span><span
+lang=EN-US>!!!&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/TextView&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LinearLayout&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LinearLayout
+android:id=&quot;@+id/LinearLayout002&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextView
+android:id=&quot;@+id/TextView2&quot;
+android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_height=&quot;wrap_content&quot;
+android:text=&quot;</span><span >小龙是坏蛋</span><span
+lang=EN-US>!&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/TextView&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LinearLayout&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LinearLayout
+android:id=&quot;@+id/LinearLayout003&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;TextView
+android:id=&quot;@+id/TextView3&quot; android:layout_width=&quot;fill_parent&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:layout_height=&quot;wrap_content&quot;
+android:text=&quot;</span><span >小龙还是坏蛋</span><span
+lang=EN-US>!&quot;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&lt;/TextView&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LinearLayout&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/FrameLayout&gt;</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LinearLayout&gt;</span></p>
+<p class=MsoNormal><span>&lt;/TabHost&gt; </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>     
+</body>
+</html>

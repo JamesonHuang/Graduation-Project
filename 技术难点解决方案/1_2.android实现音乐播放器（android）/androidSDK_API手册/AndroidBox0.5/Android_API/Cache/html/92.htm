@@ -1,0 +1,1340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> Gallery</title>
+</head>
+<body>     
+<div class=WordSection92 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=Gallery><b><span
+lang=EN-US style='font-size:18.0pt'>Gallery</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> henly.zhang</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><u><span style='font-size:12.0pt;
+color:blue'>http://www.blogjava.net/zlh320321</span></u></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><i>public class <span
+style='color:#C00000'>Gallery</span> extends <span style='color:#C00000'>AbsSpinner</span>
+</i></b></span></p>
+<p class=MsoNormal align=left style='margin-left:105.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>implements <span style='color:#C00000'>GestureDetector.OnGestureListener</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>&nbsp;</span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp; android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+android.widget.AdapterView&lt;T extends android.widget.Adapter&gt;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+android.widget.AbsSpinner</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+android.widget.Gallery</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;
+<img border=0 width=321 height=382
+src="image/image072.jpg"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:26.25pt'><span
+>一个锁定中心条目并且拥有水平滚动列表的视图。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Gallery</span><span >（画廊）使用</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/R.styleable.html#Theme_galleryItemBackground"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Theme_galleryItemBackground</span></a></span></code><span
+>作为</span><span>Gallery</span><span
+>（画廊）适配器中的各视图的默认参数。如果你没有设置，你就需要调整一些</span><span
+lang=EN-US>Gallery</span><span >（画廊）的属性，比如间距。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Gallery</span><span >（画廊）中的视图应该使用</span><span
+lang=EN-US>Gallery.LayoutParams</span><span >作为它们的布局参数类型。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>参见</span><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-gallery.html">Gallery
+tutorial</a></span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#E5E5E5'>class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gallery.LayoutParams</span></p>
+<p class=MsoListParagraph><span>Gallery(</span><span
+>画廊</span><span>)</span><span
+>扩展了</span><span>LayoutParams</span><span
+>，以此提供可以容纳当前的转换信息和先前的位置转换信息的场所。</span></p>
+<p class=MsoListParagraph><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>XML</span></b><b><span style='font-size:12.0pt;
+'>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=164 valign=top style='width:122.7pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=356 valign=top style='width:267.1pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=164 style='width:122.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:animationDuration</span></b></p>
+  </td>
+  <td width=356 style='width:267.1pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置布局变化时动画的转换所需的时间（毫秒级）。仅在动画开始时计时。该值必须是整数，比如：</span><span
+ >100</span><span >。</span></p>
+  </td>
+ </tr>
+ <tr style='height:454.05pt'>
+  <td width=164 style='width:122.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:454.05pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:gravity</span></b></p>
+  </td>
+  <td width=356 style='width:267.1pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:454.05pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  >&nbsp;</span><span >指定在对象的<span
+ >X</span>和<span>Y</span>轴上如何放置内容。指定一下常量中的一个或多个（使用 “<span
+ >|</span>”分割）</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='margin-left:6.05pt;border-collapse:collapse;border:none'>
+   <tr style='height:6.1pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    background:#99CCFF;padding:0cm 5.4pt 0cm 5.4pt;height:6.1pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>Constant</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border:solid black 1.0pt;
+    border-left:none;background:#99CCFF;padding:0cm 5.4pt 0cm 5.4pt;height:
+    6.1pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>Value</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border:solid black 1.0pt;
+    border-left:none;background:#99CCFF;padding:0cm 5.4pt 0cm 5.4pt;height:
+    6.1pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>Description</span></p>
+    </td>
+   </tr>
+   <tr style='height:12.2pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:12.2pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>top</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:12.2pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x30</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:12.2pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >紧靠容器顶端，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.1pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.1pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>bottom</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.1pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x50</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.1pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >紧靠容器底部，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>left</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x03</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >紧靠容器左侧，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>right</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x05</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >紧靠容器右侧，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>center_vertical</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x10</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >垂直居中，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fill_vertical</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x70</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >垂直方向上拉伸至充满容器</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>center_horizontal</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x01</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >水平居中，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>Fill_horizontal</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x07</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >水平方向上拉伸使其充满容器</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>center</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x11</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >居中对齐，不改变其大小</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fill</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x77</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >在水平和垂直方向上拉伸，使其充满容器</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>clip_vertical</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x80</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >垂直剪切（当对象边缘超出容器的时候，将上下边缘超出的部分剪切掉）</span></p>
+    </td>
+   </tr>
+   <tr style='height:6.3pt'>
+    <td width=114 valign=top style='width:85.5pt;border:solid black 1.0pt;
+    border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>clip_horizontal</span></p>
+    </td>
+    <td width=55 valign=top style='width:41.05pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:12.0pt;'>0x08</span></p>
+    </td>
+    <td width=164 valign=top style='width:122.75pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt;height:6.3pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >水平剪切（当对象边缘超出容器的时候，将左右边缘超出的部分剪切掉）</span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal align=left style='text-align:left'></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=164 style='width:122.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:spacing</span></b></p>
+  </td>
+  <td width=356 style='width:267.1pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>（译者注<span>:</span>设置图片之间的间距）</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=164 style='width:122.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:unselectedAlpha</span></b></p>
+  </td>
+  <td width=356 style='width:267.1pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;'>&nbsp;</span><span style='font-family:
+  宋体'>设置未选中的条目的透明度<span>(Alpha)</span>。该值必须是<span>float</span>类型，比如：“<span
+  >1.2</span>”。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='background:#E5E5E5'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>dispatchKeyEvent</b> (KeyEvent
+event)</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在焦点路径上分发按钮事件到下一个视图。该路径从视图树的顶端遍历到当前获得焦点的视图。如果当前视图已获得焦点，就分发给自身。否则，就分发到下一个节点的焦点路径上。该方法监听任何按钮事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被分发的按钮事件</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean&nbsp;&nbsp;&nbsp; </span><span
+>时间被处理返回</span><span>true</span><span
+>，否则</span><span>false</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>dispatchSetSelected</b> (boolean
+selected)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>分发</span><span>setSelected</span><span
+>给视图的子类。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>selected&nbsp;&nbsp; </span><span
+>新选中的状态</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public ViewGroup.LayoutParams <b>generateLayoutParams</b>
+(AttributeSet attrs)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回一个新的已设置属性集合的布局参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>attrs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>用于生成布局参数的属性集合</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >一个</span><span>ViewGroup.LayoutParams</span><span
+>实例或者它的子类</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onDown</b> (MotionEvent e)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当轻击和按下手势事件发生时通知该方法。任何按下事件都会直接触发该方法。所有其他的事件都要先于该方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>按下动作事件</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onFling</b> (MotionEvent e1,
+MotionEvent e2, float velocityX, float velocityY)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当初始化的按下动作事件和松开动作事件匹配时通知</span><span>fling</span><span
+style=';color:#333333'>（译者注：快滑，用户按下触摸屏、快速移动后松开）事件</span><span
+>。该动作的速度通过计算</span><span>X</span><span
+>和</span><span>Y</span><span style='font-family:
+宋体'>轴上每秒移动多少像素得来。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e1&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>导致开始</span><span>fling</span><span
+>的按下动作事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e2&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>触发当前</span><span>onFling</span><span
+>方法的移动动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>velocityX&nbsp; </span><span >测量</span><span
+lang=EN-US>fling</span><span >沿</span><span>X</span><span
+>轴上的速度，像素</span><span>/</span><span
+>每秒</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>velocityY&nbsp; </span><span
+>测量</span><span>fling</span><span
+>沿</span><span>Y</span><span style='font-family:
+宋体'>轴上的速度，像素</span><span>/</span><span >每秒</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果该事件被消耗返回</span><span
+lang=EN-US>true</span><span >，否则</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onKeyDown</b> (int keyCode,
+KeyEvent event)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>处理左，右和点击事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>keyCode&nbsp;&nbsp; </span><span
+>代表按下按钮的按键码，来自</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/KeyEvent.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>KeyEvent</span></a></span></code><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>定义按钮动作的</span><span>KeyEvent</span><span
+>对象。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果已经处理了按钮事件，则返回</span><span
+lang=EN-US>true</span><span >。如果你想让下一个事件接收者处理，就返回</span><span
+lang=EN-US>false</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参见</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#onKeyDown%28int,%20android.view.KeyEvent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onKeyDown(int,
+KeyEvent)</span></a></span></code></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onKeyUp</b> (int keyCode, KeyEvent
+event)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/KeyEvent.Callback.html#onKeyMultiple%28int,%20int,%20android.view.KeyEvent%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>KeyEvent.Callback.onKeyMultiple()</span></a></span></code><span
+>方法的默认实现：当</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_DPAD_CENTER"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>KEYCODE_DPAD_CENTER</span></a></span></code><span
+lang=EN-US> </span><span >或者</span> <code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_ENTER"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>KEYCODE_ENTER</span></a></span></code><span
+>被释放时，执行点击视图操作。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>keyCode&nbsp;&nbsp; </span><span
+>代表按下按钮的按键码，来自</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/KeyEvent.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>KeyEvent</span></a></span></code><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>定义按钮动作的</span><span>KeyEvent</span><span
+>对象。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果已经处理了按钮事件，则返回</span><span
+lang=EN-US>true</span><span >。如果你想让下一个事件接收者处理，就返回</span><span
+lang=EN-US>false</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>onLongPress</b> (MotionEvent e)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/MotionEvent.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>MotionEvent</span></a></span></code><code><span
+style='font-size:12.0pt'>初始化并按下触发长按并通知本方法</span></code><span style='font-family:
+宋体'>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>导致开始长按的初始按下动作事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean <b>onScroll</b> (MotionEvent e1,
+MotionEvent e2, float distanceX, float distanceY)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当初始按下动作事件和当前移动动作事件导致滚动时通知本方法。为了方便提供了</span><span
+lang=EN-US>X</span><span >和</span><span>Y</span><span
+>轴上的距离。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>监听屏幕滚动事件。为了方便提供了</span><span>X</span><span
+>和</span><span>Y</span><span style='font-family:
+宋体'>轴上的距离。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>e1 &nbsp; </span><span style='font-family:
+宋体'>导致滚动开始按下的动作事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>e2 &nbsp; </span><span style='font-family:
+宋体'>触发当前</span><span>onScroll</span><span >方法的移动动作事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>distanceX &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>距离是自上一次调用</span><span>onScroll</span><span
+>方法在</span><span>X</span><span
+>轴上的距离。不是</span><span>e1 </span><span
+>和</span><span>e2</span><span
+>之间的距离。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>distanceY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>距离是自上一次调用</span><span>onScroll</span><span
+>方法在</span><span>Y</span><span
+>轴上的距离。不是</span><span>e1 </span><span
+>和</span><span>e2</span><span
+>之间的距离。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果该事件被消耗返回</span><span
+lang=EN-US>true</span><span >否则</span><span>false</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>onShowPress</b> (MotionEvent e)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>用户已经执行按下动作还没有执行移动或者弹起动作。该事件常通过高亮一个元素来向用户提供一个视觉反馈即用户的操作已经被辨识了。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>按下动作事件</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onSingleTapUp</b> (MotionEvent e)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在轻击动作和</span><span>up</span><span
+>动作事件触发时通知本方法。（译者注：点击屏幕上的某项的执行流程</span><span>&nbsp;
+</span><span >有两种情况，一种是时间很短，一种时间稍长：时间很短：</span><span
+lang=EN-US>onDown---&gt;onSingleTapUp---&gt;onSingleTapConfirmed</span><span
+>，见</span><span><a target="_blank" href="http://marshal.easymorse.com/archives/3776"><span
+><span>这里</span></span>1</a></span><span
+>，</span><span><a target="_blank" href="http://www.cnblogs.com/transmuse/archive/2010/12/2.html"><span
+lang=EN-US ><span>这里</span></span>2</a></span><span
+>。）</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>完成开始轻击的</span><span>up</span><span
+>动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果该事件被消耗返回</span><span
+lang=EN-US>true</span><span >否则</span><span>false</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>onTouchEvent</b> (MotionEvent
+event)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>实现该方法来处理触摸屏动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果该事件被消耗返回</span><span
+lang=EN-US>true</span><span >否则</span><span>false</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setAnimationDuration</b> (int
+animationDurationMillis)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>设置当子视图改变位置时动画转换时间。仅限于动画开始时生效。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>animationDurationMillis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>动画转换时间（毫秒级）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setCallbackDuringFling</b> (boolean
+shouldCallback)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当</span><span>flinged</span><span
+>时是否回调每一个</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/AdapterView.html#getOnItemSelectedListener%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getOnItemSelectedListener()</span></a></span></code><span
+>。如果设为</span><span>false</span><span
+>，只回调最终选中的项。如果为</span><span>true</span><span
+>，则所有的项都会回调。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>shouldCallback&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置抛滑的过程中是否回调</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setGravity</b> (int gravity)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>描述子视图的对齐方式。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setSpacing</b> (int spacing)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>设置</span><span>Gallery</span><span
+>中项的间距</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>spacing&nbsp;&nbsp;&nbsp; Gallery</span><span
+>中项的间距，以像素为单位</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public void <b>setUnselectedAlpha</b> (float
+unselectedAlpha)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>设置</span><span>Gallery</span><span
+>中未选中项的透明度</span><span>(alpha)</span><span
+>值。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>unselectedAlpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>未选中项的透明度</span><span>(alpha)</span><span
+>值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>showContextMenu</b> ()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>显示该视图上下文菜单。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >上下文菜单是否显示。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>public boolean <b>showContextMenuForChild</b> (View
+originalView)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>为指定的视图或者其父类显示上下文菜单。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>大部分情况下，子类不需要重写该方法。但是，如果子类被直接添加到窗口管理器（例如：</span><span
+lang=EN-US>addView(View.android.view.ViewGroup.LayoutParams)</span><span
+>），此时就需要重写来显示上下文菜单</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>originalView&nbsp;&nbsp;&nbsp; </span><span
+>上下文菜单初次调用的源视图</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果上下文菜单被显示了</span> <span
+>则返回</span><span>true</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected int <b>computeHorizontalScrollExtent</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在水平范围内计算滚动条滑块的滚动范围。该值用来计算滚动条滑块的长度。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>该范围可以使用任意的单位但是必须跟</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollRange%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollRange()</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollOffset%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollOffset()</span></a></span></code><code><span
+style='font-size:12.0pt'>的单位</span></code><span >保持一致。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>默认范围是视图的宽度。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >滚动条滑块的水平滚动范围</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected int <b>computeHorizontalScrollOffset</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在水平范围内计算滚动条滑块的偏移量。该值用来计算水平滑块的位置。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>该范围可以使用任意的单位但是必须跟</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollRange%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollRange()</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollExtent%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollExtent()</span></a></span></code><code><span
+style='font-size:12.0pt'>的单位</span></code><span >保持一致。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>默认偏移量是视图的偏移量。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >滚动条滑块的水平偏移量。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected int <b>computeHorizontalScrollRange</b> ()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>计算滚动条水平方向上的滚动范围。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>该范围可以使用任意的单位但是必须跟</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollExtent%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollExtent()</span></a></span></code><span
+>和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/View.html#computeHorizontalScrollOffset%28%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>computeHorizontalScrollOffset()</span></a></span></code><code><span
+style='font-size:12.0pt'>的单位</span></code><span >保持一致。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >水平滚动条代表的滑动总范围。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected void <b>dispatchSetPressed</b> (boolean
+pressed)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>分发</span><span> setPressed</span><span
+>到</span><span>View</span><span
+>的子类。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pressed&nbsp;&nbsp;&nbsp; </span><span
+>新按下的状态</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected ViewGroup.LayoutParams <b>generateDefaultLayoutParams</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回默认的布局参数。当</span><span>View</span><span
+>作为参数传递给</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html#addView%28android.view.View%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>addView(View)</span></a></span></code><span
+>而没有布局参数时就会请求这些参数。如果返回</span><span>null</span><span
+>，则</span><span>addView</span><span
+>会抛出异常。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >默认的布局参数或</span><span
+lang=EN-US>null</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected ViewGroup.LayoutParams <b>generateLayoutParams</b>
+(ViewGroup.LayoutParams p)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回一组合法的受支持的布局参数。当把</span><span>ViewGroup</span><span
+>传递给</span><span>View</span><span
+>而该</span><span>View</span><span
+>的布局参数并没有通过</span><span>checkLayoutParams(android.view.ViewGroup.LayoutParams)</span><span
+>的测试时，就会调用该方法。该方法应该返回一组适合该</span><span>ViewGroup</span><span
+>的新的布局参数，该过程可能需要从指定的一组布局参数中复制相关的属性。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被转换成适合该</span><span>ViewGroup</span><span
+>的一组参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >返回一个</span><span>ViewGroup.LayoutParams</span><span
+>的实例或者一个它的子类。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected int <b>getChildDrawingOrder</b> (int
+childCount, int i)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回迭代的绘制子类索引。如果你想改变子类的绘制顺序就要重写该方法。默认返回</span><span
+lang=EN-US> i </span><span >值。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>提示：为了能够调用该方法，你必须首先调用</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/view/ViewGroup.html#setChildrenDrawingOrderEnabled%28boolean%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>setChildrenDrawingOrderEnabled(boolean)</span></a></span></code><span
+>来允许子类排序。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childCount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子类个数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当前迭代顺序</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >绘制该迭代子类的索引</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected boolean <b>getChildStaticTransformation</b>
+(View child, Transformation t)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >（译者注：</span><span
+lang=EN-US>setStaticTransformationsEnabled</span><span >这个属性设成</span><span
+lang=EN-US>true</span><span >的时候每次</span><span
+lang=EN-US>viewGroup(</span><span >看</span><span
+lang=EN-US>Gallery</span><span >的源码就可以看到它是从</span><span
+lang=EN-US>ViewGroup</span><span >间接继承过来的</span><span
+lang=EN-US>)</span><span >在重新画它的</span><span>child</span><span
+>的时候都会促发</span><span>getChildStaticTransformation</span><span
+>这个函数。</span><span><a target="_blank" href="http://blog.csdn.net/kenshintang1215/archive/2010/08/12/5806746.aspx"><span
+lang=EN-US ><span>这</span></span><span
+lang=EN-US ><span>里</span></span>1</a></span><span
+>、</span><span><a target="_blank" href="http://yueguc.javaeye.com/blog/750986"><span style='font-family:
+宋体'><span>这里</span></span>2</a></span><span >）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected ContextMenu.ContextMenuInfo <b>getContextMenuInfo</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Views</span><span >如果有额外的信息跟上下文菜单有联系的话就需要实现该方法。返回的结果被用作回调方法</span><span
+lang=EN-US>onCreateContextMenu(ContextMenu, View, ContextMenuInfo)</span><span
+>的参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >显示上下文菜单的条目的额外信息。这些信息将会改变</span><span
+lang=EN-US>View</span><span >不同的子类</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#E5E5E5'>protected void <b>onFocusChanged</b>
+(boolean gainFocus, int direction, Rect previouslyFocusedRect)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当该视图的焦点状态发生改变时将会调用视图系统。当导向的方向触发焦点事件时，方向和先前获得焦点的矩形提供焦点事件的来源。当用户重写该方法，必须调用父类方法来触发标准的焦点处理事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>gainFocus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果</span><span>View</span><span
+>获得焦点为</span><span>true</span><span
+>，否则</span><span>false</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>direction&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当调用</span><span>requestFocus()</span><span
+>方法来给该视图焦点时焦点的移动方向。该值</span><span>:FOCUS_UP,
+FOCUS_DOWN, FOCUS_LEFT </span><span >或</span><span
+lang=EN-US> FOCUS_RIGHT</span><span >。该参数不常用，通常使用它的默认值。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>previouslyFocusedRect&nbsp;&nbsp;&nbsp; </span><span
+>该视图坐标系统中先前获得焦点的视图的矩形。如果适用，这将获得焦点事件来源的更细致的信息（除了方向以外）。否则为</span><span
+lang=EN-US>null</span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#E5E5E5'>protected void <b>onLayout</b> (boolean changed, int
+l, int t, int r, int b)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当视图为每一个子类分配大小和位置时从布局中调用该方法。有子类的派生类应该重写该方法在子类中调用布局。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>changed&nbsp;&nbsp; </span><span
+>该视图新的大小和位置。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对父容器的左侧位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对父容器的顶部位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>相对父容器的右侧位置</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>相对父容器的底部位置</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.cnblogs.com/halzhang/archive/2010/08/07/1794555.html">Android<span
+lang=EN-US ><span>开发——使用</span></span>Gallery<span
+lang=EN-US ><span>实现“多级联动”</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://byandby.javaeye.com/blog/815736">android <span
+><span>图片拖动效果</span></span>(Gallery)</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例代码</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyGallery.java</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>class</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+MyGallery </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>extends</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> Activity {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp; &nbsp;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#3F5FBF'>/** Called when the activity is first
+created. */</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>private</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> Gallery </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><b><span style='font-size:
+10.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+onCreate(Bundle savedInstanceState) {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>super</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>.onCreate(savedInstanceState);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+setContentView(R.layout.</span><i><span style='font-size:10.0pt;
+font-family:"Courier New";color:#0000C0'>main</span></i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> =
+(Gallery)findViewById(R.id.</span><i><span style='font-size:10.0pt;
+font-family:"Courier New";color:#0000C0'>gallery</span></i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>.setAdapter(</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+ImageAdapter(</span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:#7F0055'>this</span></b><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'>));</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//</span><span
+style='font-size:10.0pt;;color:#3F7F5F'>设置图片适配器</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//</span><span
+style='font-size:10.0pt;;color:#3F7F5F'>设置监听器</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>.setOnItemClickListener(</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+OnItemClickListener() {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+onItemClick(AdapterView&lt;?&gt; arg0, View arg1, </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+arg2,&nbsp; </span><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:#7F0055'>long</span></b><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'> arg3) {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Toast.<i>makeText</i>(MyGallery.</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>this</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>, </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;</span><span
+style='font-size:10.0pt;;color:#2A00FF'>点击了第</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>+arg2+</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;</span><span
+style='font-size:10.0pt;;color:#2A00FF'>张图片</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,
+Toast.</span><i><span style='font-size:10.0pt;font-family:"Courier New";
+color:#0000C0'>LENGTH_LONG</span></i><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>).show();</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; });</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>}</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><b><span style='font-size:10.0pt;font-family:
+"Courier New";color:#7F0055'>class</span></b><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'> ImageAdapter </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>extends</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+BaseAdapter{</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>private</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> Context </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>context</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#3F7F5F'>//</span><span style='font-size:10.0pt;font-family:
+宋体;color:#3F7F5F'>图片源数组</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>private</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> Integer[] </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>imageInteger</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>={</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_1</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_2</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_3</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_4</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_5</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_6</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_7</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.drawable.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>gallery_photo_8</span></i></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; };</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>
+ImageAdapter(Context c){</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:#0000C0'>context</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> = c;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+getCount() {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>return</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>imageInteger</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>.</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>length</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> Object getItem(</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+position) {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>return</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+position;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>long</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+getItemId(</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>int</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> position) {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:
+10.0pt;font-family:"Courier New";color:#3F7F5F'>// </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F9FBF'>TODO</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>
+Auto-generated method stub</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>return</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+position;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; }</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><span style='font-size:10.0pt;font-family:
+"Courier New";color:#646464'>@Override</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; </span><b><span style='font-size:10.0pt;
+font-family:"Courier New";color:#7F0055'>public</span></b><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> View getView(</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+position, View convertView, ViewGroup parent) {</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; ImageView imageView = </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+ImageView(</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#0000C0'>context</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; imageView.setImageResource(</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>imageInteger</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>[position]);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; imageView.setScaleType(ImageView.ScaleType.</span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>FIT_XY</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; imageView.setLayoutParams(</span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+Gallery.LayoutParams(136, 88));</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>return</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+imageView;</span></p>
+<p class=MsoNormal align=left style='margin-left:73.5pt;text-align:left;
+text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp; }}</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>main.xml</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>xml</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>version</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;1.0&quot;</span></i> <span style='color:#7F007F'>encoding</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;utf-8&quot;</span></i><span
+style='color:teal'>?&gt;</span></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:teal'>&lt;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>Gallery</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>xmlns:android</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;http://schemas.android.com/apk/res/android&quot;</span></i>
+<span style='color:#7F007F'>android:id</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@+id/gallery&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <span style='color:#7F007F'>android:layout_width</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span
+style='color:#7F007F'>android:gravity</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;center_vertical&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; <span style='color:#7F007F'>android:background</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;?android:galleryItemBackground&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:teal'>/&gt;</span></span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

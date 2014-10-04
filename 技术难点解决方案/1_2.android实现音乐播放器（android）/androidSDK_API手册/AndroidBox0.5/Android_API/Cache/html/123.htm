@@ -1,0 +1,873 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> SimpleExpandableListAdapter</title>
+</head>
+<body>     
+<div class=WordSection123 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=SimpleExpandableListAdapter><b><span style='font-size:18.0pt'>SimpleExpandableListAdapter</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >天涯明月刀</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者博客：</span><span><a target="_blank" href="http://sd6733531.javaeye.com/" title="http://sd6733531.javaeye.com/">http://sd6733531.javaeye.com/</a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public abstract class <span
+style='color:#C00000'>SimpleExpandableListAdapter</span> extends <span
+style='color:#C00000'>BaseExpandableListAdapter</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.BaseExpandableListAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:9.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.SimpleExpandableListAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >一个使用</span><span>Map</span><span
+>存储组元素和子元素的静态数据，使用</span><span>XML</span><span
+>资源文件定义组元素和子元素</span><span>View</span><span
+>如何显示的简单适配器。你可以区分指定组元素返回的数据是</span><span>List&lt;Map&gt;</span><span
+>类型。在</span><span>ArrayList</span><span
+>中的每个实体对应</span><span>ExpandalbeList</span><span
+>中的一个组。实体中的</span><span>Map</span><span
+>列表包含了组下的每行数据。你也可以指定一个</span><span>XML</span><span
+>文件来定义用于在组元素的</span><span>View</span><span
+>的显示。此时</span><span>Map</span><span
+>中的键值将与指定的</span><span>View(XML</span><span
+>中定义的</span><span>view id)</span><span
+>对应起来。子元素的处理情况类似。注意当可折叠的深度若不只</span><span>1</span><span
+>层，返回的数据将被指定为</span><span>List</span><span
+>类型。首个</span><span>List</span><span
+>对应子元素中所代表的组，第二个</span><span>List</span><span
+>对应孙子元素在子元素组中的位置。</span><span>Map</span><span
+>亦将支持这样的特殊元素。（子元素嵌套组元素的情况）</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >（译者注：</span><span>ExpandableList</span><span
+>支持深度大于</span><span>1</span><span
+>的情况。在</span><span>andorid</span><span
+>自带的</span><span>ApiDomos</span><span
+>的例子中有这个的代码：</span><span>App/View/ExpandableList3</span><span
+>）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>构造函数</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=apple-converted-space><b><span style='color:#222222;
+background:#D9D9D9'>&nbsp;</span></b></span><span class=sympad><b><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>SimpleExpandableListAdapter</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;
+groupData, int groupLayout,</span></span><span class=apple-converted-space><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>groupFrom, int[] groupTo,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;&gt;
+childData, int childLayout,</span></span><span class=apple-converted-space><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>childFrom, int[] childTo)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>构造函数</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; </span><span >与</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/SimpleExpandableListAdapter.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SimpleExpandableListAdapter</span></a></span></code><span
+>关联的</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://developer.android.com/reference/android/widget/ExpandableListView.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ExpandableListView</span></a></span></code><span
+>的上下文。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupData&nbsp;
+&nbsp;&nbsp; </span><span >一个</span><span>Maps</span><span
+>列表</span><span>(List)</span><span
+>。集合中的每个字典项与可折叠列表中的每个组元素一致。字典项提供了组元素包含的所有数据，并包含所有在</span><span
+lang=EN-US>&quot;groupFrom&quot;</span><span >中指定的记录</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupLayout
+&nbsp; </span><span >显示组元素的资源文件。该资源文件定义了如何显示组元素。该布局文件必须至少包括</span><span
+lang=EN-US>groupTo</span><span >中所定义的</span><span
+lang=EN-US>View</span><span >。</span><span>(</span><span
+>即</span><span>groupTo</span><span
+>中的</span><span>View id</span><span
+>数组必须都在该布局文件中找到</span><span>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupFrom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个键值列表。对应与组相关联的</span><span>Map</span><span
+>中的键值。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grouptTo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>组</span><span>View</span><span
+>应当显示</span><span>groupFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>groupFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childData&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; </span><span >一个</span><span
+lang=EN-US>Map</span><span >列表</span><span
+>的列表。外部列表中的每个实体对应一个组</span><span>(</span><span
+>按照组的位置编号</span><span>)</span><span
+>。在内部列表的每个实体对应某个组的子元素</span><span>(</span><span
+>按照子元素的位置编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>对应了子元素的数据。</span><span>(</span><span
+>按照</span><span>childFrom</span><span
+>数组中的值编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>包含了每个子元素的数据，并且应当包括所有在</span><span>childFrom</span><span
+>中指定的实体。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childLayout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>显示子元素的资源文件。该资源文件定义了如何显示子元素。布局文件至少应该包括所有在</span><span
+lang=EN-US>childTo</span><span >中定义的</span><span
+lang=EN-US>View</span><span >。</span><span>(</span><span
+>即</span><span>childTo</span><span
+>中的</span><span>view id</span><span
+>数组必须都在该布局文件中找到</span><span>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childFrom
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >定义显示子元素的列名。该列名与</span><span
+lang=EN-US>childData</span><span >中的子元素属性（字典键值）对应。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childTo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子</span><span>View</span><span
+>应当显示</span><span>childFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>childFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>SimpleExpandableListAdapter</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;
+groupData, int expandedGroupLayout, int collapsedGroupLayout,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>groupFrom, int[] groupTo,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;&gt;
+childData, int childLayout,</span></span><span class=apple-converted-space><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>childFrom, int[] childTo)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>构造函数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US>context&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+>与</span><span>SimpleExpandableListAdapter</span><span
+>关联的</span><span>ExpandableListView</span><span
+>的上下文。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupData&nbsp;
+&nbsp;&nbsp; </span><span >一个</span><span>Maps</span><span
+>列表</span><span>(List)</span><span
+>。集合中的每个字典项与可折叠列表中的每个组元素一致。字典项提供了组元素包含的所有数据，并包含所有在</span><span
+lang=EN-US>&quot;groupFrom&quot;</span><span >中指定的记录</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>expandedGroupLayout&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>定义组展开时的</span><span>View</span><span
+>的</span><span>XML</span><span
+>资源布局。该布局文件应当至少包括所有在</span><span>groupTo</span><span
+>中所定义的</span><span>View</span><span
+>。</span><span>(</span><span style='font-family:
+宋体'>即</span><span>groupTo</span><span >中的</span><span
+lang=EN-US>View id</span><span >数组必须都在该布局文件中找到</span><span
+lang=EN-US>)</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>collapasedGroupLayout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>定义组折叠时的</span><span>View</span><span
+>的</span><span>XML</span><span
+>资源布局。该布局文件应当至少包括所有在</span><span>groupTo</span><span
+>中所定义的</span><span>View</span><span
+>。</span><span>(</span><span style='font-family:
+宋体'>即</span><span>groupTo</span><span >中的</span><span
+lang=EN-US>View id</span><span >数组必须都在该布局文件中找到</span><span
+lang=EN-US>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupFrom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个键值列表。对应与组相关联的</span><span>Map</span><span
+>中的键值。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grouptTo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>组</span><span>View</span><span
+>应当显示</span><span>groupFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>groupFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childData
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>一个</span><span>Map</span><span >列表</span><span
+>的列表。外部列表中的每个实体对应一个组</span><span>(</span><span
+>按照组的位置编号</span><span>)</span><span
+>。在内部列表的每个实体对应某个组的子元素</span><span>(</span><span
+>按照子元素的位置编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>对应了子元素的数据。</span><span>(</span><span
+>按照</span><span>childFrom</span><span
+>数组中的值编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>包含了每个子元素的数据，并且应当包括所有在</span><span>childFrom</span><span
+>中指定的实体。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childLayout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>显示子元素的资源文件。该资源文件定义了如何显示子元素。布局文件至少应该包括所有在</span><span
+lang=EN-US>childTo</span><span >中定义的</span><span
+lang=EN-US>View</span><span >。</span><span>(</span><span
+>即</span><span>childTo</span><span
+>中的</span><span>view id</span><span
+>数组必须都在该布局文件中找到</span><span>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childFrom
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >定义显示子元素的列名。该列名与</span><span
+lang=EN-US>childData</span><span >中的子元素属性（字典键值）对应。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childTo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子</span><span>View</span><span
+>应当显示</span><span>childFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>childFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>SimpleExpandableListAdapter</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(Context</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>context,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;
+groupData, int expandedGroupLayout, int collapsedGroupLayout,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>groupFrom, int[] groupTo,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>List&lt;?&nbsp;extends&nbsp;List&lt;?&nbsp;extends&nbsp;Map&lt;String,&nbsp;?&gt;&gt;&gt;
+childData, int childLayout, int lastChildLayout,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>String[]</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>childFrom, int[] childTo)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>构造函数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US>context&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+>与</span><span>SimpleExpandableListAdapter</span><span
+>关联的</span><span>ExpandableListView</span><span
+>的上下文。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupData&nbsp;
+&nbsp;&nbsp; </span><span >一个</span><span>Maps</span><span
+>列表</span><span>(List)</span><span
+>。集合中的每个字典项与可折叠列表中的每个组元素一致。字典项提供了组元素包含的所有数据，并包含所有在</span><span
+lang=EN-US>&quot;groupFrom&quot;</span><span >中指定的记录</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>expandedGroupLayout&nbsp; </span><span
+>定义组展开时的</span><span>View</span><span
+>的</span><span>XML</span><span
+>资源布局。该布局文件应当至少包括所有在</span><span>groupTo</span><span
+>中所定义的</span><span>View</span><span
+>。</span><span>(</span><span style='font-family:
+宋体'>即</span><span>groupTo</span><span >中的</span><span
+lang=EN-US>View id</span><span >数组必须都在该布局文件中找到</span><span
+lang=EN-US>)</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>collapasedGroupLayout&nbsp; </span><span
+>定义组折叠时的</span><span>View</span><span
+>的</span><span>XML</span><span
+>资源布局。该布局文件应当至少包括所有在</span><span>groupTo</span><span
+>中所定义的</span><span>View</span><span
+>。</span><span>(</span><span style='font-family:
+宋体'>即</span><span>groupTo</span><span >中的</span><span
+lang=EN-US>View id</span><span >数组必须都在该布局文件中找到</span><span
+lang=EN-US>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; groupFrom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>一个键值列表。对应与组相关联的</span><span>Map</span><span
+>中的键值。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grouptTo&nbsp; </span><span
+>组</span><span>View</span><span
+>应当显示</span><span>groupFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>groupFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childData
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>一个</span><span>Map</span><span >列表</span><span
+>的列表。外部列表中的每个实体对应一个组</span><span>(</span><span
+>按照组的位置编号</span><span>)</span><span
+>。在内部列表的每个实体对应某个组的子元素</span><span>(</span><span
+>按照子元素的位置编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>对应了子元素的数据。</span><span>(</span><span
+>按照</span><span>childFrom</span><span
+>数组中的值编号</span><span>)</span><span
+>。该</span><span>Map</span><span
+>包含了每个子元素的数据，并且应当包括所有在</span><span>childFrom</span><span
+>中指定的实体。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childLayout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>显示子元素的资源文件。该资源文件定义了如何显示子元素。布局文件至少应该包括所有在</span><span
+lang=EN-US>childTo</span><span >中定义的</span><span
+lang=EN-US>View</span><span >。</span><span>(</span><span
+>即</span><span>childTo</span><span
+>中的</span><span>view id</span><span
+>数组必须都在该布局文件中找到</span><span>)</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>lastChildLayout&nbsp; </span><span
+>定义每组中最后一个子元素的</span><span>View</span><span
+>资源布局情况。该布局文件应当至少包括所有在</span><span>childTo</span><span
+>中所定义的</span><span>View</span><span
+>。</span><span>(</span><span style='font-family:
+宋体'>即</span><span>childTo</span><span >中的</span><span
+lang=EN-US>View id</span><span >数组必须都在该布局文件中找到</span><span
+lang=EN-US>)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childFrom
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span >定义显示子元素的列名。该列名与</span><span
+lang=EN-US>childData</span><span >中的子元素属性（字典键值）对应。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; childTo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+</span><span >子</span><span>View</span><span
+>应当显示</span><span>childFrom</span><span
+>参数中的所有列数据。这些数据应当都用</span><span>TextView</span><span
+>来显示。列表中的前</span><span>N</span><span
+>个</span><span>View</span><span
+>从前</span><span>N</span><span
+>个</span><span>childFrom</span><span
+>参数获得列元素的数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/java/lang/Object.html"><span
+style='color:#006699'>Object</span></a></span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><span
+style='color:#222222;background:#D9D9D9'>getChild</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(int groupPosition, int childPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+long</span></span><span class=normal><span style='background:#D9D9D9'>&nbsp;getChildId&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition, int childPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：</span></span><span
+class=normal><span >获取与在给定组给予孩子相关的数据</span></span><span
+class=normal><span style=';color:#222222'>。）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/View.html"><span
+style='color:#222222;text-decoration:none'>View</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;getChildView&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition, int childPosition, boolean isLastChild,</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/View.html"><span
+style='color:#222222;text-decoration:none'>View</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>convertView,</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/ViewGroup.html"><span
+style='color:#222222;text-decoration:none'>ViewGroup</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：获取子项）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+int</span></span><span class=normal><span style='background:#D9D9D9'>&nbsp;getChildrenCount&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：返回在指定</span></span><span
+class=normal><span style='color:#222222'>Group</span></span><span
+class=normal><span style=';color:#222222'>的</span></span><span
+class=normal><span style='color:#222222'>Child</span></span><span
+class=normal><span style=';color:#222222'>数目。）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/java/lang/Object.html"><span
+style='color:#222222;text-decoration:none'>Object</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;getGroup&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+int</span></span><span class=normal><span style='background:#D9D9D9'>&nbsp;getGroupCount&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>()</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：返回</span></span><span
+class=normal><span style='color:#222222'>Group</span></span><span
+class=normal><span style=';color:#222222'>的总数目。）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+long</span></span><span class=normal><span style='background:#D9D9D9'>&nbsp;getGroupId&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/View.html"><span
+style='color:#222222;text-decoration:none'>View</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;getGroupView&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(int
+groupPosition, boolean isExpanded,</span></span><span class=normal><span
+lang=EN-US style='background:#D9D9D9'>&nbsp;</span></span><span class=normal><span
+lang=EN-US style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/View.html"><span
+style='color:#222222;text-decoration:none'>View</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>convertView,</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/ViewGroup.html"><span
+style='color:#222222;text-decoration:none'>ViewGroup</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：获取父项）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+boolean</span></span><span class=normal><span style='background:
+#D9D9D9'>&nbsp;hasStableIds&nbsp;</span></span><span class=normal><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>()</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public
+boolean</span></span><span class=normal><span style='background:
+#D9D9D9'>&nbsp;isChildSelectable&nbsp;</span></span><span class=normal><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>(int groupPosition, int
+childPosition)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>（译者注：是否</span></span><span
+class=apple-style-span><span style=';color:black'>让</span></span><span
+class=apple-style-span><span style='font-family:"Arial","sans-serif";
+color:black'>child</span></span><span class=apple-style-span><span
+style=';color:black'>获得焦点</span></span><span class=normal><span
+style=';color:#222222'>）</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style='color:#222222;background:#D9D9D9'>public</span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/View.html"><span
+style='color:#222222;text-decoration:none'>View</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;<b>newChildView</b>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>(boolean
+isLastChild,</span></span><span class=normal><span style='background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'><a
+href="../../../IBM&aring;&reg;&#158;&auml;&sup1;&nbsp;&aring;&frac14;&#128;&aring;&#143;&#145;&ccedil;&#142;&macr;&aring;&cent;&#131;/android/docs/reference/android/view/ViewGroup.html"><span
+style='color:#222222;text-decoration:none'>ViewGroup</span></a></span></span><span
+class=normal><span style='background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+class=normal><span style=';color:#222222'>新建一个子元素</span></span><span
+class=normal><span style='color:#222222'>View</span></span><span
+class=normal><span style=';color:#222222'>。</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; </span></span><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt'>参数</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>isLastChild</span></span><span
+class=normal><span style='font-size:10.5pt'> &nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt'>该</span></span><span class=normal><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>child</span></span><span
+class=normal><span style='font-size:10.5pt'>是否是组中的最后一个元素</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>parent</span></span><span
+class=normal><span style='font-size:10.5pt'>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt'>新的</span></span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span><span
+class=normal><span style='font-size:10.5pt'>的最终父亲。</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt'>返回</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+class=normal><span style='font-size:10.5pt'>新的子元素</span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span><span
+class=normal><span style='font-size:10.5pt'>对象。</span></span></p>
+<p class=a style='margin:0cm;margin-bottom:.0001pt'><span class=normal><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+line-height:15.6pt'><span class=normal><span style='color:#222222;
+background:#D9D9D9'>public</span></span><span class=apple-converted-space><span
+lang=EN-US style='color:#222222;background:#D9D9D9'>&nbsp;</span></span><span
+class=normal><span style='color:#222222;background:#D9D9D9'>View</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=sympad><b><span
+style='color:#222222;background:#D9D9D9'>newGroupView</span></b></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>(boolean isExpanded,</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>ViewGroup</span></span><span
+class=apple-converted-space><span style='color:#222222;background:
+#D9D9D9'>&nbsp;</span></span><span class=normal><span
+style='color:#222222;background:#D9D9D9'>parent)</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+line-height:15.6pt'><span class=normal><span >新建一个组元素</span></span><span
+class=normal><span>View</span></span><span class=normal><span
+>。</span></span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>参数</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>isExpanded</span><span
+lang=EN-US style='font-size:10.5pt'> </span><span style='font-size:10.5pt'>该组元素是否当前处于折叠状态</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>parent</span><span
+lang=EN-US style='font-size:10.5pt'>&nbsp;&nbsp;  </span><span
+style='font-size:10.5pt'>新</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>View</span><span style='font-size:10.5pt'>的最终父亲。</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>返回</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>新的组元素</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>View</span><span style='font-size:10.5pt'>对象。</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><b>补充</b></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>文章精选</span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.mars-droid.com/?p=37"><span style='font-family:"Calibri","sans-serif"'>ExpandableListActivity</span><span
+lang=EN-US><span>和</span></span><span style='font-family:"Calibri","sans-serif"'>SimpleExpandableListAdapter</span><span
+lang=EN-US><span>的使用方法</span></span></a></span></p>
+<p style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;margin-left:
+0cm;line-height:15.6pt'><span style='font-size:10.5pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://mylifewithandroid.blogspot.com/2008_05_01_archive.html">Expandable
+lists</a></span><span style='font-size:10.5pt'>[</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>blogspot</span><span
+lang=EN-US style='font-size:10.5pt'>]</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例代码：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;Map&lt;String, String&gt;&gt; groupData
+= </span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> ArrayList&lt;Map&lt;String,
+String&gt;&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+List&lt;List&lt;Map&lt;String, String&gt;&gt;&gt; childData = </span><b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+ArrayList&lt;List&lt;Map&lt;String, String&gt;&gt;&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>for</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> (</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> i =
+0; i &lt; 20; i++) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Map&lt;String, String&gt; curGroupMap = </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+HashMap&lt;String, String&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+groupData.add(curGroupMap);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+curGroupMap.put(</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>NAME</span></i><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'>, </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;Group
+&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'> + i);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+curGroupMap.put(</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>IS_EVEN</span></i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>, (i % 2 == 0) ?
+</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#2A00FF'>&quot;This group is even&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> : </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;This
+group is odd&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+List&lt;Map&lt;String, String&gt;&gt; children = </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+ArrayList&lt;Map&lt;String, String&gt;&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>for</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> (</span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> j =
+0; j &lt; 15; j++) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Map&lt;String, String&gt; curChildMap = </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+HashMap&lt;String, String&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+children.add(curChildMap);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+curChildMap.put(</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>NAME</span></i><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'>, </span><span
+style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;Child
+&quot;</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'> + j);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+curChildMap.put(</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>IS_EVEN</span></i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>, (j % 2 == 0) ?
+</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#2A00FF'>&quot;This child is even&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> : </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#2A00FF'>&quot;This
+child is odd&quot;</span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+childData.add(children);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#3F7F5F'>// Set up our adapter</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:10.0pt;font-family:"Courier New";
+color:#0000C0'>mAdapter</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> = </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>
+SimpleExpandableListAdapter(</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>this</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+groupData,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android.R.layout.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>simple_expandable_list_item_1</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> String[] { </span><i><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>NAME</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>, </span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>IS_EVEN</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> },</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>[] {
+android.R.id.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0;background:silver'>text1</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,
+android.R.id.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>text2</span></i><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'> },</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+childData,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android.R.layout.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>simple_expandable_list_item_2</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> String[] { </span><i><span
+style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>NAME</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>, </span><i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>IS_EVEN</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'> },</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:10.0pt;font-family:"Courier New";
+color:#7F0055'>new</span></b><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> </span><b><span
+style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>[] {
+android.R.id.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0;background:silver'>text1</span></i><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>,
+android.R.id.</span><i><span style='font-size:10.0pt;font-family:
+"Courier New";color:#0000C0'>text2</span></i><span style='font-size:
+10.0pt;font-family:"Courier New";color:black'> }</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+);</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Courier New";color:black'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

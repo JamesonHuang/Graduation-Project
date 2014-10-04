@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title>封面</title>
+</head>
+<body bgcolor=white lang=ZH-CN link=blue vlink=purple style='text-justify-trim:
+punctuation'><div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center;text-autospace:ideograph-other'><b><span
+lang=EN-US style='font-size:21.0pt'>Html</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> pignut</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://www.pignut.net">www.pignut.net</a> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span style='font-family:"Calibri","sans-serif"'>public
+class <span style='color:#C00000'>Html</span> extends <span style='color:#C00000'>Object</span></span></i></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>java.lang.Object</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.text.Html</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><img border=0 width=332 height=309
+src="image/2011-9-2_1.jpg"></span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>该类主要用来格式化</span><span>html</span><span
+>格式的文本，像浏览器一样对</span><span>html</span><span
+>标签进行解析，渲染输出，但并不是所有的标签都被支持！（译者注：当然你自定义的标签默认肯定不被支持，但可以通过实现</span><a target="_blank" href="http://localhost/android/reference/android/text/Html.TagHandler.html"><span
+style='color:windowtext;text-decoration:none'>Html.TagHandler</span></a></span><span
+>这个接口来自我解析。下面会讲到。）</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif";
+background:#D9D9D9'>interface &nbsp;&nbsp;&nbsp; Html.ImageGetter</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='font-size:12.0pt;'>用来检索</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>HTML</span><span
+style='font-size:12.0pt;'>中的</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&lt;img&gt;</span><span
+style='font-size:12.0pt;'>标签。</span><span style='font-family:
+宋体'>（译者注：</span><span style='font-size:12.0pt;'>如果实现了这个接口，当解析的时候遇到</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&lt;img&gt;
+</span><span style='font-size:12.0pt;'>标签时会回调</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>ImageGetter</span><span
+style='font-size:12.0pt;'>的</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://localhost/android/reference/android/text/Html.ImageGetter.html#getDrawable(java.lang.String)"><span
+style='color:windowtext;text-decoration:none'>getDrawable</span></a>(<a target="_blank" href="http://localhost/android/reference/java/lang/String.html"><span
+style='color:windowtext;text-decoration:none'>String</span></a> source)</span><span
+style='font-size:12.0pt;'>方法，并返回一个</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://localhost/android/reference/android/graphics/drawable/Drawable.html"><span
+style='color:windowtext;text-decoration:none'>Drawable</span></a></span><span
+style='font-size:12.0pt;'>对象，该方法参数为</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&lt;img&gt;</span><span
+style='font-size:12.0pt;'>标签的</span><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>src</span><span
+style='font-size:12.0pt;'>属性的值）</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span
+style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif";
+background:#D9D9D9'>interface &nbsp;&nbsp;&nbsp; Html.TagHandler</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='font-size:12.0pt;'>用来通知当解析器遇到无法识别的标签时该作出何种处理</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;text-autospace:ideograph-other'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";background:#D9D9D9'>public
+static Spanned <b>fromHtml</b> (String source)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回通过</span><span style='font-family:"Calibri","sans-serif"'>TagSoup
+</span><span >（</span><b><span
+style='font-family:"Calibri","sans-serif"'>TagSoup</span></b><span
+style='font-family:"Calibri","sans-serif"'> </span><span style='font-family:
+宋体'>是一个</span><span style='font-family:"Calibri","sans-serif"'>Java</span><span
+>开发符合</span><span style='font-family:"Calibri","sans-serif"'>SAX</span><span
+>的</span><span style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>解析器</span><span style='font-family:"Calibri","sans-serif"'>
+</span><span >授权协议）解析器解析之后的可直接显示的文本，任何</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&lt;img&gt;</span><span
+>则由默认的一般图片所替代，当然也可以通过实现</span><span
+style='font-family:"Calibri","sans-serif"'>Html.ImageGetter</span><span
+>接口来显示真正的图片。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-family:"Calibri","sans-serif"'>source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>待处理的</span><span style='font-family:"Calibri","sans-serif"'>html</span><span
+>文本</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:ideograph-other'><b><span
+style='font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US style='font-family:"Calibri","sans-serif";background:#D9D9D9'>public
+static Spanned <b>fromHtml</b> (String source, Html.ImageGetter imageGetter,
+Html.TagHandler tagHandler)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>同上，不同的是当遇到</span><span style='font-family:
+"Calibri","sans-serif"'>img</span><span >标签，或解析器无法识别的标签时分别触发注册的两个对象来进行处理。</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-family:"Calibri","sans-serif"'>source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为待处理的</span><span style='font-family:"Calibri","sans-serif"'>html</span><span
+>文本</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-family:"Calibri","sans-serif"'>imageGetter&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://localhost/android/reference/android/text/Html.ImageGetter.html"><span
+style='color:windowtext;text-decoration:none'>Html.ImageGetter</span></a></span><span
+>对象</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-family:"Calibri","sans-serif"'>tagHandler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://localhost/android/reference/android/text/Html.TagHandler.html"><span
+style='color:windowtext;text-decoration:none'>Html.TagHandler</span></a> </span><span
+>的</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif";background:#D9D9D9'>public
+static String <b>toHtml</b> (Spanned text)</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>该方法完全可以理解为</span><span style='font-family:
+"Calibri","sans-serif"'>fromHtml</span><span >（）的可逆函数，将</span><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>Spanned </span><span
+>类型的文本还原为</span><span style='font-family:"Calibri","sans-serif"'>HTML</span><span
+>文本。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;'>补充</span></b></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>文章精选</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.ideasandroid.com/archives/378">android<span
+><span>开发：</span></span>TextView<span
+lang=EN-US ><span>中显示</span></span>HTML<span
+lang=EN-US ><span>和图片</span></span></a></span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.bpsky.net/t/android%20TextView%20HTML%E5%AF%8C%E6%96%87%E6%9C%AC%E5%BA%94%E7%94%A8.html">android
+TextView HTML<span ><span>富文本应用</span></span></a></span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>示例代码</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=576
+ style='width:432.3pt;margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=576 valign=top style='width:432.3pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'> </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>class</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  Main </span><b><span style='font-size:12.0pt;font-family:"Courier New";
+  color:#7F0055'>extends</span></b><span style='font-size:12.0pt;
+  font-family:"Courier New";color:black'> Activity {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#646464'>@Override</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>protected</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'> </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>void</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  onCreate(Bundle savedInstanceState) {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>super</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>.onCreate(savedInstanceState);</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setContentView(R.layout.</span><i><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#0000C0'>main</span></i><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextView
+  tv = (TextView) findViewById(R.id.</span><i><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#0000C0'>demo</span></i><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; &nbsp;&nbsp; </span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>貌似都不支持<span
+ >HTML</span>标签的属性，及<span>CSS</span>样式，下面使用到的字体颜色都不被支持</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>//String
+  <u>html</u> = &quot;&lt;h2&gt;<u>html</u></span><span style='font-size:12.0pt;
+  font-family:"Courier New";color:#3F7F5F'>测<span>&lt;/h2&gt;&lt;pstyle='color:red;'&gt;</span>这是测试内容<span
+ >&lt;/p&gt;&lt;p&gt;&lt;img</span></span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'> </span><u><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>src</span></u><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#3F7F5F'>='http://www.baidu.com/img/baidu_sylogo1.gif'&gt;&lt;/p&gt;&quot;;
+  </span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>String
+  html = </span><span style='font-size:12.0pt;font-family:"Courier New";
+  color:#2A00FF'>&quot;&lt;h2&gt;html</span><span style='font-size:12.0pt;
+  font-family:"Courier New";color:#2A00FF'>测试<span>&lt;/h2&gt;&lt;p
+  font='red'&gt;</span>这是测试内容<span>&lt;/p&gt;&lt;p&gt;&lt;img
+  src='http://www.baidu.com/img/baidu_sylogo1.gif'&gt;&lt;/p&gt;&quot;</span></span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>; </span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tv.setText(Html.<i>fromHtml</i>(html,</span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  Html.ImageGetter(){</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#646464'>@Override</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>public</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  Drawable getDrawable(String source) {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drawable
+  myDrawable = </span><b><span style='font-size:12.0pt;font-family:
+  "Courier New";color:#7F0055'>null</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>;</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>try</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'> {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myDrawable
+  = Drawable.<i>createFromStream</i>(</span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  URL(source).openStream(), </span><span style='font-size:12.0pt;
+  font-family:"Courier New";color:#2A00FF'>&quot;baidu_sylogo1.gif&quot;</span><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+  </span><b><span style='font-size:12.0pt;font-family:"Courier New";
+  color:#7F0055'>catch</span></b><span style='font-size:12.0pt;
+  font-family:"Courier New";color:black'> (MalformedURLException e) {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace();</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+  </span><b><span style='font-size:12.0pt;font-family:"Courier New";
+  color:#7F0055'>catch</span></b><span style='font-size:12.0pt;
+  font-family:"Courier New";color:black'> (IOException e) {</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.printStackTrace();</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myDrawable.setBounds(0,
+  0, myDrawable.getIntrinsicWidth(), myDrawable.getIntrinsicHeight());</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>return</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>
+  myDrawable;</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }},</span><b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:#7F0055'>null</span></b><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>));</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp; }</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'>}</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'><span
+style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><u><span style='color:blue'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></p>
+
+</div>
+
+</body>
+</html>

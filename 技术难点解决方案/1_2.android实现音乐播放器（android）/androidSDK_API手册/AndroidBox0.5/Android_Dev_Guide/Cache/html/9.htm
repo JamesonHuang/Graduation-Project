@@ -1,0 +1,756 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Accessing Resource</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Accessing Resource</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>CodeGuy </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span >译者链接：</span><span><a target="_blank" href="http://www.cnblogs.com/CodeGuy/">http://www.cnblogs.com/CodeGuy/</a> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2 r1</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/topics/resources/accessing-resources.html">http://developer.android.com/guide/topics/resources/accessing-resources.html</a>&nbsp;
+</span></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;'>资源的调用</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>当你在应用程序中提供了某种资源后（在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html"><span
+style='color:windowtext'>Providing Resources</span></a></span><span
+style='font-size:10.5pt'>中有讨论），你就可以通过引用资源</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span><span
+style='font-size:10.5pt'>号来调用相关的资源。所有的资源</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span><span
+style='font-size:10.5pt'>号都在你工程下的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>R.class</span><span style='font-size:10.5pt'>文件中定义好，这是由</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007F00'>aapt</span><span style='font-size:10.5pt'>工具自动生成的。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>当你的应用程序被编译时，</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#007F00'>aapt</span><span
+style='font-size:10.5pt'>工具就会自动生成</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:#007F00'>R.class</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>文件，这个文件中包含有</span><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007F00'>res/</span></code><code><span
+style='font-size:10.5pt'>目录下所有资源的</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span></code><code><span
+style='font-size:10.5pt'>号。对于每一种资源类型都有一个</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>R</span></code><code><span
+style='font-size:10.5pt'>的子类对应着（例如：</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>R.drawable</span></code><code><span
+style='font-size:10.5pt'>中包含着所有</span></code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>drawable</span><span
+style='font-size:10.5pt'>资源<code>），并且对每个特定类型的所有资源都有一个静态的整型数值一一对应（例如：</code></span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007F00'>R.drawable.icon</span></code><code><span style='font-size:10.5pt'>）。这个整型数值就是这个特定资源的</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span></code><code><span
+style='font-size:10.5pt'>号，你可以通过它来获取你的对应资源。</span></code></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>虽然</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>R.class</span><span style='font-size:10.5pt'>文件中定义着每种资源的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span><span
+style='font-size:10.5pt'>号，但是你不应该也不需要到该文件下去查看某个资源的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ID</span><span
+style='font-size:10.5pt'>号。一个资源的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>ID</span><span style='font-size:10.5pt'>号一般的组成如下：</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt'>资源类型</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>: </span><span
+style='font-size:10.5pt'>每种资源都会被分组到一种特定的资源类型，例如</span><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007F00'>string</span></code><span
+style='font-size:10.5pt'>，</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> <code><span style='font-family:"Calibri","sans-serif";
+color:#007F00'>drawable</span></code></span><span style='font-size:10.5pt'>，和</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>layout</span></code> </span></span><span style='font-size:10.5pt'>。要了解更多关于不同的资源类型，见</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/available-resources.html"><span
+style='color:windowtext'>Resource Types</span></a></span><span
+style='font-size:10.5pt'>。</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> </span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+>资源名，同时也是：文件名，不包括拓展名；或者是</span><span>XML </span><span
+>中</span><code><span style='font-family:"Calibri","sans-serif";
+color:#007F00'>android:name</span></code><code>属性的值，</code><span
+>条件是这个资源是一个简单的值（例如一个字符串）。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>调用某个资源有两种方法</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>:</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><strong><span
+>在代码中调用：</span></strong><strong><span style='font-family:
+宋体;font-weight:normal'>通过使用</span></strong><strong><span
+style='font-family:"Calibri","sans-serif";font-weight:normal'>R.class </span></strong><strong><span
+style=';font-weight:normal'>的相应子类中的静态整形数值，例如</span></strong><span
+>：</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span style='color:#007F00'>R.string.hello</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt'><code><span
+style='font-family:"Calibri","sans-serif"'>string</span></code> </span><span >是资源类型，</span><span>hello</span><span
+>是资源名。当你通过这种方式提供资源的</span><span>ID</span><span
+>号时，有很多</span><span>Android APIs </span><span
+>就可以调用你的相应资源了。详见：</span><span><a
+href="1.htm#在代码中调用资源"><span style=';color:windowtext'>在代<span>码<span>中<span>调用资源</span></span></span></span></span></a></span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:-21.0pt'><span
+lang=EN-US style='font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><strong><span >在</span></strong><strong><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>XML</span></strong><strong><span
+>中调用：</span></strong><span >通过特殊的</span>XML</span><span >语法同样可以对应到你的</span>R.class</span><span >文件中的相关资源</span>ID</span><span >，例如：</span></p>
+
+<p class=MsoNormal style='margin-left:33.05pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#007F00'>@string/hello</span></span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt'><code><span
+style='font-family:"Calibri","sans-serif";color:#007F00'>string</span></code> </span><span >是资源类型，</span><span
+style='color:#007F00'>hello</span><span >是资源名。你可以在任何需要使用自己提供的资源的地方，通过这种语法在</span>XML</span><span >中调用。详见：</span><a href="1.htm#在XML中调用资源"><span style=';
+color:windowtext'><span>在</span></span><span style='color:windowtext'>XML</span><span
+lang=EN-US style=';color:windowtext'><span>中调<span>用资源</span></span></span></span></a></span><span
+>。</span><a name=在代码中调用资源></a></p>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style=';color:#111111'>在代码中调用资源</span></b><b><span
+style='font-family:"Arial","sans-serif";color:#111111'> </span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>你可以把资源</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>ID</span><span style='font-size:10.5pt'>号作为方法的参数在代码中调用该资源。例如，你可以设置一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ImageView</span><span
+style='font-size:10.5pt'>通过调用</span><code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/ImageView.html#setImageResource(int)"><span
+style='color:windowtext'>setImageResource()</span></a></span></code><code><span
+style='font-size:10.5pt'>方法来使用</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007F00'>res/drawable/myimage.png</span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>资源：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#A31D1D'>ImageView</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  imageView = (</span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#A31D1D'>ImageView</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>)
+  findViewById(R.id.myimageview);</span></p>
+  <pre><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; imageView.setImageResource(<b>R.drawable.myimage</b>);</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>你也可以通过调用</span><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html">Resources</a></span></code><code><span
+style='font-size:10.5pt'>类</span></code><span style='font-size:10.5pt'>中的方法来获取某一特定的资源，通过</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>getResources()</span></code><code><span
+style='font-size:10.5pt'>方法可以得到</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Resources</span></code><code><span
+style='font-size:10.5pt'>类</span></code><span style='font-size:10.5pt'>的一个实例。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style=';color:black'>语法</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>这是在代码中引用资源的语法：</span></p>
+
+<pre style='text-indent:15.75pt'><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>&nbsp;<span style='color:#007F00'>[<em><span
+style='font-family:"Calibri","sans-serif"'>&lt;package_name&gt;</span></em>.]R.<em><span
+style='font-family:"Calibri","sans-serif"'>&lt;resource_type&gt;</span></em>.<em><span
+style='font-family:"Calibri","sans-serif"'>&lt;resource_name&gt;</span></em></span></span></pre>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:7.5pt;font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><code><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;package_name&gt;</span></i></code><span
+lang=EN-US style='font-size:10.0pt'> </span><span >资源所在的包名 (</span>当你要应用自己包下的资源时，该字段不需要填写<span>). </span></span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:7.5pt;font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><code><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;resource_type&gt;</span></i></code><span
+lang=EN-US style='color:#007F00'> </span><span style='font-family:
+宋体;color:#007F00'>R</span><span >类下对应一种特定资源类型的子类.</span>（译者注：如</span><span>R.String</span><span
+>）</span><span style='font-size:10.0pt'> </span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-size:7.5pt;font-family:Wingdings'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><code><i><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;resource_name&gt;</span></i></code> </span><span >可以是不包含文件拓展名的资源文件名或者XML</span>元素中</span><code><span style='font-family:"Calibri","sans-serif";
+color:#007F00'>android:name</span></code><span style='font-family:
+宋体'> </span><span >属性的值（仅限简单的值，如字符串）</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.5pt'>了解更多关于每种资源类型的信息以及如何引用它们，见</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/available-resources.html"><span
+style='color:windowtext'>Resource Types</span></a> </span><span
+style='font-size:10.0pt'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.0pt;font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style=';color:black'>用例</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>有很多方法可以接受资源的<span>ID</span>号作为参数，你可以通过</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>Resources</span><span style='font-size:10.5pt;color:black'>中的方法来获取某种对应的资源。你可以通过</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>Context.getResources()</span><span style='font-size:10.5pt;
+color:black'>方法来获得</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif";color:black'><a target="_blank" href="http://developer.android.com/reference/android/content/res/Resources.html">Resources</a></span><span
+style='font-size:10.5pt;color:black'>类的一个实例。<span>. </span></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.5pt;
+color:black'>以下是在代码中调用资源的一些例子：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>注：通过一个</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>drawable</span><span
+  style='font-size:10.0pt;;color:#3F7F5F'>类型的资源给当前屏幕加载背景</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; getWindow().setBackgroundDrawableResource(R.drawable.my_background_image)
+  ;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>注：通过从</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>Resources</span><span
+  style='font-size:10.0pt;;color:#3F7F5F'>对象获取的字符串给</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>Activity
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>设置标题，因为该方法需要一个字符序</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>列而不是一个资源</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>ID</span><span
+  style='font-size:10.0pt;;color:#3F7F5F'>号</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; getWindow().setTitle(getResources().getText(R.string.main_title));</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>注：给当前屏幕载入自定义布局</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; setContentView(R.layout.main_screen);</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>注：通过从</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>Resources
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>实例获取的动画来设置一个动画幻灯片</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; mFlipper.setInAnimation(AnimationUtils.loadAnimation(</span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>this</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>,</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  R.anim.hyperspace_in));</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>//
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>注：通过资源</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>ID</span><span
+  style='font-size:10.0pt;;color:#3F7F5F'>号给</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F5F'>TextView
+  </span><span style='font-size:10.0pt;;color:#3F7F5F'>类的对象设置显示文字</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#A31D1D'>TextView</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>
+  msgTextView = (</span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#A31D1D'>TextView</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>)
+  findViewById(R.id.msg);</span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; msgTextView.setText(R.string.hello_message);</span></p>
+  </td>
+ </tr>
+</table>
+
+<pre style='text-indent:15.8pt'><b><span style='font-size:10.5pt;background:
+yellow'>特别提醒</span></b><b><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif";background:yellow'>:</span></b><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span><span
+style='font-size:10.5pt'>你不能自己手动修改</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>R.java </span><span
+style='font-size:10.5pt'>文件，这个文件是在你的工程被编译时由</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>aapt</span><span
+style='font-size:10.5pt'>工具自动生成的。所有程序中的修改都会在工程下一次编译时重写。</span><a
+name=在XML中调用资源></a></pre><pre><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>&nbsp;</span></pre><pre><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></pre><pre
+style='text-align:center'><b><span style='color:#111111'>在<span>XML</span>中调用资源</span></b></pre>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>你可以通过引用一个存在的资源来给一些</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>XML</span><span
+style='font-size:10.5pt'>的属性和元素指定具体的值。你经常会在创建布局文件的时候这样做，给你的部件提供字符串和图像。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>例如，如果你添加一个按钮到你的布局中，你应该使用一个字符串资源来指定显示在按钮上的文字：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>Button</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_width</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_height</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;wrap_content&quot;</span></i></span></p>
+  <pre><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:text</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;@string/submit&quot;</span></i> <span
+  style='color:teal'>/&gt;</span></span></pre></td>
+ </tr>
+</table>
+
+<pre style='text-indent:15.75pt'><span class=tag1><span style='font-size:10.5pt;
+color:black'>（译者注：</span></span><span class=atv1><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>@string/submit</span></span><span
+class=atv1><span style='font-size:10.5pt;color:black'>即为你定义好的字符串资源）</span></span></pre><pre
+style='text-indent:15.75pt'><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:black'>&nbsp;</span></pre>
+
+<p class=MsoNormal><b><span style=';color:black'>语法</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>以下是在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>XML</span><span
+style='font-size:10.5pt;color:black'>资源文件中引用资源的语法</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>:</span></p>
+
+<pre style='text-indent:21.0pt'><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:#007F00'>@[<em><span style='font-family:
+"Calibri","sans-serif"'>&lt;package_name&gt;</span></em>:]<em><span
+style='font-family:"Calibri","sans-serif"'>&lt;resource_type&gt;</span></em>/<em><span
+style='font-family:"Calibri","sans-serif"'>&lt;resource_name&gt;</span></em></span></pre>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings;color:black'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;package_name&gt;</span></code><span
+style=';color:black'>资源所在的包名</span><span
+style='color:black'> (</span><span style=';color:black'>当你要应用自己包下的资源时，该字段不需要填写</span><span
+lang=EN-US style='color:black'>)</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings;color:black'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;resource_type&gt;</span></code><span
+lang=EN-US style='color:black'> R</span><span style=';color:black'>类下对应一种特定资源类型的子类</span><span
+lang=EN-US style='color:black'>.</span><span style=';color:black'>（译者注：如</span><span
+lang=EN-US style='color:black'>R.String</span><span style=';
+color:black'>）</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:-21.0pt'><span style='font-family:Wingdings;color:black'>l<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>&lt;resource_name&gt;</span></code><span
+style=';color:black'>可以是不包含文件拓展名的资源文件名或者</span><span
+style='color:black'>XML</span><span style=';color:black'>元素中</span><code><span
+lang=EN-US style='font-family:"Calibri","sans-serif";color:#007F00'>android:name</span></code><span
+lang=EN-US style='color:black'> </span><span style=';color:black'>属性的值（仅限简单的值，如字符串）</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>了解更多关于每种资源类型的信息以及如何引用它们，见</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/available-resources.html"><span
+style='color:windowtext'>Resource Types</span></a> </span><span
+style='font-size:10.0pt'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.0pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style=';color:black'>用例</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>在某些情况下你必须得在<span>XML</span>中使用资源（例如：给部件应用一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>drawable</span><span style='font-size:10.5pt;color:black'>图像），但是你可以在XML</span>中任何可以接受简单值的地方使用资源。例如，如果你有如下包含<span>color</span>（颜色）资源和</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>string</span><span style='font-size:10.5pt;color:black'>（字符串）资源的资源文件：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>xml</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>version</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;1.0&quot;</span></i> <span style='color:#7F007F'>encoding</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;utf-8&quot;</span></i><span
+  style='color:teal'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>resources</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;
+  </span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:teal'>&lt;</span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#3F7F7F'>color</span><span style='font-size:
+  10.0pt;font-family:"Courier New"'> <span style='color:#7F007F'>name</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;opaque_red&quot;</span></i><span
+  style='color:teal'>&gt;</span><span style='color:black'>#f00</span><span
+  style='color:teal'>&lt;/</span><span style='color:#3F7F7F'>color</span><span
+  style='color:teal'>&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;
+  </span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:teal'>&lt;</span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:#3F7F7F'>string</span><span style='font-size:
+  10.0pt;font-family:"Courier New"'> <span style='color:#7F007F'>name</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;hello&quot;</span></i><span
+  style='color:teal'>&gt;</span><span style='color:black'>Hello!</span><span
+  style='color:teal'>&lt;/</span><span style='color:#3F7F7F'>string</span><span
+  style='color:teal'>&gt;</span></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;/</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>resources</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&gt;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>你可以使用这些定义好的资源在以下的布局文件中来设置文本的颜色和内容：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>xml</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>version</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;1.0&quot;</span></i> <span style='color:#7F007F'>encoding</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;utf-8&quot;</span></i><span
+  style='color:teal'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>EditText</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>xmlns:android</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;http://schemas.android.com/apk/res/android&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_width</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_height</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:textColor</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;<b>@color/opaque_red</b>&quot;</span></i></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:text</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;<b>@string/hello</b>&quot;</span></i> <span
+  style='color:teal'>/&gt;</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>在以下情况下在引用资源时你不需要指定包名，因为这些资源在你自己的当前包中。要引用一个系统资源，你需要在引用时声明资源所在包名。例如：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>xml</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>version</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;1.0&quot;</span></i> <span style='color:#7F007F'>encoding</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;utf-8&quot;</span></i><span
+  style='color:teal'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>EditText</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>xmlns:android</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;http://schemas.android.com/apk/res/android&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_width</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_height</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:textColor</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;<b>@android:color/secondary_text_dark</b>&quot;</span></i></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:text</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;@string/hello&quot;</span></i> <span
+  style='color:teal'>/&gt;</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><b><span
+style='font-size:10.5pt;color:black'>特别提醒：</span></b><span style='font-size:
+10.5pt;color:black'>在需要用字符串时，</span><span style='font-size:10.5pt;color:black'>你应该坚持使用字符串资源，因此你的应用程序就可以对其他语言进行本地化。关于创建可替代资源（例如本地化字符串），</span><span
+style='font-size:10.5pt;color:#333333'>见</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources"><span
+style='color:windowtext'>Providing Alternative Resources</span></a></span><span
+style='font-size:10.5pt'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>你甚至可以可以在<span>XML</span>文件中用资源来创建别名。例如，你可以创建一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:black'>drawable</span><span
+style='font-size:10.5pt;color:black'>类型的资源，这个资源是另一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>drawable</span><span
+style='font-size:10.5pt;color:black'>类型资源的别名：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;?</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>xml</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>version</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;1.0&quot;</span></i> <span style='color:#7F007F'>encoding</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;utf-8&quot;</span></i><span
+  style='color:teal'>?&gt;</span></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>bitmap</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>xmlns:android</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;http://schemas.android.com/apk/res/android&quot;</span></i></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;@drawable/other_drawable&quot;</span></i> <span
+  style='color:teal'>/&gt;</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>这个听起来像是多余的介绍，但是在使用可替代资源的时候会很有用。</span><span
+style='font-size:10.5pt;color:#333333'>了解更多关于</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html#AliasResources"><span
+style='color:windowtext'>Creating alias resources</span></a></span><span
+style='font-size:10.0pt;color:#333333'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.0pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style=';color:#3A3A3A'>引用样式属性</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>一个样式属性资源允许你在当前应用的主题中引用一个属性的值。引用一个样式属性允许你通过样式化UI</span>元素以匹配当前主题提供的标准变化来定制<span>UI</span>元素的外观，而不是通过提供一个硬编码的值。引用样式属性从基本上说，“使用当前主题中的属性已定义好的样式”。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.5pt;
+color:black'>引用样式属性，其名称的语法与普通的资源格式几乎是等同的，但是取代符号（<span>@</span>），这使用的是问号（？），资源类型部分是可选的。例如：</span></p>
+
+<pre><span class=pun1><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?[<i>&lt;</i></span></span><span
+class=pln1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>package_name</span></i></span><span
+class=pun1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&gt;</span></i></span><span
+class=pun1><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>:][<i>&lt;</i></span></span><span
+class=pln1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>resource_type</span></i></span><span
+class=pun1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&gt;</span></i></span><span
+class=pun1><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>/]<i>&lt;</i></span></span><span
+class=pln1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>resource_name</span></i></span><span
+class=pun1><i><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&gt;</span></i></span></pre>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>例如，这个例子将介绍如何引用一个属性来设置文本的颜色以匹配系统主题的“主”文本的颜色：</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=533 valign=top style='width:399.4pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>EditText</span><span
+  style='font-size:10.0pt;font-family:"Courier New"'> <span
+  style='color:#7F007F'>id</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;text&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_width</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;fill_parent&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:layout_height</span><span
+  style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;wrap_content&quot;</span></i></span></p>
+  <p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;
+  <span style='color:#7F007F'>android:textColor</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;?android:textColorSecondary&quot;</span></i></span></p>
+  <p style='margin:0cm;margin-bottom:.0001pt'><span
+  style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp; <span
+  style='color:#7F007F'>android:text</span><span style='color:black'>=</span><i><span
+  style='color:#2A00FF'>&quot;@string/hello_world&quot;</span></i> <span
+  style='color:teal'>/&gt;</span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>在这，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007F00'>android:textColor</span><span
+lang=EN-US style='font-size:10.5pt;color:black'> </span><span style='font-size:
+10.5pt;color:black'>属性指定了当前主题中一个样式属性的名称。</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>Android
+</span><span style='font-size:10.5pt;color:black'>现在使用应用于</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007F00'>android:textColorSecondary</span><span
+style='font-size:10.5pt;color:black'> </span><span style='font-size:10.5pt;
+color:black'>样式属性的值作为该部件中</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:black'>android:textColor</span><span
+lang=EN-US style='font-size:10.5pt;color:black'> </span><span style='font-size:
+10.5pt;color:black'>的值。因为系统资源工具知道这个属性资源就是环境所期望的，所以你不需要显式地声明是那个类型（这个类型可能是？</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007F00'>android:attr/textColorSecondary</span><span style='font-size:
+10.5pt;color:black'>）<span>—</span>你可以排除掉</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>attr</span><span
+style='font-size:10.5pt;color:black'>类型。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;color:black'>&nbsp;</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;color:black'>&nbsp;</span></p>
+
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+style='color:#111111'>调用平台资源</span></b></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>Android</span><span style='font-size:10.5pt;color:black'>中包含有很多标准的资源，例如</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>styles</span><span style='font-size:10.5pt;color:black'>（样式）、</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>themes</span><span style='font-size:10.5pt;color:black'>（主题）、</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>layouts</span><span style='font-size:10.5pt;color:black'>（布局）等等。要调用这些资源，需要通过</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>android</span><span style='font-size:10.5pt;color:black'>包名来限定你的资源。例如，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>Android</span><span style='font-size:10.5pt;color:black'>提供了一个布局资源，你可以在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'><a target="_blank" href="http://developer.android.com/reference/android/widget/ListAdapter.html"><span
+style='color:black'>ListAdapter</span></a></span><span style='font-size:10.5pt;
+color:black'>中用以罗列表项。</span><span style='font-size:10.0pt;color:black'>（</span><span
+style='font-size:10.5pt;color:black'>译者注</span><span style='font-size:10.5pt;
+color:black'>：</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>ListAdapter</span><span style='font-size:10.5pt;color:black'>是</span><span
+style='font-size:10.0pt;color:black'>指</span><span style='font-size:10.5pt;
+color:black'>列表适配器）</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=568 valign=top style='width:426.1pt;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><pre><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setListAdapter(</span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>new</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'> ArrayAdapter&lt;String&gt;(</span><b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#7F0055'>this</span></b><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>, android.R.layout.</span><i><span
+  style='font-size:10.0pt;font-family:"Courier New";color:#0000C0'>simple_list_item_1</span></i><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>, myarray));</span></pre></td>
+ </tr>
+</table>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:black'>在这个例子中，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>simple_list_item_1</span><span
+style='font-size:10.5pt;color:black'>是平台为</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>ListView</span><span
+style='font-size:10.5pt;color:black'>的表项定义的布局资源。你可以使用这个列表布局，而不需要自己创建表项布局。（更多关于</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>ListView</span><span style='font-size:10.5pt;color:black'>，参见</span><u><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-listview.html"><span
+style='color:black'>List View Tutorial</span></a></span></u><span
+style='font-size:10.5pt;color:black'>）。</span></p>
+
+</div>
+
+      
+</body>
+</html>

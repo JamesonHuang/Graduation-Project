@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> ListAdapter</title>
+</head>
+<body>     
+<div class=WordSection100 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=ListAdapter><b><span
+lang=EN-US style='font-size:18.0pt'>ListAdapter</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >德罗德</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://sparkrico.javaeye.com">http://sparkrico.javaeye.com</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>翻译时间：</span><span>2010-11-03</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public interface <span
+style='color:#C00000'>ListAdapter </span>extends <span style='color:#C00000'>Adapter</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>android.widget.ListAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:9.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>子类及间接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>直接子类</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ArrayAdapter&lt;T&gt;,
+BaseAdapter, CursorAdapter, HeaderViewListAdapter, ResourceCursorAdapter,
+SimpleAdapter, SimpleCursorAdapter, WrapperListAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>扩展</span><span>Adapter </span><span
+>是在</span><span>ListView</span><span
+>与数据之间的一座桥梁。通常数据来自于游标，但不是必须的。</span><span>ListView</span><span
+>可以显示包含在</span><span>ListAdapter</span><span
+>里的所有数据。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=315 height=221
+src="image/image092.png"></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:10.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public abstract boolean </span></span><span class=sympad1><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>areAllItemsEnabled</span></b></span><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>
+</span></b><span class=normal2><span style='font-size:10.0pt;
+font-family:"Arial","sans-serif";color:#222222'>()</span></span><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>
+</span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >在</span><span
+lang=EN-US>ListAdapter</span><span >中所有的项目都是可用的？如果是，则代表所有的项目都是可选择，可用鼠标点击的。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >如果所有项目是可用的返回真</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span >&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:10.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public abstract boolean </span></span><span class=sympad1><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>isEnabled</span></b></span><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>
+</span></b><span class=normal2><span style='font-size:10.0pt;
+font-family:"Arial","sans-serif";color:#222222'>(int position)</span></span><b><span
+lang=EN-US style='font-size:11.0pt;font-family:"Arial","sans-serif";color:#222222'>
+</span></b></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >如果指定的位置不是一个隔离</span><span
+lang=EN-US>(separator)</span><span >项目（隔离项目是一个不可选择，不可用鼠标点击的项目）则返回真。如果位置是无效的，其结果将是不确定的。在这种情况下一个</span><span
+lang=EN-US>ArrayIndexOutOfBoundsException(</span><span >越界</span><span
+lang=EN-US>)</span><span >异常将抛出。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position<i>&nbsp;&nbsp;&nbsp; </i></span><span
+>项目的索引</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果这个项目不是一个隔离</span><span>(separator)</span><span
+>项目则返回真。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;<a target="_blank" href="http://lfcaolibin.javaeye.com/blog/624204">android
+adapter<span ><span>的体系</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

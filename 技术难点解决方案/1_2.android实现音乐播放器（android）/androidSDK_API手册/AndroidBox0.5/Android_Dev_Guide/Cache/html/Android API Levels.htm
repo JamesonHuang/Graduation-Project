@@ -1,0 +1,753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> Android API Levels</title>
+</head>
+<body>      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=left style='margin-left:125.85pt;text-align:left;
+text-indent:21.0pt'><b><span style='font-size:18.0pt'>Android API
+Levels</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>jackeylu</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span> <span><a target="_blank" href="http://jackeylu.wordpress.com/">http://jackeylu.wordpress.com/</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/appendix/api-levels.html">http://developer.android.com/guide/appendix/api-levels.html</a>
+</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>Android
+API Levels</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>在本文中</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a href="1.htm#WhatisAPILevel">API<span
+lang=EN-US ><span>的级别是什么</span></span>?</a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a href="1.htm#UsesofAPILevelinAn"><span
+lang=EN-US ><span>在</span></span>Android<span
+lang=EN-US ><span>中使用</span></span>API<span
+lang=EN-US ><span>级别</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a href="1.htm#DevelopmentConsiderations"><span
+lang=EN-US ><span>开发者需要考<span>虑<span
+lang=EN-US>的内容</span></span></span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span><a
+href="1.htm#Applicationbackwardcompatibility"><span
+><span>应用程序的向前兼容性</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span><a
+href="1.htm#Applicationbackwardcompatibility"><span
+><span>应用程序的向后兼容性</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span><a
+href="1.htm#SelectingaplatformversionandAPILev"><span
+><span>平台版本和</span></span>API<span
+><span>级别的选择</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span><a href="1.htm#DeclaringaminimumAPILevel"><span
+lang=EN-US ><span>声明最低</span></span>API<span
+lang=EN-US ><span>级别</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span><a
+href="1.htm#TestingagainsthigherAPILevels"><span style='font-family:
+宋体'><span>针对高版本的</span></span>API<span style='font-family:
+宋体'><span>级别测试</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a href="1.htm#UsingaProvisionalAPILevel"><span
+lang=EN-US ><span>使用临时的</span></span>API<span
+lang=EN-US ><span>级别</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a
+href="1.htm#FilteringtheReferenceDocumentationby"><span
+><span>通过</span></span>API<span
+><span>级别进行文档内容过滤</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a>
+manifest element</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>当你开发你的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>应用程序时，了解该平台</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>变更管理的基本方法和概念是很有帮助的。同样的，知道</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别标识以及该标识如何保障你的应用与实际硬件设备相兼容对于开发及后续的发布、维护都是有益的。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>本节内容告诉你</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别的知识，以及它如何影响你开发和使用的应用。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>关于如何使用</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>“</span><span style='font-size:10.5pt'>以</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别进行过滤</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>来使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>参考手册，从本文末尾的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/appendix/api-levels.html#filtering"><span
+lang=EN-US ><span>文档过滤</span></span>(Filtering
+the documentation)</a></span><span style='font-size:10.5pt'>中可以得到更多信息。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><a
+name=WhatisAPILevel></a><a name=EnablingProGuard><b><span
+style='font-size:14.0pt'>API</span></b></a><b><span style='font-size:14.0pt;
+'>级别是什么？</span></b><b><span style='font-size:14.0pt'>(What
+is API Level?)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别是一个整数值，它唯一标识了一个具体版本的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>平台，及其框架的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>的版本。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>平台提供了一套框架</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>，使得应用程序可以与系统底层进行交互。该框架</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>由以下模块组成</span><span
+style='font-size:10.5pt'>：</span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='text-align:left'><span >一组核心的包和类</span></li>
+ <li class=MsoNormal style='text-align:left'><span >清单</span><span
+    >(manifest)</span><span >文件的</span><span
+    >XML</span><span >元素和属性声明</span></li>
+ <li class=MsoNormal style='text-align:left'><span >资源文件的</span><span
+    >XML</span><span >元素和属性声明及访问形式</span></li>
+ <li class=MsoNormal style='text-align:left'><span >各类意图</span><span
+    >(Intents)</span></li>
+ <li class=MsoNormal style='text-align:left'><span >应用程序可以请求的各类授权，以及系统中包含的授权执行</span></li>
+</ul>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>每个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>平台的后续版本会包括它提供的更新的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Andr</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&#8203;&#8203;</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>oid</span><span
+style='font-size:10.5pt'>应用程序框架的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>该框架的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>的更新设计，使高版本的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>与早期版本兼容。也就是说，在新版本</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>中大多数都是新增功能，和引进新的或替代的功能。作为</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>的部分升级，老的替换的部分已过时，但不会从新版本中删除，使得已有的应用程序仍然可以使用它们。在极少数情况下，旧版本</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>的部分可能被修改或删除，通常这种变化是为了保障</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>的稳定性及应用程序或系统的安全。所有其他早期版</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&#8203;&#8203;</span><span
+style='font-size:10.5pt'>本的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>将不做修改的保留。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>平台提供的框架</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>，被指定一个整数标识符，称为</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“API</span><span
+style='font-size:10.5pt'>级别</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>。每一个版本的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>平台只支持有一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别，虽然该支持是隐含地包括了所有早期的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别（一直到</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>1</span><span
+style='font-size:10.5pt'>级）。</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> <span>Andr</span></span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&#8203;&#8203;</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>oid</span><span
+style='font-size:10.5pt'>平台的最初版本提供的框架</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别是</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>1</span><span
+style='font-size:10.5pt'>级，随后的版本依次递增。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.5pt'>下表说明了具体平台版本和支持的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别的对应关系。</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  >平台版本</span></b></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+ >API</span></b><b><span >级别</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 3.0</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>11</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.3.3</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>10</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.3</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>9</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.2</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>8</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.1</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>7</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.0.1</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>6</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 2.0</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>5</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 1.6</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>4</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 1.5</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>3</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 1.1</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>2</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=94 valign=top style='width:70.85pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>Android 1.0</span></p>
+  </td>
+  <td width=85 valign=top style='width:63.8pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span>1</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=center style='text-align:center'><a
+name=UsesofAPILevelinAn><b><span style='font-size:14.0pt;'>在</span></b></a><b><span
+lang=EN-US style='font-size:14.0pt'>Android</span></b><b><span
+style='font-size:14.0pt;'>中使用</span></b><b><span
+style='font-size:14.0pt'>API</span></b><b><span style='font-size:14.0pt;
+'>级别</span></b><b><span style='font-size:14.0pt'>(</span></b><b><span
+lang=EN-US style='font-size:14.0pt'>Uses of API Level in Android)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别标识为保证用户和应用程序开发者的最佳体验，起了关键作用：</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='text-align:left'><span >它让</span><span
+    >Android</span><span >平台可以描述它支持的框架</span><span
+    >API</span><span >的最高版本</span></li>
+ <li class=MsoNormal style='text-align:left'><span >它让应用程序可以描述它需要的框架</span><span
+    >API</span><span >版本</span></li>
+ <li class=MsoNormal style='text-align:left'><span >它使得系统可以在硬件设备上安装应用程序时能够检查版本是否匹配，使得版本不兼容的应用程序不会被错误安装在设备之上</span><span
+    >.</span></li>
+</ul>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>每个版本的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>平台都在其内部存储了自己的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别标识。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>应用程序可以用框架</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>提供的清单文件元素</span><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> — <code><span style='font-family:"Calibri","sans-serif"'>&lt;uses-sdk&gt;</span></code>
+</span><span style='font-size:10.5pt'>来描述该应用程序可以运行的最小和最大</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别，以及应用程序开发者设计期望运行的平台版本。三种属性分别描述如下</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>:</span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='text-align:left'><code><span
+     style='font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><span
+    > — </span><span >指明该应用程序可以运行的</span><span
+    >API</span><span >最低版本。默认是</span><span
+    >“1”</span><span >。</span></li>
+ <li class=MsoNormal style='text-align:left'><code><span
+     style='font-family:"Calibri","sans-serif";color:#007000'>android:targetSdkVersion</span></code><span
+    > — </span><span >指明该应用程序设计时期望运行的目标</span><span
+    >API</span><span >版本。在某些情况下，这允许应用程序使用目标</span><span
+    >API</span><span >级别下定义的清单元素或行为，而不是只限于使用最低</span><span
+    >API</span><span >级别定义的内容。</span><span
+    >(</span><span >译者注：</span><span
+    ><a
+     href="http://hi.baidu.com/jenus_hi/blog/item/6d83f7096505b9c560d98664.html">android<span
+     ><span>之</span></span>targetsdkversion<span
+     ><span>的理解</span></span>---<span
+     ><span>兼容性问题</span></span></a></span><span
+    >)</span></li>
+ <li class=MsoNormal style='text-align:left'><code><span
+     style='font-family:"Calibri","sans-serif";color:#007000'>android:maxSdkVersion</span></code><span
+    > — </span><span >指明该应用程序可以运行的最高</span><span
+    >API</span><span >级别。<strong><span
+     >重要声明</span></strong></span><strong><span
+     style='font-family:"Calibri","sans-serif"'>:</span></strong><span
+    > </span><span >使用该属性之前请阅读</span><span
+    ><a
+     href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></span><span
+     >文档。</span></li>
+</ul>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>比如，要指明一个应用程序能够运行的最低</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别，应当在该应用程序的清单文件的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>&lt;uses-sdk&gt;</span><span
+style='font-size:10.5pt'>元素中加入</span><code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><code><span
+style='font-size:10.5pt'>属性。</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><code><span
+style='font-size:10.5pt'>的值是一个正整数，对应的是该应用程序能够运行的最低平台的</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>级别标识。</span></code></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>用户尝试安装一个应用程序，或者在系统升级后重验证应用程序的时候，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>系统首先会检查应用程序的清单文件中的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>&lt;uses-sdk&gt;</span><span
+style='font-size:10.5pt'>属性，将其与系统内部</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别对比。系统只有在满足下列情况时才允许进行应用程序安装：</span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='text-align:left'><span >如果声明了</span><code><span
+     style='font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><code>属性，其属性值必须小于或等于该系统的</code><code><span
+     style='font-family:"Calibri","sans-serif"'>API</span></code><code>级别对应的整数值。如果未声明，系统会默认该应用程序运行需要的最低</code><code><span
+     style='font-family:"Calibri","sans-serif"'>API</span></code><code>级别是</code><code><span
+     style='font-family:"Calibri","sans-serif"'>1</span></code><code>。</code></li>
+ <li class=MsoNormal style='text-align:left'><span >如果声明了</span><code><span
+     style='font-family:"Calibri","sans-serif";color:#007000'>android:maxSdkVersion</span></code><code>属性，其属性值必须等于或大于该系统的</code><code><span
+     style='font-family:"Calibri","sans-serif"'>API</span></code><code>级对应的整数值。</code><span
+     >如果未声明，系统会默认该应用程序没有最高</span><span>API</span><span
+     >级别限制。请通过阅读文档</span><span><a
+     href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></span><span
+     >以获得系统如何处理该属性的更多信息。</span></li>
+</ul>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>应用程序清单文件中声明该属性后，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> <code><span style='font-family:
+"Calibri","sans-serif";color:#007000'>&lt;uses-sdk&gt;</span></code></span><code><span
+style='font-size:10.5pt'>元素看起来应类似于下面的例子：</span></code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> </span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span class=tag><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'><img border=0 width=413
+height=91
+src="image/2011-4-29_1.png"></span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>这样做的主要原因是，应用程序会通过</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android:miniSdkVersion</span><span
+style='font-size:10.5pt'>声明的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别来告知系统</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>——</span><span
+style='font-size:10.5pt'>该应用程序使用的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>是指定引入的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别。假如没有这种属性声明，一个应用程序如果因为某些不知名的原因被安装在低级别</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>系统之上，那么该应用程序会在运行时因为尝试访问不存在的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>而崩溃。为此，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>系统通过不允许应用程序被安装在不满足其最低</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别要求的目标硬件上来防止此类结果发生。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>例如，</span><code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/appwidget/package-summary.html">android.appwidget</a></span></code><code><span
+style='font-size:10.5pt'>类包是在</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>级别</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3</span></code><code><span
+style='font-size:10.5pt'>中开始引入的。如果一个应用程序使用了这个</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>，就必须通过指明</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android:minSdkVersion</span></code><code><span
+style='font-size:10.5pt'>属性为</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3</span></code><code><span
+style='font-size:10.5pt'>来声明运行的最低要求。于是，该应用程序就可以在</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+1.5</span></code><code><span style='font-size:10.5pt'>（</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>级别</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3</span></code><code><span
+style='font-size:10.5pt'>级）、</span></code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android 1.6 (API</span><span
+style='font-size:10.5pt'>级别</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>4</span><span style='font-size:10.5pt'>级</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>)</span><span
+style='font-size:10.5pt'>等平台上安装，但是在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android 1.1 (API</span><span
+style='font-size:10.5pt'>级别</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>2</span><span style='font-size:10.5pt'>级</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>)</span><span
+style='font-size:10.5pt'>和</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> Android 1.0 </span><span style='font-size:
+10.5pt'>平台</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(API</span><span
+style='font-size:10.5pt'>级别</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>1</span><span style='font-size:10.5pt'>级</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>)</span><span
+style='font-size:10.5pt'>上却是无法安装的。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>欲知关于如何声明应用程序</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别需求的更多信息，请阅读文档中关于清单文件的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></span><span
+style='font-size:10.5pt'>章节。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><a
+name=DevelopmentConsiderations><b><span style='font-size:14.0pt'>开发者需要考虑的内容</span></b></a><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>(Development
+Considerations)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>本节属于应用程序开发者需要了解的内容。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><a
+name=Applicationforwardcompatibility><b><span style='font-size:10.5pt'>应用程序的向前兼容性</span></b></a><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(Application
+forward compatibility)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>应用程序一般向前兼容于</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>平台的新版本。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>这是因为几乎所有的框架</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>变更都是添加性质的，一个以某种版本的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>开发的应用程序是向前兼容与后续</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>系统及高版本</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>。应用程序应当可以运行于高版本的平台，除非使用了未来因某种原因移除的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>向前兼容性的特性如此重要，是因为很多的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>驱动的设备能够使用</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>OTA</span><span style='font-size:
+10.5pt'>远程下载技术进行系统更新。用户开始时能够很好的安装和使用你开发的应用程序，后来进行了</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OTA</span><span
+style='font-size:10.5pt'>升级到新版本的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>平台。一旦升级完毕，你的应用程序将运行在一个新的版本环境下，而这个环境应当包含了你的应用程序所需的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>和系统功能。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>某些情况下，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>背后的变化，例如系统底层的变化，可能会影响到你的应用程序运行在新的环境下。为此，作为应用程序开发人员，应当了解应用程序在不同系统环境下将会有如何的外观和行为。</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+SDK</span><span style='font-size:10.5pt'>包含了多个平台版本，开发人员可以下载下来，用于测试自己的应用程序在不同版本下的运行情况。每个版本的平台都提供了兼容的系统镜像，你可以将应用程序运行在对应的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>虚拟设备（模拟器）上进行测试。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><a
+name=Applicationbackwardcompatibility><b><span style='font-size:10.5pt'>应用程序的向后兼容性</span></b></a><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(Application
+backward compatibility)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>应用程序不一定向后兼容于那些比这些应用程序开发环境低的平台环境。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>平台的每个新版本包含了新的框架</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>，例如新的平台功能，或者替代部分已有的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>。应用程序在新平台上可以访问这些新的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>，就像之前提到的，在后续更新的版本中，这些新功能</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>也是可以继续使用。相反的，因为早期版本的平台不会包含新的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>功能，使用了新</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>的应用程序在那些旧平台上是无法运行的。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>虽然一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>平台设备不太可能降级到以前的版本，但是需要了解的是：实际生活中可能会有很多设备运行的是较旧的平台版本。即使在设备接收到</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OTA</span><span
+style='font-size:10.5pt'>远程下载升级，有些人仍然可能会滞后甚至可能不会收到更新。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><a
+name=SelectingaplatformversionandAPILev><b><span style='font-size:10.5pt'>平台版本和</span></b></a><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:10.5pt'>级别的选择</span></b><b><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>(Selecting a platform version and
+API Level)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>当你开发应用程序时，你需要选择一个平台用于编译该应用程序。通常，你应该在你的应用程序可以支持的最低版本的平台上进行编译。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>你可以通过寻找最低的可以支持你的应用程序编译的平台方式来决定你将会支持的最低平台版本。一旦你确定了支持的最低版本后，你就可以创建对应版本的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>模拟器来全面测试你的应用程序。你需要注意的是不要忘记在应用程序清单文件中申明</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007000'>android:minSdkVersion</span></code><code><span style='font-size:
+10.5pt'>属性，并赋上正确的</span></code><code><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>级别标识。</span></code></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><a name=DeclaringaminimumAPILevel><b><span
+style='font-size:10.5pt'>声明最低</span></b></a><b><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:10.5pt'>级别</span></b><b><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>(Declaring a minimum API Level)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你开发的应用程序使用了最新平台上引入的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>或平台特性，你就需要将</span><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><code><span
+style='font-size:10.5pt'>属性赋最新平台的</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>级别标识。这将保证用户只能在他们的设备与你的应用程序平台版本兼容情况下安装。反过来说，这样能够保证你的应用程序在他们的设备上表现正常。</span></code></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你用了最新的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>或平台特性，但是没有申明</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007000'>android:minSdkVersion</span></code><code><span style='font-size:
+10.5pt'>属性，那么你的应用程序在最新平台上运行是没有稳定，但是在早期版本的平台上是会出错的。在后一种情况，应用程序在尝试访问旧平台上不存在的</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></code><code><span
+style='font-size:10.5pt'>时会崩溃。</span></code></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>针对高版本的</span></b><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:10.5pt'>级别测试</span></b><b><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>(<a
+name=TestingagainsthigherAPILevels>Testing against higher API Levels</a>)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>编译完你的应用程序，你应当在支持的最低版本平台上详细测试应用程序的表现。可以通过创建对应平台的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>模拟器进行测试。此外，要保证向前兼容性，你应当在你的应用程序可能运行的更高平台版本上进行运行和测试。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+SDK</span><span style='font-size:10.5pt'>包含了多个平台版本供开发者使用，其中包括了最新的版本，并且提供了升级工具使得开发者可以获取其他的版本。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>要使用升级工具，可以通过</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>命令行方式，该工具位于</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&lt;sdk&gt;/tools</span><span
+style='font-size:10.5pt'>路径下。你可以用敲入</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android</span><span
+style='font-size:10.5pt'>指令运行该升级工具，而不用指定任何参数。你也可以简单地通过双击</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Windows</span><span
+style='font-size:10.5pt'>下的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>android.bat</span><span style='font-size:
+10.5pt'>或</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OS
+X/Linux</span><span style='font-size:10.5pt'>下的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>文件来启动升级工具。在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>ADT</span><span style='font-size:
+10.5pt'>工具界面，你可以通过菜单的</span><strong><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Window</span></strong><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&gt;&nbsp;<strong><span
+style='font-family:"Calibri","sans-serif"'>Android SDK and AVD Manager</span></strong></span><strong><span
+style='font-size:10.5pt;;font-weight:normal'>来访问升级工具。</span></strong></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>要想将你的应用程序在不同平台版本的模拟器上运行，需要创建对应的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>设备。关于</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>AVD</span><span style='font-size:10.5pt'>的更多信息，请参见</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a
+href="file:///C:\Program%20Files\Android\android-sdk-windows\docs\guide\developing\devices\index.html">Creating
+and Managing Virtual Devices</a></span><span style='font-size:10.5pt'>。如果你用物理设备进行测试，确保清楚运行的具体平台版本。通过本文开始部分的映射表格可以知道平台版本对应的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别标识。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><a
+name=UsingaProvisionalAPILevel><b><span style='font-size:14.0pt'>使用临时的</span></b></a><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:14.0pt'>级别</span></b><b><span style='font-size:
+14.0pt;font-family:"Calibri","sans-serif"'>(Using a Provisional API Level)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>某些情况下，有可能会发布</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>“</span><span style='font-size:10.5pt'>早期预览</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Early
+Look</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>)</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>”</span><span
+style='font-size:10.5pt'>版的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android </span><span style='font-size:10.5pt'>平台</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SDK</span><span
+style='font-size:10.5pt'>。在此平台版本上开发使用的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>将不会是最终发布版，平台的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别标识数字就不会指定。你必须在程序清单文件中使用临时的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别进行标识，以便建立对应的平台应用。临时</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别不是一个整数，而是一个表示未发布的平台版本的字符串代号。</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“</span><span
+style='font-size:10.5pt'>早期预览</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>版本的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别在发布说明中会申明，该代号是大小写敏感的。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>临时</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别标识的用途是保护开发者和设备使用者免于无意中发布或安装在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“</span><span
+style='font-size:10.5pt'>早期预览</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>平台版本上开发的应用程序，这些应用程序可能在最终的发布系统上运行不稳定。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>临时</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别标识仅仅在使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“</span><span
+style='font-size:10.5pt'>早期预览</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>”</span><span style='font-size:10.5pt'>版本的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SDK</span><span
+style='font-size:10.5pt'>下有效，并且只能运行应用程序于模拟器之中。实际的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>设备上是无法安装使用临时</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别标识的应用程序的。在最终版本平台发布后，你必须将程序清单文件中用到的临时</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别标识替换成最终平台的实际</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别整数值。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><a
+name=FilteringtheReferenceDocumentationby><b><span style='font-size:14.0pt'>通过</span></b></a><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:14.0pt'>级别进行文档内容过滤</span></b></p>
+<p align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>(Filtering
+the Reference Documentation by API Level)</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>开发者站点上的参考文档的每个页面的右上方提供了</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“Filter by API
+Level”</span><span style='font-size:10.5pt'>控件。你可以用这个控件来仅仅显示你应用程序相关的那部分</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>文档，可以通过应用程序清单文件中的</span><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007000'>android:minSdkVersion</span></code><code><span
+style='font-size:10.5pt'>属性值进行过滤。</span></code></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>要使用过滤功能，可以通过页面搜索框下面的选择框来启用过滤功能。比如设定</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“Filter
+by API Level”</span><span style='font-size:10.5pt'>控件内容与你应用程序申明的相同。注意：在选定级别之后引入的心</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>会以灰色显示，并且内容被隐藏，因为你的应用程序是无法访问这些新功能。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别过滤方法不会提供每个</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别中新添加的功能视图，仅仅展现对应</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>级别的整个内容，其中去除了后续新版本中的内容。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你不想过滤</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>文档了，只需要关闭该选择框的特性。</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别过滤默认是关闭的，因此你可以看到整个框架</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>的全貌，而不管具体的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>级别。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>还要注意的是个别的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>元素申明了该</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>参考文档在哪一级引入的。这通过在每个文档页面正文部分的右上角的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>“Since
+&lt;api level&gt;”</span><span style='font-size:10.5pt'>进行声明该包和类的引入信息。类成员的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>级别在其详细描述文件头部的右边进行描述。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>文章精选</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://cw1057.blogspot.com/2011/04/android-api-level.html">Android API
+Level</a></span></p>
+
+</div>
+
+    
+</body>
+</html>

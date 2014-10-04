@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> MessageQueue</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>MessageQueue</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>strongxu</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者微博：</span><span><a target="_blank" href="http://t.qq.com/strongxu">http://t.qq.com/strongxu</a> </span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.1 r1</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>MessageQueue</span> extends <span style='color:#C00000'>Object </span></span></i></b></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.os.MessageQueue</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:20.25pt'><span
+>保存消息列表的低级别类，这些消息由</span><span>Looper</span><span
+>对象派发。消息并不是直接添加到</span><span>MessageQueue</span><span
+>中的，而是通过与</span><span>Looper</span><span
+>对象关联的</span><span>MessageQueue.IdleHandler</span><span
+>对象添加的。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>调用</span><span>Looper.myQueue</span><span
+>方法可以获取当前线程的</span><span>MessageQueue</span><span
+>。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public final void <b>addIdleHandler</b> (MessageQueue.IdleHandler
+handler)</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >向消息队列中添加一个新的</span>MessageQueue.IdleHandler</span><span >。当调用</span>IdleHandler.queueIdle()</span><span >返回</span>false</span><span >时，此</span><span>MessageQueue.IdleHandler</span><span
+>会自动的从消息队列中移除。或者调用</span><span>removeIdleHandler(MessageQueue.IdleHandler)</span><span
+>也可以从消息队列中移除</span><span>MessageQueue.IdleHandler</span><span
+>。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span >此方法是线程安全的。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要添加的</span><span>IdleHandler</span><span
+>。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public final void <b>removeIdleHandler</b> (MessageQueue.IdleHandler
+handler)</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>从队列中移除之前调用</span><span>addIdlehandler(MessageQueue.IdleHandler)</span><span
+>添加的</span><span>MessageQueue.IdleHandler</span><span
+>。如果</span><span>handler</span><span
+>不在当前的空闲列表，不做任何事。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要移除的</span><span>IdleHandler</span><span
+>。</span></p>
+
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>protected void <b>finalize</b> ()</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在对象被</span><span>VM</span><span
+>回收之前调用。只有当垃圾回收器检测到运行的所有线程都不再使用此对象时才会出现。</span></p>
+
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>在对象被垃圾回收之前，此方法可以用来释放系统资源或者做其他的清理工作。默认的此方法实现是空的，这也是</span>VM</span><span >所期望的，但是子类可以重写此方法。在此方法执行是抛出的未捕获异常会导致程序立即结束，否则则会忽略异常。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>注意，</span><span>VM</span><span
+>会保证任何对象的</span><span>finalize</span><span
+>方法最多调用一次，但是它不会保证何时（或者是否）会调用</span><span>finalize</span><span
+>。例如，对象</span><span>B</span><span
+>的</span><span>finalize</span><span
+>方法可以推迟执行对象</span><span>A</span><span
+>的</span><span>finalize</span><span
+>，因此它会导致推迟回收</span><span>A</span><span
+>的内存空间。为了安全，使用</span><span><a target="_blank" href="http://developer.android.com/reference/java/lang/ref/ReferenceQueue.html">ReferenceQueue</a></span><span
+>，因为在垃圾回收时，它在</span><span>VM</span><span
+>处理引用的方式上提供了更多的控制方法。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><a target="_blank" href="http://byandby.iteye.com/blog/825071">android<span
+lang=EN-US ><span>线程</span></span> Handler
+Message Queue AsyncTask<span >线程模型</span></span></a></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.cnblogs.com/xirihanlin/archive/2011/04/11/2012746.html">Android<span
+lang=EN-US ><span>中的</span></span>Handler,
+Looper, MessageQueue<span ><span>和</span></span>Thread</a></span></p>
+
+</div>
+
+      
+</body>
+</html>

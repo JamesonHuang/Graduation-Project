@@ -1,0 +1,850 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> HorizontalScrollView</title>
+</head>
+<body>     
+<div class=WordSection97 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=HorizontalScrollView><b><span style='font-size:18.0pt'>HorizontalScrollView</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>Tina </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>HorizontalScrollView</span> extends <span style='color:#C00000'>FrameLayout</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.FrameLayout</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.HorizontalScrollView</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b> </p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=251 height=174
+src="image/image086.png"></span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>用于布局的容器，可以放置让用户使用滚动条查看的视图层次结构，允许视图结构比手机的屏幕大。</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>HorizontalScrollView</span><span
+style='font-size:10.5pt'>是一种</span><code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/FrameLayout.html">FrameLayout</a></span></code><span
+style='font-size:10.5pt'>（框架布局），其子项被滚动查看时是整体移动的，并且子项本身可以是一个有复杂层次结构的布局管理器。一个常见的应用是子项在水平方向中，用户可以滚动显示顶层水平排列的子项</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(items)</span><span
+style='font-size:10.5pt'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>HorizontalScrollView</span><span
+style='font-size:10.5pt'>不可以和</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>ListView</span><span style='font-size:10.5pt'>同时用，因为</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ListView</span><span
+style='font-size:10.5pt'>有自己的滚动条设置。最重要的是，如果在需要显示很大的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>list</span><span
+style='font-size:10.5pt'>的情况下，两者同时用则会使</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>ListView</span><span
+style='font-size:10.5pt'>在一些重要的优化上失效。出现这种失效的原因在于，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>HorizontalScrollView</span><span
+style='font-size:10.5pt'>会强迫</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>ListView</span><span style='font-size:10.5pt'>用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>HorizontalScrollView</span><span
+style='font-size:10.5pt'>本身提供的空间容器（</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>infinite container</span><span
+style='font-size:10.5pt'>）来显示完整的列表。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span><span
+style='font-size:10.5pt'>类似的情况，</span><code><span style='font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/TextView.html">TextView</a></span></code><span
+style='font-size:10.5pt'>也有自己的滚动条，所以不需要</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ScrollView</span><span
+style='font-size:10.5pt'>。但这两者是可以同时使用的，使用的结果会是在一个更大的容器里显示文本视图。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>HorizontalScrollView</span><span
+style='font-size:10.5pt'>只支持水平方向的滚动显示。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>addView</b> (View child)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>添加一个子视图。若这个子视图没有被设置布局参数，则使用</span><span>ViewGroup</span><span
+>的缺省参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要添加的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>addView</b> (View child,
+int index)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>添加一个子视图。若这个子视图没有被设置布局参数，则使用</span><span>ViewGroup</span><span
+>的缺省参数。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要添加的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>index &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子视图要加入的位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>addView</b> (View child,
+int index, ViewGroup.LayoutParams params)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>添加一个带有指定布局参数的子视图。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要添加的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>index &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子视图要加入的位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>params &nbsp; </span><span
+>子视图的布局参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>addView</b> (View child,
+ViewGroup.LayoutParams params)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>添加一个带有指定布局参数的子视图。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要添加的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>params &nbsp; </span><span
+>子视图的布局参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>arrowScroll</b> (int
+direction)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>响应点击左右箭头时对滚动条的处理。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>direction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The
+direction corresponding to the arrow key that was pressed</span><span
+>箭头按键所表示的方向</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若此事件成功完成，则返回</span><span>true</span><span
+>；否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>computeScroll</b> ()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>被父视图调用，用于必要时候对其子视图的值（</span><span>mScrollX</span><span
+>和</span><span>mScrollY</span><span
+>）进行更新。典型的情况如：父视图中某个子视图使用一个</span><code><span
+style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/Scroller.html"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Scroller</span></a></span></code><span
+>对象来实现滚动操作，会使得此方法被调用。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>dispatchKeyEvent</b>
+(KeyEvent event)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>按照可以获得焦点的顺序（从视图树的顶端到当前获得焦点的视图），分派一个按键事件给下一个视图。若此视图为焦点视图，事件将会分派给它自己。否则它将按照顺序，分派给下一个节点。此方法同时触动所有按键监听器。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被分派的事件</span><span>.</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若事件被处理，则返回</span><span>true</span><span
+>；否则为</span><span>false</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>draw</b> (Canvas canvas)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>手动绘制视图（及其子视图）到指定的画布</span><span>(Canvas)</span><span
+>。这个视图必须在调用这个函数之前做好了整体布局。。当实现一个视图时，不需要继承这个方法；相反，你应该实现</span><code><span
+lang=EN-US style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#onDraw%28android.graphics.Canvas%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>onDraw(Canvas)</span></a></span></code><code><span
+style='font-size:12.0pt'>方法。</span></code></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>canvas &nbsp;&nbsp; </span><span
+>绘制视图的画布</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>executeKeyEvent</b>
+(KeyEvent event)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>需要通过按键事件来实现滚动操作时，可以调用此方法。效果类似于由视图树型结构分派事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>需要执行的事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若事件被处理，则返回</span><span>true</span><span
+>；否则为</span><span>false</span><span
+lang=EN-US> </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>fling</b> (int velocityX)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>滚动视图的</span><span>fling</span><span
+>手势。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>velocityX &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>方向的初始速率。正值表示手指</span><span>/</span><span
+>光标向屏幕右边滑动，而内容相对向左滚动。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>fullScroll</b> (int
+direction)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>处理按下</span><span>&quot;home/end&quot;</span><span
+>快捷键</span><span >之后的滚动响应。此方法会将视图移左或移右，同时将焦点赋予移动后可视的最左或最右的组件。如果没有任何组件适合得到焦点，此</span><span
+lang=EN-US>scrollview</span><span >将收回焦点。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>direction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动方向：</span><span>FOCUS_LEFT</span><span
+>表示向视图的左边移动，</span><span>FOCUS_RIGHT</span><span
+>表示向视图的右边移动</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若此方法消耗</span><span>(</span><span>consumed</span><span
+lang=EN-US>)</span><span >了按键事件则返回</span><span
+lang=EN-US>true</span><span >，否则返回</span><span
+lang=EN-US>false</span><span >。</span><span> </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public int <b>getMaxScrollAmount</b> ()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>按左右箭头时视图可以滚动的最大值。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>isFillViewport</b> ()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>表示此</span><span>ScrollView</span><span
+>的内容是否被拉伸以适应视口（</span><span>viewport</span><span
+>）的大小。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若内容填充了视口则返回</span><span>true</span><span
+>，否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>isSmoothScrollingEnabled</b>
+()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>按箭头方向滚动时，是否显示滚动的平滑效果。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>onInterceptTouchEvent</b>
+(MotionEvent ev)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>使用此方法可以拦截所有触摸屏动作引发的事件。这意味着你可以监视分派给子项的事件，并且可以拿到任何当前手势的所有权。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>使用此方法需谨慎。因为它与</span><span>View.onTouchEvent(MotionEvent)</span><span
+>有相当复杂的交互影响。这两者都必须同时正确地实现。事件将按以下顺序来被方法接收：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp; 1. </span><span >接收到</span><span
+lang=EN-US>down</span><span >事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp; 2. </span><span >事件将被视图组的一个子视图处理，或者被传递给自己的</span><span
+lang=EN-US>onTouchEvent()</span><span >方法处理；这意味着你必须实现</span><span
+lang=EN-US>onTouchEvent()</span><span >，并且返回</span><span
+lang=EN-US>true</span><span >，这样才可以接着接受到其他的手势（而不是寻求一个父视图来处理它）。</span><span
+lang=EN-US>onTouchEvent()</span><span >返回</span><span
+lang=EN-US>true</span><span >后，你将不再接受到</span><span
+lang=EN-US>onInterceptTouchEvent()</span><span >的任何事件，同时所有对触摸动作的处理必须像往常一样在</span><span
+lang=EN-US>onTouchEvent()</span><span >中进行。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp; 3. </span><span >如果返回</span><span
+lang=EN-US>false</span><span >，则接下来的每个事件</span><span
+>（所有的</span><span>up</span><span
+>事件，包含最后一个</span><span>up</span><span
+>）</span><span >将会首先被传递到这里，然后到目标对象</span><span
+lang=EN-US>view</span><span >的</span><span>onTouchEvent()</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp; 4. </span><span >如果返回</span><span
+lang=EN-US>ture</span><span >，你将不会接收到以下任何事件：目标</span><span
+lang=EN-US>view</span><span >将会接收到相同的事件，但是带着</span><span
+lang=EN-US>ACTION_CANCEL</span><span >的动作。所有在此之后的事件将会被传递到你的</span><span
+lang=EN-US>onTouchEvent()</span><span >方法中，并且不再在这里出现。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>ev &nbsp;&nbsp; </span><span
+>沿着树型结构往下分派的动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若将动作事件从子视图中截获并通过</span><span>onTouchEvent()</span><span
+>将他们分派给当前</span><span>ViewGroup</span><span
+>，则返回</span><span>true</span><span
+>。当前目标将收到一个</span><span>ACTION_CANCEL</span><span
+>事件，并且不再会有其他消息被传递到这里。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>onTouchEvent</b>
+(MotionEvent ev)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>此方法用于处理触摸屏的动作事件。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>ev &nbsp;&nbsp; </span><span
+>动作事件</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若事件被成功处理，则返回</span><span>true</span><span
+>；否则返回</span><span>false</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>pageScroll</b> (int
+direction)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>处理按下</span><span>&quot;page up/down&quot;</span><span
+>快捷键</span><span >之后的滚动响应。此方法会将视图往左或往右滚动一个页面的距离，同时将焦点赋予移动后可视的最左或最右的组件。如果没有任何组件适合得到焦点，此</span><span
+lang=EN-US>scrollview</span><span >将收回焦点。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>direction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动方向：</span><span>FOCUS_LEFT</span><span
+>表示向视图的左边移动一个页面</span><span>FOCUS_RIGHT</span><span
+>表示向视图的右边移动一个页面</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若此方法处理</span><span>(</span><span>consumed</span><span
+lang=EN-US>)</span><span >了按键事件则返回</span><span
+lang=EN-US>true</span><span >，否则返回</span><span
+lang=EN-US>false</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>requestChildFocus</b>
+(View child, View focused)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>当父视图的一个子视图要获得焦点时，调用此方法。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要获得焦点的子视图。此视图将包含焦点视图，但其本身不必为焦点。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>focused &nbsp; </span><span
+>事实上拥有焦点的子视图的下层视图。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public boolean <b>requestChildRectangleOnScreen</b>
+(View child, Rect rectangle, boolean immediate)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>当组里的某个子视图需要被定位在屏幕的某个矩形范围时，调用此方法。重载此方法的</span><span
+lang=EN-US>ViewGroup</span><span >可确认以下几点：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; * </span><span >子项目将是组里的直系子项</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; * </span><span >矩形将在子项目的坐标体系中</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>重载此方法的</span><span>ViewGroup</span><span
+>应该支持以下几点：</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; * </span><span >若矩形已经是可见的，则没有东西会改变</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; * </span><span >为使矩形区域全部可见，视图将可以被滚动显示</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>发出请求的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>rectangle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>子项目坐标系内的矩形，即此子项目希望在屏幕上的定位</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>immediate &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设为</span><span>true</span><span
+>，则禁止动画和平滑移动滚动条</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>进行了滚动操作的这个组（</span><span>group</span><span
+>），是否处理此操作</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>requestLayout</b> ()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>当出现使视图布局失效的改变时，调用此方法。它将规划一个视图树的布局路径。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>scrollTo</b> (int x, int
+y)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>设置视图滚动后的位置。这将引起</span><span>onScrollChanged(int,int,int,int)</span><span
+>的调用，同时使此视图失效。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>此版本同时将滚动锁定于子视图的范围。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要滚动到的</span><span>x</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要滚动到的</span><span>y</span><span
+>位置</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>setFillViewport</b>
+(boolean fillViewport)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>设置此滚动视图是否将内容宽度拉伸来适应视口（</span><span>viewport</span><span
+>）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>fillViewport &nbsp;&nbsp;&nbsp; </span><span
+>设置为</span><span>true</span><span
+>表示将拉伸内容宽度；否则会设置为</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>setOverScrollMode</b> (int
+mode)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>为视图设置</span><span>over-scroll</span><span
+>模式。有效的</span><span>over-scroll</span><span
+>模式有</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#OVER_SCROLL_ALWAYS"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OVER_SCROLL_ALWAYS</span></a></span></code><span
+>（缺省值），</span><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#OVER_SCROLL_IF_CONTENT_SCROLLS"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OVER_SCROLL_IF_CONTENT_SCROLLS</span></a></span></code><span
+>（只允许当视图内容大过容器时，进行</span><span>over-scrolling</span><span
+>）和</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#OVER_SCROLL_NEVER"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>OVER_SCROLL_NEVER</span></a></span></code><span
+>。只有当视图可以滚动时，此项设置才起作用。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>mode &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>视图的新</span><span>over-scroll</span><span
+>模式值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public void <b>setSmoothScrollingEnabled</b>
+(boolean smoothScrollingEnabled)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>设置是否呈现按下箭头后的平滑滚动效果（动画效果）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>smoothScrollingEnabled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>设置是否呈现平滑滚动效果</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public final void <b>smoothScrollBy</b>
+(int dx, int dy)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>类似</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#scrollBy%28int,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>scrollBy(int, int)</span></a></span></code><span
+>，但是呈现平滑滚动，而非瞬间滚动（译者注：瞬间滚动——指不显示滚动过程，直接显示滚动后达到的位置）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>dx &nbsp;&nbsp; </span><span
+>要滚动的</span><span>X</span><span
+>轴像素差值（译者注：横向像素差值）</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>dy &nbsp;&nbsp; </span><span
+>要滚动的</span><span>Y</span><span
+>轴像素差值（译者注：纵向像素差值）</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='background:#D9D9D9'>public final void <b>smoothScrollTo</b>
+(int x, int y)</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>类似</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/widget/HorizontalScrollView.html#scrollTo%28int,%20int%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>scrollTo(int, int)</span></a></span></code><span
+>，但是呈现平滑滚动，而不是瞬间滚动。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动要到达位置的</span><span>X</span><span
+>轴值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动要到达位置的</span><span>Y</span><span
+>轴值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>protected int <b>computeHorizontalScrollOffset</b>
+()</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>计算水平方向滚动条的滑块的偏移值。此值用来计算滚动时滑块的位置。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>偏移值的范围可以以任何单位表示，但必须与</span><span>computeHorizontalScrollRange()</span><span
+>和</span><span>computeHorizontalScrollExtent()</span><span
+>的单位一致。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>缺省的偏移值为视图滚动的偏移差值。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动条滑块在水平方向上的偏移值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected int <b>computeHorizontalScrollRange</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>scroll view </span><span >的可滚动水平范围是所有子视图的宽度总合。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>水平滚动条表示的全部水平滚动范围</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected int <b>computeScrollDeltaToGetChildRectOnScreen</b>
+(Rect rect)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>计算</span><span>X</span><span
+>方向滚动的总合，以便在屏幕上显示子视图的完整矩形（或者，若矩形宽度超过屏幕宽度，至少要填满第一个屏幕大小）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>rect &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>矩形</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>滚动差值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected float <b>getLeftFadingEdgeStrength</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回左渐变边缘的强度或密集度。强度的值介于</span><span>0.0</span><span
+>（无渐变）到</span><span>1.0</span><span
+>（全渐变）之间。缺省实现只返回</span><span>0.0</span><span
+>或</span><span>1.0</span><span
+>，而不返回中间值。子类必须重载次方法来给滚动动作提供更平滑的渐变过程。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>左渐变的强度，即介于</span><span>0.0f</span><span
+>和</span><span>1.0f</span><span
+>之间的浮点值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected float <b>getRightFadingEdgeStrength</b>
+()</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>返回右渐变边缘的强度或密集度。强度的值介于</span><span>0.0</span><span
+>（无渐变）到</span><span>1.0</span><span
+>（全渐变）之间。缺省实现只返回</span><span>0.0</span><span
+>或</span><span>1.0</span><span
+>，而不返回中间值。子类必须重载此方法来给滚动动作提供更平滑的渐变过程。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>右渐变的强度，即介于</span><span>0.0f</span><span
+>和</span><span>1.0f</span><span
+>之间的浮点值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>measureChild</b> (View
+child, int parentWidthMeasureSpec, int parentHeightMeasureSpec)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>要求子视图测量自身，需要将视图的</span><span>MeasureSpec</span><span
+>和其附加内容同时考虑在内。</span><span>getChildMeasureSpec</span><span
+>在其中承担了重要角色，它计算出</span><span>MeasureSpec</span><span
+>，并传递给子视图。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要测量的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>parentWidthMeasureSpec &nbsp;&nbsp;&nbsp; </span><span
+>此视图的宽度要求</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>parentHeightMeasureSpec &nbsp;&nbsp; </span><span style='font-family:
+宋体'>此视图的高度要求</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>measureChildWithMargins</b>
+(View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec,
+int heightUsed)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>要求子视图测量自身，需要将视图的</span><span>MeasureSpec</span><span
+>、附加内容和边缘部分同时考虑在内。子项必须有</span><span>MarginLayoutParams</span><span
+>（边缘布局参数）。</span><span>getChildMeasureSpec</span><span
+>在其中承担了重要角色，它计算出</span><span>MeasureSpec</span><span
+>，并传递给子视图。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>child &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>要测量的子视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>parentWidthMeasureSpec &nbsp;&nbsp;&nbsp; </span><span
+>此视图的宽度要求</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>widthUsed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>被父视图（也可能是其他子视图）占用的横向额外空间</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>parentHeightMeasureSpec &nbsp;&nbsp; </span><span style='font-family:
+宋体'>此视图的高度要求</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>heightUsed &nbsp;&nbsp;&nbsp; </span><span >被父视图（也可能是其他子视图）占用的纵向额外空间</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>onLayout</b> (boolean
+changed, int l, int t, int r, int b)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当此视图要给每个子视图赋值大小和位置时，</span><span>layout</span><span
+>会调用此方法。子项的派生类应当重载此方法，并且调用各个子项的</span><span>layout</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>changed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此视图有新的大小或位置</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>l &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+宋体'>左边界位置，相对于父视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>t &nbsp;&nbsp;&nbsp;&nbsp; </span><span >上边界位置，相对于父视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>r &nbsp;&nbsp;&nbsp;&nbsp; </span><span >右边界位置，相对于父视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>b &nbsp;&nbsp;&nbsp;&nbsp; </span><span >下边界位置，相对于父视图</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>onMeasure</b> (int
+widthMeasureSpec, int heightMeasureSpec)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >调用此方法来确定本身和所包含内容的大小（宽度和高度）。此方法被</span><span
+lang=EN-US>measure(int,int)</span><span >唤起，而且必须被子类重载以得到所包含内容的确切大小。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>注意：当重载此方法时，必须调用</span><span>setMeasureDimension(int,int)</span><span
+>来保存</span><span>View</span><span
+>的大小。如果没有做到，将会引发一个</span><span>measure(int,int)</span><span
+>抛出的</span><span>IllegalStateException</span><span
+>（非法状态错误）。超类</span><span>onMeasure(int,int)</span><span
+>可以被调用。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>编写基类的确认大小的方法，缺省情况下是根据其背景大小来确认，除非</span><span>MeasureSepc</span><span
+>允许有更大的高度或宽度。子类必须重载</span><span>onMeasure(int,int)</span><span
+>以得到对其内容大小的更准确的测量。</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>若此方法被重载，它的子类需要确保其高度和宽度至少达到</span><span>View</span><span
+>所规定的最小值（可通过</span><span>getSuggestedMinimumHeight()</span><span
+>和</span><span>getSuggestedMinimumWidth()</span><span
+>得到）。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>widthMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>受上一层大小影响下的对水平空间的要求。可参看</span><span>View.MeasureSpec</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>heightMeasureSpec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>受上一层大小影响下的对垂直空间的要求。可参看</span><span>View.MeasureSpec</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>onOverScrolled</b> (int
+scrollX, int scrollY, boolean clampedX, boolean clampedY)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>被</span><code><span style='font-size:12.0pt'><a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html#overScrollBy%28int,%20int,%20int,%20int,%20int,%20int,%20int,%20int,%20boolean%29"><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>overScrollBy(int,
+int, int, int, int, int, int, int, boolean)</span></a></span></code><span
+>调用，来对一个</span><span>over-scroll</span><span
+>操作的结果进行响应。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>scrollX &nbsp;&nbsp;&nbsp; </span><span
+>新的</span><span>X</span><span
+>滚动像素值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>scrollY &nbsp;&nbsp;&nbsp; </span><span
+>新的</span><span>Y</span><span
+>滚动像素值</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>clampedX &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当</span><span>scrollX</span><span
+>被</span><span>over-scroll</span><span
+>的边界限制时，值为</span><span>true</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>clampedY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当</span><span>scrollY</span><span
+>被</span><span>over-scroll</span><span
+>的边界限制时，值为</span><span>true</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected boolean <b>onRequestFocusInDescendants</b>
+(int direction, Rect previouslyFocusedRect)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当在某个</span><span>scroll view</span><span
+>的子视图中寻找焦点时，需要小心不能让屏幕之外的组件得到焦点。这比缺省</span><span
+lang=EN-US>ViewGroup</span><span >的实现代价更高，否则此行为被设为缺省。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>direction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>值可以为</span><span>FOCUS_UP</span><span
+>，</span><span>FOCUS_DOWN</span><span
+>，</span><span>FOCUS_LEFT</span><span
+>或</span><span> FOCUS_RIGHT</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>previouslyFocusedRect  </span><span
+>能够给出一个较好的提示的矩形（当前视图的坐标系统）表示焦点从哪里得来。如果没有提示则为</span><span
+lang=EN-US>null</span><span >。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >返回值</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>是否取到了焦点。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='background:#D9D9D9'>protected void <b>onSizeChanged</b> (int
+w, int h, int oldw, int oldh)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>当</span><span>View</span><span
+>的大小改变时此方法被调用。如果</span><span>View</span><span
+>是刚刚被加入，则视之前的值为</span><span>0</span><span
+>。</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >参数</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>w &nbsp;&nbsp;&nbsp; </span><span>View</span><span
+>的当前宽度</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>h &nbsp;&nbsp;&nbsp;&nbsp; </span><span>View</span><span
+>的当前高度</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>oldw &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span>View</span><span
+>大小改变之前的宽度</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left'><span
+lang=EN-US>oldh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>View</span><span >大小改变之前的高度</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;<a target="_blank" href="http://www.androidpeople.com/android-horizontalscrollview-example/">Android
+HorizontalScrollview Example</a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+</div>
+
+<b><span style='font-size:22.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

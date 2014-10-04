@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> AbsSeekBar</title>
+</head>
+<body>     
+<div class=WordSection59 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=AbsSeekBar><b><span
+lang=EN-US style='font-size:22.0pt'>AbsSeekBar</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span>madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：<span><a target="_blank" href="http://madgoat.cn/">http://madgoat.cn/</a>
+</span></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：<span>Android 2.2 r1</span></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+<span style='color:#C00000'>abstract</span> class <span style='color:#C00000'>AbsSeekBar</span>
+extends <span style='color:#C00000'>ProgressBar</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/11/1823806.html">android.view.View</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.ProgressBar</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.AbsSeekBar</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US><img border=0 width=256 height=29
+src="image/image052.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>此类为抽象类。供拖动条</span><span>SeekBar</span><span
+>和评分条</span><span>RatingBar</span><span
+>继承。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public int getKeyProgressIncrement ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-size:11.0pt;
+'>返回</span><span class=apple-style-span><span style='font-size:
+11.0pt;;color:black'>方向键</span></span><span style='font-size:
+11.0pt;'>改变后的进度值</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >默认情况下此值是根据最大值而得出的。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>当用户按下方向键后减少或增加之后的进度值。这个进度值是正数。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int getThumbOffset ()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参见</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>setThumbOffset(int)</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean onKeyDown (int keyCode, KeyEvent
+event)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >默认实现</span><span
+lang=EN-US>KeyEvent.Callback.onKeyMultiple():</span><span style='font-family:
+宋体'>如果视图已启用并且可点击，当</span><span>KEYCODE_DPAD_CENTER</span><span
+>或者</span><span>KEYCODE_ENTER</span><span
+>被释放时，执行按下（</span><span>Down</span><span
+>）此视图的操作。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>keyCode&nbsp;&nbsp; KeyEvent</span><span >中用于表示按键被按下的识别码</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>按键操作中定义的</span><span>KeyEvent</span><span
+>对象</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>假如你已经处理了当前事件，返回</span><span>true</span><span
+>。假如你想继续让下一个事件接收者（</span><span>receiver</span><span
+>）处理，则返回</span><span>false</span><span
+>；</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public boolean onTouchEvent (MotionEvent event)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >实现这个方法来处理触摸屏幕引发的事件。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>动作事件</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果事件已经处理返回</span><span>True</span><span
+>，否则返回</span><span>false</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void setKeyProgressIncrement (int increment)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置使用方向键更改进度时每次的增加值（注：设置此值后，使用按键修改进度值时，每次增加或减少</span><span
+lang=EN-US>increment</span><span >大小的幅度）</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>increment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The amount to increment or
+decrement when the user presses the arrow keys.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>increment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>当用户按下指示键时增加或减少的值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public synchronized void setMax (int max)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置进度条的范围，从</span><span
+lang=EN-US>0</span><span >到</span><span>max</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>进度条的最大值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void setThumb (Drawable thumb)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置可绘制对象</span><span
+lang=EN-US>thumb</span><span >为</span><span>SeekBar</span><span
+>中显示的进度表的结束位置的图案（注：例如下图）</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span><img border=0
+width=256 height=29 src="image/image052.png"></span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果</span><span
+lang=EN-US>thumb</span><span >是一个有效的可绘制对象（例如不是</span><span
+lang=EN-US>null</span><span >值），那么需要设置</span><span
+lang=EN-US>thumb</span><span >的偏移量为他的一半宽度（参见</span><span
+lang=EN-US>setThumbOffset(int)</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>thumb&nbsp;&nbsp; </span><span >可绘制对象</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void setThumbOffset (int thumbOffset)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置</span><span
+lang=EN-US>thumb</span><span >的偏移量允许</span><span
+lang=EN-US>thumb</span><span >扩展超出轨道的范围</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>thumbOffset&nbsp;&nbsp;&nbsp; </span><span >以像素为单位的偏移量</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>（注：例如下图，两图同样取</span><span>SeekBar</span><span
+>的最大值）</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+>默认</span><span>Offset</span><span
+>为</span><span>thumb</span><span
+>的一半时：</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=306 height=36
+src="image/image053.png"></span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>setThumbOffset(0)</span><span >时：</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=310 height=37
+src="image/image054.png"></span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal><b><span >受保护方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>protected boolean verifyDrawable (Drawable who)</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >如果你的视图子类显示他自己的可视化对象，他将要重写此方法并且为了显示可绘制返回</span><span
+lang=EN-US>true</span><span >。此操作允许进行绘制时有动画效果。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >确认当重写从方法时，需调用父类相应方法。（注：即记得调用</span><span
+lang=EN-US>super.verifyDrawable(who)</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>who&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>需判断的可绘制对象（</span><span>Drawable</span><span
+>）。如果是你要显示的对象，返回</span><span>True</span><span
+>，否则返回调用父类的结果。</span><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>如果可绘制对象（</span><span>Drawable</span><span
+>）已经在视图中显示，返回</span><span>True</span><span
+>否则返回</span><span>false</span><span
+>。并且此处不允许使用动画。</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

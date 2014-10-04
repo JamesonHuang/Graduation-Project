@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> AbsSpinner</title>
+</head>
+<body>     
+<div class=WordSection60 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=AbsSpinner><b><span
+lang=EN-US style='font-size:22.0pt'>AbsSpinner</span></b></a><b><span
+lang=EN-US style='font-size:22.0pt'> </span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：思考的狼</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://blog.163.com/sikaodelang@126/">http://blog.163.com/sikaodelang@126/</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><i><span>public
+abstract class <span style='color:#C00000'>AbsSpinner</span> extends <span
+style='color:#C00000'>AdapterView&lt;T extends Adapter&gt;</span></span></i></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/over140/archive/2010/09/11/1823806.html">android.view.View</a></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.AdapterView&lt;T
+extends android.widget.Adapter&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.AbsSpinner</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>直接子类</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gallery,
+Spinner</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>下拉列表的基类。</span> <span>Sdk</span><span
+>可能不再使用到该类（译者注：我认为是过时了）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>XML</span></b><b><span
+>属性</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=529
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr style='height:14.9pt'>
+  <td width=164 valign=top style='width:122.7pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt;height:14.9pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=366 valign=top style='width:274.2pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt;height:14.9pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr style='height:17.35pt'>
+  <td width=164 style='width:122.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.35pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:entries</span></b></p>
+  </td>
+  <td width=366 style='width:274.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:17.35pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>引用一个数据源填充</span><span>Spinner</span><span style='font-family:
+  宋体'>。对于静态内容，这是一种比编程填充</span><span>Spinner</span><span
+  >更简单的方式</span> <span >。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >公共方法</span></b><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>public SpinnerAdapter getAdapter ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+color:black'>返回与当前部件相关联的适配器</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style=';color:black'>&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>该适配器用于提供视图内容</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int getCount ()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>与此相关的适配器</span><span>AdapterView</span><span
+>所拥有的项目数量。（这个数据项，可能比显示的视图数据量还大。）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public View getSelectedView ()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span><span >这个视图对应当前选择的项，或者如果不选择视图则为</span><span
+lang=EN-US>null </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void onRestoreInstanceState (Parcelable
+state)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span >允许视图重新应用以前通过</span><span
+lang=EN-US>onSaveInstanceState()</span><span >生成代表内部的状态。这个函数决不能以一个空值状态被调用。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>state</span><span >返回以前调用</span><span
+lang=EN-US>onSaveInstanceState()</span><span >保存下来的状态。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public Parcelable onSaveInstanceState ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >允许视图生成一个代表内部的状态，以后可用于创建一个与之相同的新的实例。这个状态只可包含那些暂时的或不能被重建的信息。例如，你无法将你目前的位置保存在屏幕上，因为当有一个新的对象出现在这个视图层次上就会自动重新计算。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >以下有些实例：当光标停留在一个文本视区上（但是通常来说不能是实文档，因为那个是己储存在内容提供者或者其它长久储存器中），当前所选的项位于一个列表视图中</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>返回一个</span><span>Parcelable</span><span
+>对象包含了当前视图动态状态，或者返回</span><span>null</span><span
+>如果没有保存，默认返回值为</span><span>null</span><span
+>。</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public int pointToPosition (int x, int y)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >映射到列表中的一个坐标（译者注：根据这个坐标可以确定点击的是哪一个</span><span
+lang=EN-US>item</span><span >，看</span><span><a target="_blank" href="http://bigcat.easymorse.com/?p=677"><span style='font-family:
+宋体'><span>这里</span></span></a></span><span >）</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>x &nbsp;&nbsp;&nbsp;&nbsp; </span><span >局部坐标</span><span
+lang=EN-US>X</span><span >（译者注：列表范围内的坐标</span><span
+lang=EN-US>X</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span>y &nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>局部坐标</span><span>Y</span><span
+>（译者注：列表范围内的坐标</span><span>Y</span><span
+>）</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:26.25pt'><span
+>返回这个位置包含的指定点（译者注：返回坐标</span><span>(item)</span><span
+>在列表中的顺序），如果这</span><span>2</span><span
+>个点不相交返回</span><span>INVALID_POSITION </span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void requestLayout ()</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >重写以防止布局视图时出现大量布局要求。（译者注：这个方法通常在视图认为它自己不再合适它当前的边界的情况下被调用）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void setAdapter (SpinnerAdapter adapter)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >该适配器用于提供数据支持这个</span><span
+lang=EN-US>Spinner</span><span >。他还提供了改变基于他们选择的相对位置</span>
+<span >的选定项</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>adapter  </span><span >该</span><span
+lang=EN-US>SpinnerAdapter</span><span >用于下拉列表</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt'><span
+style='background:#D9D9D9'>public void setSelection (int position, boolean
+animate)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >直接跳到数据适配器中指定项</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='background:#D9D9D9'>public void setSelection (int position)</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >设置当前选中项，为了支持可访问的子类重写此方法，必须首先调用父类的方法。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>position  </span><span >索引，被选中的数据项</span><span
+lang=EN-US>(</span><span >从</span><span>0</span><span
+>开始</span><span>)</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >受保护方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='background:#D9D9D9'>protected ViewGroup.LayoutParams
+generateDefaultLayoutParams ()</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span >返回默认设置的布局参数。这些参数是在请求传递给</span><span
+lang=EN-US>addView(View)</span><span >还没有布局的时候已经设置好了的。如果是返回</span><span
+lang=EN-US>null</span><span >，则从</span><span>addView</span><span
+>抛出一个异常</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数的默认布局或</span><span>null</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

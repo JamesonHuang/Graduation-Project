@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> ImageView</title>
+</head>
+<body>     
+<div class=WordSection96 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=ImageView><b><span
+lang=EN-US style='font-size:22.0pt'>ImageView</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>农民伯伯</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.ImageView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>直接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>ImageButton, QuickContactBadge&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>间接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>ZoomButton</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>类概述：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>显示任意图像，例如图标。</span><span>ImageView</span><span
+>类可以加载各种来源的图片（如资源或图片库），需要计算图像的尺寸，比便它可以在其他布局中使用，并提供例如缩放和着色（渲染）各种显示选项。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>XML</span><span
+>属性</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:5.4pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=180 valign=top style='width:134.7pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=350 valign=top style='width:262.2pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:adjustViewBounds</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span class=shorttext><span
+  >是否保持宽高比。需要与</span></span><span>maxWidth</span><span
+  >、</span><span>MaxHeight</span><span
+  >一起使用，否则单独使用没有效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:cropToPadding</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>是否截取指定区域用空白代替。单独设置无效果，需要与</span><span>scrollY</span><span
+  >一起使用，效果如下，实现代码见代码部分：</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span><img
+  border=0 width=153 height=80
+  src="image/image077.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxHeight</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置</span><span>View</span><span >的最大高度，单独使用无效，需要与</span><span
+ >setAdjustViewBounds</span><span >一起使用。如果想设置图片固定大小，又想保持图片宽高比，需要如下设置：</span></p>
+  <p class=MsoNormal align=left style='margin-left:18.0pt;text-align:left;
+  text-indent:-18.0pt'><span>1）<span style='font:7.0pt "Times New Roman"'>&nbsp;
+  </span></span><span >设置</span><span>setAdjustViewBounds</span><span
+  >为</span><span>true</span><span
+  >；</span></p>
+  <p class=MsoNormal align=left style='margin-left:18.0pt;text-align:left;
+  text-indent:-18.0pt'><span>2）<span style='font:7.0pt "Times New Roman"'>&nbsp;
+  </span></span><span >设置</span><span>maxWidth</span><span
+  >、</span><span>MaxHeight</span><span
+  >；</span></p>
+  <p class=MsoNormal align=left style='margin-left:18.0pt;text-align:left;
+  text-indent:-18.0pt'><span>3）<span style='font:7.0pt "Times New Roman"'>&nbsp;
+  </span></span><span >设置设置</span><span>layout_width</span><span
+  >和</span><span>layout_height</span><span
+  >为</span><span>wrap_content</span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxWidth</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置</span><span>View</span><span >的最大宽度。同上。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scaleType</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置图片的填充方式。</span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;border:none'>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>matrix</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:solid black 1.0pt;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>0</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:solid black 1.0pt;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >用矩阵来绘图</span></p>
+    </td>
+    <td width=57 style='width:42.55pt;border:solid black 1.0pt;border-left:
+    none;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>&nbsp;</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fitXY</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>1</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >拉伸图片（不按比例）以填充</span><span>View</span><span
+    >的宽高</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=120 height=30
+    src="image/image078.png"></span></p>
+    </td>
+    <td width=57 rowspan=4 style='width:42.55pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span>layout_height:30px</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><br>
+    layout_width:120px</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fitStart</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>2</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >按比例拉伸图片，拉伸后图片的高度为</span><span>View</span><span
+    >的高度，且显示在</span><span>View</span><span
+    >的左边</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=120 height=30
+    src="image/image079.png"></span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fitCenter</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>3</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >按比例拉伸图片，拉伸后图片的高度为</span><span>View</span><span
+    >的高度，且显示在</span><span>View</span><span
+    >的中间</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=120 height=30
+    src="image/image080.png"></span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>fitEnd</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>4</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >按比例拉伸图片，拉伸后图片的高度为</span><span>View</span><span
+    >的高度，且显示在</span><span>View</span><span
+    >的右边</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=120 height=30
+    src="image/image081.png"></span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>center</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>5</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >按原图大小显示图片，但图片宽高大于</span><span>View</span><span
+    >的宽高时，截图图片中间部分显示</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=80 height=60
+    src="image/image082.png"></span></p>
+    </td>
+    <td width=57 rowspan=3 style='width:42.55pt;border-top:none;border-left:
+    none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span>layout_height:60px</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><br>
+    layout_width:80px</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><br>
+    padding:10px</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>centerCrop</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>6</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >按比例放大原图直至等于某边</span><span>View</span><span
+    >的宽高显示。</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=80 height=60
+    src="image/image083.png"></span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=96 style='width:72.3pt;border:solid black 1.0pt;border-top:none;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>centerInside</span></p>
+    </td>
+    <td width=38 style='width:1.0cm;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span>7</span></p>
+    </td>
+    <td width=142 style='width:106.3pt;border-top:none;border-left:none;
+    border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal align=left style='text-align:left'><span
+    >当原图宽高或等于</span><span>View</span><span
+    >的宽高时，按原图大小居中显示；反之将原图缩放至</span><span>View</span><span
+    >的宽高居中显示。</span></p>
+    <p class=MsoNormal align=left style='text-align:left'><span><img
+    border=0 width=80 height=60
+    src="image/image084.png"></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal align=left style='text-align:left'></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:src</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>设置</span><span>View</span><span >的</span><span
+ >drawable(</span><span >如图片，也可以是颜色，但是需要指定</span><span
+ >View</span><span >的大小</span><span
+ >)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=180 style='width:134.7pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:tint</span></b></p>
+  </td>
+  <td width=350 style='width:262.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+  宋体'>将图片渲染成指定的颜色。见下图：</span></p>
+  <p class=MsoNormal align=left style='text-align:left'><span><img
+  border=0 width=82 height=70
+  src="image/image085.png"></span><span
+  >左边为原图，右边为设置后的效果，见后面代码。</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><span >代码</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android:tint</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i> <span
+style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:layout_marginLeft</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;5dp&quot;</span></i> <span style='color:#7F007F'>android:background</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i>
+<span style='color:#7F007F'>android:tint</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;#ffff00&quot;</span></i> <span style='color:#7F007F'>android:src</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>cropToPadding</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i> <span
+style='color:#7F007F'>android:scrollY</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;-10px&quot;</span></i> <span style='color:#7F007F'>android:cropToPadding</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;true&quot;</span></i>
+<span style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i> <span
+style='color:#7F007F'>android:scrollY</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;10px&quot;</span></i> <span style='color:#7F007F'>android:cropToPadding</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;true&quot;</span></i>
+<span style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:paddingTop</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;10px&quot;</span></i>&nbsp; <span style='color:
+#7F007F'>android:background</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i> <span
+style='color:#7F007F'>android:scrollY</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;10px&quot;</span></i> <span style='color:#7F007F'>android:cropToPadding</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;true&quot;</span></i>
+<span style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:teal'>&lt;</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:#3F7F7F'>ImageView</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'> <span
+style='color:#7F007F'>android:paddingTop</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;10px&quot;</span></i> <span style='color:#7F007F'>android:background</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;@android:color/white&quot;</span></i>
+<span style='color:#7F007F'>android:scrollY</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;10px&quot;</span></i> <span style='color:#7F007F'>android:cropToPadding</span><span
+style='color:black'>=</span><i><span style='color:#2A00FF'>&quot;false&quot;</span></i>
+<span style='color:#7F007F'>android:src</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;@drawable/btn_mode_switch_bg&quot;</span></i></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#7F007F'>android:layout_width</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i> <span
+style='color:#7F007F'>android:layout_height</span><span style='color:black'>=</span><i><span
+style='color:#2A00FF'>&quot;wrap_content&quot;</span></i><span
+style='color:teal'>&gt;&lt;/</span><span style='color:#3F7F7F'>ImageView</span><span
+style='color:teal'>&gt;</span></span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

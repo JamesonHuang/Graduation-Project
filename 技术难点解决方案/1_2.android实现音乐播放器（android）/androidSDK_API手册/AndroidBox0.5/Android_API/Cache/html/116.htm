@@ -1,0 +1,730 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> SimpleAdapter</title>
+</head>
+<body>     
+<div class=WordSection116 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a
+name=SimpleAdapter><b><span style='font-size:18.0pt'>SimpleAdapter</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span >德罗德</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://sparkrico.javaeye.com">http://sparkrico.javaeye.com</a> </span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>翻译时间：</span><span>2010-11-03</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public interface <span
+style='color:#C00000'>SpinnerAdapter </span>extends <span style='color:#C00000'>Adapter</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; android.widget.BaseAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:63.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget. SpinnerAdapter</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>类概述</span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>这是一个简单的适配器，可以将静态数据映射到</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>XML</span><span
+style='font-size:10.5pt;color:#333333'>文件中定义好的视图。你可以指定数据支持的列表如</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ArrayList</span><span
+style='font-size:10.5pt;color:#333333'>组成的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Map</span><span
+style='font-size:10.5pt;color:#333333'>。在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ArrayList</span><span
+style='font-size:10.5pt;color:#333333'>中的每个条目对应</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>List</span><span
+style='font-size:10.5pt;color:#333333'>中的一行。</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Maps</span><span
+style='font-size:10.5pt;color:#333333'>包含每行数据。你可以指定一个定义了被用于显示行的视图</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>XML</span><span
+style='font-size:10.5pt;color:#333333'>文件，通过关键字映射到指定的视图。绑定数据到视图分两个阶段，首先，如果一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>SimpleAdapter.ViewBinder</span><span
+style='font-size:10.5pt;color:#333333'>是有效的，</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>setViewValue(android.view.View,
+Object, String)</span><span style='font-size:10.5pt;color:#333333'>将被调用。如果返回值是真，绑定完成了。如果返回值为假，下面的视图将按以下顺序去处理：</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings;color:#333333'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;color:#333333'>一个实现了</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Checkable</span><span
+style='font-size:10.5pt;color:#333333'>的视图（例如</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>CheckBox</span><span
+style='font-size:10.5pt;color:#333333'>），期望绑定值是一个布尔类型。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings;color:#333333'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'>TextView</span><span style='font-size:10.5pt;color:#333333'>期望绑定值是一个字符串类型，通过调用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>setViewText(TextView,
+String)</span><span style='font-size:10.5pt;color:#333333'>绑定。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings;color:#333333'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'>ImageView</span><span style='font-size:10.5pt;color:#333333'>期望绑定值是一个资源</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>id</span><span
+style='font-size:10.5pt;color:#333333'>或者一个字符串，通过调用</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>setViewImage(ImageView,
+int) </span><span style='font-size:10.5pt;color:#333333'>或</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'> <span
+lang=EN-US>setViewImage(ImageView, String)</span></span><span style='font-size:
+10.5pt;color:#333333'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:15.75pt'><span
+style='font-size:10.5pt;color:#333333'>如果没有一个合适的绑定发生将会抛出</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>IllegalStateException</span><span
+style='font-size:10.5pt;color:#333333'>。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>构造函数</span></b></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public </span></span><span class=sympad1><b><span
+style='font-family:"Arial","sans-serif";color:#222222'>SimpleAdapter</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(<a target="_blank" href="http://androidappdocs.appspot.com/reference/android/content/Context.html"><span
+style='font-size:10.5pt'>Context</span></a> context, <a target="_blank" href="http://androidappdocs.appspot.com/reference/java/util/List.html"><span
+style='font-size:10.5pt'>List</span></a>&lt;?&nbsp;extends&nbsp;<a target="_blank" href="http://androidappdocs.appspot.com/reference/java/util/Map.html"><span
+style='font-size:10.5pt'>Map</span></a>&lt;<a target="_blank" href="http://androidappdocs.appspot.com/reference/java/lang/String.html"><span
+style='font-size:10.5pt'>String</span></a>,&nbsp;?&gt;&gt; data, int resource, <a target="_blank" href="http://androidappdocs.appspot.com/reference/java/lang/String.html"><span
+style='font-size:10.5pt'>String[]</span></a> from, int[] to)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>构造函数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>关联</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>SimpleAdapter</span><span
+style='font-size:10.5pt;color:#333333'>运行着的视图的上下文。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>一个</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Map</span><span
+style='font-size:10.5pt;color:#333333'>的列表。在列表中的每个条目对应列表中的一行，应该包含所有在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>from</span><span
+style='font-size:10.5pt;color:#333333'>中指定的条目</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>resource&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>一个定义列表项目的视图布局的资源唯一标识。布局文件将至少应包含哪些在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>to</span><span
+style='font-size:10.5pt;color:#333333'>中定义了的名称。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>一个将被添加到</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Map</span><span
+style='font-size:10.5pt;color:#333333'>上关联每一个项目的列名称的列表</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>to&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>应该在参数</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>from</span><span
+style='font-size:10.5pt;color:#333333'>显示列的视图。这些应该全是</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>TextView</span><span
+style='font-size:10.5pt;color:#333333'>。在列表中最初的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>N</span><span
+style='font-size:10.5pt;color:#333333'>视图是从参数</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>from</span><span
+style='font-size:10.5pt;color:#333333'>中最初的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>N</span><span
+style='font-size:10.5pt;color:#333333'>列获取的值。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>公共方法</span></b></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public int </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getCount</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>()</span></span><b><span style='font-family:"Arial","sans-serif";
+color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>获取数据集中记录总行数</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public <a target="_blank" href="http://androidappdocs.appspot.com/reference/android/view/View.html"><span
+style='font-size:10.5pt'>View</span></a> </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getDropDownView</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(int position, <a target="_blank" href="http://androidappdocs.appspot.com/reference/android/view/View.html"><span
+style='font-size:10.5pt'>View</span></a> convertView, <a target="_blank" href="http://androidappdocs.appspot.com/reference/android/view/ViewGroup.html"><span
+style='font-size:10.5pt'>ViewGroup</span></a> parent)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+color:#333333'>获得一个在指定位置上显示下拉弹出数据的视图。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style=';color:#333333'>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt'><span
+style='font-family:"Arial","sans-serif";color:#333333'>position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:#333333'>想得到项目视图的索引</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'>convertView&nbsp; </span><span
+style=';color:#333333'>如果可能旧有的视图重新使用。注解：在使用之前应该检查这个视图不是空的并且类型合适。如果转换视图显示正确的数据是不可能的，这个方法能够创建一个新的视图</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'>parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:#333333'>视图最终将依附的父对象</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+style=';color:#333333'>返回值</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+style=';color:#333333'>一个对应指定位置的数据的视图。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public <a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/Filter.html"><span
+style='font-size:10.5pt'>Filter</span></a> </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getFilter</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>()</span></span><b><span style='font-family:"Arial","sans-serif";
+color:#222222'> </span></b></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+color:#333333'>返回一个可以通过一种过滤模式来约束数据的过滤器。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span style=';
+color:#333333'>这个方法通常被</span><span style='font-family:"Arial","sans-serif";
+color:#333333'>Adapter</span><span style=';color:#333333'>类实现。</span></p>
+<p class=MsoNormal style='text-indent:21.0pt'><span
+style='font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style=';color:#333333'>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style=';color:#333333'>一个用于约束数据的过滤器</span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style='font-family:"Arial","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public abstract <a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/java/lang/Object.html"><span
+style='font-size:10.5pt'>Object</span></a> </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getItem</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(int position)</span></span><b><span
+style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>获取数据集中指定位置上的数据项目</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>position&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>adapter</span><span
+style='font-size:10.5pt;color:#333333'>中我们想得到项目的位置。</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>返回值</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>指定位置上的数据。</span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'> </span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public abstract long </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getItemId</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(int position)</span></span><b><span
+style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>获取数据集中指定位置上的行</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ID</span><span
+style='font-size:10.5pt;color:#333333'>。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>position&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>adapter</span><span
+style='font-size:10.5pt;color:#333333'>中我们想得到的行</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ID</span><span
+style='font-size:10.5pt;color:#333333'>的项目的位置。</span></p>
+<p class=MsoNormal align=left style='margin-left:33.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style=';color:#333333'>返回值</span></p>
+<p class=MsoNormal align=left style='margin-left:45.0pt;text-align:left;
+text-indent:18.0pt;line-height:15.6pt'><span style=';color:#333333'>指定位置上的数据。</span><span
+style='font-family:"Arial","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:45.0pt;text-align:left;
+text-indent:18.0pt;line-height:15.6pt'><span style='font-family:
+"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public abstract <a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html"><span
+style='font-size:10.5pt'>View</span></a> </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>getView</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(int position, <a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/View.html"><span
+style='font-size:10.5pt'>View</span></a> convertView, <a target="_blank" href="http://androidappdocs-staging.appspot.com/reference/android/view/ViewGroup.html"><span
+style='font-size:10.5pt'>ViewGroup</span></a> parent)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>获取一个显示数据集中指定位置数据段视图。可以手动创建视图，或者从</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>XML</span><span
+style='font-size:10.5pt;color:#333333'>设计文件填充。当视图从</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>XML</span><span
+style='font-size:10.5pt;color:#333333'>设计文件填充时，父视图（如</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>GridView</span><span
+style='font-size:10.5pt;color:#333333'>，</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ListView</span><span
+style='font-size:10.5pt;color:#333333'>等）将接受默认的设计参数，除非使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>inflate(int,
+android.view.ViewGroup, boolean)</span><span style='font-size:10.5pt;
+color:#333333'>去指定一个根视图和防止依附于根视图。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>我们想要的在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>adapter</span><span
+style='font-size:10.5pt;color:#333333'>中的数据项目的位置</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>convertView&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>如果可能旧有的视图重新使用。注解：在使用之前应该检查这个视图不是空的并且类型合适。如果转换视图显示正确的数据是不可能的，这个方法能够创建一个新的视图</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>parent&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>视图最终将依附的父对象。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>返回值</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>一个在指定位置上相应的数据的视图。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public <a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.ViewBinder.html"><span
+style='font-size:10.5pt'>SimpleAdapter.ViewBinder</span></a> </span></span><span
+class=sympad1><b><span style='font-family:"Arial","sans-serif";
+color:#222222'>getViewBinder</span></b></span><b><span
+style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>()</span></span><b><span style='font-family:"Arial","sans-serif";
+color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>返回被用来绑定数据到视图的</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Courier New"'>SimpleAdapter.ViewBinder</span></code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>
+</span><span style='font-size:10.5pt;color:#333333'>。</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>返回值</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>一个</span><span style='font-size:10.5pt;font-family:
+"Arial","sans-serif";color:#333333'>ViewBinder </span><span style='font-size:
+10.5pt;color:#333333'>，如果</span><span style='font-size:10.5pt;
+font-family:"Arial","sans-serif";color:#333333'>binder</span><span
+style='font-size:10.5pt;color:#333333'>不存在则返回</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>null</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;line-height:15.6pt'><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.html#setViewBinder(android.widget.SimpleAdapter.ViewBinder)"><span
+style='font-size:10.5pt;font-family:"Courier New"'>setViewBinder(android.widget.SimpleAdapter.ViewBinder)</span></a></span></code><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;line-height:15.6pt'><span style='font-family:
+"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public void </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>setDropDownViewResource</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(int resource)</span></span><b><span
+style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>设置创建下拉视图的布局资源</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>定义下拉视图的布局资源</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;line-height:15.6pt'><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.html#getDropDownView(int, android.view.View, android.view.ViewGroup)"><span
+style='font-size:10.5pt;font-family:"Courier New"'>getDropDownView(int, android.view.View,
+android.view.ViewGroup)</span></a></span></code><span
+style='font-family:"Arial","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;line-height:15.6pt'><span style='font-family:
+"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public void </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>setViewBinder</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(<a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.ViewBinder.html"><span
+style='font-size:10.5pt'>SimpleAdapter.ViewBinder</span></a> viewBinder)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>设置</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>binder</span><span
+style='font-size:10.5pt;color:#333333'>用于绑定数据到视图</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; viewBinder&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>用于绑定数据到视图的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>binder</span><span
+style='font-size:10.5pt;color:#333333'>可以设置为</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>null</span><span
+style='font-size:10.5pt;color:#333333'>，可用于删除存在的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>binder</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.html#getViewBinder()"><span
+style='font-size:10.5pt;font-family:"Courier New"'>getViewBinder()</span></a></span></code><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style='font-family:"Arial","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public void </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>setViewImage</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(<a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/ImageView.html"><span
+style='font-size:10.5pt'>ImageView</span></a> v, int value)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>调用</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>bindView</span><span
+style='font-size:10.5pt;color:#333333'>去给</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span><span
+style='font-size:10.5pt;color:#333333'>设置图像，但</span><span style='font-size:
+10.5pt'>只有当</span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'>ViewBinder</span><span style='font-size:10.5pt;color:#333333'>不存在或者如果存在的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ViewBinder</span><span
+style='font-size:10.5pt;color:#333333'>无法处理绑定到一个</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span><span
+style='font-size:10.5pt;color:#333333'>时才调用。如果提供的数据是一个整形时，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>setViewImage(ImageView,
+String)</span><span style='font-size:10.5pt;color:#333333'>方法将被本方法替代</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span><span style='font-size:10.5pt;font-family:
+"Arial","sans-serif";color:#333333'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>接收图像的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>从数据集获取数据到值</span></p>
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.html#setViewImage(android.widget.ImageView, java.lang.String)"><span
+style='font-size:10.5pt;font-family:"Courier New"'>setViewImage(ImageView,
+String)</span></a></span></code><span style='font-family:"Arial","sans-serif";
+color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style='font-family:"Arial","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public void </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>setViewImage</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(<a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/ImageView.html"><span
+style='font-size:10.5pt'>ImageView</span></a> v, <a target="_blank" href="http://androidappdocs.appspot.com/reference/java/lang/String.html"><span
+style='font-size:10.5pt'>String</span></a> value)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>调用</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>bindView</span><span
+style='font-size:10.5pt;color:#333333'>去给</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span><span
+style='font-size:10.5pt;color:#333333'>设置图像，但</span><span style='font-size:
+10.5pt'>只有当</span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'>ViewBinder</span><span style='font-size:10.5pt;color:#333333'>不存在或者如果存在的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ViewBinder</span><span
+style='font-size:10.5pt;color:#333333'>无法处理绑定到一个</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span><span
+style='font-size:10.5pt;color:#333333'>时才调用。默认的，这个值被作为一个图像资源来对待。如果这个值作为一个图像的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Uri</span><span
+style='font-size:10.5pt;color:#333333'>来使用。如果提供的数据不是一个整形时，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>setViewImage(ImageView,
+int)</span><span style='font-size:10.5pt;color:#333333'>方法将被本方法替代</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>接收图像的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ImageView</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>从数据集获取数据到值</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参见</span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><code><span style='font-size:
+12.0pt'><a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/SimpleAdapter.html#setViewImage(android.widget.ImageView, int)"><span
+style='font-size:10.5pt;font-family:"Courier New"'>setViewImage(ImageView, int)</span></a></span></code><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#333333'> </span></p>
+<p class=MsoNormal align=left style='margin-left:54.0pt;text-align:left;
+text-indent:9.0pt;line-height:15.6pt'><span style='font-family:"Arial","sans-serif";
+color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;background:#E2E2E2'><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>public void </span></span><span class=sympad1><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'>setViewText</span></b></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b><span
+class=normal2><span style='font-size:11.0pt;font-family:"Arial","sans-serif";
+color:#222222'>(<a target="_blank" href="http://androidappdocs.appspot.com/reference/android/widget/TextView.html"><span
+style='font-size:10.5pt'>TextView</span></a> v, <a target="_blank" href="http://androidappdocs.appspot.com/reference/java/lang/String.html"><span
+style='font-size:10.5pt'>String</span></a> text)</span></span><b><span
+lang=EN-US style='font-family:"Arial","sans-serif";color:#222222'> </span></b></p>
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt;color:#333333'>调用</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>bindView</span><span
+style='font-size:10.5pt;color:#333333'>去给</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>TextView</span><span
+style='font-size:10.5pt;color:#333333'>设置文本，但</span><span style='font-size:
+10.5pt'>只有当</span><span style='font-size:10.5pt;font-family:"Arial","sans-serif";
+color:#333333'>ViewBinder</span><span style='font-size:10.5pt;color:#333333'>不存在或者如果存在的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>ViewBinder</span><span
+style='font-size:10.5pt;color:#333333'>无法处理绑定到一个</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>TextView</span><span
+style='font-size:10.5pt;color:#333333'>时才调用</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt;
+color:#333333'>参数</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt;color:#333333'>将接收文本的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>TextView</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>text </span><span
+style='font-size:10.5pt;color:#333333'>被设置到</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>TextView</span><span
+style='font-size:10.5pt;color:#333333'>的文本</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif";color:#333333'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章精选</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://www.cnblogs.com/game-over/archive/2010/06/25/1765544.html"><span
+lang=EN-US ><span>简约而不简单——</span></span>Android
+SimpleAdapter</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://blog.csdn.net/shichexixi/archive/2010/05/13/5585823.aspx">android
+listview<span ><span>组件之</span></span>ArrayAdapter<span
+lang=EN-US ><span>，</span></span>SimpleAdapter</a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://hi.baidu.com/helloworldtoo/blog/item/ad3bb738925b62ffb211c7ea.html">Android<span
+lang=EN-US ><span>用</span></span>simpleAdapter<span
+lang=EN-US ><span>来直接显示</span></span>BMP<span
+lang=EN-US ><span>图片</span></span></a></span><span
+>（有</span><span>ViewBinder</span><span
+>用法</span><span >）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例代码</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span
+lang=EN-US style='font-family:"Courier New"'><img border=0 width=320
+height=480 src="image/image103.png"></span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-autospace:none'><b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></b><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>private</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'> ListView </span><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>lv</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-autospace:none'><span style='font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><b><span style='font-family:
+"Courier New";color:#7F0055'>private</span></b><span
+style='font-family:"Courier New";color:black'>
+List&lt;Map&lt;String,String&gt;&gt; </span><span style='font-family:
+"Courier New";color:#0000C0'>data</span><span style='font-family:
+"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>private</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'> SimpleAdapter </span><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>sAdapter</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span>&nbsp;</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:#0000C0'>lv</span><span style='font-family:"Courier New";
+color:black'> = (ListView)findViewById(R.id.</span><i><span
+style='font-family:"Courier New";color:#0000C0'>listview</span></i><span
+lang=EN-US style='font-family:"Courier New";color:black'>);&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:#0000C0'>data</span><span style='font-family:
+"Courier New";color:black'> = </span><b><span style='font-family:
+"Courier New";color:#7F0055'>new</span></b><span style='font-family:
+"Courier New";color:black'> ArrayList&lt;Map&lt;String,</span><span>
+</span><span style='font-family:"Courier New";color:black'>Object&gt;&gt;();</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-autospace:none'><span style='font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp; </span><b><span style='font-family:
+"Courier New";color:#7F0055'>for</span></b><span style='font-family:
+"Courier New";color:black'> (</span><b><span style='font-family:
+"Courier New";color:#7F0055'>int</span></b><span style='font-family:
+"Courier New";color:black'> i = 0; i &lt; 10; i++) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Map&lt;String,</span><span> </span><span
+lang=EN-US style='font-family:"Courier New";color:black'>Object&gt; map = </span><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'> HashMap&lt;String,</span><span
+lang=EN-US> </span><span style='font-family:"Courier New";
+color:black'>Object&gt;();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+map.put(</span><span style='font-family:"Courier New";color:#2A00FF'>&quot;title&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>, </span><span
+lang=EN-US style='font-family:"Courier New";color:#2A00FF'>&quot;APPLE&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+map.put(</span><span style='font-family:"Courier New";color:#2A00FF'>&quot;content&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>, </span><span
+lang=EN-US style='font-family:"Courier New";color:#2A00FF'>&quot;can eat&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:black'>map.put(</span><span style='font-family:
+"Courier New";color:#2A00FF'>&quot;check&quot;</span><span
+style='font-family:"Courier New";color:black'>, </span><b><span
+style='font-family:"Courier New";color:#7F0055'>true</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New"'>map.put(&quot;<span style='color:#2A00FF'>check1</span>&quot;,
+&quot;true&quot;);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+map.put(</span><span style='font-family:"Courier New";color:#2A00FF'>&quot;image&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>, R.drawable.</span><i><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>icon</span></i><span
+lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#0000C0'>data</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>.add(map);</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:black'>}</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:#0000C0'>sAdapter</span><span style='font-family:
+"Courier New";color:black'> = </span><b><span style='font-family:
+"Courier New";color:#7F0055'>new</span></b><span style='font-family:
+"Courier New";color:black'> SimpleAdapter(getApplicationContext(), </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>data</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>, </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span
+lang=EN-US style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R.layout.</span><i><span
+style='font-family:"Courier New";color:#0000C0'>item</span></i><span
+lang=EN-US style='font-family:"Courier New";color:black'>, </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-autospace:none'><span style='font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'> String[]{</span><span
+lang=EN-US style='font-family:"Courier New";color:#2A00FF'>&quot;title&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>,</span><span
+lang=EN-US style='font-family:"Courier New";color:#2A00FF'>&quot;content&quot;,&quot;check&quot;,&quot;check1&quot;,&quot;image&quot;</span><span
+lang=EN-US style='font-family:"Courier New";color:black'>},</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-autospace:none'><span style='font-family:"Courier New";
+color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>new</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'> </span><b><span
+lang=EN-US style='font-family:"Courier New";color:#7F0055'>int</span></b><span
+lang=EN-US style='font-family:"Courier New";color:black'>[]{R.id.</span><i><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>title</span></i><span
+lang=EN-US style='font-family:"Courier New";color:black'>,R.id.</span><i><span
+lang=EN-US style='font-family:"Courier New";color:#0000C0'>content,R.id.check,R.id.check1,
+R.id.image</span></i><span style='font-family:"Courier New";
+color:black'>});</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt;text-autospace:none'><span style='font-family:
+"Courier New";color:#0000C0'>lv</span><span style='font-family:"Courier New";
+color:black'>.setAdapter(</span><span style='font-family:"Courier New";
+color:#0000C0'>sAdapter</span><span style='font-family:"Courier New";
+color:black'>);</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Courier New";color:#0000C0'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

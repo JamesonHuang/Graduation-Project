@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> ImageButton</title>
+</head>
+<body>     
+<div class=WordSection98 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=ImageButton><b><span
+lang=EN-US style='font-size:22.0pt'>ImageButton</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>农民伯伯</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.ImageView</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.ImageButton</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>直接子类：</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>ZoomButton&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+>类摘要：</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>显示一个可以被用户点击的图片按钮，默认情况下，</span><span
+style='color:black;background:white'>ImageButton</span><span style='font-family:
+宋体;color:black;background:white'>看起来像一个普通的按钮，在不同状态（如按下）下改变背景颜色。按钮的图片可用通过</span><span
+lang=EN-US style='color:black;background:white'>&lt;ImageButton&gt; XML</span><span
+style=';color:black;background:white'>元素的</span><span
+style='color:black;background:white'>android:src</span><span style='font-family:
+宋体;color:black;background:white'>属性或</span><span style='color:black;
+background:white'>setImageResource(int)</span><span style=';
+color:black;background:white'>方法指定。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style=';color:black;background:white'>要删除按钮的背景，可以定义自己的背景图片或设置背景为透明。（注：请看</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体;color:black;background:white'>原图</span><span style='color:black;
+background:white'><img border=0 width=48 height=48
+src="image/image087.png"></span><span
+style=';color:black;background:white'>和图片按钮</span><span
+lang=EN-US style='color:black;background:white'><img border=0 width=65
+height=62 src="image/image088.png"></span><span
+style=';color:black;background:white'>，默认图片周围有按钮的背景，选中之后为黄色）</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>为了表示不同的按钮状态（焦点，选择等），你可以为各种状态定义不同的图片。例如，定义蓝色图片为默认图片，黄色图片为获取时焦点时显示的图片，黄色图片为按钮被按下时显示的图片。一个简单的方法可以做到这点——通过</span><span
+lang=EN-US>XML</span><span >的</span><span>&quot;selector.&quot;</span><span
+>配置，如下：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=543 height=144
+src="image/image089.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>保存上面的</span><span>XML</span><span
+>到</span><code><span style='font-size:12.0pt;
+color:#00B050'>res/drawable/</span></code><span >文件夹下（<span
+style='color:black;background:white'>注：</span>注意文件名大小写！），将该文件名作为一个参数设置到</span><span
+lang=EN-US style='color:black;background:white'>ImageButton</span><span
+style=';color:black;background:white'>的</span><span
+style='color:black;background:white'> <span>android:src</span></span><span
+style=';color:black;background:white'>属性（注：如</span><span
+lang=EN-US style='color:black;background:white'>xml</span><span
+style=';color:black;background:white'>文件名为</span><span
+lang=EN-US style='color:black;background:white'>myselector.xml</span><span
+style=';color:black;background:white'>，那么这里设置为</span><span
+lang=EN-US style='color:black;background:white'>&quot;@drawable/myselector&quot;</span><span
+style=';color:black;background:white'>，设置</span><span
+style='color:black;background:white'>android:background</span><span
+style=';color:black;background:white'>也是可以的，但效果不太一样）。</span><span
+lang=EN-US style='color:black;background:white'>Android</span><span
+style=';color:black;background:white'>根据按钮的状态改变会自动的去</span><span
+lang=EN-US style='color:black;background:white'>XML</span><span
+style=';color:black;background:white'>中查找相应的图片以显示。</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US style='color:black;background:white'>&lt;item&gt;</span><span
+style=';color:black;background:white'>元素的顺序很重要，因为是根据这个顺序判断是否适用于当前按钮状态，这也是为什么正常（默认）状态指定的图片放在最后，是因为它只会在</span><span
+lang=EN-US style='color:black;background:white'>pressed</span><span
+style=';color:black;background:white'>和</span><span
+style='color:black;background:white'>focused</span><span style='font-family:
+宋体;color:black;background:white'>都判断失败之后才会被采用。（注：例如按钮被按下时是同时获得焦点的，但是获得焦点并不一定按了按钮，所以这里会按顺序查找，找到合适的就不往下找了。这里按钮被点击了，那么第一个将被选中，且不再在后面查找其他状态。）</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>参见</span><span><a target="_blank" href="http://developer.android.com/resources/tutorials/views/hello-formstuff.html">Form
+Stuff tutorial</a></span><span >。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal><b><span >继承自父类的方法</span></b></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public
+void&nbsp; setAlpha&nbsp; (int alpha)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >设置</span><span
+lang=EN-US>ImageButton</span><span >图片的透明度（注意不是背景图片的）。效果如图：</span><span
+lang=EN-US><img border=0 width=134 height=60
+src="image/image090.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alpha
+</span><span >透明值</span><span>0~255</span><span
+>，</span><span>0</span><span style='font-family:
+宋体'>为完全透明，</span><span>255</span><span >为完全不透明</span></p>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

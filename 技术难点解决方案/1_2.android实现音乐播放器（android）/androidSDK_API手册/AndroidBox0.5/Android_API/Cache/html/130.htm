@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> TabHost</title>
+</head>
+<body>     
+<div class=WordSection130 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoNormal align=center style='text-align:center'><a name=TabHost><b><span
+lang=EN-US style='font-size:18.0pt'>TabHost</span></b></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span><span> madgoat</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://madgoat.cn">http://madgoat.cn</a>
+</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>翻译时间：</span><span>2010-11-25</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.3 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>结构</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>继承关系</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><b><i><span>public class <span style='color:
+#C00000'>TabHost</span> extends <span style='color:#C00000'>FrameLayout </span>implements<span
+style='color:#C00000'> ViewTreeObserver.OnTouchModeChangeListener</span></span></i></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.view.ViewGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.FrameLayout</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US>android.widget.TabHost</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>类概述</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+border=0 width=322 height=92
+src="image/image109.png"></span></b></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>提供选项卡（</span><span>Tab</span><span
+>页）的窗口视图容器。此对象包含两个子对象：一组是用户可以选择指定</span><span>Tab</span><span
+>页的标签；另一组是</span><span>FrameLayout</span><span
+>用来显示该</span><span>Tab</span><span
+>页的内容。个别元素通常控制使用这个容器对象，而不是设置在子元素本身的值。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+>（译者注：即使使用的是单个元素，也最好把它放到容器对象</span><span>ViewGroup</span><span
+>里）</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>内部类</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt;background:silver'>interface
+TabHost.OnTabChangeListener</span><span style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt;'>接口定义了当选项卡更改时被调用的回调函数</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:12.0pt;background:silver'>interface TabHost.TabContentFactory</span><span
+lang=EN-US style='font-size:12.0pt'>&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt;'>当某一选项卡被选中时生成选项卡的内容</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US style='font-size:12.0pt;background:silver'>class TabHost.TabSpec</span><span
+lang=EN-US style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='font-size:12.0pt;'>单独的选项卡，每个选项卡都有一个选项卡指示符</span><span
+lang=EN-US style='font-size:12.0pt'>,</span><span style='font-size:12.0pt;
+'>内容和</span><span style='font-size:12.0pt'>tag</span><span
+style='font-size:12.0pt;'>标签</span><span
+style='font-size:12.0pt'>,</span><span style='font-size:12.0pt;font-family:
+宋体'>以便于记录</span><span style='font-size:12.0pt'>.</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>公共方法</span></b></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>addTab</b> (TabHost.TabSpec tabSpec)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >新增一个选项卡</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>tabSpec&nbsp;&nbsp;&nbsp; </span><span >指定怎样创建指示符和内容</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>clearAllTabs</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >从</span><span
+lang=EN-US>tab widget</span><span >中移除所有关联到当前</span><span
+lang=EN-US>tab host</span><span >的选项卡</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public boolean <b>dispatchKeyEvent</b> (KeyEvent
+event)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >分发按键事件到焦点传递路线上的下一视图。焦点传递路线从视图树的顶层开始一直到当前获取焦点的视图停止。如果此视图已经获取焦点</span><span
+lang=EN-US>,</span><span >将分发给它自身。否则，将分发到焦点传递路线的下一节点。此方法会触发任何一个按键监听器</span><span
+lang=EN-US>.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >（译者注：关于</span><span
+lang=EN-US>focus path,</span><span >可以参考以下地址</span><span
+lang=EN-US>:</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span><a target="_blank" href="http://blog.csdn.net/maxleng/archive/2010/05/04/5557758.aspx">http://blog.csdn.net/maxleng/archive/2010/05/04/5557758.aspx</a>)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>event&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>分发的按键事件</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>返回值</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+>如果事件已经处理则返回</span><span>true,</span><span
+>否则返回</span><span>false.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>dispatchWindowFocusChanged</b>
+(boolean hasFocus)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >当窗口包含的此视图获取或丢失焦点时触发此方法</span><span
+lang=EN-US>.ViewGroups</span><span >应该重写以路由到他的子元素</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>hasFocus </span><span >如果窗口包含的此</span><span
+lang=EN-US>view</span><span >依获取焦点</span><span
+lang=EN-US>,</span><span >返回</span><span>true,</span><span
+>否则返回</span><span>false.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public int <b>getCurrentTab</b> ()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>（译者注：获取当前选项卡的</span><span>id</span><span
+>）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public String <b>getCurrentTabTag</b> ()</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>（译者注：当前选项卡的</span><span>Tag</span><span
+>标签内容）</span></p>
+<p class=MsoNormal><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public View <b>getCurrentTabView</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >（译者注：获取当前选项卡的视图</span><span
+lang=EN-US>view</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public View <b>getCurrentView</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >（译者注：获取当前的视图</span><span
+lang=EN-US>view</span><span >）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public FrameLayout <b>getTabContentView</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >获取保存</span><span
+lang=EN-US>tab</span><span >内容的</span><span>FrameLayout</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public TabWidget <b>getTabWidget</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >（译者注：根据系统规定的</span><span
+lang=EN-US>id</span><span >：</span><span>tabs</span><span
+>来找到</span><span>TabWidget</span><span
+>，并返回，注意，这里的</span><span>ID</span><span
+>必须是</span><span>tabs</span><span
+>。源代码中表示如下：</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>private
+TabWidget mTabWidget;</span></i></p>
+<p class=MsoNormal style='margin-left:42.0pt'><i><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>mTabWidget=(TabWidget)findViewById(com.android.internal.R.id.tabs);</span></i><span
+>）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public TabHost.TabSpec <b>newTabSpec </b>(String tag)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >获取一个新的</span><span
+lang=EN-US>TabHost.TabSpec</span><span >，并关联到当前</span><span
+lang=EN-US>tab host</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><b><span
+>参数</span></b></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>tag&nbsp;&nbsp; </span><span >所需的选项卡标签</span><span
+lang=EN-US>(tag)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>onTouchModeChanged</b> (boolean
+isInTouchMode)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>当触摸模式发生改变时调用的回调函数</span><span>.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>isInTouchMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>如果视图结构当前处于触摸模式</span><span>,</span><span
+>返回</span><span>true,</span><span
+>否则返回</span><span>false.</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>setCurrentTab</b> (int index)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >（译者注：设置当前的选项卡</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:84.0pt'><span>Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>为当前选项卡的索引。）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>setCurrentTabByTag</b> (String tag)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>（译者注：根据选项卡的</span><span>Tab</span><span
+>标签来设置当前的选项卡</span></p>
+<p class=MsoNormal><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:84.0pt'><span>tag&nbsp; </span><span
+>想要被设置为当前选项卡的</span><span>tag</span><span
+>标签值。）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>setOnTabChangedListener</b>
+(TabHost.OnTabChangeListener l)</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>注册一个回调函数，当选项卡中的任何一个</span><span>tab</span><span
+>的选中状态发生改变时调用。</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+>（译者注：</span><span>setCurrentTab(index)</span><span
+>时会触发调用）</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+>将运行的回调函数</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>setup</b> ()</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >如果使用</span><span
+lang=EN-US>findViewById()</span><span >加载</span><span
+lang=EN-US>TabHost</span><span >，那么在新增一个选项卡</span><span
+lang=EN-US>tab</span><span >之前，需要调用</span><span
+lang=EN-US>setup()</span><span >。然而，当你在一个</span><span
+lang=EN-US>TabActivity</span><span >里使用</span><span
+lang=EN-US>getTabHost()</span><span >获取</span><span
+lang=EN-US>TabHost</span><span >，你就不再需要调用</span><span
+lang=EN-US>setup()</span><span >了。（译者注：实现</span><span
+lang=EN-US>tab</span><span >窗口的两种方法：继承</span><span
+lang=EN-US>activity</span><span >时，使用</span><span
+lang=EN-US>findViewById()</span><span >查找</span><span
+lang=EN-US>TabHost</span><span >，然后调用</span><span
+lang=EN-US>setup()</span><span >；继承</span><span
+lang=EN-US>TabActivity</span><span >，通过</span><span
+lang=EN-US>getTabHost()</span><span >查找，此时不用调用</span><span
+lang=EN-US>setup()</span><span >）例子：</span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US><img border=0 width=442 height=65
+src="image/image110.png"></span></p>
+<p class=MsoNormal style='margin-left:21.0pt;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span
+style='background:silver'>public void <b>setup</b> (LocalActivityManager
+activityGroup)</span></p>
+<p class=MsoNormal style='margin-left:42.0pt'><span >如果你使用</span><span
+lang=EN-US>setContent(android.content.Intent)</span><span style='font-family:
+宋体'>，那么当</span><span>activityGroup</span><span style='font-family:
+宋体'>用于加载本地</span><span>activity</span><span >之时，必须调用此方法。如果你拓展（继承）</span><span
+lang=EN-US>TabActivity</span><span >将自动调用</span><span
+lang=EN-US>setup()</span><span >方法。</span></p>
+<p class=MsoNormal style='margin-left:42.0pt;text-indent:21.0pt'><span
+>参数</span></p>
+<p class=MsoNormal style='margin-left:63.0pt;text-indent:21.0pt'><span
+lang=EN-US>activityGroup&nbsp;&nbsp; </span><span >用来为选项卡内容加载</span><span
+lang=EN-US>activities</span><span >的</span><span
+lang=EN-US>ativityGroup</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>受保护方法</span></b></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='background:silver'>protected void <b>onAttachedToWindow</b>
+()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >当视图附加到窗口上时被调用。在这个点的表面进行绘制。注意此函数确保在</span><span
+lang=EN-US>onDraw(Cancas)</span><span >之前调用，然而它可能在第一次执行</span><span
+lang=EN-US>onDraw</span><span >之前的任何时间被调用——包括的</span><span
+lang=EN-US>onMeasure(int,int)</span><span >的之前或之后。</span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left;
+text-indent:21.0pt'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span style='background:silver'>protected void
+onDetachedFromWindow ()</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span >当视图从窗口分离时被调用。在这个点的表面不再有画面绘制。</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>补充</span></b></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>文章链接</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.eoeandroid.com/viewthread.php?tid=1035"><span
+><span>史上最全的</span></span>Android<span
+lang=EN-US ><span>的</span></span>Tab<span
+lang=EN-US ><span>与</span></span>TabHost<span
+lang=EN-US ><span>讲解</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.pocketdigi.com/20100824/71.html">Android UI<span
+><span>设计</span></span> Tab TabHost<span
+lang=EN-US ><span>标签页的使用</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.cnblogs.com/salam/archive/2010/10/07/1845036.html">Android <span
+lang=EN-US ><span>控件之</span></span>TabHost Tab<span
+lang=EN-US ><span>页</span></span></a></span></p>
+<p class=MsoNormal align=left style='margin-left:42.0pt;text-align:left'><span
+lang=EN-US><a target="_blank" href="http://hi.baidu.com/%CB%A7%CB%A7%B5%C4%D0%A1%C4%D0%C9%FA/blog/item/d218330a14bf9ac23bc763de.html"><span
+lang=EN-US ><span>动态</span></span>Tab<span
+lang=EN-US ><span>页</span></span></a></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>示例代码</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span><img border=0 width=319 height=480
+src="image/image111.png"></span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Java</span><span
+>：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>public class Tabs1 extends TabActivity {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; @Override</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; protected void onCreate(Bundle
+savedInstanceState) {</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+super.onCreate(savedInstanceState);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TabHost tabHost =
+getTabHost();</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LayoutInflater.from(this).inflate(R.layout.tabs1, tabHost.getTabContentView(),
+true);</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tabHost.addTab(tabHost.newTabSpec(&quot;tab1&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setIndicator(&quot;tab1&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setContent(R.id.view1));</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tabHost.addTab(tabHost.newTabSpec(&quot;tab3&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setIndicator(&quot;tab2&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setContent(R.id.view2));</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+tabHost.addTab(tabHost.newTabSpec(&quot;tab3&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setIndicator(&quot;tab3&quot;)</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.setContent(R.id.view3));</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; }</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>}</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XML</span><span
+>：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&lt;FrameLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; android:layout_width=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;match_parent&quot;&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;TextView android:id=&quot;@+id/view1&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:background=&quot;@drawable/blue&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:text=&quot;@string/tabs_1_tab_1&quot;/&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;TextView android:id=&quot;@+id/view2&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:background=&quot;@drawable/red&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:text=&quot;@string/tabs_1_tab_2&quot;/&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp; &lt;TextView android:id=&quot;@+id/view3&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:background=&quot;@drawable/green&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_width=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:layout_height=&quot;match_parent&quot;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+android:text=&quot;@string/tabs_1_tab_3&quot;/&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>&lt;/FrameLayout&gt;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>详细参见</span><span>apidemo/view/tabs1</span></p>
+
+</div>
+
+<b><span style='font-size:18.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span></b>
+
+      
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Optimizing Apps for Android 3.0</title>
+</head>
+      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Optimizing Apps for Android 3.0</span></b></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span><a target="_blank" href="http://t.sina.com.cn/wenbin1027"><span style='font-family:
+宋体'><span>移动云</span></span>_<span style='font-family:
+宋体'><span>文斌</span></span></a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者链接：</span><span><a target="_blank" href="http://blog.csdn.net/caowenbin">http://blog.csdn.net/caowenbin</a></span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.0 r1</span></p>
+<p class=MsoNormal align=left style='text-align:left'><b><span
+style='font-size:12.0pt;'>原文</span></b></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/developing/tools/aidl.html">http://developer.android.com/guide/practices/optimizing-for-3.0.html</a>
+</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left'><span
+>（原文已更新，下面链接可以看到本文原文</span><span>2011-5-4</span><span
+>：</span><span><a target="_blank" href="http://www.devdiv.com/android/docs/guide/practices/optimizing-for-3.0.html">http://www.devdiv.com/android/docs/guide/practices/optimizing-for-3.0.html</a>
+</span><span >）</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+>如果你正在开发</span><span>Android</span><span
+>应用程序，在</span><span>Android 3.0</span><span
+>中提供了为平板或类似设备增强用户体验的新特性。一般情况下，由于</span><span>Android</span><span
+>应用程序的向下兼容性，任何你已经发行的应用程序都能在</span><span>Android
+3.0</span><span >设备上运行。然后，还是可以通过一些简单的修改来为平板类型的设备进行优化。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>本文描述的是你怎样为</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>优化现存的应用程序，并且能和老版本进行兼容，或者使用新的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>完整的升级你的应用程序。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.1pt'><b><span
+style='font-size:10.5pt'>内容包括：</span></b></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>安装</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0 SDK</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt'>选择优化或升级：</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:63.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt'>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt'>平板电脑或类似设备优化应用</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:63.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>你已经有现存的应用，想为老版本的<span
+lang=EN-US>Android</span>保持兼容性</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:63.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt'>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt'>为平板电脑或类似设备升级或开发新的应用</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:63.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>你想使用<span>Android
+3.0</span>的<span>API</span>升级你的应用，或者面向平板电脑或类似设备创建新的应用。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt'>&nbsp;</span> align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+style='font-size:14.0pt'>安装</span></b><b><span style='font-size:
+14.0pt;font-family:"Calibri","sans-serif"'>Android 3.0SDK(Set Up Your SDK with
+Android 3.0)</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>要在</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android 3.0</span><span style='font-size:
+10.5pt'>上开始测试或开发你的应用程序，需要使用新的平台来配置现存的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android SDK</span><span
+style='font-size:10.5pt'>：</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>（如果你还没有</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android SDK</span><span style='font-size:
+10.5pt'>，现在就去</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/sdk/index.html"><span
+><span>下载</span></span></a></span><span
+style='font-size:10.5pt'>吧）</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/sdk/adding-components.html#launching"><span
+lang=EN-US ><span>运行</span></span>Android SDK<span
+lang=EN-US ><span>和</span></span>AVD<span
+lang=EN-US ><span>管理器</span></span></a></span><span
+style='font-size:10.5pt'>并安装如下内容：</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:62.95pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+3.0 </span><span style='font-size:10.5pt'>平台</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SDK</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:62.95pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+SDK</span><span style='font-size:10.5pt'>工具，版本</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>10</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:62.95pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+SDK </span><span style='font-size:10.5pt'>平台工作，版本</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:62.95pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+SDK</span><span style='font-size:10.5pt'>文档，</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API 11</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:62.95pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>SDK
+API 11</span><span style='font-size:10.5pt'>的示例代码</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>为平板类型设备</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/developing/other-ide.html#AVD"><span
+lang=EN-US ><span>创建</span></span>AVD</a></span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>设置</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>target</span><span
+style='font-size:10.5pt'>为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>“Android 3.0”</span><span style='font-size:
+10.5pt'>，</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>skin</span><span
+style='font-size:10.5pt'>为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>“WXGA”</span><span style='font-size:10.5pt'>（默认的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>skin</span><span
+style='font-size:10.5pt'>）</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>关于模拟器性能</span></b><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(About
+emulator performance)</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>因为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>模拟器必须在你的计算机模拟</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ARM</span><span
+style='font-size:10.5pt'>指令集，并且</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>WXGA</span><span style='font-size:10.5pt'>屏幕比典型的虚拟设备大很多，所以模拟器的性能远比真实的设备低。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>特别是在初始化模拟器时很慢，根据你的硬件情况，需要花较长时间。当模拟器启动时，已经限制了用户响应，所以请耐心等待直到</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Home</span><span
+style='font-size:10.5pt'>界面（或解锁界面）出现。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>无论如何，你不需要每次重新生成你的应用程序的时候都重新启动模拟器，通常情况下你只需要启动一次并让它保持运行即可。也可以参考下面的提示信息以在首次初始化后减少启动次数。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>我们正在努力的解决性能问题并在将来发布，目前，模拟器仍然是在没有真实设备的情况下评估你的应用程序表现和功能的最好途径。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:21.0pt;margin-right:11.9pt'>
+
+<p class=note style='margin:0cm;margin-bottom:.0001pt;border:none;padding:0cm'><b><span
+style='font-size:10.5pt;color:#333333'>提示：</span></b><span style='font-size:
+10.5pt'>要减少模拟器的启动次数，可以在你利用</span><span style='font-size:10.5pt;
+font-family:"Arial","sans-serif"'>SDK</span><span style='font-size:10.5pt'>和</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>管理器创建它时允许</span><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span style='font-size:10.5pt'>快照（在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>创建时有一个</span><b><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif"'>Enable</span></b><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif"'> snapshots</span><span
+style='font-size:10.5pt'>的复选框）。然后，从</span><span style='font-size:
+10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span style='font-size:10.5pt'>管理器启动</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>并检查</span><b><span style='font-size:10.5pt;
+font-family:"Arial","sans-serif"'>Launch from snapshot</span></b><span
+style='font-size:10.5pt'>和</span><b><span style='font-size:10.5pt;
+font-family:"Arial","sans-serif"'>Save to snapshot</span></b><span
+style='font-size:10.5pt'>，利用这种方式，当你关闭模拟器时，一个</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>状态的快照就被保存起来，模拟器关闭时会变慢。当你已经拥有了一个初始化后的快照后你可以取消</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif"'>Save to
+snapshot</span><span style='font-size:10.5pt'>（在首次关闭</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif"'>AVD</span><span
+style='font-size:10.5pt'>之后）。</span></p>
+
+</div>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><b><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#333333'>&nbsp;</span></b> align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+style='font-size:14.0pt'>为平板电脑或类似设备优化应用</span></b> align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>(Optimize
+Your Application for Tablets and Similar Devices)</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你已经为早期的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>版本开发了应用，可以在不改变最低版本需求的情况下做几个事情为</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>的平板类型设备进行优化。（不需要修改你的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>manifest</span><span
+style='font-size:10.5pt'>中的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#min">android:minSdkVersion</a></span><span
+style='font-size:10.5pt'>）</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 6.0pt;
+margin-left:21.0pt;margin-right:11.9pt'>
+
+<p class=note style='margin:0cm;margin-bottom:.0001pt;border:none;padding:0cm'><strong><span
+style='font-size:10.5pt;;color:#333333'>注意：</span></strong><span
+style='font-size:10.5pt;color:#333333'>所有的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Android</span><span
+style='font-size:10.5pt;color:#333333'>应用程序都是前向兼容的，因此，如果你按标准使用了</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Android</span><span
+style='font-size:10.5pt;color:#333333'>的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>API</span><span
+style='font-size:10.5pt;color:#333333'>，你什么也不用做，应用就可以在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Android
+3.0</span><span style='font-size:10.5pt;color:#333333'>的设备上工作得很好。但是，为了向使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>Android
+3.0</span><span style='font-size:10.5pt;color:#333333'>平板或类似设备管理的用户提供更好的体验，你应该更新你的程序来适应新的系统主题并为大屏幕提供优化。</span></p>
+
+</div>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:17.85pt'><span
+style='font-size:10.5pt'>这里有几件事情可以为运行</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>的设备优化你的应用程序：</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>上测试你当前的应用</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>生成你的应用程序并在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0 AVD</span><span
+style='font-size:10.5pt'>（上文中创建的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>AVD</span><span style='font-size:10.5pt'>）上安装</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>运行你通常的测试以确认所有功能看起来正常</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>在你的应用中应用新的“</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>holographic</span><span
+style='font-size:10.5pt'>”主题</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>打开你的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>manifest</span><span
+style='font-size:10.5pt'>文件并修改</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>&lt;uses-sdk&gt;</span><span
+style='font-size:10.5pt'>标识，设置</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>android:targetSdkVersion</span><span
+style='font-size:10.5pt'>为”</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>11</span><span style='font-size:10.5pt'>”，例如：</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#FAFAFA;margin-left:39.0pt;margin-right:0cm'><pre style='background:
+#FAFAFA;border:none;padding:0cm'><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;manifest</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=tag><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;uses-sdk</span></span><span class=pln><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'> </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:minSdkVersion</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;4&quot;</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> </span></span></pre><pre style='background:#FAFAFA;border:none;
+padding:0cm'><span class=pln><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:targetSdkVersion</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;11&quot;</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> </span></span><span class=tag><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; ...</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=tag><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;/manifest&gt;</span></span></pre></div>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+42.0pt;text-indent:21.0pt;line-height:15.6pt'><span style='font-size:10.5pt'>针对</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+3.0</span><span style='font-size:10.5pt'>的目标平台，系统会自动为运行在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+3.0</span><span style='font-size:10.5pt'>设备上的每一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>应用</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>holographic</span><span style='font-size:
+10.5pt'>主题，这个主题为控件提供了新的设计，例如按钮和文本框，并且修改了其他的可视化元素。这个标准化主题是为</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+3.0</span><span style='font-size:10.5pt'>制作的，所以你的应用程序将看起来会呈现这一样式。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+42.0pt;text-indent:21.0pt;line-height:15.6pt'><span style='font-size:10.5pt'>另外，这个主题能够使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/ui/actionbar.html">Action Bar</a></span><span
+style='font-size:10.5pt'>，用于取代在</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>顶部的传统的标题栏，并且提供用户访问</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>的选项菜单位。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>继续使用</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#min">android:minSdkVersion</a></span><span
+style='font-size:10.5pt'>指定的最低版本编译程序，但仍然安装在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0 AVD</span><span
+style='font-size:10.5pt'>上，反复测试并确保你的用户接口在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>holographic</span><span
+style='font-size:10.5pt'>主题下工作正常。</span></p>
+
+<div style='border:none;border-left:solid #99AACC 3.0pt;padding:0cm 0cm 0cm 11.0pt;
+margin-left:60.1pt;margin-right:0cm'>
+
+<p class=note style='margin:0cm;margin-bottom:.0001pt;border:none;padding:0cm'><span
+style='font-size:10.5pt;color:#333333'>提示：如果你在</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>activity</span><span
+style='font-size:10.5pt;color:#333333'>中直接应用了其他主题，它将会取代</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>holographic</span><span
+style='font-size:10.5pt;color:#333333'>主题，解决的办法是你可以使用</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>system
+version qualifier</span><span style='font-size:10.5pt;color:#333333'>来为基于</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>holographic</span><span
+style='font-size:10.5pt;color:#333333'>主题的</span><span
+style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>android
+3.0</span><span style='font-size:10.5pt;color:#333333'>的设备提供选择。更多信息可参考</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Arial","sans-serif";color:#333333'>select
+a theme based on platform version</span><span style='font-size:10.5pt;
+color:#333333'>。</span></p>
+
+</div>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><b><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:10.5pt'>超大屏幕选择布局</span></b></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:18.0pt'><span style='font-size:10.5pt'>通过运行时为超大屏幕提供</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources"><span
+lang=EN-US ><span>可选资源</span></span></a></span><span
+style='font-size:10.5pt'>，你能不用采用新的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>API</span><span style='font-size:
+10.5pt'>就让你的应用提供在平板类型设备上的用户体验。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:21.0pt;
+margin-bottom:.0001pt;text-indent:18.0pt'><span style='font-size:10.5pt'>例如，这里列出了为超大屏幕创建新布局时所要考虑的因素：</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt'>横向布局：平板类型设备通常默认的方向是横向的，因此你应该确保你的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>为宽视野做了优化。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:63.0pt;
+margin-bottom:.0001pt;text-indent:21.0pt'><span style='font-size:10.5pt'>你可以使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007900'>land</span><span style='font-size:10.5pt'>资源，但是如果你想为超大的横屏选择资源的话，你应该同时使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007900'>xlarge</span><span style='font-size:10.5pt'>和</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007900'>land</span><span style='font-size:10.5pt'>。例如</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007900'>res/layout-xlarge-land/</span><span style='font-size:10.5pt'>，这些限定名称的是有顺序要求的，详见</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources">Providing
+Alternative Resources</a></span><span style='font-size:10.5pt'>。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt'>按钮位置：考虑当两只手持有平板设备时你</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>UI</span><span
+style='font-size:10.5pt'>中按钮的位置是否易于操作。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:60.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt'>字号大小：确保你的应用使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>sp</span><span
+style='font-size:10.5pt'>单位进行字号设置，这会单独影响到可读的体验，很多情况下，你可能需要为</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>xlarge</span><span
+style='font-size:10.5pt'>配置大些的字号。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>总之，确认你的应用符合</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/practices/screens_support.html#screen-independence">Best
+Practices for Screen Independence</a></span><span style='font-size:10.5pt'>。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span> align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+style='font-size:14.0pt'>为平板电脑或类似设备升级或开发新的应用</span></b> align=center style='margin:0cm;margin-bottom:.0001pt;text-align:center'><b><span
+lang=EN-US style='font-size:14.0pt;font-family:"Calibri","sans-serif"'>Upgrade
+or Develop a New App for Tablets and Similar Devices</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你想开发全部运行在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>的平板类型设备上的应用程序，那就需要使用</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>新的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>，本节介绍可用的一些新特性。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>声明最低的系统版本</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>当你创建</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android 3.0</span><span style='font-size:
+10.5pt'>的项目时，首先要做的就是设置</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#min">android:minSdkVersion</a></span><span
+style='font-size:10.5pt'>为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>11</span><span style='font-size:10.5pt'>，例如：</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#FAFAFA;margin-left:39.0pt;margin-right:0cm'><pre style='background:
+#FAFAFA;border:none;padding:0cm'><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;manifest</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=tag><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;uses-sdk</span></span><span class=pln><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'> </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:minSdkVersion</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;11&quot;</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> </span></span><span class=tag><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; ...</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application&gt;</span></span></pre><pre
+style='background:#FAFAFA;border:none;padding:0cm'><span class=tag><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;/manifest&gt;</span></span></pre></div>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>针对</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android 3.0</span><span style='font-size:
+10.5pt'>平台，系统会自动为你的每一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>应用新的主题。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>另外，也会为每个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Action
+Bar</span><span style='font-size:10.5pt'>。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>使用</span></b><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Action
+Bar</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Action
+Bar</span><span style='font-size:10.5pt'>是为每个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>提供的用于替换屏幕顶端传统标题栏的控件，通常，在它的左侧跟在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Activity</span><span
+style='font-size:10.5pt'>标题后边包含应用程序图标，在右侧是选项菜单中的可用项。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>在你的菜单资源中增加</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#007900'>showAsAction=”ifRoom”</span><span
+style='font-size:10.5pt'>，可以使得</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/resources/menu-resource.html"><span
+lang=EN-US ><span>选项菜单</span></span></a></span><span
+style='font-size:10.5pt'>就像“活动项目”一样直接出现在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Action Bar</span><span
+style='font-size:10.5pt'>中。另外，也可以在其中加入像标签一样的导航功能，可以使用应用程序图标导航到主</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>，或者向上返回到</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>历史。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>更多信息请参考</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/ui/actionbar.html">Using the
+Action Bar</a></span><span style='font-size:10.5pt'>。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>使用</span></b><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span></b><b><span
+style='font-size:10.5pt'>分离</span></b><b><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>activity</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>在</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Activity</span><span style='font-size:10.5pt'>中</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Fragment</span><span
+style='font-size:10.5pt'>提供分离用户行为和接口的表现方式。你可以在一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>中合并多个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>fragment</span><span style='font-size:10.5pt'>以生成多面板的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>UI</span><span
+style='font-size:10.5pt'>，也可以在多个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>中重用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>。可以认为一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>fragment</span><span style='font-size:10.5pt'>就像一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>中的模块，它提供了自己的生命周期，接收用户的输入事件，并且可以在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>运行时添加或移除。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>例如，一个新闻应用程序可以使用一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>在左侧显示标题列表，使用另一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>在右侧显示文章内容——这些</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>出现在一个</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>activity</span><span style='font-size:10.5pt'>中，每个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>都有自己的生命周期，单独处理用户的输入。因此，用户不是在一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>中选择标题然后在另一个</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>中阅读内容，而是可以在同一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>内既选择又阅读。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>更多信息参考</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/fundamentals/fragments.html">Fragments</a></span><span
+style='font-size:10.5pt'>文档。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>使用新的动画</span></b><b><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span></b><b><span
+style='font-size:10.5pt'>实现变换</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>全新的可伸缩的动画框架允许你将动画效果应用到任何对象的任意属性上（</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span><span
+style='font-size:10.5pt'>，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Drawable</span><span style='font-size:10.5pt'>，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Fragment</span><span
+style='font-size:10.5pt'>，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Object</span><span style='font-size:10.5pt'>等等），通常，你可以为对象的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>int</span><span
+style='font-size:10.5pt'>，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>float</span><span style='font-size:10.5pt'>和</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>16</span><span
+style='font-size:10.5pt'>进制的颜色值定义很多动画因素（例如持续时间，重复次数，插入器等），当一个对象有属性使用了这些类型，你还可以随时改变这些值以影响动画效果。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View</span><span
+style='font-size:10.5pt'>类也提供了新的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>用于支持新的动画框架，使你可以很容易的在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>activity</span><span
+style='font-size:10.5pt'>布局中使用</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>2D</span><span style='font-size:10.5pt'>和</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3D</span><span
+style='font-size:10.5pt'>变换，并且为在布局文件中定义位置，方向，透明度等对象属性提供了可能。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>更多信息请参考</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/graphics/animation.html">Property
+Animation</a></span><span style='font-size:10.5pt'>文档。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>启用硬件加速</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>现在通过在配置文件的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/application-element.html">&lt;application&gt;</a></span><span
+style='font-size:10.5pt'>或</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></span><span
+style='font-size:10.5pt'>元素中设置</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif";color:#007900'>android:hardwareAccelerated=”true”</span><span
+style='font-size:10.5pt'>可以为你的应用程序使用</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>OpenGL</span><span style='font-size:
+10.5pt'>渲染器，硬件加速的好处就是使动画、滚动更加平滑，提高了用户接口的性能和响应速度。当启用硬件加速时，请确认你的程序在支持硬件加速的设备上做过完整的测试。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>增强的窗口小部件</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>窗口小部件允许用户在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Home</span><span style='font-size:
+10.5pt'>界面直接从你的应用程序中获取信息并且与运行中的服务（例如预览邮件或控制音乐播放）交互。</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>通过集合创建的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>ListView</span><span style='font-size:10.5pt'>，</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>GridView</span><span
+style='font-size:10.5pt'>和新增的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/StackView.html">StackView</a></span><span
+style='font-size:10.5pt'>的方式增强了窗口小部件的功能，这些小部件允许你进行更多的交互，例如使用滚动列表，可以通过</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/widget/RemoteViewsService.html">RemoteViewsService</a></span><span
+style='font-size:10.5pt'>自动的更新数据。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>另外，可以使用小部件为应用程序创建预览图（在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0 AVD</span><span
+style='font-size:10.5pt'>中已经内置）并通过</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo.html#previewImage">android:previewImage</a></span><span
+style='font-size:10.5pt'>进行引用，这样用户就可以看到之前加入到主屏幕中的应用程序预览。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>增加其他新特性</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android
+3.0</span><span style='font-size:10.5pt'>增加了很多有价值的新的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>，例如拖放</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>，新的蓝牙</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>，系统级的剪贴板框架，被称为渲染脚本的新的图像引擎等等，更多信息，请参见</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/sdk/android-3.0.html">Android 3.0 Platform</a></span><span
+style='font-size:10.5pt'>文档。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>为超大屏幕发布应用</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>你需要决定你的应用程序是只为平板类型的设备（典型的是超大</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(xlarge)</span><span
+style='font-size:10.5pt'>设备）开发还是为所有种类的屏幕大小开发。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你想对所有屏幕尺寸有效（例如为所有手机和平板设备），那什么也不用做，默认的，应用程序将</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://www.devdiv.com/android/docs/guide/topics/manifest/uses-sdk-element.html#min">android:minSdkVersion</a></span><span
+style='font-size:10.5pt'>设为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>4</span><span style='font-size:10.5pt'>或者更高，就会自动调整大小以适应屏幕尺寸。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>如果你的应用仅为超大屏幕设计，可以在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://www.devdiv.com/android/docs/guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></span><span
+style='font-size:10.5pt'>中仅支持超大屏幕，而将其他的设成</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#007900'>false</span><span
+style='font-size:10.5pt'>，例如：</span></p>
+
+<div style='border:solid #CCCCCC 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;
+background:#FAFAFA;margin-left:11.9pt;margin-right:0cm'><pre style='background:
+#FAFAFA;border:none;padding:0cm'><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;manifest</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>...</span></span></pre><pre style='text-indent:25.5pt;background:
+#FAFAFA;border:none;padding:0cm'><span class=pln><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:black'>&nbsp; &nbsp; </span></span><span
+class=tag><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;supports-screens</span></span><span class=pln><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> </span></span><span class=atn><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#882288'>android:smallScreens</span></span><span
+class=pun><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;false&quot;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:normalScreens</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;false&quot;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:largeScreens</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;false&quot;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
+class=atn><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#882288'>android:xlargeScreens</span></span><span class=pun><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#666600'>=</span></span><span class=atv><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#008800'>&quot;true&quot;</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> </span></span><span class=tag><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif";color:#000088'>/&gt;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application</span></span><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'> ... </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&gt;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; &nbsp; &nbsp; ...</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=pln><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:black'>&nbsp; &nbsp; </span></span><span class=tag><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif";color:#000088'>&lt;application&gt;</span></span></pre><pre
+style='text-indent:25.5pt;background:#FAFAFA;border:none;padding:0cm'><span
+class=tag><span style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#000088'>&lt;/manifest&gt;</span></span></pre></div>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>使用这样的声明，就指定了你的应用只支持超大屏幕的设备，像</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android Market</span><span
+style='font-size:10.5pt'>这样的外部服务会使用这一信息从不是超大屏幕的设备中过滤你的应用。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><b><span style='font-size:10.5pt'>参考示例代码</span></b></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>很多新的特性不仅在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/sdk/android-3.0.html#api">Android 3.0
+Platform</a></span><span style='font-size:10.5pt'>是进行了描述，而且为了帮助你理解用法还提供了示例代码。获取示例可以使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/sdk/adding-components.html">Android SDK<span
+lang=EN-US ><span>管理器</span></span></a></span><span
+style='font-size:10.5pt'>从</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>SDK</span><span style='font-size:10.5pt'>库中下载（“</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Samples
+for SDK API 11</span><span style='font-size:10.5pt'>”）。下载完后可以在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+color:#007900'>&lt;sdk_root&gt;/samples/android-11/</span><span
+style='font-size:10.5pt'>中找到，下面的列表可以帮你快速找到关心的特性：</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/HoneycombGallery/index.html">HoneyComb
+Grllery</a></span><span style='font-size:10.5pt'>：演示了很多</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android 3.0</span><span
+style='font-size:10.5pt'>中新的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>，包括</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>fragment</span><span
+style='font-size:10.5pt'>，</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Action Bar</span><span style='font-size:
+10.5pt'>，拖放，动画。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/app/index.html#Fragment">Fragments</a></span><span
+style='font-size:10.5pt'>：演示</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>fragment</span><span style='font-size:10.5pt'>布局，回退栈，状态存储等</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/app/ActionBarMechanics.html">Action
+Bar</a></span><span style='font-size:10.5pt'>：演示</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Action Bar</span><span
+style='font-size:10.5pt'>特性，例如选项卡，图标，活动项等。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/content/ClipboardSample.html">Clipboard</a></span><span
+style='font-size:10.5pt'>：演示使用剪贴板进行复制粘贴操作。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/DragAndDropDemo.html">Drag
+and Drop</a></span><span style='font-size:10.5pt'>：演示使用新的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>View</span><span
+style='font-size:10.5pt'>事件进行拖放操作。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/List15.html">Multi-choice
+List</a></span><span style='font-size:10.5pt'>：演示如何为</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>ListView</span><span
+style='font-size:10.5pt'>和</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>GridView</span><span style='font-size:10.5pt'>提供多项选择。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/app/LoaderThrottle.html">Content
+Loaders</a></span><span style='font-size:10.5pt'>：演示使用新的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Loader
+API</span><span style='font-size:10.5pt'>异步加载数据。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/animation/index.html">Property
+Animation</a></span><span style='font-size:10.5pt'>：使用很多例子应用新的动画</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/SearchViewActionBar.html">Search
+View Widget</a></span><span style='font-size:10.5pt'>：演示在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Action
+Bar</span><span style='font-size:10.5pt'>上使用新的搜索控件。</span></p>
+<p  style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+10.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/resources/samples/Renderscript/index.html">Renderscript</a></span><span
+style='font-size:10.5pt'>：使用很多不同的应用来演示通过学习渲染脚本进行计算和</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>3D</span><span
+style='font-size:10.5pt'>图像处理。</span></p>
+<p  style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+
+</div>
+
+      
+</body>
+</html>

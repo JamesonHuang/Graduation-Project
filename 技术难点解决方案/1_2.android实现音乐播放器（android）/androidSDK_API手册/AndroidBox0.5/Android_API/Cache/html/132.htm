@@ -1,0 +1,924 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+<title> TextView</title>
+</head>
+<body>     
+<div class=WordSection132 style='layout-grid:15.6pt'><br clear=all
+style='page-break-before:always'>
+
+<p class=MsoTitle><a name=TextView><span style='font-size:22.0pt'>TextView</span></a></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>农民伯伯</span></p>
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 2.2</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>java.lang.Object</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>android.view.View</span></p>
+<p class=MsoNormal align=left style='margin-left:21.0pt;text-align:left;
+text-indent:21.0pt'><span>android.widget.TextView</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>直接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>Button, CheckedTextView, Chronometer, DigitalClock, EditText</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+宋体'>间接子类：</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>AutoCompleteTextView, CheckBox, CompoundButton, ExtractEditText,</span></p>
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=EN-US>MultiAutoCompleteTextView, RadioButton, ToggleButton</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>&nbsp;</span></p>
+<p class=MsoNormal align=left style='text-align:left'><span>XML</span><span
+>属性</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:26.7pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=161 valign=top style='width:120.45pt;border:solid black 1.0pt;
+  background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >属性名称</span></p>
+  </td>
+  <td width=359 valign=top style='width:269.35pt;border:solid black 1.0pt;
+  border-left:none;background:#DEE8F1;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >描述</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:autoLink</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否当文本为</span><span>URL</span><span
+  >链接</span><span>/email/</span><span
+  >电话号码</span><span>/map</span><span
+  >时，文本显示为可点击的链接。可选值</span><span>(none/web/email/phone/map/all)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:autoText</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >如果设置，将</span><span >自动执行输入值的拼写纠正。此处无效果，在显示输入法并输入的时候起作用。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:bufferType</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>指定</span><span
+  style='font-size:12.0pt;'>getText()</span><span
+  style='font-size:12.0pt;'>方式取得的文本类别。选项<span>editable
+  </span>类似于<span>StringBuilder</span>可追加字符，</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>也就是说<span>getText</span>后可调用<span
+ >append</span>方法设置文本内容。<span>spannable </span>则可在给定的字符区域使用样式，参见</span><span
+ ><a target="_blank" href="http://litonggang.javaeye.com/blog/507200"><span
+  style='font-size:12.0pt;'><span>这里1</span></span></a></span><span
+  style='font-size:12.0pt;'>、</span><span><a
+  href="http://www.androidres.com/index.php/2009/02/18/android-textview-tutorials/"><span
+  style='font-size:12.0pt;'><span>这里2</span></span></a></span><span
+  style='font-size:12.0pt;'>。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:capitalize</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置英文字母大写类型。此处无效果，需要弹出输入法才能看得到，参见</span><span
+ >EditView</span><span >此属性说明。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:cursorVisible</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设定光标为显示<span>/</span>隐藏</span><span
+  >，默认显示。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:digits</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置允许输入哪些字符。如“</span><span>1234567890.+-*/%\n()</span><span
+  >”</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawableBottom</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在</span><span>text</span><span
+  >的下方输出一个</span><span>drawable</span><span
+  >，如图片。如果指定一个颜色的话会把</span><span>text</span><span
+  >的背景设为该颜色，并且同时和</span><span>background</span><span
+  >使用时覆盖后者。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawableLeft</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在</span><span>text</span><span
+  >的左边输出一个</span><span>drawable</span><span
+  >，如图片。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawablePadding</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>text</span><span
+  >与</span><span>drawable(</span><span
+  >图片</span><span>)</span><span
+  >的间隔，与</span><span>drawableLeft</span><span
+  >、</span><span>drawableRight</span><span
+  >、</span><span>drawableTop</span><span
+  >、</span><span>drawableBottom</span><span
+  >一起使用，可设置为负数，单独使用没有效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawableRight</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在</span><span>text</span><span
+  >的右边输出一个</span><span>drawable</span><span
+  >，如图片。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:drawableTop</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在</span><span>text</span><span
+  >的正上方输出一个</span><span>drawable</span><span
+  >，如图片。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:editable</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置是否可编辑。这里无效果，参见</span><span>EditView</span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:editorExtras</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  class=shorttext><span style=';color:black;background:white'>设置文本的额外的输入数据</span></span><span
+  >。在</span><span>EditView</span><span
+  >再讨论。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:ellipsize</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置当文字过长时</span><span>,</span><span
+  >该控件该如何显示。有如下值设置：</span><span>”start”—–</span><span
+  >省略号显示在开头；</span><span>”end”——</span><span
+  >省略号显示在结尾；</span><span>”middle”—-</span><span
+  >省略号显示在中间；</span><span>”marquee” ——</span><span
+  >以</span><span><a
+  href="http://www.cnblogs.com/over140/archive/2010/08/20/1804770.html"><span
+  ><span>跑马灯</span></span></a></span><span
+  >的方式显示</span><span>(</span><span
+  >动画横向移动</span><span>)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:freezesText</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置保存文本的内容以及光标的位置。参见：</span><span><a
+  href="http://handsomeliuyang.javaeye.com/blog/721813"><span
+  ><span>这里</span></span></a></span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:gravity</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本位置，如设置成“</span><span>center</span><span
+  >”，文本将居中显示。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:hint</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span>Text</span><span
+  >为空时显示的文字提示信息，可通过</span><span>textColorHint</span><span
+  >设置提示信息的颜色。此属性在</span><span>EditView</span><span
+  >中使用，但是这里也可以用。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:imeOptions</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >附加功能，设置右下角</span><span>IME</span><span
+  >动作与编辑框相关的动作，如</span><span>actionDone</span><span
+  >右下角将显示一个“完成”，而不设置默认是一个回车符号。这个在</span><span>EditView</span><span
+  >中再详细说明，此处无用。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:imeActionId</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>IME</span><span
+  >动作</span><span>ID</span><span
+  >。在</span><span>EditView</span><span
+  >再做说明，可以先看这篇帖子：</span><span><a
+  href="http://stackoverflow.com/questions/1538331/android-cant-figure-how-to-use-setimeactionlabel"><span
+  ><span>这里</span></span></a></span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:imeActionLabel</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>IME</span><span
+  >动作标签。在</span><span>EditView</span><span
+  >再做说明。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:includeFontPadding</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本是否包含顶部和底部额外空白，默认为</span><span>true</span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:inputMethod</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >为文本指定输入法，需要完全限定名（完整的包名）。例如：</span><span>com.google.android.inputmethod.pinyin</span><span
+  >，但是这里报错找不到。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:inputType</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本的类型，用于帮助输入法显示合适的键盘类型。在</span><span>EditView</span><span
+  >中再详细说明，这里无效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:marqueeRepeatLimit</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >在</span><span style='font-size:12.0pt;
+  '>ellipsize</span><span style='font-size:12.0pt;font-family:
+  宋体'>指定<span>marquee</span>的情况下，设置重复滚动的次数，当设置为</span><code><span
+  style='font-size:12.0pt'>marquee_forever</span></code><code><span
+  style='font-size:12.0pt'>时表示无限次。</span></code></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:ems</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>TextView</span><span
+  >的宽度为</span><span>N</span><span
+  >个字符的宽度。这里测试为一个汉字字符宽度，如图：</span><span><img
+  border=0 width=15 height=48 id="图片 16"
+  src="image/image112.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxEms</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>TextView</span><span
+  >的宽度为最长为</span><span>N</span><span
+  >个字符的宽度。与</span><span>ems</span><span
+  >同时使用时覆盖</span><span>ems</span><span
+  >选项。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minEms</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置</span><span>TextView</span><span
+  >的宽度为最短为</span><span>N</span><span
+  >个字符的宽度。与</span><span>ems</span><span
+  >同时使用时覆盖</span><span>ems</span><span
+  >选项。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxLength</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >限制显示的文本长度，超出部分不显示。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:lines</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本的行数，设置两行就显示两行，即使第二行没有数据。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxLines</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本的最大显示行数，与</span><span>width</span><span
+  >或者</span><span>layout_width</span><span
+  >结合使用，超出部分自动换行，超出行数将不显示。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minLines</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本的最小行数，与</span><span>lines</span><span
+  >类似。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:linksClickable</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置链接是否点击连接，即使设置了</span><span>autoLink</span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:lineSpacingExtra</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置行间距。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:lineSpacingMultiplier</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置行间距的倍数。如</span><span>”1.2”</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:numeric</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >如果被设置，该</span><span>TextView</span><span
+  >有一个数字输入法。此处无用，设置后唯一效果是</span><span>TextView</span><span
+  >有点击效果，此属性在</span><span>EdtiView</span><span
+  >将详细说明。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:password</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >以小点</span><span>”.”</span><span
+  >显示文本</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:phoneNumber</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置为电话号码的输入方式。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:privateImeOptions</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置输入法选项，此处无用，在</span><span>EditText</span><span
+  >将进一步讨论。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:scrollHorizontally</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;'>设置文本超出<span>TextView</span>的宽度的情况下，是否出现横拉条。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:selectAllOnFocus</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >如果文本是可选择的，让他获取焦点而不是将光标移动为文本的开始位置或者末尾位置。</span><span
+ >TextView</span><span >中设置后无效果。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:shadowColor</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >指定文本阴影的颜色，需要与</span><span>shadowRadius</span><span
+  >一起使用。效果：</span><span><img border=0
+  width=165 height=18 id="图片 19"
+  src="image/image113.png"></span><span
+ > </span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:shadowDx</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置阴影横向坐标开始位置。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:shadowDy</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置阴影纵向坐标开始位置。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:shadowRadius</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置阴影的半径。设置为</span><span>0.1</span><span
+  >就变成字体的颜色了，一般设置为</span><span>3.0</span><span
+  >的效果比较好。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:singleLine</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置单行显示。如果和</span><span>layout_width</span><span
+  >一起使用，当文本不能全部显示时，后面用“</span><span>…</span><span
+  >”来表示。如</span><span>android:text=&quot;test_
+  singleLine &quot; android:singleLine=&quot;true&quot;
+  android:layout_width=&quot;20dp&quot;</span><span >将只显示“</span><span
+ >t…</span><span >”。如果不设置</span><span
+ >singleLine</span><span >或者设置为</span><span
+ >false</span><span >，文本将自动换行</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:text</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置显示文本</span><span>.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textAppearance</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'><pre>设置文字外观。如“<span
+ >?android:attr/textAppearanceLargeInverse</span></pre>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >”这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。可设置的值如下：</span><span
+ >textAppearanceButton/textAppearanceInverse/textAppearanceLarge/textAppearanceLargeInverse/textAppearanceMedium/textAppearanceMediumInverse/textAppearanceSmall/textAppearanceSmallInverse</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textColor</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本颜色</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textColorHighlight</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >被选中文字的底色，默认为蓝色</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textColorHint</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置提示信息文字的颜色，默认为灰色。与</span><span>hint</span><span
+  >一起使用。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textColorLink</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >文字链接的颜色</span><span>.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textScaleX</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文字缩放，默认为</span><span>1.0f</span><span
+  >。分别设置</span><span>0.5f/1.0f/1.5f/2.0f</span><span
+  >效果如下：</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span><img
+  border=0 width=179 height=78
+  src="image/image114.png"></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textSize</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文字大小，推荐度量单位</span><span>”sp”</span><span
+  >，如</span><span>”15sp”</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:textStyle</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置字形</span><span>[bold(</span><span
+  >粗体</span><span>) 0, italic(</span><span
+  >斜体</span><span>) 1, bolditalic(</span><span
+  >又粗又斜</span><span>) 2] </span><span
+  >可以设置一个或多个，用“</span><span>|</span><span
+  >”隔开</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:typeface</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本字体，必须是以下常量值之一：</span><span>normal 0,
+  sans 1, serif 2, monospace(</span><span class=def3><span style='font-size:
+  9.0pt;;color:#2B2B2B'>等宽字体</span></span><span>) 3] </span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:height</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的高度，支持度量单位：</span><span>px(</span><span
+  >像素</span><span>)/dp/sp/in/mm(</span><span
+  >毫米</span><span>)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxHeight</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的最大高度</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minHeight</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的最小高度</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:width</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的宽度，支持度量单位：</span><span>px(</span><span
+  >像素</span><span>)/dp/sp/in/mm(</span><span
+  >毫米</span><span>)</span><span
+  >，与</span><span>layout_width</span><span
+  >的区别看</span><span><a
+  href="http://topic.csdn.net/u/20100401/17/26C1C32F-E7A5-45FD-96A4-67BE9B09D976.html"><span
+  ><span>这里</span></span></a></span><span
+  >。</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:maxWidth</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的最大宽度</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 style='width:120.45pt;border:solid black 1.0pt;border-top:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='color:#C00000'>android:minWidth</span></b></p>
+  </td>
+  <td width=359 style='width:269.35pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  >设置文本区域的最小宽度</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+      
+</body>
+</html>

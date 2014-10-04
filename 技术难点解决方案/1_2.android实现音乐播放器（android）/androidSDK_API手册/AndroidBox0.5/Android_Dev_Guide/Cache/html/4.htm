@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Word2Chm Addin (v1.4.7.4)">
+<link rel="stylesheet" href="Word2Chm.css" type="text/css">
+
+<title> Web Apps Overview</title>
+</head>
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation' >      
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:18.0pt'>Web Apps Overview</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>译者署名：</span> <span>happyjiahan</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>审核：铁骑</span><span>_PuLee</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+>版本：</span><span>Android 3.2 r1</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span>&nbsp;</span></p>
+
+<p class=img-caption style='margin:0cm;margin-bottom:.0001pt;text-indent:21.0pt'><span
+style='font-size:10.5pt'>在</span><span class=y2Char><span
+style='font-size:10.5pt'>android</span></span><span style='font-size:10.5pt'>上发布一个应用程序一般有两种方式：一种是基于客户端模式</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>(<span
+class=y2Char>Client</span>-<span class=y2Char>Side</span></span><span
+style='font-size:10.5pt'>模式</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>)</span><span style='font-size:10.5pt'>的应用程序（基于客户端的应用程序需要用</span><span
+class=y2Char><span style='font-size:10.5pt'>Android</span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> <span
+class=y2Char>SDK</span></span><span style='font-size:10.5pt'>来开发，并且需要在用户的设备上安装一个以</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>.<span
+class=y2Char>apk</span></span><span style='font-size:10.5pt'>为后缀名的文件），另一种是基于浏览器的</span><span
+class=y2Char><span style='font-size:10.5pt'>web</span></span><span
+style='font-size:10.5pt'>应用程序（基于浏览器的应用程序的开发需要遵循</span><span class=y2Char><span
+lang=EN-US style='font-size:10.5pt'>web</span></span><span style='font-size:
+10.5pt'>标准，通过一个</span><span class=y2Char><span style='font-size:
+10.5pt'>web</span></span><span style='font-size:10.5pt'>浏览器来访问你开发的应用程序，不需要在用户的设备上安装其他任何程序）。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:5.25pt'><img width=327 height=367
+src="image/2011-7-31_1.jpg"></span></p>
+
+<p class=img-caption style='margin-bottom:0cm;margin-bottom:.0001pt;text-indent:
+21.0pt'><strong><span style='font-size:10.5pt;;font-weight:normal'>图</span></strong><strong><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif";
+font-weight:normal'>1. </span></strong><span style='font-size:10.5pt'>你可以通过两种方式向用户提供你的</span><span
+class=y2Char><span style='font-size:10.5pt'>web</span></span><span
+style='font-size:10.5pt'>内容：一种是通过传统的浏览器的方式，另一种则是通过在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>的应用程序的布局文件中包含一个</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WebView</span><span
+style='font-size:10.5pt'>组件的方式来实现。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>那么在你的软件开发过程中，你究竟是应该选择基于客户端的模式（</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>C/S</span><span
+style='font-size:10.5pt'>）还是基于浏览器的模式（</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>B/S</span><span style='font-size:
+10.5pt'>）呢？其实这个问题要考虑很多个因素，要视你所开发的软件来确定选择哪种模式更合适。这不是我们当前讨论的重点，下面我们来看一下</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>为我们提供了哪些方便我们进行</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>程序开发的支持吧！</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+7.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt'>支持一系列视窗属性，这些属性允许你根据屏幕的大小正确的确定你的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>程序的窗口大小。</span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:39.0pt;
+margin-bottom:.0001pt;text-indent:-21.0pt'><span style='font-size:
+7.5pt;font-family:Wingdings'>l<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>支持<span style='font-family:"Calibri","sans-serif"'>css</span>和<span
+lang=EN-US style='font-family:"Calibri","sans-serif"'>javascript</span>特性，这些特性能使你可以根据屏幕的像素密度来使用不同的样式和图片资源。</p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:18.0pt'><span
+style='font-size:10.5pt'>因此，在你决定为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>android</span><span style='font-size:10.5pt'>开发一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>应用的时候，可以先不考虑支持多种屏幕方面的问题。因为让你的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>页面在各种</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>android</span><span style='font-size:10.5pt'>设备的屏幕上有很好的效果已经很容易了。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:17.85pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>提供的另外一个很好的特性就是你现在不必纯粹的在客户端或者纯粹的在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>上构建你的应用，你可以将这两者融合在一起。你可以开发一个基于客户端的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用，但是在这个应用中嵌入了一些</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>页面（你可以在你的</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用中使用</span><code><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a>
+</span></code><span style='font-size:10.5pt'>）。图</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>1</span><span
+style='font-size:10.5pt'>形象化的展示了你如何通过浏览器或者</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用程序来访问</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>web</span><span style='font-size:10.5pt'>页面。然而，你不应该开发一个</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用简单到只是为了运行</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>web</span><span style='font-size:
+10.5pt'>网站。与此相反，嵌入到你的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>android</span><span style='font-size:10.5pt'>应用程序中的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>页面应该是专门为某种应用场景设计的。你也可以在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用程序和你的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>web</span><span style='font-size:10.5pt'>页面之间定义一个接口，这个接口允许你</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>页面中的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>javascript</span><span style='font-size:
+10.5pt'>调用你的</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span><span
+style='font-size:10.5pt'>应用程序中的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>API</span><span style='font-size:10.5pt'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:17.85pt'><span
+style='font-size:10.5pt'>从</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android 1.0 </span><span style='font-size:
+10.5pt'>开始，</span><code><span style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a>
+</span></code><code><span style='font-size:10.5pt'>已经能够在</span></code><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span></code><code><span
+style='font-size:10.5pt'>应用程序的布局文件中嵌入</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span></code><code><span
+style='font-size:10.5pt'>内容并通过</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>javascript</span></code><code><span
+style='font-size:10.5pt'>调用</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android api</span></code><code><span
+style='font-size:10.5pt'>。在</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android</span></code><code><span
+style='font-size:10.5pt'>增加了对不同分辨率的屏幕的支持后，</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>android 2.0</span></code><code><span
+style='font-size:10.5pt'>在</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WebKit</span></code><code><span
+style='font-size:10.5pt'>框架中添加了允许在网页中指定</span></code><span style='font-size:
+10.5pt'>视窗<code>属性的支持，并且能够查询屏幕的分辨率，这样就能够更好的修改上文提到的那些样式和图片资源。因为这些特性都是</code></span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span></code><code><span
+style='font-size:10.5pt'>中</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>WebKit</span></code><code><span
+style='font-size:10.5pt'>框架的一部分</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>,</span></code><code><span
+style='font-size:10.5pt'>所以不管是</span></code><code><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android </span></code><code><span
+style='font-size:10.5pt'>浏览器还是</span></code><code><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'> <span><a target="_blank" href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a>
+</span></span></code><code><span style='font-size:10.5pt'>在视图接口和屏幕分辨率方面都具有相同的特性。</span></code></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:17.85pt'><span
+style='font-size:10.5pt'>如果你想为</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>设备开发</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>应用，你应该阅读下面的文档：</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt;text-indent:17.85pt'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/guide/webapps/targeting.html"><strong><span
+style='font-family:"Calibri","sans-serif"'>Targeting Screens from Web Apps</span></strong></a></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>如何让你的</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>应用能够非常合适的呈现在</span><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>设备上，并且能够支持多种屏幕分辨率呢？如果你正在创建一个的</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>web</span><span
+style='font-size:10.5pt'>应用并且希望自己的应用至少能够在</span><span
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>设备上运行（假设你的应用完全部署在网络上），特别是如果你针对的是移动终端或者打算使用</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a></span></code><code><span
+style='font-size:10.5pt'>，</span></code><span style='font-size:10.5pt'>那么这个文档介绍的信息对你来说非常重要。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/webapps/webview.html"><strong><span
+style='font-family:"Calibri","sans-serif"'>Building Web Apps in WebView</span></strong></a></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>如何使用</span><code><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'><a target="_blank" href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a></span></code><span
+style='font-size:10.5pt'>将网页嵌入到</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android</span><span style='font-size:10.5pt'>应用中以及如何使用</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>JavaScript</span><span
+style='font-size:10.5pt'>调用</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>Android API</span><span style='font-size:
+10.5pt'>。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/webapps/debugging.html"><strong><span
+style='font-family:"Calibri","sans-serif"'>Debugging Web Apps</span></strong></a></span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-size:10.5pt'>如何使用</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>JavaScript</span><span style='font-size:
+10.5pt'>控制台</span><span style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>API</span><span
+style='font-size:10.5pt'>调试</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>web</span><span style='font-size:10.5pt'>应用。</span></p>
+
+<p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href="http://developer.android.com/guide/webapps/best-practices.html"><strong><span
+style='font-family:"Calibri","sans-serif"'>Best Practices for Web Apps</span></strong></a></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:42.0pt;
+margin-bottom:.0001pt'><span style='font-size:10.5pt'>它列举了一系列你应该遵循的实践技巧，帮助你创建出可以在</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>Android</span><span
+style='font-size:10.5pt'>设备上高效运行的</span><span style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>web</span><span style='font-size:10.5pt'>应用。</span></p>
+
+</div>
+
+      
+</body>
+</html>
