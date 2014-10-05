@@ -50,8 +50,6 @@
 
 [1_2.系统详细设计与实现](https://github.com/JamesonHuang/Graduation-Project/wiki/1_2.%E7%B3%BB%E7%BB%9F%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0)
 
-[1_1.系统设计与核心难点分析](https://github.com/JamesonHuang/Graduation-Project/wiki/1_1.%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%A0%B8%E5%BF%83%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90)
-
 [1_3.介绍网站数据库设计](https://github.com/JamesonHuang/Graduation-Project/wiki/1_3.%E4%BB%8B%E7%BB%8D%E7%BD%91%E7%AB%99%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1)
 
 ###参考文献：
