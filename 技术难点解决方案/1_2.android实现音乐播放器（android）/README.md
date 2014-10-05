@@ -3,8 +3,9 @@ Android实现音乐播放器（android）
 
 >##1、android快速回顾：
 
->* [Vamei博客Java/andorid快速教程](http://www.cnblogs.com/vamei/archive/2013/03/31/2991531.html)
+>* [Android开发之旅：书籍、教程、工具和各种干货](http://blog.jobbole.com/73026/)
 
+>* [Vamei博客Java/andorid快速教程](http://www.cnblogs.com/vamei/archive/2013/03/31/2991531.html)
 
 >* [慕课网android第一门课教程](http://www.imooc.com/learn/96)
 
@@ -45,3 +46,10 @@ Android实现音乐播放器（android）
 >* [android项目源码教程2](http://www.apkbus.com/android-19645-1-1.html)
 
 >* [android内核讲解](http://blog.csdn.net/innost/article/details/7648869)
+
+
+>##3、android网络通信：
+
+>* [AndroidAsync ：一个基于nio的异步socket，http（客户端服务器端），websocket，socket.io库](http://hao.jobbole.com/androidasync/)
+
+
