@@ -38,15 +38,11 @@ Android实现音乐播放器（android）
 >*  [Android 设计指南（非官方中文版）](http://adchs.github.io/index.html)
 
 
->##3、android资源收集：
+>##3、android博客资源收集：
 
 >* [android大牛博客导航](http://yeungeek.com/android%E5%BC%80%E5%8F%91%E5%A4%A7%E7%89%9B%E5%8D%9A%E5%AE%A2/)
 
 >* [android书籍推荐](http://blog.csdn.net/aaa2832/article/details/7719554)
-
->* ！[Android开源项目和框架](http://blog.csdn.net/zhanghw0917/article/details/8921309)
-
-
 
 >* [android关键问题与设计](http://blog.chengyunfeng.com/?cat=46&paged=3)
 
@@ -63,4 +59,11 @@ Android实现音乐播放器（android）
 
 >* [AndroidAsync ：一个基于nio的异步socket，http（客户端服务器端），websocket，socket.io库](http://hao.jobbole.com/androidasync/)
 
+>##5、android开源项目 & 框架：
+
+>* [Android开源项目和框架](http://blog.csdn.net/zhanghw0917/article/details/8921309)
+
+>* [六款值得推荐的android（安卓）开源框架简介](http://www.jb51.net/article/51052.htm)
+
+>* [针对开发者的20款移动开发框架](http://www.csdn.net/article/2013-07-09/2816161)
 
