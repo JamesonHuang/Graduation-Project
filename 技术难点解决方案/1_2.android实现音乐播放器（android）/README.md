@@ -29,7 +29,6 @@ Android实现音乐播放器（android）
 
 >*  [android基础教程3](http://blog.csdn.net/Android_Tutor/article/category/605365/3)
 
->*  [android基础教程](http://blog.csdn.net/flowingflying/article/category/790538/10)
 
 >##2、android资源收集：
 
