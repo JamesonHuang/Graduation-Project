@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="atirek_mac" name="MyIndigoTest" tests="1" time="13.5" timestamp="2014-05-12T10:12:03">
+  <properties />
+  <testcase classname="MyIndigoTest" name="testOneWayFlightSearch" time="13.415" />
+  <system-out><![CDATA[1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

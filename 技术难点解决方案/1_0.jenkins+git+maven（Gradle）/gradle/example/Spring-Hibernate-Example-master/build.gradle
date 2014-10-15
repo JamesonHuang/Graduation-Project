@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'maven'
+apply plugin: 'war'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenLocal()
+    maven { url "http://10.100.120.245:8081/nexus/content/groups/public/" }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+            "mysql:mysql-connector-java:5.1.33",
+            "org.slf4j:slf4j-api:1.7.7",
+            "jstl:jstl:1.2",
+            "org.springframework:spring-webmvc:3.2.0.RELEASE",
+            "org.springframework:spring-hibernate3:2.0.8",
+            "org.hibernate:hibernate-annotations:3.4.0.GA",
+            "org.apache.commons:commons-dbcp2:2.0.1"
+    )
+    testCompile (
+            "org.springframework:spring-test:3.2.0.RELEASE",
+            "junit:junit:4.8.2"
+    )
+}
