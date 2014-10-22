@@ -1,0 +1,77 @@
+
+
+-- ----------------------------
+-- Table structure for pro_detail
+-- ----------------------------
+CREATE TABLE `tb_pro_detail` (
+  `pro_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_detail_from_pro` varchar(50) DEFAULT NULL,
+  `pro_detail_con` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`pro_detail_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for sys_project
+-- ----------------------------
+CREATE TABLE `tb_sys_project` (
+  `sys_pro_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`pro_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for sys_project_type
+-- ----------------------------
+CREATE TABLE `tb_sys_project_type` (
+  `sys_pro_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`pro_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- Table structure for user_project
+-- ----------------------------
+CREATE TABLE `tb_user_project` (
+  `pro_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_name` varchar(50) DEFAULT NULL,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `pro_intro` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`pro_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for task
+-- ----------------------------
+CREATE TABLE `tb_task` (
+  `task_id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_name` varchar(50) DEFAULT NULL,
+  `task_type` varchar(50) DEFAULT NULL,
+  `task_from_pro` varchar(50) DEFAULT NULL,
+  `task_from_task` varchar(50) DEFAULT NULL,
+  `task_date` varchar(50) DEFAULT NULL,
+  `task_tomatoes_count` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for task_detail
+-- ----------------------------
+CREATE TABLE `tb_task_detail` (
+  `task_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_detail_from_task` varchar(50) DEFAULT NULL,
+  `task_detail_con` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`task_detail_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+

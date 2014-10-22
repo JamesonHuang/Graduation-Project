@@ -1,0 +1,106 @@
+﻿--
+-- 表的结构 `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_name` varchar(50) NOT NULL,
+  `admin_pwd` varchar(50) NOT NULL,
+  `admin_img` varchar(150) DEFAULT NULL,
+  `admin_type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`),
+  KEY `FK_Reference_8` (`admin_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_pwd`, `admin_img`, `admin_type_id`) VALUES
+(2, 'admin', 'admin', NULL, 2);
+
+--
+-- 表的结构 `admintype`
+--
+
+CREATE TABLE IF NOT EXISTS `admintype` (
+  `admin_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_type_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`admin_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `admintype`
+--
+
+INSERT INTO `admintype` (`admin_type_id`, `admin_type_name`) VALUES
+(2, '超级管理员'),
+(3, '管理员');
+
+
+
+--
+-- 表的结构 `info`
+--
+
+CREATE TABLE IF NOT EXISTS `info` (
+  `info_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_id` int(11) DEFAULT NULL,
+  `info_type_id` int(11) DEFAULT NULL,
+  `info_con` text,
+  `info_title` varchar(70) DEFAULT NULL,
+  `info_date` datetime DEFAULT NULL,
+  `info_hits` int(11) DEFAULT NULL,
+  PRIMARY KEY (`info_id`),
+  KEY `FK_Reference_4` (`admin_id`),
+  KEY `FK_Reference_5` (`info_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+
+--
+-- 表的结构 `infoimg`
+--
+
+CREATE TABLE IF NOT EXISTS `infoimg` (
+  `info_img_id` int(11) NOT NULL AUTO_INCREMENT,
+  `info_id` int(11) DEFAULT NULL,
+  `info_img_name` varchar(100) DEFAULT NULL,
+  `info_img_path` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`info_img_id`),
+  KEY `FK_Reference_7` (`info_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+
+
+--
+-- 表的结构 `infotype`
+--
+
+CREATE TABLE IF NOT EXISTS `infotype` (
+  `info_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `info_type_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`info_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `infotype`
+--
+
+INSERT INTO `infotype` (`info_type_id`, `info_type_name`) VALUES
+(1, '简介'),
+(2, '系统设计'),
+(3, '系统实现'),
+(4, '数据库设计');
+
+
+
+--
+-- 表的结构 `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) DEFAULT NULL,
+  `user_pwd` varchar(50) DEFAULT NULL,
+  `weibo_key` int(11) DEFAULT NULL,
+  `qq_key` int(11) DEFAULT NULL,
+  `user_img` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
