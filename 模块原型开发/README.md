@@ -1,8 +1,11 @@
 websocket：android客户端andjava服务器信息交互demo
 ==================
+###websocketTest.rar文件说明：
+    1.android客户端：WebSocketTest1文件夹
+    2.java服务器端：WebSocketWebTest文件夹
+
 ###在AndroidManifest.xml中，加上这一句话，取得权限（原因:建立的套接字没有限权对外连接）：
 <uses-permission android:name="android.permission.INTERNET" />
-
     
 [android-websocket包下载地址，websocket源码及安卓websocket包(在文件夹中搜索“autobohn.jar”）](https://github.com/tavendo/AutobahnAndroid)
 
