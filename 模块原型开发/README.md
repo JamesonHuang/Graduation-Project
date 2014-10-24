@@ -40,7 +40,7 @@ websocket：android客户端andjava服务器信息交互demo
     7.     }
 ###解决 Eclipse项目红感叹号:
     1.原因：显示红色感叹号是因为jar包的路径不对
-    2.解决：在项目上右击Build Path -> Configure Build Paht...(或Propertise->Java Build Path)，在Java Build      3.Path中Libraries，红色叉号的包为路径错误的包。
+    2.解决：在项目上右击Build Path -> Configure Build Paht...(或Propertise->Java Build Path)，在Java Build  Path中Libraries，红色叉号的包为路径错误的包。
     4.处理好后返回刷新工程即可，这个问题一般是导入别人的项目或之前的一些JAR包移动了它的存储位置。
     5.PS: 工程上黄色盾牌感叹号，表示有引用了jar包，但是实际上没有使用这个jar包(可以理解为定义了变量，但从未 来使用过)
     
