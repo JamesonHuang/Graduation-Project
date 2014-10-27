@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<global-results>
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<action name="bgInfoAction" class="bgInfoAction">
+			<result name="initAdd">/bgInfo/bgInfo_add.jsp</result>
+			<result name="initUpdate">/bgInfo/bgInfo_update.jsp</result>
+			<result name="initAddAll">/bgInfo/bgInfo_addAll.jsp</result>
+			<result name="initMergeAll">/bgInfo/bgInfo_mergeAll.jsp</result>
+			<result name="selectAll">/bgInfo/bgInfo_selectAll.jsp</result>
+			<result name="conditionSelectAll">/bgInfo/bgInfo_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/bgInfo/bgInfo_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="bgInfoimgAction" class="bgInfoimgAction">
+			<result name="initAdd">/bgInfoimg/bgInfoimg_add.jsp</result>
+			<result name="initUpdate">/bgInfoimg/bgInfoimg_update.jsp</result>
+			<result name="initAddAll">/bgInfoimg/bgInfoimg_addAll.jsp</result>
+			<result name="initMergeAll">/bgInfoimg/bgInfoimg_mergeAll.jsp</result>
+			<result name="selectAll">/bgInfoimg/bgInfoimg_selectAll.jsp</result>
+			<result name="conditionSelectAll">/bgInfoimg/bgInfoimg_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/bgInfoimg/bgInfoimg_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="bgInfotypeAction" class="bgInfotypeAction">
+			<result name="initAdd">/bgInfotype/bgInfotype_add.jsp</result>
+			<result name="initUpdate">/bgInfotype/bgInfotype_update.jsp</result>
+			<result name="initAddAll">/bgInfotype/bgInfotype_addAll.jsp</result>
+			<result name="initMergeAll">/bgInfotype/bgInfotype_mergeAll.jsp</result>
+			<result name="selectAll">/bgInfotype/bgInfotype_selectAll.jsp</result>
+			<result name="conditionSelectAll">/bgInfotype/bgInfotype_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/bgInfotype/bgInfotype_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbDeviceAction" class="tbDeviceAction">
+			<result name="initAdd">/tbDevice/tbDevice_add.jsp</result>
+			<result name="initUpdate">/tbDevice/tbDevice_update.jsp</result>
+			<result name="initAddAll">/tbDevice/tbDevice_addAll.jsp</result>
+			<result name="initMergeAll">/tbDevice/tbDevice_mergeAll.jsp</result>
+			<result name="selectAll">/tbDevice/tbDevice_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbDevice/tbDevice_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbDevice/tbDevice_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbMessageAction" class="tbMessageAction">
+			<result name="initAdd">/tbMessage/tbMessage_add.jsp</result>
+			<result name="initUpdate">/tbMessage/tbMessage_update.jsp</result>
+			<result name="initAddAll">/tbMessage/tbMessage_addAll.jsp</result>
+			<result name="initMergeAll">/tbMessage/tbMessage_mergeAll.jsp</result>
+			<result name="selectAll">/tbMessage/tbMessage_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbMessage/tbMessage_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbMessage/tbMessage_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbMessageTypeAction" class="tbMessageTypeAction">
+			<result name="initAdd">/tbMessageType/tbMessageType_add.jsp</result>
+			<result name="initUpdate">/tbMessageType/tbMessageType_update.jsp</result>
+			<result name="initAddAll">/tbMessageType/tbMessageType_addAll.jsp</result>
+			<result name="initMergeAll">/tbMessageType/tbMessageType_mergeAll.jsp</result>
+			<result name="selectAll">/tbMessageType/tbMessageType_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbMessageType/tbMessageType_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbMessageType/tbMessageType_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbProDetailAction" class="tbProDetailAction">
+			<result name="initAdd">/tbProDetail/tbProDetail_add.jsp</result>
+			<result name="initUpdate">/tbProDetail/tbProDetail_update.jsp</result>
+			<result name="initAddAll">/tbProDetail/tbProDetail_addAll.jsp</result>
+			<result name="initMergeAll">/tbProDetail/tbProDetail_mergeAll.jsp</result>
+			<result name="selectAll">/tbProDetail/tbProDetail_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbProDetail/tbProDetail_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbProDetail/tbProDetail_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbProjectAction" class="tbProjectAction">
+			<result name="initAdd">/tbProject/tbProject_add.jsp</result>
+			<result name="initUpdate">/tbProject/tbProject_update.jsp</result>
+			<result name="initAddAll">/tbProject/tbProject_addAll.jsp</result>
+			<result name="initMergeAll">/tbProject/tbProject_mergeAll.jsp</result>
+			<result name="selectAll">/tbProject/tbProject_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbProject/tbProject_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbProject/tbProject_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbTaskAction" class="tbTaskAction">
+			<result name="initAdd">/tbTask/tbTask_add.jsp</result>
+			<result name="initUpdate">/tbTask/tbTask_update.jsp</result>
+			<result name="initAddAll">/tbTask/tbTask_addAll.jsp</result>
+			<result name="initMergeAll">/tbTask/tbTask_mergeAll.jsp</result>
+			<result name="selectAll">/tbTask/tbTask_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbTask/tbTask_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbTask/tbTask_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbTaskDetailAction" class="tbTaskDetailAction">
+			<result name="initAdd">/tbTaskDetail/tbTaskDetail_add.jsp</result>
+			<result name="initUpdate">/tbTaskDetail/tbTaskDetail_update.jsp</result>
+			<result name="initAddAll">/tbTaskDetail/tbTaskDetail_addAll.jsp</result>
+			<result name="initMergeAll">/tbTaskDetail/tbTaskDetail_mergeAll.jsp</result>
+			<result name="selectAll">/tbTaskDetail/tbTaskDetail_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbTaskDetail/tbTaskDetail_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbTaskDetail/tbTaskDetail_pageQuery_list.jsp</result>
+		</action>
+
+		<action name="tbUserAction" class="tbUserAction">
+			<result name="initAdd">/tbUser/tbUser_add.jsp</result>
+			<result name="initUpdate">/tbUser/tbUser_update.jsp</result>
+			<result name="initAddAll">/tbUser/tbUser_addAll.jsp</result>
+			<result name="initMergeAll">/tbUser/tbUser_mergeAll.jsp</result>
+			<result name="selectAll">/tbUser/tbUser_selectAll.jsp</result>
+			<result name="conditionSelectAll">/tbUser/tbUser_conditionSelectAll_list.jsp</result>
+			<result name="pageQuery">/tbUser/tbUser_pageQuery_list.jsp</result>
+		</action>
+
+	</package>
+</struts>

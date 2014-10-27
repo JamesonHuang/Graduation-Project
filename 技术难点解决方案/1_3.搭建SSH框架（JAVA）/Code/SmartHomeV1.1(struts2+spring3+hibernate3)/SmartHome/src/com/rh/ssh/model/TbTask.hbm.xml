@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="TbTask" table="tb_task">
+		<id name="taskId" type="java.lang.Integer">
+			<column name="task_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="taskName" type="java.lang.String">
+			<column name="task_name"></column>
+		</property>
+		<property name="taskType" type="java.lang.String">
+			<column name="task_type"></column>
+		</property>
+		<property name="taskFromPro" type="java.lang.String">
+			<column name="task_from_pro"></column>
+		</property>
+		<property name="taskFromTask" type="java.lang.String">
+			<column name="task_from_task"></column>
+		</property>
+		<property name="taskDate" type="java.lang.String">
+			<column name="task_date"></column>
+		</property>
+		<property name="taskTomatoesCount" type="java.lang.String">
+			<column name="task_tomatoes_count"></column>
+		</property>
+	</class>
+</hibernate-mapping>

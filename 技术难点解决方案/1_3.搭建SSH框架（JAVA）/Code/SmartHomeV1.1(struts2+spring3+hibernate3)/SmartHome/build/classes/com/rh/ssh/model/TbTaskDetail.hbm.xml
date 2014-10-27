@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="TbTaskDetail" table="tb_task_detail">
+		<id name="taskDetailId" type="java.lang.Integer">
+			<column name="task_detail_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="taskDetailFromTask" type="java.lang.String">
+			<column name="task_detail_from_task"></column>
+		</property>
+		<property name="taskDetailCon" type="java.lang.String">
+			<column name="task_detail_con"></column>
+		</property>
+	</class>
+</hibernate-mapping>

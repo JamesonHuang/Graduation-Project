@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/cache http://www.springframework.org/schema/jdbc/spring-cache.xsd">
+
+	<bean id="bgInfoAction" class="com.rh.ssh.action.BgInfoAction" scope="prototype">
+		<property name="service" ref="bgInfoService" />
+	</bean>
+
+	<bean id="bgInfoimgAction" class="com.rh.ssh.action.BgInfoimgAction" scope="prototype">
+		<property name="service" ref="bgInfoimgService" />
+	</bean>
+
+	<bean id="bgInfotypeAction" class="com.rh.ssh.action.BgInfotypeAction" scope="prototype">
+		<property name="service" ref="bgInfotypeService" />
+	</bean>
+
+	<bean id="tbDeviceAction" class="com.rh.ssh.action.TbDeviceAction" scope="prototype">
+		<property name="service" ref="tbDeviceService" />
+	</bean>
+
+	<bean id="tbMessageAction" class="com.rh.ssh.action.TbMessageAction" scope="prototype">
+		<property name="service" ref="tbMessageService" />
+	</bean>
+
+	<bean id="tbMessageTypeAction" class="com.rh.ssh.action.TbMessageTypeAction" scope="prototype">
+		<property name="service" ref="tbMessageTypeService" />
+	</bean>
+
+	<bean id="tbProDetailAction" class="com.rh.ssh.action.TbProDetailAction" scope="prototype">
+		<property name="service" ref="tbProDetailService" />
+	</bean>
+
+	<bean id="tbProjectAction" class="com.rh.ssh.action.TbProjectAction" scope="prototype">
+		<property name="service" ref="tbProjectService" />
+	</bean>
+
+	<bean id="tbTaskAction" class="com.rh.ssh.action.TbTaskAction" scope="prototype">
+		<property name="service" ref="tbTaskService" />
+	</bean>
+
+	<bean id="tbTaskDetailAction" class="com.rh.ssh.action.TbTaskDetailAction" scope="prototype">
+		<property name="service" ref="tbTaskDetailService" />
+	</bean>
+
+	<bean id="tbUserAction" class="com.rh.ssh.action.TbUserAction" scope="prototype">
+		<property name="service" ref="tbUserService" />
+	</bean>
+
+</beans>

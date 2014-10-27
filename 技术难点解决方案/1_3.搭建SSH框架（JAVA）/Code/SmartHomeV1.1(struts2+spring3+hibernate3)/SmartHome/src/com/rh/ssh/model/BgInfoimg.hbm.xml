@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="BgInfoimg" table="bg_infoimg">
+		<id name="infoImgId" type="java.lang.Integer">
+			<column name="info_img_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="infoId" type="java.lang.Integer">
+			<column name="info_id"></column>
+		</property>
+		<property name="infoImgName" type="java.lang.String">
+			<column name="info_img_name"></column>
+		</property>
+		<property name="infoImgPath" type="java.lang.String">
+			<column name="info_img_path"></column>
+		</property>
+	</class>
+</hibernate-mapping>

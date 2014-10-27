@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="TbUser" table="tb_user">
+		<id name="userId" type="java.lang.Integer">
+			<column name="user_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" type="java.lang.String">
+			<column name="user_name"></column>
+		</property>
+		<property name="userPwd" type="java.lang.String">
+			<column name="user_pwd"></column>
+		</property>
+		<property name="weiboKey" type="java.lang.Integer">
+			<column name="weibo_key"></column>
+		</property>
+		<property name="qqKey" type="java.lang.Integer">
+			<column name="qq_key"></column>
+		</property>
+		<property name="userImg" type="java.lang.String">
+			<column name="user_img"></column>
+		</property>
+	</class>
+</hibernate-mapping>

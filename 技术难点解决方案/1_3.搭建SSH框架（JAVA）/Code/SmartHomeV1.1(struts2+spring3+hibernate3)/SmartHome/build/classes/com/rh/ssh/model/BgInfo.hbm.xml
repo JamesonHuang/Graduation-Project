@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="BgInfo" table="bg_info">
+		<id name="infoId" type="java.lang.Integer">
+			<column name="info_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="adminId" type="java.lang.Integer">
+			<column name="admin_id"></column>
+		</property>
+		<property name="infoTypeId" type="java.lang.Integer">
+			<column name="info_type_id"></column>
+		</property>
+		<property name="infoCon" type="java.lang.String">
+			<column name="info_con"></column>
+		</property>
+		<property name="infoTitle" type="java.lang.String">
+			<column name="info_title"></column>
+		</property>
+		<property name="infoDate" type="java.util.Date">
+			<column name="info_date"></column>
+		</property>
+		<property name="infoHits" type="java.lang.Integer">
+			<column name="info_hits"></column>
+		</property>
+	</class>
+</hibernate-mapping>

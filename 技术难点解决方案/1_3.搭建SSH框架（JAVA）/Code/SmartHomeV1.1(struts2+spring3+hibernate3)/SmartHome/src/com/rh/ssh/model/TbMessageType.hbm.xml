@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="TbMessageType" table="tb_message_type">
+		<id name="messageTypeId" type="java.lang.Integer">
+			<column name="message_type_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="messageTypeName" type="java.lang.String">
+			<column name="message_type_name"></column>
+		</property>
+	</class>
+</hibernate-mapping>
