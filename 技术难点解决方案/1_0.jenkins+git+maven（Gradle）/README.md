@@ -57,3 +57,18 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >>*  http://blog.csdn.net/wirelessqa/article/category/1522507
     
+>###5、 ubuntu下配置Gradle 教程：
+
+>* [自己配置的Gradle Demo](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1_0.jenkins%2Bgit%2Bmaven%EF%BC%88Gradle%EF%BC%89/gradle/backup/gradle_demo_backup.tar.gz)
+
+>* [自动构建Java Web Gradle的插件](https://github.com/JamesonHuang/Graduation-Project/tree/master/%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1_0.jenkins%2Bgit%2Bmaven%EF%BC%88Gradle%EF%BC%89/gradle/template_plugin)
+
+>* [gradle构建的SSH项目demo](https://github.com/JamesonHuang/Graduation-Project/tree/master/%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1_0.jenkins%2Bgit%2Bmaven%EF%BC%88Gradle%EF%BC%89/gradle/example)
+
+>* [gradle官方手册（中文版）](https://github.com/JamesonHuang/Graduation-Project/tree/master/%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1_0.jenkins%2Bgit%2Bmaven%EF%BC%88Gradle%EF%BC%89/gradle/gradle%E5%AE%98%E6%96%B9%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%AD%E6%96%87%E7%89%88%EF%BC%89)
+
+>* [android项目源码教程](http://www.apkbus.com/android-17627-1-1.html)
+
+>* [android项目源码教程2](http://www.apkbus.com/android-19645-1-1.html)
+
+>* [android内核讲解](http://blog.csdn.net/innost/article/details/7648869)
