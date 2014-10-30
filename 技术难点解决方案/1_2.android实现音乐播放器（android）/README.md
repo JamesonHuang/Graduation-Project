@@ -38,6 +38,7 @@ Android实现音乐播放器（android）
 >*  [Android 设计指南（非官方中文版）](http://adchs.github.io/index.html)
 
 
+
 >##3、android博客资源收集：
 
 >* [android大牛博客导航](http://yeungeek.com/android%E5%BC%80%E5%8F%91%E5%A4%A7%E7%89%9B%E5%8D%9A%E5%AE%A2/)
@@ -54,6 +55,8 @@ Android实现音乐播放器（android）
 
 >* [android内核讲解](http://blog.csdn.net/innost/article/details/7648869)
 
+>*  [猿轩阁-android博客](http://toughcoder.net/blog/2014/10/24/boosts-android-development-with-tools/)
+
 
 >##4、android网络通信：
 
@@ -66,4 +69,42 @@ Android实现音乐播放器（android）
 >* [六款值得推荐的android（安卓）开源框架简介](http://www.jb51.net/article/51052.htm)
 
 >* [针对开发者的20款移动开发框架](http://www.csdn.net/article/2013-07-09/2816161)
+
+
+>##5、实现智能家居客户端相关博客与bug调试：
+
+>* [socket实现基于Android的远程视频监控系统](http://www.linuxidc.com/Linux/2012-08/69412.htm)
+
+>* [surfaceView实现渐隐特效的欢迎界面](http://www.cnblogs.com/xuling/archive/2011/06/06/android.html)
+
+>* [解决android SDK更新不了的问题](http://blog.163.com/stm32f103vct6@126/blog/static/166743479201311300341259/)
+
+>* [bug:Andriod Atom x86模拟器启动报错](http://blog.csdn.net/rznice/article/details/40210213)
+
+>* [解决android SDK更新不了的问题](http://blog.163.com/stm32f103vct6@126/blog/static/166743479201311300341259/)
+
+
+>##6、slidingMenu开源项目配置：
+
+教程：
+>>* http://www.tuicool.com/articles/ZvIn63
+
+>>* http://blog.csdn.net/yangyu20121224/article/details/9255829
+
+仿qq
+>>* http://blog.csdn.net/androidbaibai/article/details/38731261
+
+调bug教程（详见有道云笔记）：
+>>* http://www.eoeandroid.com/thread-262755-1-1.html
+
+>>* http://gushedaoren.blog.163.com/blog/static/173663405201451911754149/
+
+
+
+
+
+
+
+
+
 
