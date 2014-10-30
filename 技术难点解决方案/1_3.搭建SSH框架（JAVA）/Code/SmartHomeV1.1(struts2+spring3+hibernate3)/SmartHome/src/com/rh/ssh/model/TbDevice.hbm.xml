@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rh.ssh.model">
+	<class name="TbDevice" table="tb_device">
+		<id name="deviceId" type="java.lang.Integer">
+			<column name="device_id" />
+			<generator class="native"></generator>
+		</id>
+		<property name="deviceName" type="java.lang.String">
+			<column name="device_name"></column>
+		</property>
+		<property name="userId" type="java.lang.Integer">
+			<column name="user_id"></column>
+		</property>
+		<property name="deviceKey" type="java.lang.Integer">
+			<column name="device_key"></column>
+		</property>
+		<property name="isOnline" type="java.lang.Short">
+			<column name="is_online"></column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,59 +1,50 @@
-毕业设计项目——智能家居原型开发
+websocket：android客户端andjava服务器信息交互demo
 ==================
+###websocketTest.rar文件说明：
+    1.android客户端：WebSocketTest1文件夹
+    2.java服务器端：WebSocketWebTest文件夹
 
-##目标：
+###在AndroidManifest.xml中，加上这一句话，取得权限（原因:建立的套接字没有限权对外连接）：
+    1.<uses-permission android:name="android.permission.INTERNET" />
+    
+[android-websocket包下载地址，websocket源码及安卓websocket包(在文件夹中搜索“autobohn.jar”）](https://github.com/tavendo/AutobahnAndroid)
 
-    1、实现基于ARM与Android的互联网智能家居系统.
-    
-    2、将大学学到的技术串连起来.
-    
-    3、完成毕业设计，积累项目经验,为找工作打基础。
-    
-###应用场合：
+[JSR-356 WebSocket API规范中文版](http://www.jmatrix.org/java/382.html)
 
-    1、夏日炎炎，在外工作一天，准备回家时，通过手机，提前将家里的空调启动，一回到家就能享受惬意的清凉。
-    
-    2、在公司上班，亲友想用自己车库里的车，去某某地方，且钥匙还在我这，肿么办？
-    
-###涉及技术与平台：
+[websocket源码及安卓websocket包(在文件夹中搜索“autobohn.jar”）](https://github.com/tavendo/AutobahnAndroid)
 
-    1、android客户端应用开发技术（应用客户端app + 遥控器客户端app）
-    
-    2、MVC框架（抽象工厂 + 观察者模式) + SSH / Django
-    
-    3、网络通信(WebSocket + WebRTC + Webservice)
-    
-    4、服务器推送技术（JPUSH）
-    
-    5、ARM涉及模块：WIFI模块、网络通信模块、（传感器模块）
-    
-    6、代码控制管理：git + jenkins ( maven / Gradle)
+[http协议状态码详解](http://www.cnblogs.com/tankxiao/archive/2013/01/08/2818542.html#WhatsStatusCode)
 
-###扩展技术：
-    
-    1、语音技术
-    
-    2、高并发
-    
-    3、联网安全
-    
-    4、实时数据传输
-    
-    （5、数据挖掘）
-    
-###原型结构图：
-![image](https://raw.githubusercontent.com/JamesonHuang/Graduation-Project/master/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E5%8E%9F%E5%9E%8B%E5%9B%BE.jpg)
+[websocket原理](http://www.cnblogs.com/yjf512/archive/2013/03/11/2953483.html)
 
-###参考文献：
+[客户端（html）javaee服务器tomcat8websocket实现（能调通）](http://blog.csdn.net/xiejx618/article/details/14519359)
 
-[基于ARM与Android的智能家居系统设计与实现.pdf](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E5%9F%BA%E4%BA%8EARM%E4%B8%8EAndroid%E7%9A%84%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.pdf)
+[Android-----SharePreference](http://blog.sina.com.cn/s/blog_7f37847b0100yt31.html)
+
+[jsr356 API](https://jcp.org/en/jsr/detail?id=356)
+
+[websocket自定义数据类型](http://www.tuicool.com/articles/fIFz6v)
+
+[Dos命令查看端口占用及关闭进程](http://www.cnblogs.com/rainman/p/3457227.html)
+
+[github for windows使用教程](http://www.cnblogs.com/zfanlong1314/p/3715490.html)
+
+###java服务器端使用json:
+    1.String message（"{\"firstName\":\"Brett\"}"）;
+    2.JSONObject json = JSONObject.fromObject(message);
+    3.json.get("firstName")
+###android客户端使用json：
+    1. try {
+    2.        json = new JSONObject(payload);
+    3.        json.getString("firstName");
+    4.       } catch (JSONException e) {
+    5.        // TODO Auto-generated catch block
+    6.        e.printStackTrace();
+    7.     }
+###解决 Eclipse项目红感叹号:
+    1.原因：显示红色感叹号是因为jar包的路径不对
+    2.解决：在项目上右击Build Path -> Configure Build Paht...(或Propertise->Java Build Path)，在Java Build  Path中Libraries，红色叉号的包为路径错误的包。
+    4.处理好后返回刷新工程即可，这个问题一般是导入别人的项目或之前的一些JAR包移动了它的存储位置。
+    5.PS: 工程上黄色盾牌感叹号，表示有引用了jar包，但是实际上没有使用这个jar包(可以理解为定义了变量，但从未 来使用过)
     
-[基于嵌入式Webservice的远程数据采集监控系统的设计.pdf](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/201301-220.pdf)
-    
-[基于Android系统的便携式智能家居控制终端技术研究_应山.caj](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%EF%BC%81%E5%9F%BA%E4%BA%8EAndroid%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6%E7%BB%88%E7%AB%AF%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6_%E5%BA%94%E5%B1%B1.caj)
-    
-[基于Android的移动视频监控系统的设计与实现_余荣发.caj](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E5%9F%BA%E4%BA%8EAndroid%E7%9A%84%E7%A7%BB%E5%8A%A8%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0_%E4%BD%99%E8%8D%A3%E5%8F%91.caj)
-    
-[基于Android的智能家居控制系统的设计与实现_鹿曼.caj](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E5%9F%BA%E4%BA%8EAndroid%E7%9A%84%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0_%E9%B9%BF%E6%9B%BC.caj)
-    
-[基于Android的智能家居系统的研究与实现_王朝华.caj](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E5%9F%BA%E4%BA%8EAndroid%E7%9A%84%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0_%E7%8E%8B%E6%9C%9D%E5%8D%8E.caj)
+

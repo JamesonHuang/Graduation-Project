@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/cache http://www.springframework.org/schema/jdbc/spring-cache.xsd">
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl">
+			<value>jdbc:mysql://localhost:3306/db_smart_home</value>
+		</property>
+		<property name="driverClass">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="user">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>123</value>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>com/rh/ssh/model/BgInfo.hbm.xml</value>
+				<value>com/rh/ssh/model/BgInfoimg.hbm.xml</value>
+				<value>com/rh/ssh/model/BgInfotype.hbm.xml</value>
+				<value>com/rh/ssh/model/TbDevice.hbm.xml</value>
+				<value>com/rh/ssh/model/TbMessage.hbm.xml</value>
+				<value>com/rh/ssh/model/TbMessageType.hbm.xml</value>
+				<value>com/rh/ssh/model/TbProDetail.hbm.xml</value>
+				<value>com/rh/ssh/model/TbProject.hbm.xml</value>
+				<value>com/rh/ssh/model/TbTask.hbm.xml</value>
+				<value>com/rh/ssh/model/TbTaskDetail.hbm.xml</value>
+				<value>com/rh/ssh/model/TbUser.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="cut" expression="execution(* com.rh.ssh.service.impl.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="cut" />
+	</aop:config>
+	
+	<bean id="daoService" class="com.rh.ssh.dao.impl.DaoServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>

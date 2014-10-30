@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="horizontal">   
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:text="@string/login_title"
+            android:textColor="#80d31e"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etxt_username"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#ffffff"
+            android:ems="10"
+            android:hint="@string/user_name_hint"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etxt_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="#ffffff"
+            android:ems="10"
+            android:hint="@string/pwd_hint"
+            android:inputType="textPassword" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/btn_login"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
