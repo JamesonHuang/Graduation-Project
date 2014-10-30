@@ -39,6 +39,7 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >>*  http://passover.blog.51cto.com/2431658/1548232
 
+>* [通过持续集成尽早发现缺陷（全面指导您创建最合适的 CI 环境）](http://blog.csdn.net/niqinwen/article/details/7441014)
 
 >###4、 Maven教程：
 >>*  《Maven实战》：    http://wenku.baidu.com/link?url=jw4Jmxawy_d17h-MlCAHgOlw4H7AxwCnqSdaNhUPA1ptJEwy5GjNB20KNY3Vw4BGu1Kss8zaxneoPR-iF6HmlFfzi2jeHb6BjN4FKarqlEO
@@ -106,6 +107,23 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 >* [Java项目开发环境构建工具 Gradle 使用笔记(简单、基本)](http://yidwo.iteye.com/blog/1848990)
 
 >* [Continuous Delivery Pipeline with Jenkins, Gradle and Artifactory](http://eugenedvorkin.com/continuous-delivery-pipeline-with-jenkins-gradle-and-artifactory-part-1-commit-stage/)
+
+
+>###9、jenkins +git + gradle配置：
+>>* http://opoo.org/git-and-gradle/
+
+>>* http://openwares.net/linux/git_gerrit_gradle_jenkins_integration.html
+
+>>* http://www.it165.net/os/html/201408/9118.html
+
+>>* http://www.infoq.com/cn/articles/Gerrit-jenkins-hudson
+
+>>* http://blog.csdn.net/john_cdy/article/details/7738393
+
+>>* http://my.oschina.net/uboluo/blog/157483
+
+>>* http://blog.csdn.net/wangmuming/article/details/22924815
+
 
 
 
