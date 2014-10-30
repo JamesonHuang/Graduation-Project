@@ -125,6 +125,16 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 >>* http://blog.csdn.net/wangmuming/article/details/22924815
 
 
+>###10、ubuntu下相关环境配置：
+ >* [【码农老毕----玩转Ubuntu】](http://blog.csdn.net/wirelessqa/article/category/1579577)
 
-
+ >* [【码农老毕---- Git入门指南】](http://blog.csdn.net/wirelessqa/article/category/1522507)
+ 
+ >* [Eclipse下tomcat插件配置官网](http://www.eclipsetotale.com/tomcatPlugin.html)
+ 
+ >* [手把手图文教你eclipse下如何配置tomcat](http://jingyan.baidu.com/article/ca2d939dd90183eb6d31ce79.html) 
+ 
+ >* [Tomcat下后台服务权限设置问题-----Tomcat的Manager显示403 Access Denied](http://www.cnblogs.com/mingforyou/archive/2013/03/31/2991543.html)
+ 
+ 
 
