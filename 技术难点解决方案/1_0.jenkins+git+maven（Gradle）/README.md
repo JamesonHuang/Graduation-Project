@@ -45,6 +45,8 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >>*  http://bbs.csdn.net/topics/80014314
 
+>>*  http://www.cnblogs.com/yukino/p/3945728.html
+
 
 >###5、 ubuntu下配置jenkins + git + maven 教程：
 >>*  http://blog.csdn.net/wirelessqa/article/category/1579577
@@ -57,7 +59,7 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >>*  http://blog.csdn.net/wirelessqa/article/category/1522507
     
->###5、 配置Gradle 教程：
+>###6、 配置Gradle 教程：
 
 >* [自己配置的Gradle Demo](https://github.com/JamesonHuang/Graduation-Project/blob/master/%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/1_0.jenkins%2Bgit%2Bmaven%EF%BC%88Gradle%EF%BC%89/gradle/backup/gradle_demo_backup.tar.gz)
 
@@ -73,7 +75,7 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >* [gitbook上Gradle教程](http://dongchuan.gitbooks.io/gradle-user-guide-/)
 
->###6、 Eclipse配置Gradle相关博客与bug调试：
+>###7、 Eclipse配置Gradle相关博客与bug调试：
 
 >* [使用Gradle快速构建Java项目](http://blog.csdn.net/limingjian/article/details/16827107)
 
@@ -88,6 +90,23 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 >* [IBN--在 eclipse 下利用 gradle 构建系统](http://www.ibm.com/developerworks/cn/opensource/os-cn-gradle/)
 
 >* [如何在 Eclipse 下用 Gradle 构建 Web Application](http://my.oschina.net/u/568626/blog/162699)
+
+>###8、 结合jenkins，配置Gradle 教程：
+
+>* [jenkins官网对gradle配置的帮助文档](https://wiki.jenkins-ci.org/display/JENKINS/Gradle+JPI+Plugin)
+
+>* [Linux下Jenkins+git+gradle 持续集成环境搭建](http://blog.csdn.net/masonblog/article/details/38758581)
+
+>* [Jenkins+Gradle实现android开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483#OSC_h2_5)
+
+>* [Jenkins+Gradle实现android开发持续集成、打包2](http://blog.csdn.net/xiongmc/article/details/26515577)
+
+>* [github--Jenkins 和 Gradle](http://lite.github.io/blog/2013/10/09/jenkins-and-gradle/)
+
+>* [Java项目开发环境构建工具 Gradle 使用笔记(简单、基本)](http://yidwo.iteye.com/blog/1848990)
+
+>* [Continuous Delivery Pipeline with Jenkins, Gradle and Artifactory](http://eugenedvorkin.com/continuous-delivery-pipeline-with-jenkins-gradle-and-artifactory-part-1-commit-stage/)
+
 
 
 
