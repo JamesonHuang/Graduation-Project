@@ -87,17 +87,17 @@ Android实现音乐播放器（android）
 >##6、slidingMenu开源项目配置：
 
 教程：
->>* http://www.tuicool.com/articles/ZvIn63
+>* http://www.tuicool.com/articles/ZvIn63
 
->>* http://blog.csdn.net/yangyu20121224/article/details/9255829
+>* http://blog.csdn.net/yangyu20121224/article/details/9255829
 
 仿qq
->>* http://blog.csdn.net/androidbaibai/article/details/38731261
+>* http://blog.csdn.net/androidbaibai/article/details/38731261
 
 调bug教程（详见有道云笔记）：
->>* http://www.eoeandroid.com/thread-262755-1-1.html
+>* http://www.eoeandroid.com/thread-262755-1-1.html
 
->>* http://gushedaoren.blog.163.com/blog/static/173663405201451911754149/
+>* http://gushedaoren.blog.163.com/blog/static/173663405201451911754149/
 
 
 
