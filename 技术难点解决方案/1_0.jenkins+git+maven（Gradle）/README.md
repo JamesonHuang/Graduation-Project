@@ -48,6 +48,11 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 
 >>*  http://www.cnblogs.com/yukino/p/3945728.html
 
+>* [使用eclipse插件创建一个web project](http://www.cnblogs.com/zhaoyang/archive/2012/01/07/2315455.html)
+
+>* [Eclipse使用Maven构建web项目](http://dead-knight.iteye.com/blog/1841675)
+
+
 
 >###5、 ubuntu下配置jenkins + git + maven 教程：
 >>*  http://blog.csdn.net/wirelessqa/article/category/1579577
@@ -91,6 +96,22 @@ http://blog.csdn.net/keyboardota/article/details/7603630
 >* [IBN--在 eclipse 下利用 gradle 构建系统](http://www.ibm.com/developerworks/cn/opensource/os-cn-gradle/)
 
 >* [如何在 Eclipse 下用 Gradle 构建 Web Application](http://my.oschina.net/u/568626/blog/162699)
+
+>* [初始化 Gradle 工程目录](http://unmi.cc/initialize-gradle-project-layout/) 
+
+>* [基于 Groovy 的自动化构建工具 Gradle 入门](http://unmi.cc/groovy-based-auto-builder-gradle-get-started/)
+
+>* [Eclipse中Cannot nest src folder解决方法](http://blog.csdn.net/fhx007/article/details/8550890)
+
+>*[Eclipse中Cannot nest src folder解决方法2](http://rj0801zxh.iteye.com/blog/1538679)
+
+>*[eclipse中编译路径报cannot nest错误 ](http://361324767.blog.163.com/blog/static/1149025252010224112147521/)
+
+
+
+
+
+
 
 >###8、 结合jenkins，配置Gradle 教程：
 
@@ -136,5 +157,5 @@ http://blog.csdn.net/keyboardota/article/details/7603630
  
  >* [Tomcat下后台服务权限设置问题-----Tomcat的Manager显示403 Access Denied](http://www.cnblogs.com/mingforyou/archive/2013/03/31/2991543.html)
  
- 
+
 
