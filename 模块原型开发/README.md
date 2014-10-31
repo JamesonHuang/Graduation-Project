@@ -1,5 +1,13 @@
-websocket：android客户端andjava服务器信息交互demo
+websocket模块
 ==================
+###开发环境：
+    1.Eclipse
+    2.jdk1.7
+    3.android4.4.2
+    4.tomcat8.0
+    
+###资料如下：
+
 ###在AndroidManifest.xml中，加上这一句话，取得权限（原因:建立的套接字没有限权对外连接）：
     1.<uses-permission android:name="android.permission.INTERNET" />
     
@@ -9,13 +17,7 @@ websocket：android客户端andjava服务器信息交互demo
 
 [websocket源码及安卓websocket包(在文件夹中搜索“autobohn.jar”）](https://github.com/tavendo/AutobahnAndroid)
 
-[http协议状态码详解](http://www.cnblogs.com/tankxiao/archive/2013/01/08/2818542.html#WhatsStatusCode)
-
-[websocket原理](http://www.cnblogs.com/yjf512/archive/2013/03/11/2953483.html)
-
 [客户端（html）javaee服务器tomcat8websocket实现（能调通）](http://blog.csdn.net/xiejx618/article/details/14519359)
-
-[Android-----SharePreference](http://blog.sina.com.cn/s/blog_7f37847b0100yt31.html)
 
 [jsr356 API](https://jcp.org/en/jsr/detail?id=356)
 
