@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>数据库设计 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    
+    <link rel="prev" href="./sys_design_specify.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="0.5" data-basepath="." data-revision="1413644164164">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         智能家居原型系统
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="0.1" data-path="intro.html">
+            
+                
+                    <a href="./intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.1.</b>
+                        
+                         系统简介
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.2" data-path="user_required.html">
+            
+                
+                    <a href="./user_required.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.2.</b>
+                        
+                         系统需求分析与设计
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.3" data-path="sys.html">
+            
+                
+                    <a href="./sys.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.3.</b>
+                        
+                         系统设计与核心难点分析
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="0.4" data-path="sys_design_specify.html">
+            
+                
+                    <a href="./sys_design_specify.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.4.</b>
+                        
+                         系统详细设计与实现
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="0.5" data-path="sy.html">
+            
+                
+                    <a href="./sy.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>0.5.</b>
+                        
+                         数据库设计
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_3">
+                    
+                        <h1 id="">数据库设计</h1>
+<p>--</p>
+<h2 id="----admin">-- 表的结构 <code>admin</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>admin</code> (
+  <code>admin_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>admin_name</code> varchar(50) NOT NULL,
+  <code>admin_pwd</code> varchar(50) NOT NULL,
+  <code>admin_img</code> varchar(150) DEFAULT NULL,
+  <code>admin_type_id</code> int(11) DEFAULT NULL,
+  PRIMARY KEY (<code>admin_id</code>),
+  KEY <code>FK_Reference_8</code> (<code>admin_type_id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;</p>
+<p>INSERT INTO <code>admin</code> (<code>admin_id</code>, <code>admin_name</code>, <code>admin_pwd</code>, <code>admin_img</code>, <code>admin_type_id</code>) VALUES
+(2, &#39;admin&#39;, &#39;admin&#39;, NULL, 2);</p>
+<p>--</p>
+<h2 id="----admintype">-- 表的结构 <code>admintype</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>admintype</code> (
+  <code>admin_type_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>admin_type_name</code> varchar(50) DEFAULT NULL,
+  PRIMARY KEY (<code>admin_type_id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;</p>
+<p>--</p>
+<h2 id="----admintype">-- 转存表中的数据 <code>admintype</code></h2>
+<p>INSERT INTO <code>admintype</code> (<code>admin_type_id</code>, <code>admin_type_name</code>) VALUES
+(2, &#39;超级管理员&#39;),
+(3, &#39;管理员&#39;);</p>
+<p>--</p>
+<h2 id="----info">-- 表的结构 <code>info</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>info</code> (
+  <code>info_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>admin_id</code> int(11) DEFAULT NULL,
+  <code>info_type_id</code> int(11) DEFAULT NULL,
+  <code>info_con</code> text,
+  <code>info_title</code> varchar(70) DEFAULT NULL,
+  <code>info_date</code> datetime DEFAULT NULL,
+  <code>info_hits</code> int(11) DEFAULT NULL,
+  PRIMARY KEY (<code>info_id</code>),
+  KEY <code>FK_Reference_4</code> (<code>admin_id</code>),
+  KEY <code>FK_Reference_5</code> (<code>info_type_id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;</p>
+<p>--</p>
+<h2 id="----infoimg">-- 表的结构 <code>infoimg</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>infoimg</code> (
+  <code>info_img_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>info_id</code> int(11) DEFAULT NULL,
+  <code>info_img_name</code> varchar(100) DEFAULT NULL,
+  <code>info_img_path</code> varchar(150) DEFAULT NULL,
+  PRIMARY KEY (<code>info_img_id</code>),
+  KEY <code>FK_Reference_7</code> (<code>info_id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;</p>
+<p>--</p>
+<h2 id="----infotype">-- 表的结构 <code>infotype</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>infotype</code> (
+  <code>info_type_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>info_type_name</code> varchar(50) DEFAULT NULL,
+  PRIMARY KEY (<code>info_type_id</code>)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;</p>
+<p>--</p>
+<h2 id="----infotype">-- 转存表中的数据 <code>infotype</code></h2>
+<p>INSERT INTO <code>infotype</code> (<code>info_type_id</code>, <code>info_type_name</code>) VALUES
+(1, &#39;简介&#39;),
+(2, &#39;系统设计&#39;),
+(3, &#39;系统实现&#39;),
+(4, &#39;数据库设计&#39;);</p>
+<p>--</p>
+<h2 id="----user">-- 表的结构 <code>user</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>user</code> (
+  <code>user_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>user_name</code> varchar(50) DEFAULT NULL,
+  <code>user_pwd</code> varchar(50) DEFAULT NULL,
+  <code>weibo_key</code> int(11) DEFAULT NULL,
+  <code>qq_key</code> int(11) DEFAULT NULL,
+  <code>user_img</code> varchar(200) DEFAULT NULL,
+  PRIMARY KEY (<code>user_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p>--</p>
+<h2 id="----device">-- 表的结构 <code>device</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>device</code> (
+  <code>device_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>device_name</code> varchar(50) DEFAULT NULL,
+  <code>user_id</code> int(50) DEFAULT NULL,
+  <code>device_key</code> int(11) DEFAULT NULL,
+  <code>is_online</code> bool DEFAULT NULL,
+  PRIMARY KEY (<code>device_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p>--</p>
+<h2 id="----project">-- 表的结构 <code>project</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>project</code> (
+  <code>pro_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>pro_name</code> varchar(50) DEFAULT NULL,
+  <code>pro_intro</code> varchar(50) DEFAULT NULL,
+    PRIMARY KEY (<code>pro_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p>--</p>
+<h2 id="----task">-- 表的结构 <code>task</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>task</code> (
+  <code>task_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>task_name</code> varchar(50) DEFAULT NULL,
+  <code>task_type</code> varchar(50) DEFAULT NULL,
+  <code>task_from_pro</code> varchar(50) DEFAULT NULL,
+  <code>task_from_task</code> varchar(50) DEFAULT NULL,
+  <code>task_date</code> varchar(50) DEFAULT NULL,
+  <code>task_tomatoes_count</code> varchar(50) DEFAULT NULL,
+    PRIMARY KEY (<code>task_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p>--</p>
+<h2 id="----task_detail">-- 表的结构 <code>task_detail</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>task_detail</code> (
+  <code>task_detail_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>task_detail_from_task</code> varchar(50) DEFAULT NULL,
+  <code>task_detail_con</code> varchar(50) DEFAULT NULL,
+    PRIMARY KEY (<code>task_detail_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p>--</p>
+<h2 id="----pro_detail">-- 表的结构 <code>pro_detail</code></h2>
+<p>CREATE TABLE IF NOT EXISTS <code>pro_detail</code> (
+  <code>pro_detail_id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>pro_detail_from_task</code> varchar(50) DEFAULT NULL,
+  <code>pro_detail_con</code> varchar(50) DEFAULT NULL,
+    PRIMARY KEY (<code>pro_detail_id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./sys_design_specify.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 系统详细设计与实现"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
