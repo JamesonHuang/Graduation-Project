@@ -16,7 +16,7 @@
 
 7、	android客户端界面设计与界面跳转
 
-8、	android实现渐隐特效的开机界面
+8、	android实现渐隐特效的欢迎界面
 
 9、	相关开源组件（ResideMenu、SlidingMenu）配置与使用
 
@@ -45,5 +45,5 @@
 
 9、	配置Jenkins + maven + git
 
-10、	实现WebRTC实时监控
+10、实现WebRTC实时监控
 	
